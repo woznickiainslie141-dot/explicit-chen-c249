@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use this result, please cite the manuscript and its archived version."
+title: "Positive Chen representations for log log N >= 24.9"
+type: software
+authors:
+  - family-names: Huang
+    given-names: Cheng
+    affiliation: Shanghai Jiaotong University
+version: 1.0.0-private
+date-released: 2026-09-05
+abstract: >-
+  A finite Wu--BJS proof and reproducible audit establishing D_{1,2}(N) > 0
+  for every even N with log log N >= 24.9.
+keywords:
+  - Chen's theorem
+  - Goldbach problem
+  - sieve methods
+  - interval arithmetic
+preferred-citation:
+  type: article
+  authors:
+    - family-names: Huang
+      given-names: Cheng
+      affiliation: Shanghai Jiaotong University
+  title: "Positive Chen representations for log log N >= 24.9"
+  year: 2026
+
