@@ -1,0 +1,2106 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=25mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{mathrsfs}
+\usepackage{booktabs,longtable,array,tabularx}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!60!black,citecolor=blue!60!black,urlcolor=blue!65!black]{hyperref}
+\usepackage[nameinlink,noabbrev]{cleveref}
+\setlength{\emergencystretch}{3em}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\A}{\mathcal A}
+\newcommand{\T}{\mathcal T}
+\newcommand{\B}{\mathcal B}
+\newcommand{\ind}{\mathbf 1}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\Th}{\Theta(N)}
+\newcommand{\phistar}{\varphi^{*}}
+\newcommand{\Fup}{\mathcal F}
+\newcommand{\Flow}{\mathcal L}
+\newcommand{\cert}[1]{\texttt{\detokenize{#1}}}
+\newcommand{\statusclosed}{\textsf{CLOSED}}
+\title{Positive Chen representations for $\log\log N\ge24.9$\\
+\large A finite Wu--BJS proof and its reproducible audit}
+\author{Cheng Huang\\
+\small Shanghai Jiaotong University}
+\date{5 September 2026}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+The objective is positivity, not preservation of a proposed numerical
+coefficient at $23.36$.  We use the published product cutoff $10^9$, a
+fixed-cutoff prime--integer rectangle estimate proved below in the required
+range $X\ge N^{0.398}$, and a complementary-prime sieve of level $N^{2/5}$.
+The latter retains the original $p_2$-roughness, which makes both grouped
+coefficients bounded by one.  Its small-conductor contribution is estimated
+before Perron separation; its large-conductor contribution is estimated by
+the multiplicative large sieve.  All exceptional alternatives are covered
+by common worst-case envelopes.  The arithmetic certificate uses Arb balls;
+the extension from one endpoint to a half-line is proved by analytic
+majorants, not inferred from endpoint sampling.
+\end{abstract}
+\tableofcontents
+
+\section{Statement, notation and audit scope}
+
+For even $N$, let
+\[
+ D_{1,2}(N)=\#\{p<N:p\text{ is prime},\ \Omega(N-p)\le2\}.
+\]
+We count prime factors with multiplicity.  Put
+\[
+ L=\log N,\quad c=\log L,\quad N_0=\exp(\exp(249/10)),
+\]
+\[
+ C_N=\prod_{p>2}\left(1-\frac1{(p-1)^2}\right)
+       \prod_{\substack{p\mid N\\p>2}}\frac{p-1}{p-2},
+ \qquad \Th=\frac{C_NN}{L^2}.
+\]
+The elementary bound $C_N>1/2$ suffices throughout: deleting factors from
+the convergent product
+\[
+ \prod_{n=2}^{\infty}(1-n^{-2})=\frac12
+\]
+increases it, and the factors indexed by $n=p-1$ form a proper subset.
+We also use the elementary upper bound $C_N<1+\omega(N)$ only for
+finite exclusions: if $q_1<\cdots<q_j$ are the odd primes dividing
+$N$, then $q_i\ge i+2$ and
+$\prod_i(q_i-1)/(q_i-2)\le\prod_{i=1}^j(i+1)/i=j+1$.
+
+\begin{theorem}\label{thm:main}
+Every even integer $N\ge N_0$ satisfies $D_{1,2}(N)>0$.
+\end{theorem}
+
+The proof is given in \cref{sec:assembly,sec:uniform}.  No assertion at
+$c=23.36$ is retained.  The supplied \cert{reply.md} is used as the audit
+checklist, not as a mathematical source.  References to BJS mean exactly
+arXiv:2207.09452v6 \cite{BJS}; references to Wu mean Lemmas 9.1--9.2 of
+\cite{Wu}.  New statements needed outside their printed ranges are proved
+here and are not attributed to those papers.
+
+All prime intervals are left-closed and right-open unless an inequality
+explicitly says otherwise.  A finite sequence is a multiset: equal integer
+values with different source tags retain their multiplicities.  Set
+\[
+ P_M(t)=\prod_{\substack{p<t\\p\nmid M}}p,
+ \qquad P_{\rm all}(t)=\prod_{p<t}p,
+\]
+\[
+ \A=\{N-p:p<N\text{ prime},\ p\nmid N\},\qquad
+ \A_a=\{b/a:b\in\A,\ a\mid b\},
+\]
+and write $S(\A_a,P_M(t))$ for the number of members of $\A_a$ coprime to
+$P_M(t)$.  Thus every member of $\A$ is odd and coprime to $N$.
+
+The retuned rational parameters are
+\[
+\begin{aligned}
+ \kappa_1&=\frac{191}{2000},&
+ \kappa_2&=\frac{383}{4000},&
+ \rho_0&=\frac{119}{500},&
+ \sigma_2&=\frac{6047}{20000},\\
+ \sigma_1&=\frac{121}{400},&
+ \delta&=\frac{29}{25},&
+ \lambda&=\frac12-2\kappa_1=\frac{309}{1000}.&&
+\end{aligned}
+\]
+\[
+ z_*=N^{\kappa_1},\quad y=N^{1/3},\quad z=N^{1/8},\quad
+ u_0=10^9,\quad \eps_0=\frac1{10000},\quad
+ \eta=\frac{1452}{10^{10}}.
+\]
+The parameters called $\eps,Z,z_0,H$ and the Johnston terminal in the
+earlier manuscript are not used.  In particular, there is no undefined
+support parameter: the complementary level is exactly $N^{2/5}$.
+
+\section{External inputs, products and model masses}\label{sec:inputs}
+
+\subsection{The precise linear-sieve input}
+
+Let $F,f$ be the functions in BJS Theorem 6:
+\[
+ F(s)=2e^\gamma/s,\quad f(s)=0\quad(0<s\le2),\qquad
+ (sF(s))'=f(s-1),\quad(sf(s))'=F(s-1)\quad(s\ge2).
+\]
+On $s\ge1$, $F\ge1$ is decreasing, and $0\le f\le1$ is increasing.
+These properties also follow from the nonnegative decreasing functions
+$f_n$ in BJS equations defining $F=1+\sum_{n\ {\rm odd}}f_n$ and
+$f=1-\sum_{n\ {\rm even}}f_n$.  Define
+\[
+ h(s)=\begin{cases}e^{-2},&1\le s\le2,\\e^{-s},&2\le s\le3,\\
+ 3e^{-s}/s,&s\ge3,\end{cases}\qquad
+ \Fup(s)=F(s)+106\eta e^2h(s),\quad
+ f_-(s)=f(s)-107\eta e^2h(s).
+\]
+The constants $106,107$ are the outward integer bounds in BJS Table 1
+at reciprocal tolerance $10^5$.  They remain valid for our smaller
+tolerance, as stated and proved there.
+
+BJS Theorem 6 uses a tag-dependent multiplicative function $g_\alpha$,
+with $0\le g_\alpha(p)<1$.  Its main term is
+\[
+ X_A=\sum_\alpha w_\alpha\prod_{p\mid P(w)}(1-g_\alpha(p)),
+\]
+not an aggregate multiplicative density.  The product hypothesis is
+\begin{equation}\label{eq:product-hyp}
+ \prod_{\substack{p\in\mathbb P\setminus\mathbb Q\\u\le p<w}}
+ (1-g_\alpha(p))^{-1}<(1+\eta)\frac{\log w}{\log u}
+ \quad\text{for every tag and every }1<u<w.
+\end{equation}
+Here $Q=\prod_{p\in\mathbb Q}p$.  The upper inequality requires $D\ge w$,
+the lower inequality requires $D\ge w^2$, and the remainder is the sum
+of absolute discrepancies over $d\mid P(w),d<QD$.
+
+We also use the following model-mass formulation.  It records explicitly
+the minor extension from the printed formulation with actual total mass.
+
+\begin{lemma}[Finite tagged model sieve]\label{lem:model}
+Suppose finite nonnegative model masses $x_\alpha$ and multiplicative
+$g_\alpha$ satisfy \eqref{eq:product-hyp}.  Suppose the actual divisibility
+counts have the form
+\[
+ A_d=\sum_\alpha x_\alpha g_\alpha(d)+r(d).
+\]
+Then, with $V_\alpha(w)=\prod_{p\mid P(w)}(1-g_\alpha(p))$ and
+$s=\log D/\log w$,
+\[
+ S(A,P(w))\le\Fup(s)\sum_\alpha x_\alpha V_\alpha(w)
+               +\sum_{\substack{d\mid P(w)\\d<QD}}|r(d)|
+ \quad(D\ge w),
+\]
+\[
+ S(A,P(w))\ge f_-(s)\sum_\alpha x_\alpha V_\alpha(w)
+               -\sum_{\substack{d\mid P(w)\\d<QD}}|r(d)|
+ \quad(D\ge w^2).
+\]
+The discrepancy at $d=1$ is included if the model total is not the actual
+total.  There is no requirement that the weighted average of the
+$g_\alpha$ be multiplicative.
+\end{lemma}
+\begin{proof}
+Use the Rosser upper and lower coefficients in the proof of BJS
+Theorem 6 (equivalently its Proposition 13), including its exact small-prime
+presieve.  They depend on $P(w),D,Q$, not on the model masses or tags;
+their absolute values are at most one and their support is $d<QD$.
+Their divisor sums bound $\ind_{(n,P(w))=1}$ pointwise.  Finite
+distributivity gives
+\[
+ \sum_d\lambda^\pm(d)A_d
+ =\sum_\alpha x_\alpha\sum_d\lambda^\pm(d)g_\alpha(d)
+  +\sum_d\lambda^\pm(d)r(d).
+\]
+BJS bounds each inner model sum by $\Fup(s)V_\alpha(w)$ or
+$f_-(s)V_\alpha(w)$ under \eqref{eq:product-hyp}.  Taking the absolute
+value only of the final discrepancy sum proves both assertions.  This
+also proves the multiset version without identifying unequal tag densities.
+\end{proof}
+
+\subsection{The published \texorpdfstring{$10^9$}{1,000,000,000} product cutoff}
+
+\begin{lemma}\label{lem:product}
+For every sieve used here, choose $\mathbb Q=\{p\in\mathbb P:p\le10^9\}$.
+Then \eqref{eq:product-hyp} holds with the stated $\eta$, and
+\begin{equation}\label{eq:Qbound}
+ \log Q<\overline q:=1000000050.
+\end{equation}
+This includes densities $1/(p-1)$, densities obtained by setting any of
+them to zero, and the integer density $1/p$.
+\end{lemma}
+\begin{proof}
+BJS Lemma 18 states, for $w>\exp4000$ and $10^9<u<w$,
+\[
+ \prod_{u\le p<w}(1-1/(p-1))^{-1}
+ <(1+\eta)\log w/\log u.
+\]
+All our sift limits satisfy $\log w\ge\kappa_1e^{24.9}>4000$.
+Deleting primes or decreasing their densities decreases this product.
+If $1<u\le10^9$, choose $v>10^9$ below both $w$ and the least prime
+above $10^9$.  The primes outside $\mathbb Q$ are unchanged by replacing
+the lower endpoint $u$ by $v$.  The published inequality at $v$ has a
+smaller right side than that required at $u$.  This proves the full
+quantifier in \eqref{eq:product-hyp}; the empty product case is immediate.
+Finally BJS Lemma 25 gives
+\[
+ \log Q\le\vartheta(10^9)
+ <10^9\left(1+\frac{9\cdot10^{-7}}{\log10^9}\right)
+ <1000000050.
+\]
+The last strict inequality is checked with Arb in the structural
+certificate.  Thus the unproved $10^7$ product lemma is replaced, not
+silently assumed.
+\end{proof}
+
+Set
+\begin{equation}\label{eq:levels}
+ \theta=\frac{2423257}{5000000},\qquad
+ \Delta=\frac{81}{10^9},\qquad \theta_- =\theta-\kappa_1\Delta,
+ \qquad H_N=\frac{\sqrt{x_1(N)}}{\log^{10}x_1(N)},
+ \quad x_1(N)=N/L^5.
+\end{equation}
+The certificate verifies at $c=24.9$ that
+\[
+ \theta<\frac12-\frac{\overline q+20c}{e^c},\qquad
+ \frac{20c}{\kappa_1e^c}<\Delta.
+\]
+The first right side increases and the second decreases on $c\ge24.9$.
+Consequently, on the entire half-line,
+\begin{equation}\label{eq:level-support}
+ QN^\theta\le \sqrt N/L^{20}<H_N,
+ \qquad \frac{20c}{\log w}\le\Delta\quad(w\ge z_*).
+\end{equation}
+Indeed $\log H_N\ge L/2-12.5c>L/2-20c$.
+
+\subsection{Prime-counting and arithmetic-progression inputs}
+
+Here are the remaining external inputs, with the exact conditions needed.
+BJS Lemmas 17, 24, 26, 29, 31, 34, 35 and 42--43 are used; the names
+of their formulae below remove any ambiguity about numbering.
+\begin{enumerate}
+\item For $x>\exp4000$, the reciprocal-prime sum differs from
+$\log\log x+M$ by a quantity in
+$[-2.964\cdot10^{-6}/\log x,\ 1.436\cdot10^{-16}/\log x]$.
+Also $\sum_{d\le t}\mu^2(d)/\varphi(d)\le1.1\log t$ for $t\ge10^9$.
+\item The explicit prime-counting inequalities used in BJS give
+\begin{equation}\label{eq:A-mass}
+ N/L<|\A|<1.00005N/L,
+ \qquad \pi(x)<x/(\log x-3/2)
+\end{equation}
+in all ranges used below (every such $\log x$ is larger than $4000$).
+The hypotheses $\log\log x_1(N)\ge10.4$ are much weaker than $c\ge24.9$.
+\item For $x_2(T)=T/\log^{15}T$, $T>X$, and
+$r<\log^{10}x_2(T)$, BJS Lemma 29 gives
+\begin{equation}\label{eq:chi-prime}
+ \sum_{\substack{\chi\bmod r\\\chi\ne\chi_0}}|\pi(T,\chi)|
+ <v_r(X)T/\log^5T,
+ \quad \log\log x_2(X)\ge10.4.
+\end{equation}
+Its displayed formula is reproduced in \cref{eq:vformula} below.
+\item Let $k$ be the exceptional conductor up to
+$Q_1(x_1(N))=\log^{10}x_1(N)$, setting $k=0$ if it is absent or not
+coprime to $N$.  A nonzero relevant conductor is odd and square-free.
+If $k<\log^\delta x_1(N)$, BJS's small-exceptional AP estimate applies
+to all square-free $d\le H_N$ coprime to $N$.  In the other case its
+nonexceptional estimate applies to those $d$ with $k\nmid d$, and its
+relative estimate applies, with this fixed full conductor $k$, to
+\[
+ \pi(N;kd,N)-\pi(N;k,N)/\varphi(d),\quad
+ d\le H_N/k,\quad(d,kN)=1.
+\]
+We use the relative estimate only for $k$ itself, not for an arbitrary
+additional large source tag.
+\end{enumerate}
+
+In the notation $r(d)=|\A_d|-|\A|/\varphi(d)$ and
+$r_k(d)=|\A_{kd}|-|\A_k|/\varphi(d)$, these AP estimates imply
+\begin{equation}\label{eq:AP}
+ \sum |r(d)|\le b(N)N/L^3,\qquad
+ \sum |r_k(d)|\le b(N)N/L^3,\qquad b(N)<2.21/L^2,
+\end{equation}
+over their respective ranges.  For the first sum in the large case,
+$k\nmid d$ is imposed.  The coefficient $b(N)$ is the BJS $c_4$ formula
+with a weaker zero bound, reproduced in \cref{sec:APformula}.  Passing
+from $\pi$ to $\A$ costs at most $\omega(N)$ per modulus; the
+$c_4$ term already includes this.  Neither this passage nor the relative
+estimate requires that all prime factors of $d$ be below a particular
+sift limit.  This is also immediate from their proofs, which sum over
+all square-free moduli.  All scale and zero-bound conditions are verified
+in \cref{sec:uniform} and in the structural certificate.
+
+For the remaining elementary external inputs we use exactly the forms
+quoted and used by BJS:
+\begin{itemize}
+\item Brun--Titchmarsh:
+$\pi(x;q,a)<2x/(\varphi(q)\log(x/q))$ for $(a,q)=1$, $x>q$.
+For its direct uses here the moduli are at most $L^{10}$ or $H_N$,
+and the arguments are at least $x_1(N)$, so $x>q$ holds.
+The smaller endpoints internal to BJS Lemma 29 are covered by that
+lemma, whose separate scale hypothesis is verified below.
+\item Rosser--Schoenfeld:
+$q/\varphi(q)<e^\gamma\log\log q+2.5/\log\log q$ for $q\ge3$.
+We use it only for an odd exceptional conductor whose
+$\log\log q>2$.
+\item The full Mertens product estimate used in BJS's proof of
+Lemma 38 has relative error at most $1/(2\log^2x)$ for $x\ge285$;
+using $1/\log^2x$ permits either endpoint convention.
+\item The multiplicative large sieve in the proof of BJS Lemma 32:
+for any complex coefficients on a prefix of length $M$,
+\[
+ \sum_{r\le R}\frac r{\varphi(r)}
+       \sum_{\chi\bmod r}^{*}\left|\sum_{n\le M}a_n\chi(n)\right|^2
+ \le (M+3R^2)\sum_{n\le M}|a_n|^2 .
+\]
+Here the star restricts to primitive characters.  This inequality
+requires neither $R^2\le M$ nor a prime condition on the coefficients.
+For $r\in[R,2R)$ it yields the multiplier $M+12R^2$ used below.
+\end{itemize}
+These four inputs require no distribution assertion beyond their
+displayed ranges.  The new rectangular and switched applications are
+proved below, rather than quoted as further external theorems.
+
+For reference, the complete external-input condition ledger is below.
+It is a logical ledger: a row names every hypothesis used later and the
+place where it is discharged.
+\begin{center}
+\small
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.19\textwidth}
+  >{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
+\toprule
+Input & Hypotheses actually used & Discharge in this proof\\
+\midrule
+Wu Lemmas 9.1--9.2
+ & $0<\kappa_1<\kappa_2<\rho_0<\sigma_2<\sigma_1<1/3$ and
+   $3\kappa_1+\rho_0\ge1/2$
+ & Exact rational checks precede \cref{lem:wu}; the finite pointwise and
+   Buchstab proof is repeated there, so Wu's asymptotic $O$-term is not
+   imported.\\
+BJS Theorem 6
+ & Nonnegative finite sequence, $0\le g_\alpha(p)<1$, the product
+   condition for every tag and $1<u<w$, $D\ge w$ (upper) or $D\ge w^2$
+   (lower), and discrepancies for $d<QD$
+ & \Cref{lem:model,lem:product}; every later application states its
+   level and remainder support.  The tag masses are not replaced by an
+   aggregate density.\\
+BJS product and Chebyshev bounds
+ & $w>\exp4000$, $10^9<u<w$, and the product $Q$ of the presieving primes
+ & \Cref{lem:product,eq:level-support}; the cases $u\le10^9$ and an empty
+   product are proved separately.\\
+BJS Lemma 29
+ & Endpoint $T>X$, $\log\log x_2(X)\ge10.4$, and
+   $r<\log^{10}x_2(T)$, with the applicable exceptional-zero bound
+ & \Cref{eq:vformula,thm:rectangle,thm:switch}; both endpoints are kept,
+   and the fixed cutoffs are strictly below the required powers.\\
+BJS small-modulus AP estimate
+ & $k<\log^\delta x_1(N)$, square-free $d\le H_N$, $(d,N)=1$
+ & \Cref{eq:AP,sec:APformula}; the endpoint maximum and its half-line
+   propagation are proved in \cref{sec:uniform}.\\
+BJS nonexceptional AP estimate
+ & $k\ge\log^\delta x_1(N)$ and $k\nmid d$
+ & The first terms of \eqref{eq:chain-identity}; the missing
+   $q_{j+1}$ makes $k\nmid am_jd$ exactly.\\
+BJS relative AP estimate
+ & One fixed nontrivial full conductor $k$, $(d,kN)=1$, and
+   $d\le H_N/k$
+ & Only the last term of \eqref{eq:chain-identity}; here $k$ is the full
+   exceptional conductor and $ad\le H_N/k$.\\
+Multiplicative large sieve
+ & Primitive characters and arbitrary finite complex coefficient
+   sequences
+ & \Cref{thm:rectangle,thm:switch}; the four positive terms after
+   Cauchy--Schwarz and every dyadic interval are explicitly summed.\\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\section{A finite signed Wu reduction}\label{sec:wu}
+
+Define $U_i$ as follows.  All summation variables are primes and all
+displayed source products are required to be coprime to $N$.
+For brevity $S_M(a,w)=S(\A_a,P_M(w))$.
+\begin{align*}
+ U_1&=\sum_{z_*\le p<N^{\kappa_2}}S_N(p,p),&
+ U_2&=\sum_{z_*\le p<N^{\sigma_1}}S_N(p,z_*),&
+ U_3&=\sum_{z_*\le p<N^{\sigma_2}}S_N(p,z_*),\\
+ U_4&=\sum_{z_*\le p_1<p_2<N^{\kappa_2}}S_N(p_1p_2,z_*),\\
+ U_5&=\sum_{z_*\le p_1<N^{\kappa_2}\le p_2<N^{\lambda}/p_1}
+ S_N(p_1p_2,z_*),\\
+ U_6&=\sum_{z_*\le p_1<N^{\kappa_2},\,N^{\rho_0}\le p_2<N^{\sigma_2}}
+ S_N(p_1p_2,p_1).
+\end{align*}
+For $i=7,8$, let
+\[
+ U_i=\sum_{N^{\tau_i}\le p_1<p_2<\sqrt{N/p_1}}S_{Np_1}(p_1p_2,p_2),
+ \quad\tau_7=\sigma_1,\quad\tau_8=\sigma_2.
+\]
+The remaining rows are
+\begin{align*}
+ U_9&=\sum_{z_*\le p_1<N^{\sigma_1}\le p_2<\sqrt{N/p_1}}
+ S_{Np_1}(p_1p_2,p_2),\\
+ U_{10}&=\sum_{N^{\kappa_2}\le p_1<N^{\sigma_2}\le p_2<\sqrt{N/p_1}}
+ S_{Np_1}(p_1p_2,N^{\sigma_1}),\\
+ U_{11}&=\sum_{N^{\kappa_2}\le p_1<p_2<p_3<N^{\sigma_2}}
+ S_N(p_1p_2p_3,p_2),\\
+ U_{12}&=\sum_{\substack{N^{\kappa_2}\le p_1<N^{\sigma_2}\\
+ N^{\sigma_1}\le p_2<p_3<\sqrt{N/p_1}}}S_{Np_1}(p_1p_2p_3,p_2),\\
+ U_{13}&=\sum_{z_*\le p_1<p_2<p_3<p_4<N^{\kappa_2}}
+ S_N(p_1p_2p_3p_4,p_2),\\
+ U_{14}&=\sum_{z_*\le p_1<p_2<p_3<N^{\kappa_2}\le p_4<N^{\lambda}/p_3}
+ S_N(p_1p_2p_3p_4,p_2),\\
+ U_{15}&=\sum_{\substack{N^{\kappa_2}\le p_1<N^{\sigma_2}\\
+ N^{\sigma_2}\le p_2<p_3<p_4<N^{\sigma_1}}}S_N(p_1p_2p_3p_4,p_3).
+\end{align*}
+
+\begin{lemma}\label{lem:wu}
+For $N\ge N_0$,
+\begin{equation}\label{eq:Wu-finite}
+\begin{split}
+4D_{1,2}(N)\ge{}&4S(\A,P_N(z_*))-U_1-U_2-U_3+U_4+U_5\\
+ &-2U_7-2U_8-U_9-U_{10}-U_{13}-U_{14}-E_W,
+\end{split}
+\end{equation}
+where, with $W=L/\log2$ and $B=2N^{11/12}+\sqrt N+W+1$,
+$E_W\le(4+W^2)B$.
+\end{lemma}
+\begin{proof}
+All of Wu's parameter inequalities hold; in particular
+\[
+ 3\kappa_1+\rho_0=\frac{1049}{2000}>\frac12.
+\]
+This is Wu's Lemma 9.2 condition and is also the exact geometric
+inequality used below to truncate the positive double sum.
+First restrict to square-free source members coprime to $N$ and sifted
+at $z_*$.  Wu's Lemma 9.1 is a pointwise inequality on these members.
+Here is a direct verification, using our quotient definition of $\A_d$.
+For any $0<\kappa<\sigma<1/3$ and a square-free, $N^\kappa$-rough
+source member $a$ with at least three prime factors, let $j$ be its
+number of prime factors below $N^\sigma$.
+Define $s_1(a)$ to count its prime divisors in $[N^\kappa,N^\sigma)$.
+Define $s_2(a)$ to count pairs $p_1<p_2$ dividing $a$ with
+$N^\sigma\le p_1$, $p_2<\sqrt{N/p_1}$, and all prime factors of
+$a/(p_1p_2)$ at least $p_2$.  Define $s_3(a)$ by the same
+conditions except $N^\kappa\le p_1<N^\sigma\le p_2$.
+Finally $s_4(a)$ counts triples
+$N^\kappa\le p_1<p_2<p_3<N^\sigma$ dividing $a$ for which all
+prime factors of $a/(p_1p_2p_3)$ are at least $p_2$.
+All selected factors are coprime to $N$, since $a$ is.
+The four counts in the pointwise weight
+$1-s_1(a)/2-s_2(a)-s_3(a)/2+s_4(a)/2$ are therefore
+\[
+\begin{array}{c|cccc}
+ j&s_1&s_2&s_3&s_4\\ \hline
+ 0&0&1&0&0\\
+ 1&1&0&1&0\\
+ 2&2&0&0&0\\
+ j\ge3&j&0&0&j-2
+\end{array}
+\]
+Indeed a sift at the second selected prime forces the first two
+selected factors to be the least two factors of $a$; the optional
+third selected factor has $j-2$ choices.  The restriction
+$p_2<\sqrt{N/p_1}$ is automatic for these least two factors, since
+$a\ge p_1p_2p_3>p_1p_2^2$ and $a<N$.
+Every row of the table gives weight zero.  If $\Omega(a)\le2$,
+$s_4(a)=0$ and the weight is at most one.  This proves the needed
+pointwise inequality with no asymptotic error.
+
+The finite Buchstab identity used throughout is
+\[
+ S(\A_d,P_M(v))=S(\A_d,P_M(u))
+ -\sum_{\substack{u\le q<v\\q\nmid M}}S(\A_{dq},P_M(q)).
+\]
+It assigns a residual failing the larger sift to its least prime in
+$[u,v)$.  Repeated selected primes contribute zero on the square-free
+source.  Deleting a selected prime from $P_M$ has no effect on such a
+residual.  These observations explain all $P_N$ versus $P_{Np_1}$
+uses in the following finite algebra.
+
+For clarity, the finite algebra in Lemma 9.2 has the following three
+stages.  Applying Lemma 9.1 with $(\kappa_2,\sigma_2)$ and using
+Buchstab's identity gives
+\[
+ 2D\ge 2S-U_1-U_3+U_4+U_5+U_6-2U_8-U_{10}
+             +U_{11}+U_{12}+\Delta_1.
+\]
+Here $\Delta_1$ is the negative sum of the three triple-prime domains
+\[
+\begin{array}{ll}
+ z_*\le p_1<p_2<p_3<N^{\kappa_2},&\text{sift at }p_1,\\
+ z_*\le p_1<p_2<N^{\kappa_2}\le p_3<N^{\lambda}/p_2,
+ &\text{sift at }p_1,\\
+ N^{\kappa_2}\le p_1<N^{\sigma_2}\le p_2<p_3<N^{\sigma_1},
+ &\text{sift at }p_3.
+\end{array}
+\]
+The first two use $P_N$ and the last uses $P_{Np_1}$.  The truncation
+of the positive double sum at $N^{\lambda}/p_1$ is valid because
+$p_1\ge N^{\kappa_1}$ and $3\kappa_1+\rho_0>1/2$, whence
+$N^{\rho_0}\ge N^{\lambda}/p_1$.  The second use of Lemma 9.1, with
+$(\kappa_1,\sigma_1)$, gives
+\[
+ 2D\ge2S-U_2-2U_7-U_9+T,
+ \quad T=\sum_{z_*\le p_1<p_2<p_3<N^{\sigma_1}}S_N(p_1p_2p_3,p_2).
+\]
+Each of the three domains above is contained in the domain of $T$.
+Subtracting their sift limits by the finite Buchstab identity gives
+$\Delta_1+T\ge-U_{13}-U_{14}+U_{15}$.
+Explicitly, in the first two domains the additional prime $q$ obeys
+$p_1<q<p_2$: relabel $(p_1,q,p_2,p_3)$ as the four increasing
+primes.  The new residual is sifted at $q$, the second prime, and
+in the second domain the old bound $p_3<N^{\lambda}/p_2$ becomes
+exactly the bound defining $U_{14}$.  In the third domain,
+$p_2<q<p_3$ and the relabeling $(p_1,p_2,q,p_3)$ gives $U_{15}$
+with sift at its third prime.  The endpoints $q=p_1$ or $q=p_2$
+vanish by square-freeness; the parts of $T$ outside the three
+disjoint domains are nonnegative.
+This proves the fifteen-row inequality on the restricted source.  All
+square-divisor error terms in Wu's printed asymptotic statement vanish
+on this square-free source.
+
+Delete the four nonnegative rows $U_6,U_{11},U_{12},U_{15}$ at this
+point.  A sifted source failing square-freeness has $q^2\mid a$ for
+some $q\ge z_*$, and their number is bounded by
+\[
+ \sum_{z_*\le q\le\sqrt N}(N/q^2+1)
+ \le2N/z_*+\sqrt N\le B.
+\]
+The congruence floor term is retained.  Each bad member contributes at
+most $4+2\binom{\omega(a)}2\le4+W^2$ to the retained positive rows.
+Extending negative rows to all of $\A$ only lowers the right side.
+This proves \eqref{eq:Wu-finite}.  In particular no three- or four-prime
+positive multiplicity is charged with a two-prime bound.
+\end{proof}
+
+\section{Ordinary sieve rows and the exceptional chain}\label{sec:ordinary}
+
+\subsection{A common lower envelope}
+
+Set $e_1=1/35$ and, for $u\ge1$, define
+\begin{equation}\label{eq:lower-envelope}
+ \Flow(u)=\begin{cases}
+ -4e_1-(1+4e_1)107\eta e^2e^{-2},&1\le u<2,\\
+ \begin{aligned}
+ &f(u)-107\eta e^2h(u)\\
+ &\quad-3e_1\{F(u)-f(u)+213\eta e^2h(u)\},
+ \end{aligned}&u\ge2.
+ \end{cases}
+\end{equation}
+The first branch is negative and is used only as a trivial lower bound.
+On the second branch $f_-$ is increasing and $\Fup$ is decreasing;
+hence $f_--3e_1(\Fup-f_-)$ is increasing and does not exceed $f_-$.
+This uses $F-f$ itself, rather than an uncertified numerical maximum.
+
+\begin{lemma}[Exceptional chain with an exact final mass]\label{lem:exceptional}
+The lower ordinary rows may use \eqref{eq:lower-envelope} at
+$u=(\theta-\log a/L)/\kappa_1-\Delta$ in both exceptional alternatives.
+All upper rows may use a factor $36/35$ and their indicated, possibly
+smaller, sieve arguments.  The normalized finite cost of the exceptional
+main-mass replacement is at most
+\begin{equation}\label{eq:exc-cost}
+ 100 B_E(N)+1000/L^2<10^{-6},
+ \quad B_E(N)=\frac{96\log^2(10c)}{\log^\delta x_1(N)}.
+\end{equation}
+AP discrepancies are charged separately in \eqref{eq:ordinary-AP-cost}.
+\end{lemma}
+\begin{proof}
+In the small alternative use \cref{lem:model} and the all-modulus
+estimate \eqref{eq:AP}.  For a nonnegative lower model expression,
+$|\A|>N/L$ may be used; for a negative expression the same lower
+bound follows instead from the nonnegativity of the actual sifted count.
+Since $\Flow\le f_-$, this gives the stated lower envelope.
+
+In the large alternative write the relevant full conductor as
+$k=q_1\cdots q_\ell$ with $q_1>\cdots>q_\ell$ odd primes, and put
+$m_j=q_1\cdots q_j$, $m_0=1$, $P^{(j)}(w)=P_N(w)/\prod_{i\le j}q_i$.
+Every $q_i<w$, because $k\le L^{10}<z_*$.  The source tags $a$ here
+have at most two prime factors, all at least $z_*$, so $(a,k)=1$.
+Finite inclusion--exclusion gives, exactly,
+\begin{equation}\label{eq:chain-identity}
+ S(\A_a,P_N(w))=
+ \sum_{j=0}^{\ell-1}(-1)^jS(\A_{am_j},P^{(j+1)}(w))
+ +(-1)^\ell S(\A_{ak},P^{(\ell)}(w)).
+\end{equation}
+This follows by assigning any member not sifted by $P_N(w)$ to the
+first prime in the ordered list $q_1,\ldots,q_\ell$ which fails its
+coprimality test; the alternating prefix terms cancel.
+
+Use the common level $D_a=N^\theta/(ak^2)$ in every term.  The first
+$\ell$ model masses are $|\A|/\varphi(am_j)$; their discrepancies
+are $r(am_jd)$.  The last model mass is
+$|\A_k|/\varphi(a)$; its discrepancies are $r_k(ad)$.  No approximation
+of the full-conductor prime count is used in applying the relative
+distribution theorem.  In the first terms $k\nmid am_jd$ because
+$q_{j+1}\nmid d$.  In the last term $ad\le H_N/k$ by
+\eqref{eq:level-support}.  All combined moduli are square-free and
+coprime to $N$.  These are precisely the two AP ranges in \eqref{eq:AP}.
+Moreover
+\[
+ \frac{\log D_a}{\log w}\ge
+ \frac{\theta L-\log a}{\log w}-\Delta.
+\]
+If the right side is below $2$, its negative lower envelope follows
+from $S\ge0$; no lower linear sieve is applied below its allowed level.
+
+Let $V_j=\prod_{p\mid P^{(j)}(w)}(1-1/(p-1))$ and
+$\phistar(m_j)=\prod_{i\le j}(q_i-2)$.  The ideal model coefficients
+satisfy
+\[
+ \frac{V_{j+1}}{\varphi(m_j)V_0}
+ =\frac1{\phistar(m_j)}\left(1+\frac1{q_{j+1}-2}\right),\qquad
+ \frac{V_\ell}{\varphi(k)V_0}=\frac1{\phistar(k)}.
+\]
+Thus their alternating sum in \eqref{eq:chain-identity} is exactly one.
+Their sum for $j\ge1$ is at most
+\[
+ \frac1{q_1-2}\left(1+\frac2{q_2-2}
+ +\frac2{(q_2-2)(q_3-2)}+\cdots\right)\le\frac3{q_1-2}.
+\]
+For completeness the tail without the initial one is at most $2$:
+each of its $\ell-1$ denominator products is at least $q_2-2$,
+and $q_2\ge2\ell-1$, giving
+$(\ell-1)/(2\ell-3)\le1$.  The case $\ell=1$ has no tail.
+The fixed primorial comparison
+\[
+ \prod_{2<p\le31}p=100280245065
+ <\log^\delta x_1(N_0)
+\]
+implies $q_1\ge37$ for every subsequent $N$: an odd square-free
+integer all of whose prime factors are at most $31$ is at most the
+displayed primorial.  The $j=0$ local factor is therefore at most
+$1+e_1=36/35$.  Let $P_+$ and $P_-$ be the sums of the ideal
+coefficients of the positive and negative terms in
+\eqref{eq:chain-identity}.  The exact identity above gives
+$P_+-P_-=1$, while the tail estimate gives $P_-\le3e_1$.  Hence
+\[
+ f_-P_+-\Fup P_-
+ =f_- -P_-(\Fup-f_-)
+ \ge f_- -3e_1(\Fup-f_-)=\Flow.
+\]
+This accounts explicitly for both the $106\eta$ upper-sieve correction
+and the $107\eta$ lower-sieve correction.  Applying lower weights to
+the positive terms and upper weights to the negative terms now gives
+\eqref{eq:lower-envelope}, apart
+from the final-mass defect and the separately charged AP errors.
+
+The Brun--Titchmarsh inequality and \eqref{eq:A-mass} give
+\[
+ 0\le\frac{|\A_k|}{|\A|}\le
+ \frac{2L}{\varphi(k)(L-\log k)}<\frac3{\varphi(k)}.
+\]
+Hence the defect, after multiplication by $V_\ell/V_0$, is at most
+$3/\phistar(k)$.  The Rosser--Schoenfeld bound for $k/\varphi(k)$
+used by BJS, together with $\log^\delta x_1(N)\le k\le L^{10}$,
+gives $k/\varphi(k)\le4\log(10c)$ here:
+if $t=\log\log k>2$, then
+$e^\gamma t+2.5/t<(e^\gamma+5/8)t<4t$ and
+$t\le\log(10c)$.  Also
+\[
+ \frac1{\phistar(k)}
+ =\frac1k\left(\frac{k}{\varphi(k)}\right)^2
+    \prod_{p\mid k}\frac{(p-1)^2}{p(p-2)}
+ <\frac{32\log^2(10c)}{k}.
+\]
+This proves the bound $B_E$ for the defect and for the additional
+tail-density cost.  The reciprocal-prime mass of
+$[N^{\kappa_1},N^{\kappa_2})$ is less than $1/3$ by
+\eqref{eq:measure-discrepancy}; the total available mass is below $3$.
+Each of the two positive pair domains therefore has reciprocal-prime
+mass below one; $2e^{-\gamma}/\kappa_1<14$; and
+$\Fup(u)<2$ for $u\ge2$.  Including the base row of weight four
+and both pair rows, the defect multiplier after division by four is
+less than $(4+1+1)\cdot14\cdot2/4=42<100$.  The local-product
+endpoints fit the additional $1000/L^2$ in \eqref{eq:exc-cost}.
+For an upper row, omit $q_1$ from its prime set.  This only enlarges the
+sifted set, multiplies its model product by at most $36/35$, and removes
+all multiples of $k$ from its remainder support.  This proves the
+upper assertion as well.
+\end{proof}
+
+\subsection{Row formulae and the AP multiplicity}
+
+Define the universal lower quantities
+\begin{align}
+ L_0&=\frac{2e^{-\gamma}}{\kappa_1}
+       \Flow(\theta/\kappa_1-\Delta),\label{eq:L0}\\
+ L_4&=\frac{2e^{-\gamma}}{\kappa_1}
+ \int_{\kappa_1}^{\kappa_2}\frac{dt}{t}
+ \int_t^{\kappa_2}\Flow((\theta-t-u)/\kappa_1-\Delta)\frac{du}{u},\\
+ L_5&=\frac{2e^{-\gamma}}{\kappa_1}
+ \int_{\kappa_1}^{\kappa_2}\frac{dt}{t}
+ \int_{\kappa_2}^{\lambda-t}\Flow((\theta-t-u)/\kappa_1-\Delta)\frac{du}{u}.
+\end{align}
+The upper quantities, before the common exceptional factor, are
+\begin{align}
+ A_1&=2e^{-\gamma}\int_{\kappa_1}^{\kappa_2}
+ \Fup((\theta_--t)/t)\frac{dt}{t^2},\\
+ A_2&=\frac{2e^{-\gamma}}{\kappa_1}
+ \int_{\kappa_1}^{\sigma_1}\Fup((\theta_--t)/\kappa_1)\frac{dt}{t},\\
+ A_3&=\frac{2e^{-\gamma}}{\kappa_1}
+ \int_{\kappa_1}^{\sigma_2}\Fup((\theta_--t)/\kappa_1)\frac{dt}{t}.
+\end{align}
+For $S(\A_a,P_N(w))$ the ordinary level is $N^\theta/a$.  All primes
+of $a$ are at least $w$, so $(a,d)=1$ on the remainder support.
+The model mass is $|\A|/\varphi(a)$ and its discrepancy is exactly
+$r(ad)$ in the small or nonexceptional case.  Thus these formulae
+follow from \cref{lem:model,lem:exceptional} after the prime-sum transfer
+proved in \cref{sec:transfer}.  The replacement of $1/\varphi(a)$ by
+$1/a$, and removal of primes dividing $N$ from lower integrals, are
+included in the local and finite charges there.
+
+There is no factor equal to the number of source primes in the AP error.
+For a fixed combined square-free modulus, a tag $a$ of at most two primes
+can be selected in at most
+$1+\omega(d)+\binom{\omega(d)}2\le(1+L/\log2)^2$ ways.  In the
+exceptional prefix terms the prefix length $j<\ell$ is uniquely
+determined by the first absent $q_{j+1}$, so it adds no factor $\ell$.
+The final prefix uses one fixed relative AP sum.  The weights are
+$4$ for the base lower row, $1$ for each of the two positive pair rows,
+and $1$ for each of the three upper rows.  At most two AP sums occur for
+a lower row, hence the total multiplier is
+$2(4+1+1)+1+1+1=15<16$.  Consequently
+\begin{equation}\label{eq:ordinary-AP-cost}
+ \frac{E_{\rm AP}}{4\Th}\le
+ \frac{16b(N)(1+L/\log2)^2}{4(1/2)L}<10^{-6}.
+\end{equation}
+The structural certificate encloses the left side at $c=24.9$ below
+$5.623\cdot10^{-10}$; the all-$c$ argument is in \cref{sec:uniform}.
+
+\section{The fixed-cutoff rectangle theorem}\label{sec:rectangle}
+
+This section supplies the extension not covered by BJS Lemma 32's
+printed hypothesis $X>N^{2/3}$.  The cutoff below is fixed for all
+boxes at a given $N$, not changed to $\log^{10}x_2(Y)$ in the last line.
+
+For $X_3=N^{1/8}/2$ set $w_3=\log x_2(X_3)$,
+$D_0=w_3^{10}$, and
+\[
+ \nu=\frac{100}{L^{\delta/2}(\delta c)^2},\qquad\beta=1-\nu.
+\]
+Define, for either $X=X_3$ or $X=z_*/2$, $w_X=\log x_2(X)$ and
+\begin{equation}\label{eq:vformula}
+\begin{split}
+ v'(X)&=\frac{3.2\cdot10^{-8}}{w_X^4}
+  +w_X^4\left(\frac{e^{-\nu w_X}}{1-\nu}
+           +1.02w_X^{10}e^{-w_X/2}+3w_X^{10}e^{-2w_X/3}\right),\\
+ v(X)&=v'(X)\left(1+\frac1{\log^{10}X\,w_X^5}
+       +\frac1{(1-6/w_X)\log X}\right)+\frac3{\log X}.
+\end{split}
+\end{equation}
+The BJS maximum over $t\ge x_2(X)$ is bounded by this endpoint value:
+with $x=\log t$, the functions $x^{-4}$, $x^4e^{-\nu x}$,
+$x^{14}e^{-x/2}$ and $x^{14}e^{-2x/3}$ decrease for
+$x\ge w_X$, since $\nu w_X>100$, $w_X>28$.
+The bound $\nu$ is weaker than both zero bounds used by BJS: all small
+exceptional thresholds are at most $L^\delta$, and
+$\nu<1/(2\cdot2.0452\cdot10c)$.  It therefore works simultaneously
+for every allowed conductor, after the indicated exceptional deletion.
+
+\begin{theorem}[Required rectangle extension]\label{thm:rectangle}
+Suppose $N\ge N_0$ is even,
+\[
+ N^{0.398}\le X\le N^{7/8},\quad N^{1/8}\le Z<Y\le N,
+ \quad N\le XY\le(1+\eps_0)N,
+\]
+and $|a(n)|\le1$.  Put $D_R=\sqrt{XY}/\log^{10}Y$.
+Let $k_R$ be the relevant exceptional conductor up to $D_0$.
+Use all square-free $d<D_R$ coprime to $N$ in the small alternative
+$k_R<\log^\delta x_2(X_3)$, and only $k_R\nmid d$ in the other
+alternative.  Over either set of moduli,
+\begin{equation}\label{eq:rectangle-discrepancy}
+ \sum_d\left|\sum_{n<X}\sum_{\substack{Z\le p<Y\\np\equiv N\pmod d}}a(n)
+ -\frac1{\varphi(d)}\sum_{n<X}\sum_{\substack{Z\le p<Y\\(np,d)=1}}a(n)\right|
+ \le E_1+E_2+E_3+E_4+E_5,
+\end{equation}
+where the five terms are added, and
+\begin{align*}
+ E_1&=39v(X_3)XY/\log^3Y,&
+ E_2&=108X\log^{13}Y/\log\log Y,\\
+ E_3&=26XY\log^2Y/w_3^{10},&
+ E_4&=88XY\log^2Y(X^{-1/2}+Y^{-1/2}),\\
+ E_5&=106XY/\log^9Y.
+\end{align*}
+\end{theorem}
+\begin{proof}
+The hypotheses imply $D_R>10^9$, $D_0<D_R$, $D_R<Y^4$, and
+$Z>X_3$; they also imply $\log\log x_2(X_3)>10.4$.
+For the third inequality use
+$\log D_R\le L/2+\log(1+\eps_0)/2-10\log\log Y<L/2\le4\log Y$.
+The other inequalities follow from
+$\log D_R\ge L/2-10c$ and are certified at $c=24.9$ with the monotone
+majorants in \cref{sec:uniform}.  These are the precise consequences
+needed from BJS's original restrictions; no lower bound $X>N^{2/3}$
+is used below.
+
+Character orthogonality is valid because $(d,N)=1$.  A character modulo
+the square-free $d$ has a unique primitive inducing character modulo
+$r\mid d$; writing $d=rs$ gives $(r,s)=1$ and exactly one induced
+character per such primitive character.  After removal of the principal
+character, the left side is at most
+\begin{equation}\label{eq:rectangle-primitive}
+ \sum_{rs<D_R}\frac{\mu^2(rs)}{\varphi(r)\varphi(s)}
+ \sum_{\substack{\chi\bmod r\ {\rm primitive}\\\chi\ne\chi_0}}
+ \left|\sum_{\substack{n<X\\(n,s)=1}}a(n)\chi(n)\right|
+ \left|\sum_{\substack{Z\le p<Y\\p\nmid s}}\chi(p)\right|.
+\end{equation}
+All sums may be restricted by the exceptional deletion.  Such restrictions
+are dropped only when this increases a nonnegative majorant.
+
+For $r<D_0$, both prime endpoints are larger than $X_3$ and
+$r<\log^{10}x_2(X_3)$, so \eqref{eq:chi-prime} applies at both.
+The exact half-open endpoints are $\lceil Y\rceil-1$ and
+$\lceil Z\rceil-1$; the function $t/\log^5t$ increases here.  Thus
+\[
+ \sum_\chi^*\left|\sum_{\substack{Z\le p<Y\\p\nmid s}}\chi(p)\right|
+ \le 2v(X_3)Y/\log^5Y+
+       \varphi(r)\,1.3841\log D_R/\log\log D_R.
+\]
+The last term retains every prime dividing $s$.  Bound the integer sum by
+$X$ and use $\sum_{n\le D_R}\mu^2(n)/\varphi(n)\le1.1\log D_R$.
+For $s\ge16$, BJS's bound
+$\omega(s)\le1.3841\log s/\log\log s$ is at most the displayed
+bound at $D_R$, since $\log s/\log\log s$ increases there.
+For $s<16$, $\omega(s)\le2$ is also below that endpoint bound.
+The result is at most
+\[
+ \frac{2.42v(X_3)XY\log^2D_R}{\log^5Y}
+ +\frac{1.21\cdot1.3841D_0X\log^3D_R}{\log\log D_R}
+ \le E_1+E_2.
+\]
+Here $D_0\le\log^{10}Y$, $D_R<Y^4$, and
+$t^3/\log t$ is increasing for $t=\log D_R$ in this range.
+
+For $r\ge D_0$, split into $R\le r<2R$, $R=2^jD_0$.
+Cauchy--Schwarz and the multiplicative large sieve in BJS's proof give
+\begin{align*}
+ &\sum_{R\le r<2R}\frac1{\varphi(r)}\sum_\chi^*|A(\chi)P(\chi)|\\
+ &\quad\le\frac1R\{(X+12R^2)(Y+12R^2)XY\}^{1/2}\\
+ &\quad\le XY/D_0+\sqrt{12X}\,Y+\sqrt{12Y}\,X+12R\sqrt{XY}.
+\end{align*}
+The support restrictions $(n,s)=1$ and $p\nmid s$ reduce their square
+norms and require no extra term.  The number of intervals is at most
+$\log D_R/\log2$ and their left endpoints sum to at most $2D_R$.
+Summing also over $s$ yields
+\[
+ 1.1\log D_R\left\{\frac{\log D_R}{\log2}
+ \left(\frac{XY}{w_3^{10}}+\sqrt{12}XY(X^{-1/2}+Y^{-1/2})\right)
+ +24D_R\sqrt{XY}\right\}\le E_3+E_4+E_5.
+\]
+The constants follow from $1.1\cdot16/\log2<26$,
+$1.1\cdot16\sqrt{12}/\log2<88$, and $1.1\cdot24\cdot4<106$.
+These inequalities include every conductor interval.  They prove the
+claimed fixed-cutoff extension, with no invocation of BJS's out-of-range
+printed statement.
+\end{proof}
+
+For subsequent aggregation define the slightly larger envelope
+\begin{equation}\label{eq:mrect}
+\begin{split}
+ m_N={}&39v(X_3)+\frac{108\log^{16}X_3}{X_3\log\log X_3}
+       +\frac{26L^5}{w_3^{10}}\\
+ &+88L^5(N^{-0.199}+N^{-1/16})+\frac{106}{\log^6X_3}.
+\end{split}
+\end{equation}
+Then \eqref{eq:rectangle-discrepancy} is at most $m_NXY/\log^3Y$.
+The numerator $L^5$ in the third term is essential because $D_0$ is
+fixed.  The exponent $0.199$ in the fourth term uses the actual new
+range $X\ge N^{0.398}$, not the old $N^{2/3}$ range.  The function
+$\log^{16}Y/(Y\log\log Y)$ decreases for $Y\ge X_3$; this justifies
+the second term.  The structural certificate gives
+$m_{N_0}<1.437\cdot10^{-8}$.
+
+The condition audit for this proof is as follows.  Each row corresponds
+to an actual step above; the original condition $X>N^{2/3}$ has no
+unlisted use.
+\begin{center}
+\small
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.19\textwidth}
+  >{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
+\toprule
+Step & Required condition & Verification in the new range\\
+\midrule
+Prime endpoints & $Z-1>X_3$; $\log\log x_2(X_3)>10.4$
+ & $Z\ge N^{1/8}=2X_3$; certified scale\\
+Low conductor & $r<\log^{10}x_2(X_3)$
+ & This is the fixed split $r<D_0$\\
+Exceptional zero & Conductor cut at $D_0$
+ & Relevant large conductor deleted; common $\nu$ otherwise\\
+Induction correction & All primes dividing $s$ counted
+ & Explicit $\omega(s)$ term retained in $E_2$\\
+Large sieve & Arbitrary complex coefficients of norm at most $X,Y$
+ & $|a(n)|\le1$; neither $D_R^2\le X$ nor a Type I/II hypothesis is needed\\
+Constants in $E_i$ & $D_R<Y^4$, $D_0\le\log^{10}Y$
+ & $Y\ge N^{1/8}$ and $w_3<\log Y$\\
+Common envelope & $X^{-1/2}\le N^{-0.199}$, $Y^{-1/2}\le N^{-1/16}$
+ & Exactly the new lower bounds on $X,Y$\\
+All boxes & Count and weight each box
+ & The ceiling sum is performed in \eqref{eq:box-error}\\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\section{Five finite box families}\label{sec:boxes}
+
+We first explain exactly which triple-prime sources suffice for the
+negative rows.  Work on the square-free source from \cref{lem:wu}.
+In $U_7,U_8$, a composite residual would imply $p_1p_2^3<N$ with
+$p_1,p_2\ge N^{\sigma_2}$, contradicting $4\sigma_2>1$.
+In $U_9$ it would imply $N^{\kappa_1+3\sigma_1}<N$, and in
+$U_{10}$ it would imply $N^{\kappa_2+\sigma_2+2\sigma_1}<N$.
+Both exponent sums exceed one.  Consequently the residual is either
+one or a single prime.  A residual equal to one is charged in
+\cref{eq:finite-envelope}.  In $U_7,U_8,U_9$ the third prime is at least
+$p_2$; in $U_{10}$ it is at least $N^{\sigma_1}$, but need not be
+larger than $p_2$.  We do not impose that extra ordering.
+
+For each row in the following table choose the indicated selected prime
+$p$ and the complementary two-prime integer $n$.
+\begin{center}
+\begin{tabular}{@{}ccccc@{}}
+\toprule
+Family & $p$ & exponent interval $[a,b)$ & $n$ & Wu weight\\
+\midrule
+$7$ & $p_1$ & $[\sigma_1,1/3)$ & $p_2p_3$ & $2$\\
+$8$ & $p_1$ & $[\sigma_2,1/3)$ & $p_2p_3$ & $2$\\
+$9{\rm h}$ & $p_1$ & $[1/8,\sigma_1)$ & $p_2p_3$ & $1$\\
+$9{\rm l}$ & $p_2$ & $[\sigma_1,11/24)$ & $p_1p_3$ & $1$\\
+$10$ & $p_3$ & $[\sigma_1,1-\kappa_2-\sigma_2)$ & $p_1p_2$ & $1$\\
+\bottomrule
+\end{tabular}
+\end{center}
+The two parts of row $9$ correspond to $p_1\ge N^{1/8}$ and
+$p_1<N^{1/8}$ respectively.  In the latter case
+$p_2<\sqrt{N/p_1}\le N^{11/24}$.
+
+For a family with endpoints $a,b$ put
+\[
+ M_{a,b}=\left\lceil\frac{(b-a)L}{\log(1+\eps_0)}\right\rceil,
+ \quad \omega_j=N^a(1+\eps_0)^j,\quad 0\le j<M_{a,b}.
+\]
+\[
+ X_j=N/\omega_j,\quad Z_j=\omega_j,\quad
+ Y_j=\min\{(1+\eps_0)\omega_j,N^b\}.
+\]
+Every selected prime lies in exactly one of these half-open intervals,
+including when the displayed quotient is an integer.  The final interval
+is clipped, not supplemented by an overlapping endpoint box.
+The coefficient $a_j(n)$ is the indicator of the following set, with
+$n<X_j$ in every case:
+\[
+\begin{array}{ll}
+7,8: & n=p_2p_3,\quad \omega_j\le p_2\le p_3,\\
+9{\rm h}: & n=p_2p_3,\quad N^{\sigma_1}\le p_2\le p_3,\\
+9{\rm l}: & n=p_1p_3,\quad z_*\le p_1<N^{1/8},\
+                         p_3\ge\omega_j,\ p_1\omega_j^2<N,\\
+10: & n=p_1p_2,\quad
+ N^{\kappa_2}\le p_1<N^{\sigma_2}\le p_2,\ p_1p_2^2<N.
+\end{array}
+\]
+Factorization recovers the unordered pair of prime factors of $n$.
+In the first three cases the increasing order recovers the labels; in
+$9{\rm l}$ and $10$ the disjoint prime ranges recover them.
+Thus $a_j(n)\in\{0,1\}$, including the case of a prime square.  These
+conditions do not depend on the selected prime inside its box.
+The original positive source is contained in this box source, since
+$pn<N$ implies $\omega_j n<N$.
+
+Define the actual positive integer multiset
+\[
+ \B_j=\{|N-pn|:n<X_j,\ a_j(n)=1,\ Z_j\le p<Y_j\}.
+\]
+Here $pn$ is odd and $N$ is even, so $N-pn\ne0$.
+The use of the absolute value preserves divisibility by every modulus
+and makes the sieve theorem applicable to positive integers.
+It also permits the overhang $N<pn<(1+\eps_0)N$ without an unproved
+strip-distribution estimate.
+
+For the tag $(p,n)$ use model mass one and
+\[
+ g_{p,n}(q)=
+ \begin{cases}0,&q\mid pn,\\1/(q-1),&q\nmid pn,\end{cases}
+ \qquad(q\nmid N).
+\]
+Then the discrepancy in \cref{lem:model} is precisely the expression
+in \eqref{eq:rectangle-discrepancy}, since
+$g_{p,n}(d)=\ind_{(pn,d)=1}/\varphi(d)$ for square-free $d$.
+There is no substitution of a common density before this identity.
+Every prime factor of $pn$ is at least $z_*$ and there are at most three,
+so, for $w=y$,
+\begin{equation}\label{eq:box-tag-product}
+ V_{p,n}(y)\le V_N(y)(1+24/z_*).
+\end{equation}
+Indeed each deleted factor is $(q-1)/(q-2)\le1+2/z_*$ and
+$(1+2/z_*)^3<1+24/z_*$.  The same comparison holds after removal of an
+exceptional $q_1<z_*$.
+
+Apply \cref{lem:model} at $D=N^\theta$, $w=y$.
+All boxes satisfy
+\[
+ N^{0.398}\le X_j\le N^{7/8},\qquad Z_j\ge N^{1/8},\qquad
+ N< X_jY_j\le(1+\eps_0)N.
+\]
+By \eqref{eq:level-support}, $QD<D_R$ for every box.
+In the large rectangle-exceptional case delete its largest prime $q_1$.
+Its threshold exceeds $\prod_{2<p\le31}p$, so $q_1\ge37$ and the
+product inflation is at most $36/35$.  No equality between this exceptional conductor and the
+one in the ordinary rows is assumed.  The argument $3\theta-\Delta$
+is smaller than the actual argument $3\theta$, hence is safe in either
+case.
+
+Writing the table's weights as $\lambda_{a,b}$, the complete rectangle
+remainder is therefore bounded by
+\begin{equation}\label{eq:box-error}
+ \frac{E_{\rm rect}}{4\Th}
+ \le\frac{(1+\eps_0)m_N}{4(1/2)L}
+ \sum_{\rm families}\frac{\lambda_{a,b}}{a^3}
+ \left(\frac{(b-a)L}{\log(1+\eps_0)}+1\right)
+ <0.0085.
+\end{equation}
+The evaluated left side is below $0.008032$ at $c=24.9$.
+This is a sum over all five families and every box, not a per-box error.
+In particular, there is no implicit factor six in the coefficient norm.
+
+We record the main integrals.  Counting the remaining third prime by
+\[
+ \pi\left(\frac{(1+\eps_0)N}{p_1p_2}\right)
+ \le\frac{1.00005(1+\eps_0)N}
+              {L p_1p_2(1-t-u)},\qquad
+ t=\log p_1/L,\quad u=\log p_2/L,
+\]
+is legitimate throughout these boxes: $1-t-u>1/4$ and the logarithm
+of every prime-counting argument is at least $L/4>30002$.
+In particular $(1-6/L)^{-1}<1.00005$, as checked by the certificate.
+The changes in the exponent domains are bounded in
+\cref{sec:transfer}.  At the unbroadened domain define
+\begin{align}
+ J_7&=\int_2^{1/\sigma_1-1}\frac{\log(v-1)}v\,dv,&
+ J_8&=\int_2^{1/\sigma_2-1}\frac{\log(v-1)}v\,dv,\label{eq:J78}\\
+ J_9&=\int_{\kappa_1}^{\sigma_1}
+       \frac{\log((1-t-\sigma_1)/\sigma_1)}{t(1-t)}\,dt,&
+ J_{10}&=\int_{\kappa_2}^{\sigma_2}
+       \frac{\log((1-t-\sigma_2)/\sigma_2)}{t(1-t)}\,dt.\label{eq:J910}
+\end{align}
+For example, the inner integral in rows $7,8$ is
+$\int_t^{(1-t)/2}du/[u(1-t-u)]
+ =\log((1-2t)/t)/(1-t)$; the change $v=1/t-1$ gives
+\eqref{eq:J78}.  For rows $9,10$ replace the lower inner endpoint by
+$\sigma_1,\sigma_2$ respectively, giving \eqref{eq:J910}.
+The upper main quantities used in the ledger are
+\begin{equation}\label{eq:Bi}
+ B_i=\frac{36}{35}\,6e^{-\gamma}\Fup(3\theta-\Delta)J_i
+ \qquad(i=7,8,9,10).
+\end{equation}
+The factor $1.00005(1+\eps_0)$, local products, and finite deletions have
+not been hidden in these integrals; they are charged separately below.
+
+\section{Finite transfers and local terms}\label{sec:transfer}
+
+\subsection{A prime-measure estimate with explicit variation}
+
+Let $\mu_N$ be the measure on $[\kappa_1,1]$ putting mass $1/p$ at
+$\log p/L$ for $z_*\le p<N$.  Let $d\mu(t)=dt/t$ there.
+BJS's reciprocal-prime inequalities, including the at-most-one-prime
+endpoint correction, give
+\begin{equation}\label{eq:measure-discrepancy}
+ \sup_{\kappa_1\le t\le1}
+ \left|(\mu_N-\mu)([\kappa_1,t))\right|
+ \le d_N:=\frac{3\cdot10^{-6}}{\kappa_1L}+2N^{-\kappa_1},
+ \qquad \mu_N([\kappa_1,1])<3.
+\end{equation}
+The constant $3\cdot10^{-6}$ bounds
+$2.964\cdot10^{-6}+1.436\cdot10^{-16}$, not twice the sum:
+the two endpoint errors each lie in the same asymmetric interval,
+so their difference has at most that interval's length.
+
+Here is the finite-dimensional transfer we use.  Suppose the coordinate
+sections of a domain are unions of at most ten intervals, and its kernel
+$G$ has magnitude at most $M$, at most ten additional jump points in
+each section, and derivative at most $M'$ away from those points.
+Integration by parts against the cumulative discrepancy in
+\eqref{eq:measure-discrepancy} bounds a one-coordinate difference by
+$d_N(40M+M')$.  The coefficient $40M$ includes both domain endpoints
+and both sides of every jump.  Telescoping the product measures gives
+\begin{equation}\label{eq:transfer}
+ \left|\int G\,d\mu_N^{\,d}-\int G\,d\mu^{\,d}\right|
+ \le d\,3^{d-1}d_N(40M+M').
+\end{equation}
+To see the telescoping explicitly, replace coordinates $1,2,\ldots,d$
+one at a time.  Condition on the other $d-1$ coordinates, apply the
+one-dimensional integration-by-parts bound, and integrate that bound
+against their product measure, whose mass is at most $3^{d-1}$.
+This proof also covers strict inequalities and diagonal atoms.
+
+The following bounds apply to the kernel excluding the factors $dt/t$.
+They include the displayed sieve prefactors, but not the Wu row weight.
+\begin{center}
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+Kernel & $d$ & $M$ & $M'$\\
+\midrule
+$A_1$ & 1 & 120 & 20000\\
+$A_2,A_3$ (each) & 1 & 120 & 2000\\
+$L_4,L_5$ (each) & 2 & 48 & 3000\\
+Each triple-prime box mass & 2 & 128 & 512\\
+Each switched four-prime mass & 4 & 8000 & 0\\
+\bottomrule
+\end{tabular}
+\end{center}
+These are analytic bounds, not values sampled on a mesh.
+On the domains at issue, $1/t\le12$, $1/t^2\le144$,
+$F\le4$, $f\le1$, $|F'|,|f'|\le5$, and $|h'|\le1$.
+In fact $\Fup\le4$ and $|\Fup'|\le6$: the first follows from
+$2e^\gamma+106\eta<4$, and the second from
+$106\eta e^2<1$.  These inequalities are included in the certificate.
+The delay equations prove the derivative bounds directly, using
+$s\ge1$ (and $s-1\ge1$ whenever its nonzero term is needed).
+For $\Flow$, $|\Flow|\le2$ and $|\Flow'|\le10$ on its smooth pieces.
+The arguments in $A_1$ have derivative at most $72$, and the other
+ordinary arguments at most $12$; the prefactor
+$2e^{-\gamma}/\kappa_1<14$ then gives the first three lines.
+In a box kernel, $1-t-u>1/4$ and
+$(36/35)6e^{-\gamma}\Fup(3\theta-\Delta)<16$, giving
+$M<64$, $M'<256$; the table doubles these to cover the inflated box.
+The switched multiplier is less than $8000$ using
+$2e^{-2\gamma}/\kappa_1^2<100$ and $F\le4$.
+All boundaries are linear exponent inequalities; their sections are
+intervals.  Breaks of the sieve functions at $2,3,4,5,6$ and the jump
+of $\Flow$ at $2$ use fewer than ten additional points.
+These facts prove every entry of the table.
+
+The sum of the right sides of \eqref{eq:transfer}, including the Wu
+weights and the two switched rows, is less than $10^9d_N$ even before
+division by four.  We allow $10^{10}d_N$ in the normalized ledger.
+
+\subsection{Box overhangs, prime counting and products}
+
+Put $h_0=\log(1+\eps_0)/L$.  For rows $7,8$, the box condition gives
+$p_2\ge p_1/(1+\eps_0)$ and $p_1p_2^2<(1+\eps_0)N$.
+Thus the exponent boundaries move from $u=t$ to $u\ge t-h_0$ and
+from $t+2u<1$ to $t+2u<1+h_0$.
+For $9{\rm h}$ the lower condition $u\ge\sigma_1$ is unchanged and
+only the latter boundary moves.  For $9{\rm l}$,
+$p_3\ge p_2/(1+\eps_0)$ and
+$p_1p_2^2<(1+\eps_0)^2N$; the upper boundary moves by at most $2h_0$.
+For $10$, $p_1p_2^2<N$ is retained exactly and the product bound only
+enlarges to $p_1p_2p_3<(1+\eps_0)N$.
+The $p_1=N^{1/8}$ split is disjoint and makes no additional mass.
+The five families consequently require at most eight strips, each of
+coordinate width at most $2h_0$.  Their continuous mass is bounded using
+$dt/t\le12\,dt$ and the table.  Their discrete mass first uses
+\eqref{eq:transfer}, already budgeted above.  A common conservative
+bound for all these continuous strips is $10^{10}\cdot16h_0$.
+
+The raw total of all negative main terms in the final ledger is below
+$60$, certified with Arb.  Since
+$1.00005(1+\eps_0)<1.0002$, the common prime-count inflation costs at
+most $60/(4\cdot5000)=0.003$.  Therefore
+\begin{equation}\label{eq:transfer-cost}
+ E_{\rm transfer}/(4\Th)
+ \le10^{10}(d_N+16h_0)+0.003<0.0035.
+\end{equation}
+This also permits the factor $1.00005$ in ordinary upper model masses.
+The evaluated proxy is less than $0.003251$ at $c=24.9$.
+
+The product calculation in BJS Lemma 38, or its displayed factorization
+into the full Mertens product and the local factors of $N$, gives
+\begin{equation}\label{eq:Vlocal}
+ V_N(N^t)=\frac{2e^{-\gamma}C_N}{tL}(1+\epsilon_t),
+ \quad |\epsilon_t|\le
+ \frac{2}{(\kappa_1L)^2}+10L N^{-\kappa_1},
+ \qquad t\ge\kappa_1.
+\end{equation}
+To specify the tail used here: the full prime product contributes at
+most $1/\log^2(N^t)$; the tail of
+$\prod_{p>2}(1-1/(p-1)^2)$ is bounded by
+$2/(N^t-2)$; and the omitted local factors with $p\mid N$, $p\ge N^t$
+are bounded in logarithm by $2\omega(N)/(N^t-2)$.
+Using $\omega(N)\le L/\log2$ and $e^x\le1+2x$ for $0\le x\le1/2$
+gives \eqref{eq:Vlocal}.  The same bound covers all prefix products,
+with $\log(Nm_j)\le L+10c$; their local ratios are already retained
+exactly in \cref{lem:exceptional}.
+The full integer-sieve product satisfies
+\begin{equation}\label{eq:Vfull}
+ \prod_{p<z_*}(1-1/p)\le
+ (1+\eta)e^{-\gamma}/\log z_*.
+\end{equation}
+For example BJS's quoted Mertens bound
+$e^{-\gamma}(1+\log^{-2}z_*)/\log z_*$
+is stronger, since $(\kappa_1L)^{-2}<\eta$.
+There is no $N$-dependent local factor in \eqref{eq:Vfull}.
+
+For a tag of one or two primes at least $z_*$,
+$a/\varphi(a)\le(1-1/z_*)^{-2}<1+4/z_*$.
+Together with \eqref{eq:box-tag-product}, \eqref{eq:Vlocal}, and the
+total kernel bounds above, all such normalized local corrections are
+bounded by
+\begin{equation}\label{eq:local-cost}
+ E_{\rm local}/(4\Th)
+ \le1000\left(\frac{2}{(\kappa_1L)^2}
+                  +40L N^{-\kappa_1}+L^{-9}\right)<10^{-6}.
+\end{equation}
+The $L^{-9}$ allowance here is harmless slack, not a second charge of
+the integer rough-sieve remainder, which is assigned to the switch.
+In lower rows where the chosen lower function is negative, use $S\ge0$
+before making any mass or product replacement.
+
+\subsection{A single finite combinatorial envelope}
+
+All combinatorial exclusions used here are bounded, before division
+by $4\Th$, by
+\begin{equation}\label{eq:finite-envelope}
+\begin{split}
+ E_{\rm finite}:={}&(4+7W^2)B+6W^2N^{2/3}+24N^{1/3}\\
+ &+4(1+W)^5N^{\kappa_1}
+              +100(1+W)^6N^{1-\kappa_1},
+ \qquad W=L/\log2.
+\end{split}
+\end{equation}
+Here are the assignments, so no unspecified terminal is needed.
+The first $(4+W^2)B$ is \cref{lem:wu}.  When rows $7$--$10$ are
+converted to three-prime sources, the removed nonsquare-free source
+members contribute at most $6W^2B$: each tag uses two distinct divisors
+and the four Wu weights sum to six.  A residual equal to one gives
+$p_1p_2<N^{2/3}$ in all four rows, so at most $6W^2N^{2/3}$ is lost.
+For a complementary prime below $y$, there are at most $y$ source
+values and at most four ordered triple tags per value; after the
+weights this is at most $24y$.
+
+In rows $13,14$, a complementary prime below $z_*$ has at most
+$\binom{\omega(a)}4\le(1+W)^4$ ordered tags for its source
+$a=N-p$.  Allowing also the at most $W$ complementary primes dividing
+$N$ gives less than $4(1+W)^5z_*$.  The latter allowance is unnecessary
+for our definition of $\A$, but explicitly covers the more general
+local implication in \cref{lem:switch-local}.
+Finally, removing a prime $p\mid N$, $p\ge z_*$ from a lower prime
+integral costs a reciprocal mass at most $W/z_*$.  Multiplying by
+the kernel bounds, the other coordinate masses, $N/L^2$, and all
+Wu weights is less than the last term in \eqref{eq:finite-envelope}.
+That term also covers any endpoint prime or repeated-prime boundary
+that is removed before using an ordered source.  Ordered-source
+diagonals in the integral transfers are already allowed by
+\eqref{eq:transfer}, so this is conservative.
+All floor contributions in these counts use $N/q^2+1$, as in $B$;
+they have not been replaced by $N/q^2$.
+Since $C_N>1/2$, direct comparison of the five displayed terms gives
+\begin{equation}\label{eq:finite-cost}
+ E_{\rm finite}/(4\Th)\le e^{30}L^{12}N^{-1/12}<10^{-6}.
+\end{equation}
+The explicit logarithmic comparison and its half-line validity are
+included in the certificate and \cref{sec:uniform}.
+
+\section{The complementary-prime switch}\label{sec:switch}
+
+\subsection{Local implication and unique factor recovery}
+
+Let $\mathcal C_{13},\mathcal C_{14}$ be the multisets of tuples
+$(p_1,p_2,p_3,p_4,r_0)$ satisfying the respective prime ranges in
+$U_{13},U_{14}$, and
+\[
+ r_0\ge1,\quad (r_0,P_{\rm all}(p_2))=1,\qquad
+ p_1p_2p_3p_4r_0\le N-2.
+\]
+Do not impose coprimality with $N$ in these enlarged sets.
+Set $b=N-p_1p_2p_3p_4r_0$, so $b$ is a positive odd integer.
+Tags are retained even if their values $b$ coincide.
+
+\begin{lemma}[The local switch, with its exceptional alternative]
+\label{lem:switch-local}
+Write $\varpi=N-p_1p_2p_3p_4r_0$ and suppose the four primes are
+coprime to $N$.  If $\varpi$ is prime and
+$(r_0,P_N(p_2))=1$, then either $\varpi\mid N$ or
+$(r_0,N)=1$ and $(r_0,P_{\rm all}(p_2))=1$.
+For $\varpi\ge z_*$ in the latter case, the complementary upper
+Rosser weight at $z_*$ is at least one.
+\end{lemma}
+\begin{proof}
+If a prime $q$ divides $(r_0,N)$, it divides $\varpi$, hence
+$q=\varpi\mid N$.  Otherwise $(r_0,N)=1$; every prime below $p_2$
+dividing $N$ is then absent from $r_0$, and every other such prime is
+absent by the original sift.  This is precisely full $p_2$-roughness.
+The upper Rosser divisor sum bounds the sifted indicator pointwise;
+a prime $\varpi\ge z_*$ has no prime factor below $z_*$.
+Its divisor sum is therefore at least one, and is nonnegative on
+every positive integer.  This last fact permits enlargement to
+$\mathcal C_i$ after the implication has been applied.
+\end{proof}
+
+For $\A$ itself $\varpi\nmid N$, so only the main alternative occurs.
+Apart from the finite small-prime charge in \eqref{eq:finite-envelope},
+$U_i$ is bounded by the sum of the upper Rosser weights on
+$\mathcal C_i$.  We retain full $p_2$-roughness throughout the
+distribution proof.  It is weakened to $z_*$-roughness only when
+bounding the principal model mass.
+
+Regroup the source by
+\[
+ n=p_3p_4,\qquad m=p_1p_2r_0.
+\]
+The two prime factors of $n$ determine $(p_3,p_4)$, since $p_3<p_4$.
+The two least prime factors of $m$, counted with multiplicity, determine
+$(p_1,p_2)$: $p_1<p_2$ and every prime factor of $r_0$ is at least
+$p_2$.  Dividing $m$ by $p_1p_2$ then recovers $r_0$.
+Thus both coefficient sequences are exactly bounded by one.
+This remains true when $p_2\mid r_0$ or $r_0=1$; no square-free
+condition on $r_0$ is needed.  The only cross-conditions between the
+two groups are
+\begin{equation}\label{eq:switch-cross}
+ p_2<p_3,\qquad mn\le N-2.
+\end{equation}
+All other prime ranges, including $p_3p_4<N^{\lambda}$ in row $14$,
+belong to one group.  In particular
+$N^{1/6}\le n<N^{\lambda}<N^{1/3}$.
+
+Here are the coefficient formulas that will be used below.  Let
+\begin{align*}
+ \mathscr N_{13}&=\{(p_3,p_4):z_*\le p_3<p_4<N^{\kappa_2}\},\\
+ \mathscr N_{14}&=\{(p_3,p_4):z_*\le p_3<N^{\kappa_2}\le p_4,
+                                  \ p_3p_4<N^\lambda\},\\
+ \mathscr M&=\{(p_1,p_2,r_0):z_*\le p_1<p_2<N^{\kappa_2},\ r_0\ge1,
+                         \ (r_0,P_{\rm all}(p_2))=1\}.
+\end{align*}
+For a dyadic block $I_X=[X,2X)$, clipped at $N^{1/3}$, put
+$M_X=N/X$ and define
+\begin{align*}
+ \alpha_{i,X}(n)&=
+  \#\{(p_3,p_4)\in\mathscr N_i:p_3p_4=n,\ n\in I_X\},\\
+ \beta_X(m)&=
+  \#\{(p_1,p_2,r_0)\in\mathscr M:p_1p_2r_0=m,\ m\le M_X\}.
+\end{align*}
+The unique recovery just proved says, pointwise,
+\[
+ \alpha_{i,X}(n),\beta_X(m)\in\{0,1\},\qquad
+ \sum_n|\alpha_{i,X}(n)|^2<2X,\quad
+ \sum_m|\beta_X(m)|^2\le M_X.
+\]
+On their supports denote the recovered primes by $p_3(n)$ and $p_2(m)$.
+Because $n\ge X$, a pair with $m>M_X$ cannot pass $mn\le N-2$;
+therefore the cutoff in $\beta_X$ loses nothing.  For every character
+$\chi$, the following is an exact finite identity:
+\begin{equation}\label{eq:switch-source-identity}
+ \sum_{\mathcal C_i}\chi(mn)
+ =\sum_X\sum_{n,m}\alpha_{i,X}(n)\beta_X(m)\chi(nm)
+   \ind_{p_2(m)<p_3(n)}\ind_{mn\le N-2}.
+\end{equation}
+The blocks are disjoint, so this identity contains neither an ordering
+multiplicity nor a hidden convolution energy estimate.
+
+\subsection{Exact character decomposition and the low conductors}
+
+Use $D_\circ=N^{2/5}$, $w=z_*$ and $D_*=QD_\circ$.
+For the switched exceptional alternative use the conductor cutoff
+\[
+ X_q=z_*/2,\quad w_q=\log x_2(X_q),\quad
+ q_0=\lceil w_q^{10}\rceil-1.
+\]
+Thus $w_q^{10}/2\le q_0<w_q^{10}$, including at integral values
+of $w_q^{10}$.  If the relevant conductor up to $q_0$ is at least
+$w_q^\delta$, remove its largest prime $q_1$ from the sieve prime set.
+The threshold exceeds $\prod_{2<p\le31}p$ and hence its largest prime
+is at least $37$; its product cost is at most $36/35$.  In the other
+case make no deletion.
+The zero bound $\nu$ from \eqref{eq:vformula} is valid in both cases.
+
+\begin{theorem}[Finite switched distribution]\label{thm:switch}
+For the two explicitly defined tuple multisets $\mathcal C_i$, use
+all square-free $d<D_*$ with $d\mid P_N(z_*)$ in the small switched
+alternative, and omit multiples of $q_1$ in the large alternative.
+For the discrepancies $r_i(d)$ defined in \eqref{eq:switch-character},
+\[
+ \sum_d\bigl(|r_{13}(d)|+|r_{14}(d)|\bigr)
+ \le E_{\rm low}+E_{\rm high}+E_{\rm P},
+\]
+with the complete formulas \eqref{eq:switch-low},
+\eqref{eq:switch-high} and \eqref{eq:switch-perron}.
+Together with \eqref{eq:rough-count} this proves the switched upper
+main term \eqref{eq:Bswitch}, with only the transfers, local products
+and finite exclusions explicitly assigned in \cref{sec:transfer}.
+\end{theorem}
+The proof follows; in particular, the theorem does not assume a
+weighted bilinear distribution result.
+
+Every source factor of $mn$ is at least $z_*$; every prime factor of a
+supported modulus is below $z_*$.  Consequently $(mn,d)=1$
+identically on the support.  Character orthogonality gives the exact
+remainder
+\begin{equation}\label{eq:switch-character}
+\begin{split}
+ r_i(d)&=\#\{(m,n)\in\mathcal C_i:mn\equiv N\pmod d\}
+                         -|\mathcal C_i|/\varphi(d)\\
+ &=\frac1{\varphi(d)}\sum_{\chi\ne\chi_0}\overline{\chi}(N)
+                    \sum_{(m,n)\in\mathcal C_i}\chi(mn).
+\end{split}
+\end{equation}
+For square-free $d=rs$, $(r,s)=1$, each character has exactly one
+primitive inducing character modulo $r$.  Since $(mn,s)=1$,
+induction introduces no correction on this source.  In particular
+the often missing term $p_4\mid s$ is identically zero, not merely
+small.  Therefore
+\begin{equation}\label{eq:switch-primitive}
+ \sum_{d<D_*}|r_i(d)|
+ \le\sum_{rs<D_*}\frac{\mu^2(rs)}{\varphi(r)\varphi(s)}
+       \sum_{\substack{\chi\bmod r\ {\rm primitive}\\\chi\ne\chi_0}}
+       \left|\sum_{\mathcal C_i}\chi(p_1p_2p_3p_4r_0)\right|.
+\end{equation}
+The modulus set retains $(d,N)=1$ and the exceptional deletion.
+We drop such restrictions only inside nonnegative upper bounds.
+
+For $r\le q_0$, fix $p_1,p_2,p_3,r_0$ first.  The allowed $p_4$
+form a single interval with lower endpoint at least $z_*$ and upper
+endpoint at most $N/(p_1p_2p_3r_0)$.
+For row $13$ intersect $(p_3,N^{\kappa_2})$ with that upper bound;
+for row $14$ intersect $[N^{\kappa_2},N^{\lambda}/p_3)$ with it.
+Empty intervals contribute zero.  Both prime-counting endpoints,
+rounded to the corresponding integers, exceed $X_q$.
+BJS Lemma 29 applies before any Perron integral is introduced.
+Its bound at the two endpoints, and $\log p_4\ge\kappa_1L$, give
+at most
+\[
+ \frac{2v(X_q)N}{(\kappa_1L)^5p_1p_2p_3r_0}
+\]
+for the sum of absolute primitive-character prime sums.
+The reciprocal-prime mass of $[N^{\kappa_1},N^{\kappa_2})$ is
+less than $1/3$ by \eqref{eq:measure-discrepancy}.  The ordered
+three-prime reciprocal sum is at most its cube divided by $6$,
+and is therefore below one.  Also
+$\sum_{r_0\le N}1/r_0\le1+L$.  Finally
+$\sum_{r\le q_0}\mu^2(r)/\varphi(r)\le1.1\log(w_q^{10})$ and
+$\sum_{s<D_*}\mu^2(s)/\varphi(s)\le1.1\log D_*$.
+Thus the two rows together satisfy
+\begin{equation}\label{eq:switch-low}
+ E_{\rm low}\le
+ \frac{4v(X_q)N(1+L)}{(\kappa_1L)^5}
+ \,1.21\log(w_q^{10})\log D_*.
+\end{equation}
+This is a bound for all low conductors and both variable endpoints.
+At $c=24.9$ it is below $1.076\cdot10^{-12}\Th$ using the
+uniform envelope $v(X_q)\le40/L$.
+
+\subsection{Perron separation, with an explicit tail}
+
+Divide $n$ into intervals $X\le n<2X$, beginning at $N^{1/6}$ and
+clipping the last at $N^{1/3}$.  There are at most
+$K_n=2+L/(6\log2)$ intervals.  On one interval write $M=M_X=N/X$
+and abbreviate the coefficients in \eqref{eq:switch-source-identity}
+as $\alpha(n),\beta(m)$.
+The two exact tests in \eqref{eq:switch-cross} are
+\[
+ \ind_{\,p_3/(p_2+1/2)>1},\qquad
+ \ind_{\,(N-3/2)/(mn)>1}.
+\]
+They avoid equality at the integration boundary for every integer
+tuple.  Put $\sigma=1/L$, $T=N^4$.  For $x>0$, $x\ne1$, let
+\[
+ \mathscr P_T(x)=\frac1{2\pi i}
+                \int_{\sigma-iT}^{\sigma+iT}\frac{x^s}{s}\,ds.
+\]
+Contour integration to the right or left of the pole at zero, followed
+by integration by parts on the two horizontal rays, gives
+\begin{equation}\label{eq:Perron-tail}
+ |\mathscr P_T(x)-\ind_{x>1}|
+ \le\frac{4x^\sigma}{T|\log x|}.
+\end{equation}
+For precision, the untruncated vertical integral equals the indicated
+residue; for a tail ray
+$\int_T^\infty e^{it\log x}/(\sigma+it)\,dt$, integration by parts
+bounds its absolute value by $2/(T|\log x|)$.  The two rays and
+$1/(2\pi)$ give the weaker constant $4$ above.
+
+Both ratios lie between $1/(2N)$ and $2N$, have
+$|\log x|\ge1/(4N)$, and $x^\sigma\le e^2$.
+The latter two facts follow from their half-integer gaps and all
+participating integers being at most $2N$.
+Their individual tails are at most $16e^2N/T$.
+As $16e^2N/T<1$, replacing the product of the two indicators by the
+product of the two integrals costs at most $64e^2N/T$ per pair.
+There are at most $2XM=2N$ pairs per block, fewer than $D_*$
+moduli, and two rows; after summing the character weights
+$\varphi(d)^{-1}\sum_\chi1\le1$, the full tail is at most
+\begin{equation}\label{eq:switch-perron}
+ E_{\rm P}\le256e^2K_nN^2D_*/T.
+\end{equation}
+It is bounded after normalization by the even larger envelope
+$e^{20}L^{20}D_*N^{-2}$ in the certificate.
+
+The two remaining integrals separate as a product of a sum in $n$
+and a sum in $m$.  Their weights are
+$p_3^s n^{-t}$ and $(p_2+1/2)^{-s}m^{-t}$, with the scalar
+$(N-3/2)^t$ outside.  Here $\Re s=\Re t=\sigma$.
+Each weight is bounded by $e^2$, and the outside scalar by $e$.
+Consequently the square norms and the outside factor together cost
+less than $e^6$, uniformly in both imaginary parts.
+The total variation of each Perron kernel is
+\[
+ \frac1{2\pi}\int_{-T}^T\frac{dt}{|\sigma+it|}
+ =\frac1\pi\operatorname{arsinh}(T/\sigma)<2L.
+\]
+The certificate verifies the endpoint inequality; its difference is
+increasing on the half-line.  No maximal-sum theorem or complex
+small-conductor prime estimate is being assumed.
+
+\subsection{The four large-conductor terms are all added}
+
+For $r>q_0$ split into $R\le r<2R$ and use the multiplicative large
+sieve.  Zero-pad the $n$-sequence to the prefix $n<2X$.  Then
+\[
+ (2X+12R^2)\sum_n|\alpha(n)|^2
+ <(2X+12R^2)2X\le4(X+12R^2)X,
+\]
+whereas the $m$-sequence contributes at most
+$(M+12R^2)M$.  Thus the square root costs the explicit factor $2$
+in the next display; it also absorbs every endpoint $+1$.
+Cauchy--Schwarz, $|\alpha|,|\beta|\le1$, and the weights just bounded
+therefore give the following majorant before the two Perron factors:
+\[
+ 2e^6\frac{\{(X+12R^2)(M+12R^2)XM\}^{1/2}}R.
+\]
+In particular, the floor $+1$ is already covered by the norm
+$\sum_{n<2X}|\alpha(n)|^2<2X$ and
+$\sum_{m\le M}|\beta(m)|^2\le M$.
+The elementary inequality
+\[
+ \frac{\{(X+12R^2)(M+12R^2)XM\}^{1/2}}R
+ \le\frac{XM}R+\sqrt{12X}\,M+\sqrt{12M}\,X+12R\sqrt{XM}
+\]
+has four positive terms.  Summing $1/R$ geometrically gives at most
+$2/q_0$; summing $R$ gives at most $2D_*$; the number of intervals
+is at most $K_R=2+0.4154L/\log2$.  Define
+\[
+ B_1=2XM/q_0,\quad B_2=K_R\sqrt{12X}\,M,\quad
+ B_3=K_R\sqrt{12M}\,X,\quad B_4=24D_*\sqrt{XM}.
+\]
+After both rows, all $n$ blocks, both Perron factors, and the
+$s$-sum in \eqref{eq:switch-primitive}, a conservative bound is
+\begin{equation}\label{eq:switch-high}
+ E_{\rm high}\le64e^6K_n(2L)^2(1.1\log D_*)
+                 (B_1+B_2+B_3+B_4).
+\end{equation}
+In this expression $XM=N$, $X\ge N^{1/6}$, $M\ge N^{2/3}$,
+$q_0\ge w_q^{10}/2$, and $D_*<N^{0.4154}$.
+These substitutions give a quantity below $10^{-20}\Th$ for every
+$c\ge24.9$; at the endpoint the certificate encloses it below
+$1.597\cdot10^{-28}\Th$.  Induced characters have been counted
+once through $d=rs$, and there is no uncharged ordering multiplicity.
+
+\subsection{The integer rough sieve and the switched main mass}
+
+Only now replace the condition on $r_0$ by full $z_*$-roughness.
+For $P=p_1p_2p_3p_4$ let $R=N/P$, enlarging the upper endpoint
+$(N-2)/P$ when necessary.  In both rows
+\[
+ R\ge N^a,\qquad
+ a=1-\lambda-2\kappa_2
+  =\frac12+2\kappa_1-2\kappa_2=\frac{999}{2000}.
+\]
+For row $13$ this follows from $p_1p_2p_3p_4<N^{4\kappa_2}$,
+which is stronger.  For row $14$ it follows directly from
+$p_3p_4<N^{\lambda}$ and $p_1p_2<N^{2\kappa_2}$.
+Use the integer sequence $1\le r_0\le R$, model total $R$,
+density $g(q)=1/q$, and
+\[
+ D_r=\frac{R}{Q_{\rm all}\log^{10}R},\qquad
+ Q_{\rm all}=\prod_{p\le10^9}p.
+\]
+For every $d$, the discrepancy is $\lfloor R/d\rfloor-R/d$ and its
+absolute value is at most one.  There are fewer than
+$Q_{\rm all}D_r=R/\log^{10}R$ supported positive integers $d$.
+Moreover
+\[
+ \frac{\log D_r}{\log z_*}
+ \ge\frac{aL-\overline q-10\log(aL)}{\kappa_1L}
+ >s_r:=\frac{12037}{2500}.
+\]
+The monotonicity of $x-10\log x$ for $x>10$ proves the first
+inequality.  The second holds uniformly by \cref{sec:uniform}.
+The model sieve and \eqref{eq:Vfull} give
+\begin{equation}\label{eq:rough-count}
+ \#\{r_0\le R:(r_0,P_{\rm all}(z_*))=1\}
+ \le\frac{(1+\eta)e^{-\gamma}}{\kappa_1L}\Fup(s_r)R
+                       +\frac{R}{\log^{10}R}.
+\end{equation}
+This is a statement about the full prime product, not $P_N(z_*)$.
+
+The complementary model is $|\mathcal C_i|$ with common density
+$1/(q-1)$.  The upper model sieve at $D_\circ$ has argument
+$\log D_\circ/\log z_*=800/191$.
+To use a single conservative expression in both exceptional
+alternatives, replace it by $800/191-\Delta$ and include $36/35$.
+Summing the main term of \eqref{eq:rough-count} over the prime ranges
+and applying the already budgeted transfer gives
+\begin{equation}\label{eq:Bswitch}
+ B_{\rm sw}=\frac{36}{35}(1+\eta)
+       \frac{2e^{-2\gamma}}{\kappa_1^2}
+       \Fup(s_r)\Fup(800/191-\Delta)(I_{13}+I_{14}),
+\end{equation}
+where
+\[
+ I_{13}=\frac{\log^4(\kappa_2/\kappa_1)}{24},\qquad
+ I_{14}=\int_{\kappa_1}^{\kappa_2}
+       \frac{\log^2(t/\kappa_1)}{2t}
+       \log\left(\frac{\lambda-t}{\kappa_2}\right)\,dt.
+\]
+Indeed the first is the ordered four-simplex of the measure $dt/t$.
+In the second, fixing $t_3=t$ gives
+$\int_{\kappa_1<t_1<t_2<t}dt_1dt_2/(t_1t_2)
+=\tfrac12\log^2(t/\kappa_1)$, and then integrate
+$\kappa_2\le t_4<\lambda-t$.
+
+The remainder of \eqref{eq:rough-count}, after the complementary
+sieve multiplier, is at most $e^{20}L^{-9}\Th$.
+For a direct bound, its reciprocal four-prime sum is below
+$3^4=81$, $\log R\ge aL$, $V_N(z_*)\le14C_N/L$,
+and $(36/35)\Fup(800/191-\Delta)<3$.
+These yield $3402a^{-10}L^{-9}\Th<e^{20}L^{-9}\Th$.
+All constants here are checked as rational/Arb inequalities.
+
+Combining \eqref{eq:switch-low}, \eqref{eq:switch-perron},
+\eqref{eq:switch-high}, and this last rough remainder proves the
+required complete distribution and switching estimate.  Their sum,
+even without using the final division by four, is below
+$10^{-6}\Th$.  The ledger uses the allowance
+\begin{equation}\label{eq:switch-cost}
+ E_{\rm sw}/(4\Th)<10^{-6}.
+\end{equation}
+Small complementary primes and local source exclusions remain assigned
+to \eqref{eq:finite-envelope}; the switch error is not counted twice.
+
+\section{One forward ledger and the assembly}\label{sec:assembly}
+
+All the numbers in this section are enclosed by the Arb computation
+\cert{c249_verify.py}; no decimal is fitted to a desired final answer.
+The symbols in the first column are exactly those in
+\eqref{eq:L0}--\eqref{eq:Bi} and \eqref{eq:Bswitch}.
+The following intervals are rounded outwards to twelve decimal places.
+The signed weight is applied before the final division by four.
+\begin{center}
+\small
+\begin{tabular}{@{}lrrc@{}}
+\toprule
+Quantity & Lower endpoint & Upper endpoint & Signed Wu weight\\
+\midrule
+% ledger:L0:11.738503274673:11.738503274674:4
+$L_0$ & $11.738503274673$ & $11.738503274674$ & $4$\\
+% ledger:A1:0.031268140768:0.031268140769:-36/35
+$A_1$ & $0.031268140768$ & $0.031268140769$ & $-36/35$\\
+% ledger:A2:16.368118871827:16.368118871828:-36/35
+$A_2$ & $16.368118871827$ & $16.368118871828$ & $-36/35$\\
+% ledger:A3:16.357231429105:16.357231429106:-36/35
+$A_3$ & $16.357231429105$ & $16.357231429106$ & $-36/35$\\
+% ledger:L4:0.000032859562:0.000032859563:1
+$L_4$ & $0.000032859562$ & $0.000032859563$ & $1$\\
+% ledger:L5:0.011400175493:0.011400175494:1
+$L_5$ & $0.011400175493$ & $0.011400175494$ & $1$\\
+% ledger:B7:0.164463777759:0.164463777760:-2
+$B_7$ & $0.164463777759$ & $0.164463777760$ & $-2$\\
+% ledger:B8:0.166078002505:0.166078002506:-2
+$B_8$ & $0.166078002505$ & $0.166078002506$ & $-2$\\
+% ledger:B9:6.263354678712:6.263354678713:-1
+$B_9$ & $6.263354678712$ & $6.263354678713$ & $-1$\\
+% ledger:B10:6.254338521550:6.254338521551:-1
+$B_{10}$ & $6.254338521550$ & $6.254338521551$ & $-1$\\
+% ledger:Bsw:0.000000172621:0.000000172622:-1
+$B_{\rm sw}$ & $0.000000172621$ & $0.000000172622$ & $-1$\\
+\bottomrule
+\end{tabular}
+\end{center}
+The box quantities and $B_{\rm sw}$ already include $36/35$; applying
+that factor to them a second time would be incorrect.
+The three $A_i$ do not include it.  The single master expression is
+\begin{equation}\label{eq:master}
+ \mathfrak M=
+ \frac{4L_0-(36/35)(A_1+A_2+A_3)+L_4+L_5
+                  -2B_7-2B_8-B_9-B_{10}-B_{\rm sw}}4.
+\end{equation}
+Positive rows use lower interval endpoints and negative rows use upper
+ones.  Even using only the printed twelve-place intervals gives
+$\mathfrak M>0.0235368436443>0.0228$.
+Using the full balls gives
+\[
+ \mathfrak M\in
+[\,0.0235368436464714387690418419462,\,
+    0.0235368436464714387690418419466\,].
+\]
+The auxiliary small-exceptional computation is not needed for the
+theorem.  Our universal worst-case expression is used even if the
+ordinary, rectangular and switched exceptional choices are different.
+
+The following are \emph{allocated upper bounds}, already normalized by
+$4\Th$.  Each actual error was bounded before this allocation.
+\begin{center}
+\begin{tabularx}{\textwidth}{@{}Xlr@{}}
+\toprule
+Error family & Defining bound & Allocated upper bound\\
+\midrule
+All rectangle boxes & \eqref{eq:box-error} & $0.008500$\\
+Prime measures, box boundaries, prime-count inflation &
+ \eqref{eq:transfer-cost} & $0.003500$\\
+Ordinary AP remainders & \eqref{eq:ordinary-AP-cost} & $0.000001$\\
+Exceptional full-conductor mass & \eqref{eq:exc-cost} & $0.000001$\\
+Switch distribution, Perron, integer rough floor &
+ \eqref{eq:switch-cost} & $0.000001$\\
+Finite combinatorial exclusions & \eqref{eq:finite-cost} & $0.000001$\\
+Local sieve products & \eqref{eq:local-cost} & $0.000001$\\
+\midrule
+Total & & $0.012005$\\
+\bottomrule
+\end{tabularx}
+\end{center}
+There is one charge per error family.  In particular the integer rough
+floor appears in the switched error and the square-divisor source
+term appears in the finite error; neither is subtracted again.
+
+Applying \cref{lem:wu}, the ordinary model estimates, the five box
+estimates and the switched estimate, followed by their transfers,
+gives for every even $N$ in the range where the seven bounds hold
+\begin{equation}\label{eq:assembled}
+ \frac{D_{1,2}(N)}{\Th}\ge
+ \mathfrak M-\frac{E_{\rm rect}+E_{\rm transfer}+E_{\rm AP}
+ +E_{\rm exc}+E_{\rm sw}+E_{\rm finite}+E_{\rm local}}{4\Th}.
+\end{equation}
+The errors here denote their assigned total upper envelopes, so an
+unused allowance is still subtracted.  The next section proves that
+every envelope is valid on the full half-line.  It follows that the
+right side of \eqref{eq:assembled} is greater than
+$0.0228-0.012005=0.010795>0$, proving \cref{thm:main}.
+This internal positive margin is not an attempt to optimize an explicit
+coefficient.
+
+\section{Uniformity on the entire half-line}\label{sec:uniform}
+
+In this section $c$ varies continuously over $[24.9,\infty)$ and
+$L=e^c$.  Establishing bounds on this larger continuous range suffices
+for every even integer $N$.  The certificate checks only the starting
+inequalities used below; all propagation is analytic.
+
+\subsection{Fixed levels and exceptional alternatives}
+
+The function
+\[
+ \frac12-e^{-c}(\overline q+20c)
+\]
+has derivative $e^{-c}(\overline q+20c-20)>0$.
+The exceptional level loss $20ce^{-c}/\kappa_1$ has negative derivative.
+For $a=999/2000$, the derivative of
+\[
+ \frac{a-e^{-c}\{\overline q+10\log(ae^c)\}}{\kappa_1}
+\]
+is $e^{-c}\{\overline q+10\log(ae^c)-10\}/\kappa_1>0$.
+These facts prove all uses of $\theta,\Delta,s_r$ on the half-line.
+Also $\log D_*/L\le2/5+\overline q/L<0.4154$ everywhere.
+The functions $\log x_1(N)=L-5c$ and
+$\log x_2(N^b/2)=bL-\log2-15\log(bL-\log2)$, for
+$b=1/8,\kappa_1$, are increasing and positive.
+Their powers with exponent $\delta$ are therefore increasing.
+The endpoint primorial inequalities thus guarantee $q_1\ge37$ for
+every large-exceptional branch, irrespective of changes of conductor.
+No assertion of monotonicity of the conductor itself is made.
+
+Both exceptional alternatives are covered by the common
+$\Flow$ and $36/35$ envelopes; no small-case coefficient is used
+to bound a later large case.  Small primes dividing $N$ can change
+arbitrarily, but $\log Q\le\overline q$ and the local product comparisons
+hold separately for each $N$.  Hence neither changes of exceptional
+conductor nor primorial transition points require an unexamined
+continuity assertion.
+
+\subsection{A logarithmic derivative bound for the zero terms}
+
+Write $t=bL-\log2$ and $w=t-15\log t$, for
+$b=1/8,\kappa_1$.
+For every $c\ge24.9$,
+\begin{equation}\label{eq:wderivative}
+ 1<\frac{w'}w<1.01.
+\end{equation}
+Indeed
+\[
+ w'-w=\log2+15\log t-15-\frac{15\log2}{t}>0,
+\]
+and, since $w>t/2$,
+\[
+ 0<\frac{w'}w-1
+ <\frac{32\log t}{t}<0.01.
+\]
+The last bound is checked at the smaller starting $t$;
+$\log t/t$ decreases for $t>e$.
+For $w=L-5c$ the same inequality follows from
+$w'/w=(L-5)/(L-5c)$; its excess over one is decreasing here.
+
+In particular the gap needed for the rectangle cutoff,
+$L/2-10c-10\log w_3$, has derivative
+$L/2-10-10w_3'/w_3>L/2-20.1>0$.
+Its certified positive endpoint proves $D_0<D_R$ throughout.
+The lower bound $\log D_R\ge L/2-10c$ also proves
+$D_R>10^9$ throughout.  The small-conductor support gaps
+$\kappa_1L-10c$ and $\kappa_1L-10\log w_q$ have positive
+derivatives, so all removed exceptional primes remain below $z_*$.
+
+The ratio of $\nu$ to $1/(2\cdot2.0452\cdot10c)$ is a constant
+times $e^{-\delta c/2}/c$, hence decreases.
+It is below one at $c=24.9$.  All small-exceptional thresholds are at
+most $L^\delta$, so the common $\nu$ is admissible in every stage.
+Moreover, for each of the three choices of $w$ above,
+\begin{equation}\label{eq:nu-growth}
+ \frac{d}{dc}\log(\nu w)
+ =\frac{w'}w-\frac{\delta}{2}-\frac2c
+ >1-\frac{29}{50}-\frac{20}{249}>\frac13.
+\end{equation}
+The certificate gives $\nu w>100$ at the smallest starting scale.
+It follows that $\nu w>100$ on the entire half-line.
+
+These inequalities also justify every maximum over prime-counting
+endpoints in \eqref{eq:vformula}: for fixed $N$ and $\nu(N)$,
+differentiate with respect to $x=\log y\ge w$.
+The derivatives of $x^4e^{-\nu x}$,
+$x^{14}e^{-x/2}$ and $x^{14}e^{-2x/3}$ have respective signs of
+$4-\nu x$, $14-x/2$, and $14-2x/3$, all negative.
+The first term $x^{-4}$ decreases too.  This proves the endpoint
+majorant for all intermediate $y$, not just the endpoint $Y$.
+
+For variation in $N$, the logarithmic derivative of
+$Lw^4e^{-\nu w}/(1-\nu)$ is at most
+$1+4(1.01)-\nu w/3<0$; the derivative of $(1-\nu)^{-1}$ only
+helps.  The corresponding derivatives for
+$Lw^{14}e^{-w/2}$ and $Lw^{14}e^{-2w/3}$ are negative by
+\eqref{eq:wderivative}.  The derivative of $L/w^4$ is negative.
+The multiplier in the second line of \eqref{eq:vformula} decreases,
+and $L/\log(N^b/2)=1/(b-\log2/L)$ decreases.
+Therefore $Lv(N^b/2)$, and hence $v(N^b/2)$, decrease.
+In particular the certified inequality $v(X_q)<40/L$ holds forever.
+
+\subsection{Rectangular and ordinary AP errors}
+
+Every term of $m_N$ in \eqref{eq:mrect} decreases:
+the first by the preceding paragraph;
+the second because $t^{16}e^{-t}/\log t$ has negative derivative
+for $t>16$; the third because
+$d\log(L^5/w_3^{10})/dc=5-10w_3'/w_3<-5$;
+the fourth because $5-\alpha L<0$ for
+$\alpha=0.199,1/16$; and the last because $\log X_3$ increases.
+After summing the ceiling bound, the right side of
+\eqref{eq:box-error} is exactly a constant times
+$m_N(A+B/L)$ for fixed positive constants $A,B$.
+It therefore decreases.  This proves the global box assertion despite
+the growing number of boxes.
+
+For the AP coefficient, use the explicit formula in
+\cref{sec:APformula}.  Let $w=L-5c$ and $h=w-5\log w$.
+Besides \eqref{eq:wderivative}, $h'/h>w'/w>1$.
+Each nonconstant summand of $L^2b(N)$ decreases.
+For the power part of $\mathcal E$ its largest derivative is bounded by
+$2+(13/2)w'/w-10h'/h< -3/2$.
+The other power part has derivative $2-(7/2)w'/w< -3/2$.
+The zero term $L^2w^2\log w\,e^{-\nu w}/(1-\nu)$ has logarithmic
+derivative at most
+$2+2(1.01)+1.01/\log w-\nu w/3<0$.
+For every remaining exponential term, the highest polynomial degree
+in $w$ is $15/2$ and its smallest exponential decay is $e^{-w/12}$;
+$2+(15/2)(1.01)-w'/12<0$ bounds them.
+The nonexponential term $L^2\log w/w^6$ has derivative
+$2+(1/\log w-6)w'/w<0$.
+Terms with $w^{-8}$ have still smaller derivatives, and the rational
+multiplier defining $p$ in \cref{sec:APformula} decreases.
+Finally the added $\omega(N)$ term in $L^2b(N)$ has logarithmic
+derivative
+\[
+ \frac{L-5}{2}-L+6-10\frac{L-5}{L-5c}-\frac1c<0.
+\]
+Thus the endpoint check $L^2b(N)<2.21$ proves the claimed AP bound
+for all $c\ge24.9$.  Inserting this into \eqref{eq:ordinary-AP-cost}
+leaves a constant times
+$(1/L+1/\log2)^2/L$, which decreases.
+
+\subsection{Switched, local, finite and transfer errors}
+
+The normalized high-conductor envelope in the structural certificate
+is a positive polynomial prefactor of logarithmic derivative at most
+$6$, times the sum of
+\[
+ \frac8{w_q^{10}},\qquad
+ \sqrt{12}K_R e^{-L/12},\qquad
+ \sqrt{12}K_R e^{-L/3},\qquad
+ 24e^{-0.0846L}.
+\]
+Here $K_R'/K_R<1$.  The first product has derivative less than
+$6-10=-4$.  The other three have derivatives bounded respectively by
+$7-L/12$, $7-L/3$, and $6-0.0846L$, all negative.
+This accounts for every dyadic conductor interval and every $n$ block.
+For the low-conductor term insert $v(X_q)\le40/L$ in
+\eqref{eq:switch-low}.  After normalization its varying factor is
+$(1+L)\log w_q/L^3$, with logarithmic derivative at most
+$1+1.01/\log w_q-3<-1.9$.
+
+The Perron norm bound follows from
+$\operatorname{arsinh}(TL)<\log(2TL)+1
+ =4L+c+\log2+1$.
+At the endpoint this is below $2\pi L$, and the difference has
+positive derivative since $2\pi L-(4L+1)>0$.
+The normalized tail is bounded by
+$e^{20}L^{20}e^{-1.5846L}$, whose derivative has sign
+$20-1.5846L<0$.
+The integer rough-sieve remainder $e^{20}L^{-9}$ decreases.
+Hence the entire switched-error allocation remains valid.
+
+The exceptional mass bound $B_E$ has logarithmic derivative
+$2/(c\log(10c))-\delta(L-5)/(L-5c)<0$, and $L^{-2}$ decreases.
+In \eqref{eq:transfer-cost}, $d_N$ and $h_0$ decrease term by term.
+In \eqref{eq:local-cost}, $L^{-2}$ and $L^{-9}$ decrease, while
+$LN^{-\kappa_1}$ has derivative of sign $1-\kappa_1L<0$.
+
+For completeness, \eqref{eq:finite-cost} follows without a numerical
+claim about a sum of astronomical integers.  Since $\log2>1/2$,
+$W<2L$, $1+W<3L$, and $B<4N^{11/12}$ here.
+After division by $4\Th>2N/L^2$, the five terms of
+\eqref{eq:finite-envelope} are bounded by
+\[
+ 64L^4N^{-1/12},\quad 12L^4N^{-1/3},\quad12L^2N^{-2/3},
+ \quad486L^7N^{-11/12},\quad36450L^8N^{-1/12}.
+\]
+Their sum is at most $37024L^8N^{-1/12}
+ <e^{30}L^{12}N^{-1/12}$.  Its logarithmic derivative is
+$12-L/12<0$, and its endpoint logarithm is below $\log10^{-6}$.
+
+This proves every analytic propagation used in \eqref{eq:assembled}.
+The main integrals contain only fixed rational parameters, not varying
+endpoints in $c$.  All remaining quantities are bounded by the
+decreasing envelopes just proved.  Thus ceiling jumps, changes of
+source primes, and changes of exceptional conductor are covered at
+their two sides without assuming that the original discrete
+expressions are continuous or monotone.
+
+\appendix
+\section{The AP coefficient used in the certificate}\label{sec:APformula}
+
+This appendix specifies the BJS formulas used in \eqref{eq:AP}; it also
+explains why no maximum or hidden choice of threshold is delegated to
+an uncertified computation.  Fix $N$ and put $w=L-5c$, $\nu=\nu(N)$.
+For $x\ge w$ define
+\[
+ \mathcal E_0(x)=
+ \frac{4x^{9/2}}{(x-5\log x)^{10}}+\frac4{x^{11/2}}
+ +\frac{18e^{-x/12}}{\sqrt x}+\frac52 e^{-x/6}x^{11/2}.
+\]
+The upper coefficient obtained from BJS's bound for the sum of
+$|E_\psi(y;d,N)|$, with $x=\log y\in[w,L]$, is
+\begin{align*}
+ p_2={}&w^2\left[
+ 1.1(10\log w)\left(\frac{3.2\cdot10^{-8}}{w^8}
+                       +\frac{e^{-\nu w}}{1-\nu}\right)
+ +27\mathcal E_0(w)
+ +\frac{e^{-w/2}}{2(\log2)w^8}+0.4w^3e^{-w}\right],\\
+ p_1={}&p_2+\frac{0.67+2e^{-w/6}}{w^8},\\
+ p={}&p_1\left(1+\frac1{L^2w^3}
+                 +\frac1{(1-4/w)L}\right)+\frac{2.2}{L^2},\\
+ b(N)={}&p+\frac{0.9e^{w/2-L}L^4}{w^{10}c}.
+\end{align*}
+These are BJS's $p_2,p_1,p,c_4$ bounds with a weaker common zero
+bound.  They apply also to the nonexceptional and fixed full-conductor
+relative sums, since their zero gap is larger.
+
+To justify using the displayed endpoint for $p_2$, at fixed $N$ replace
+$\log Q_1(x_1(N))$ by $10\log x$ and multiply the BJS bound by
+$x^2/e^x$.  Every resulting term decreases for $x\ge w$:
+for the zero term its logarithmic derivative is
+$2/x+1/(x\log x)-\nu<0$;
+for the leading $\mathcal E_0$ power term it is at most
+$(13/2)/x-10/x<0$, since
+$(1-5/x)/(x-5\log x)>1/x$.
+The remaining powers decrease, and for the exponentials the largest
+degree is $15/2$ while the smallest decay rate is $1/12$.
+All threshold inequalities hold already at $w(N_0)$.
+This proves the maximum over the finite interval $[x_1(N),N]$;
+extending it to $x\ge w$ only enlarges the allowable majorant.
+
+The passage $\psi\to\theta$ gives the displayed $p_1$; partial summation
+from $x_1(N)$ to $N$ and Brun--Titchmarsh at the initial point give
+the displayed $p$, including the $2.2/L^2$ term.
+Finally removing primes dividing $N$ costs at most
+$1.3841L/c$ per modulus.  There are fewer than
+$0.65H_N$ square-free moduli by BJS's square-free counting bound.
+Since $0.65\cdot1.3841<0.9$, their normalized cost is exactly bounded
+by the last term of $b(N)$.
+These steps use the proofs of BJS Lemmas 31, 34, 35, and 43, on their
+stated square-free, coprime modulus ranges.  They do not extend the
+relative result to an arbitrary additional tag.
+
+\section{Interval integration and reproducibility}\label{sec:certificate}
+
+The numerical environment is Python 3.12 with \cert{python-flint}
+0.9.0, using Arb/ACB at 192-bit precision and one thread.
+All input constants are integers, exact rational quotients or decimal
+strings; no binary floating-point approximations enter the certificates.
+The rational identities are checked with exact rational arithmetic.
+Every adaptive integral must return a finite real enclosure with at
+least 90 bits of relative accuracy; an undecided or false comparison
+aborts execution.  The integration limit is $200000$ function
+evaluations and depth $60$, with no fallback to point sampling.
+
+Here are the analytic reductions used to avoid unverifiable nested
+quadrature.  For $3\le s\le5$,
+\[
+ F(s)=\frac{2e^\gamma}{s}
+ \left[1+\log(s-2)\log(s-1)+\operatorname{Li}_2(2-s)
+                                      +\frac{\pi^2}{12}\right].
+\]
+Differentiate the bracket to obtain $\log(s-2)/(s-1)$ and use
+its value $1$ at $s=3$; this proves the formula from the delay equation.
+For $4\le s\le6$ and $5\le s\le7$, respectively,
+\begin{align*}
+ f(s)&=\frac{2e^\gamma\log3+\int_3^{s-1}F(u)\,du}{s},\\
+ F(s)&=\frac1s\left[
+ 5F(5)+2e^\gamma\log3\,\log\frac{s-1}{4}
+ +\int_3^{s-2}F(u)\log\frac{s-1}{u+1}\,du\right].
+\end{align*}
+The second identity follows by inserting the first in
+$sF(s)=5F(5)+\int_5^sf(v-1)\,dv$ and reversing the finite integrals.
+These identities supply every function value beyond the printed
+elementary $s\le4$ range.
+
+For $L_4$, reflect the symmetric triangle to half of its square and
+then set $v=t+u$.  The one-dimensional weight is
+\[
+ \begin{cases}
+ v^{-1}\log((v-\kappa_1)/\kappa_1),
+       &2\kappa_1\le v\le\kappa_1+\kappa_2,\\
+ v^{-1}\log(\kappa_2/(v-\kappa_2)),
+       &\kappa_1+\kappa_2\le v\le2\kappa_2 .
+ \end{cases}
+\]
+For $L_5$ the corresponding weight is
+\[
+ \begin{cases}
+ v^{-1}\log((v-\kappa_2)(v-\kappa_1)/(\kappa_1\kappa_2)),
+       &\kappa_1+\kappa_2\le v\le2\kappa_2,\\
+ v^{-1}\log(\kappa_2(v-\kappa_1)/(\kappa_1(v-\kappa_2))),
+       &2\kappa_2\le v\le\lambda .
+ \end{cases}
+\]
+The formulas follow by integrating $1/(t(v-t))$ over the relevant
+line section, whose antiderivative is
+$v^{-1}\log(t/(v-t))$.
+The $A_2,A_3$ integrals are split where their arguments equal $3$ and
+$2$; the latter split is new because the retuned upper endpoints enter
+the branch $1<s<2$.  The exceptional $L_5$ integral is split at exactly
+$v=\theta_- -3\kappa_1$ and $v=\theta_- -2\kappa_1$,
+not at the unshifted values.  The latter is the jump point of $\Flow$.
+The other integrals are split wherever their delay-function formula
+changes.  Thus no nonsmooth formula is passed across an unmarked
+integration boundary.
+
+The sole forward entry point is
+\begin{center}
+\cert{python c249_verify.py --check-tex}.
+\end{center}
+It executes both component certificates afresh, reconstructs the signed
+rows of \eqref{eq:master}, checks every printed interval against the
+new ball enclosure, sums the seven budgets, and writes
+\cert{c249_final_ledger.json}.
+That file records directions, Wu weights, normalization, complete balls,
+engine precision and SHA-256 hashes of the scripts, this manuscript,
+and the exact two external source files used.
+The component JSON files are reproducible subordinate outputs, not
+alternative ledgers.  Previous $23.36$ and diagnostic floating-point
+ledgers are not inputs to this proof.
+
+The numerical run is not a formal proof checker for the analytic
+lemmas.  Their proofs and their hypotheses are the body of this
+manuscript.  The role of the run is solely to enclose the finite
+computations and certify the explicit starting inequalities that the
+half-line argument propagates.
+
+\begin{thebibliography}{9}
+\bibitem{BJS}
+M. Bordignon, D. R. Johnston and V. Starichkova,
+\emph{An explicit version of Chen's theorem and the linear sieve},
+arXiv:2207.09452, version 6.
+\url{https://arxiv.org/html/2207.09452v6}.
+\bibitem{Wu}
+J. Wu, \emph{Chen's double sieve, Goldbach's conjecture and the twin
+prime problem}, Acta Arithmetica \textbf{114} (2004), 215--273.
+\url{https://arxiv.org/abs/0705.1652}.
+\end{thebibliography}
+\end{document}
+
