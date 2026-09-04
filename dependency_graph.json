@@ -1,0 +1,43 @@
+{
+  "package": "c249-self-contained-proof-certificate",
+  "target": "D_{1,2}(N)>0 for every even N with log log N >= 24.9",
+  "entry_points": {
+    "full_reproduction": "reproduce.ps1",
+    "offline_python_install": "install_offline.ps1",
+    "proof_certificate": "c249_verify.py --check-tex",
+    "bundle_integrity": "verify_bundle.py --require-generated",
+    "pdf_quality_assurance": "c249_pdf_qa.py"
+  },
+  "local_dependencies": {
+    "c249_verify.py": [
+      "c249_interval_certificate.py",
+      "c249_structural_certificate.py",
+      "explicit_chen_c249_final.tex",
+      "bjs_source/Explicit_Chen_-_New.tex",
+      "wu_source/ChenDoubleSieve1_Paper.tex"
+    ],
+    "c249_interval_certificate.py": [
+      "c26_interval_certificate.py"
+    ],
+    "c249_structural_certificate.py": [],
+    "c249_pdf_qa.py": [
+      "output/pdf/explicit_chen_c249_final.pdf"
+    ]
+  },
+  "python_dependencies": {
+    "proof_certificate": ["python-flint==0.9.0"],
+    "pdf_quality_assurance": ["pypdf==6.10.0", "Pillow==12.3.0"],
+    "offline_wheels": "wheelhouse/*.whl"
+  },
+  "external_executables": {
+    "proof_document": "pdflatex",
+    "pdf_rendering": "pdftoppm"
+  },
+  "archived_inputs": [
+    "audit_inputs/reply.md",
+    "audit_inputs/explicit_chen_c2336_final.tex",
+    "source_archives/bjs2207.09452v6.tar",
+    "source_archives/wu0705.1652.tar"
+  ]
+}
+
