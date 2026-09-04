@@ -1,0 +1,1527 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=28mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{mathrsfs}
+\usepackage{booktabs,longtable,array,tabularx}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage[colorlinks=true,linkcolor=blue!60!black,citecolor=blue!60!black,urlcolor=blue!65!black]{hyperref}
+\usepackage[nameinlink,noabbrev]{cleveref}
+\setlength{\emergencystretch}{2em}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{hypothesis}[theorem]{Hypothesis}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\ThetaN}{\Theta(N)}
+\newcommand{\cA}{\mathcal A}
+\newcommand{\cP}{\mathcal P}
+\newcommand{\cG}{\mathcal G}
+\newcommand{\cT}{\mathcal T}
+\newcommand{\Ups}{\Upsilon}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\openstatus}{\textcolor{red!75!black}{OPEN}}
+\newcommand{\closedstatus}{\textcolor{green!45!black}{CLOSED}}
+\newcommand{\conditionalstatus}{\textcolor{orange!80!black}{CONDITIONAL}}
+\newcommand{\cert}[1]{\texttt{#1}}
+
+\title{An Audited Conditional Wu--BJS Assembly at the\\
+Double-Exponential Threshold $c=23.36$}
+\author{Revised proof record}
+\date{2 September 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This is a proof-audit revision of the manuscript claiming an explicit Chen
+theorem at \(c=23.36\).  The revision corrects the local-density convention,
+the finite Wu bad-set argument, the tagged linear-sieve main term, the
+five-box endpoints, the Johnston notation, and the numerical ledger.
+It also records the exact hypotheses needed for the \(u_0=10^7\) product
+condition, the \(X\geq N^{0.398}\) rectangle extension, and the
+\(U_{13},U_{14}\) complementary-prime switch.  Those three interfaces are
+not consequences of the published BJS statements as quoted here, and no
+certificate proving them was supplied with the input files.  Consequently
+this document does not claim an unconditional Chen theorem.  Its strongest
+strict conclusion is a conditional assembly theorem: if the six explicitly
+listed interfaces are subsequently proved with the stated quantifiers, then
+the old endpoint ledger would imply the advertised positive lower bound.
+\end{abstract}
+
+\tableofcontents
+
+\section{Scope and conclusion}
+\label{sec:scope}
+
+The sole audit standard for this revision is the supplied \cert{reply.md}.
+That file is treated as an audit report, not as a mathematical source and not
+as an instruction embedded in a theorem.  The external mathematical sources
+used below are the published BJS paper \cite{BJS} and Wu's fifteen-row
+decomposition \cite{WuI}.  Every statement not proved in this file is labelled
+as quoted, conditional, or open.
+
+Put
+\[
+ c=\log\log N,\qquad L=\log N=e^c,\qquad
+ N_0=\exp(\exp(23.36)).
+\]
+For an even \(N\), write
+\[
+ D_{1,2}(N)=
+ \#\{p\leq N:p\ {\rm prime},\ N-p>0,\ \Omega(N-p)\leq2\}.
+\]
+
+\begin{theorem}[Strongest conclusion of this revision]
+\label{thm:conditional-conclusion}
+Assume the six hypotheses
+\(\mathrm{H}_{\rm prod}\), \(\mathrm{H}_{\rm rect}\),
+\(\mathrm{H}_{\rm sw}\), \(\mathrm{H}_{\rm exc}\),
+\(\mathrm{H}_{\rm led}\), and \(\mathrm{H}_{\rm half}\) stated in
+\cref{sec:critical-hypotheses}.  Assume also the quoted BJS and Wu results
+in \cref{sec:external-inputs} in exactly the stated versions.  Then every
+even \(N\geq N_0\) satisfies
+\[
+ D_{1,2}(N)\geq 0.1731658\,\Theta(N)>0.17\,\Theta(N).
+\]
+\end{theorem}
+
+\begin{proof}
+The corrected Wu inequality is \cref{lem:wu-corrected}.  The ordinary rows
+are bounded only after the tagged application of the BJS sieve in
+\cref{lem:tagged}; the five-box rows require \(\mathrm{H}_{\rm rect}\);
+and the two negative switched rows require \(\mathrm{H}_{\rm sw}\).
+The exceptional and terminal charges are covered by
+\(\mathrm{H}_{\rm exc}\) and the terminal part of \(\mathrm{H}_{\rm led}\).
+The single ledger inequality in \(\mathrm{H}_{\rm led}\) gives the endpoint
+margin, and \(\mathrm{H}_{\rm half}\) extends that inequality over the
+whole half-line.  No other step is used.
+\end{proof}
+
+\begin{proposition}[Unconditional status of the file]
+\label{prop:status}
+Without the six hypotheses in the preceding theorem, this file proves only
+the finite algebraic identities, the corrected elementary terminal bounds,
+the exact interval-arithmetic assertions, and the necessity of the listed
+interfaces.  It does not prove \(D_{1,2}(N)>0\) for any whole half-line
+\(c\geq23.36\).  Thus the final classification is:
+\[
+\boxed{\begin{gathered}
+\text{\rm Class 3: a core analysis interface remains unproved;}\\
+\text{\rm only a conditional reduction theorem is retained.}
+\end{gathered}}
+\]
+\end{proposition}
+
+\section{Definitions and parameter conventions}
+\label{sec:definitions}
+
+\subsection{Local products and normalization}
+\label{sec:products}
+
+Define
+\[
+ C_N=
+ \prod_{\substack{q\mid N\\q>2}}\frac{q-1}{q-2}
+ \prod_{q>2}\left(1-\frac1{(q-1)^2}\right),
+ \qquad
+ \Theta(N)=\frac{C_NN}{L^2}.
+\]
+The standard lower bound \(C_N>0.6601617>0.66\) is used only as a
+normalization bound.  For \(u\ge2\), define the set and the product
+\[
+ \mathbb P_N=\{p:p\ {\rm prime},\ p\nmid N\},\qquad
+ \mathbb P_N(u)=\{p\in\mathbb P_N:p<u\},\qquad
+ Q_N(u)=\prod_{p\in\mathbb P_N(u)}p.
+\]
+The full product, used only after an explicit coprimality restriction, is
+\[
+ P^{\rm all}(u)=\prod_{p<u}p.
+\]
+Thus \(Q_N(u)\) is not an undefined synonym for a full primorial.  The
+worst fixed envelope is
+\[
+ Q_{\max}(u)=P^{\rm all}(u),\qquad Q_N(u)\mid Q_{\max}(u),
+ \qquad \log Q_N(u)\leq\log Q_{\max}(u).
+\]
+For a source tag \(\alpha\), its local density is denoted \(g_\alpha\).
+The convention used in all conditional sieve statements is
+\[
+ g_\alpha(p)=
+ \begin{cases}
+ 0,&p\mid \nu_\alpha,\\[2pt]
+ 1/(p-1),&p\nmid \nu_\alpha,
+ \end{cases}
+\tag{2.1}
+\]
+for odd primes \(p\), where \(\nu_\alpha\) is the fixed part of the tag.
+The prime \(2\) is absent from the odd source sequences; it is never silently
+inserted into an odd-prime product.
+
+\subsection{Fixed parameters}
+\label{sec:parameters}
+
+\[
+\begin{array}{c|cccccccc}
+ &\kappa_1&\kappa_2&\rho&\sigma_2&\sigma_1&u_0&\delta&\eps_0\\
+\hline
+\text{value}&1/12&29/250&1/4&141/500&41/125&10^7&29/25&1/10000
+\end{array}
+\tag{2.2}
+\]
+The support parameter in \(Z\) and the BJS product tolerance are different
+numbers:
+\[
+ \eps=\frac1{2000},\qquad
+ \eta=\frac{1452}{10^{10}},\qquad
+ C_1(\eta)\le106,\qquad C_2(\eta)\le107.
+\tag{2.3}
+\]
+Here \(\eps\) occurs only in the support definition (2.5), whereas
+\(\eta\) is the tolerance in the linear-sieve product hypothesis.  The
+bounds for \(C_1(\eta),C_2(\eta)\) follow conservatively from the BJS table
+at tolerance \(10^{-5}\), since these constants are nonincreasing as the
+reciprocal tolerance increases.  None of \(\eps,\eta,\eps_0\) may be
+interchanged.
+The main scales are
+\[
+ y=N^{1/3},\qquad z=N^{1/8},\qquad z_*=N^{\kappa_1},
+\qquad X_0=N^{1/8},
+\tag{2.4}
+\]
+\[
+ Z=N^{1/(1+\eps/2)},\qquad
+ z_0=Z^{1/(\log\log Z)^3},\qquad
+ D_\circ=z_0^3Z^{1969/12000}.
+\tag{2.5}
+\]
+For later use define distinct names for the two quantities previously both
+called \(H\):
+\[
+ H_{\rm en}:=\text{the coefficient-energy envelope},\qquad
+ H_{\rm lev}(c):=\frac{20\log(L/12)}{L/12}.
+\tag{2.6}
+\]
+The only numerical energy claim that may be used is an explicitly certified
+bound \(H_{\rm en}\le0.392000001\).  The level quantity
+\(H_{\rm lev}(23.36)\) is of order \(10^{-7}\), and is not that energy
+constant.
+
+\subsection{The source domains}
+\label{sec:domains}
+
+The two difficult four-prime domains are
+\[
+\begin{aligned}
+ \mathscr T_{13}&=\{(p_1,p_2,p_3,p_4):
+ N^{\kappa_1}\le p_1<p_2<p_3<p_4<N^{\kappa_2}\},\\
+ \mathscr T_{14}&=\{(p_1,p_2,p_3,p_4):
+ N^{\kappa_1}\le p_1<p_2<p_3<N^{\kappa_2}\le p_4
+ <N^{1/2-2\kappa_1}/p_3\}.
+\end{aligned}
+\tag{2.7}
+\]
+All source terms also carry \((p_1p_2p_3p_4,N)=1\).  A source element
+in a box is always defined with the positivity condition \(pn<N\); this
+condition is not inferred from \(p<(1+\eps_0)\omega\) and \(n<N/\omega\).
+
+\section{External inputs and their exact scope}
+\label{sec:external-inputs}
+
+\subsection{The BJS linear sieve}
+\label{sec:bjs-linear}
+
+The following is the form of BJS Theorem 6 that is used here.  Let
+\(A=\{a(n)\}_{n\ge1}\) be a finite nonnegative sequence, let
+\(\mathbb P\) be a set of primes, and set
+\[
+ P(z)=\prod_{\substack{p\in\mathbb P\\p<z}}p,\qquad
+ S(A,\mathbb P,z)=\sum_{(n,P(z))=1}a(n).
+\]
+For every tag \(n\), let \(g_n\) be multiplicative with
+\(0\le g_n(p)<1\).  If, for some \(0<\xi\le1/74\),
+\[
+ A_d:=\sum_{d\mid n}a(n)
+ =\sum_n a(n)g_n(d)+r(d),
+\tag{3.1}
+\]
+and a finite set \(\mathscr Q\subseteq\mathbb P\) has product
+\(Q=\prod_{q\in\mathscr Q}q\), BJS assumes, for every tag
+and every \(1<u<z\),
+\[
+ \prod_{\substack{p\in\mathbb P\setminus\mathscr Q\\u\le p<z}}
+ (1-g_n(p))^{-1}
+ <(1+\xi)\frac{\log z}{\log u}.
+\tag{3.2}
+\]
+With
+\[
+ X_A=\sum_n a(n)\prod_{p\mid P(z)}(1-g_n(p)),\qquad
+ R=\sum_{\substack{d\mid P(z)\\d<QD}}|r(d)|,\qquad
+ s=\frac{\log D}{\log z},
+\tag{3.3}
+\]
+BJS gives
+\[
+ S(A,\mathbb P,z)
+ <\bigl(F(s)+\xi C_1(\xi)e^2h(s)\bigr)X_A+R
+\quad(D\ge z),
+\tag{3.4}
+\]
+and
+\[
+ S(A,\mathbb P,z)
+ >\bigl(f(s)-\xi C_2(\xi)e^2h(s)\bigr)X_A-R
+\quad(D\ge z^2),
+\tag{3.5}
+\]
+where
+\[
+ h(s)=
+ \begin{cases}
+ e^{-2},&1\le s\le2,\\
+ e^{-s},&2\le s\le3,\\
+ 3s^{-1}e^{-s},&s\ge3.
+ \end{cases}
+\tag{3.6}
+\]
+The functions \(F,f\) are the BJS delay functions, with \(f(s)=0\) for
+\(s\le2\).  The tag-dependent quantity \(X_A\) in (3.3) is not replaced by
+\(|A|V(z)\) unless all tags have the same \(g_n\).
+
+\begin{hypothesis}[Finite product certificate at \(u_0=10^7\)]
+\label{hyp:prod}
+\(\mathrm{H}_{\rm prod}\) is the following quantified assertion.  For every
+even \(N\ge N_0\), every tag \(\alpha\) occurring in the source partitions,
+and every pair \(1<u<z\) for which (3.4) or (3.5) is invoked,
+\[
+ \prod_{\substack{p\in\mathbb P_N\setminus\mathbb P_N(u_0)\\u\le p<z}}
+ \bigl(1-g_\alpha(p)\bigr)^{-1}
+ <(1+\eta)\frac{\log z}{\log u},
+ \qquad \eta=\frac{1452}{10^{10}}.
+\tag{3.7}
+\]
+In applying (3.2)--(3.5), one must take \(\xi=\eta\); the unrelated
+support parameter \(\eps=1/2000\) is not substituted for \(\xi\).
+The same certificate must give an outward interval for
+\(\log Q_N(u_0)\) and a fixed worst-case interval obtained from
+\[
+ Q_N(u_0)\mid P^{\rm all}(u_0).
+\tag{3.8}
+\]
+The proof record for (3.7) must contain: (i) the deterministic list of all
+primes \(p\le u_0\), with a hash; (ii) the exact finite product or
+log-product accumulated with directed rational rounding; (iii) an explicit
+Abel summation identity for \(p>u_0\); (iv) an analytic tail bound with its
+sign and constant; and (v) a quantifier check over every allowed \(u,z,N\)
+and every tag.  For example, if
+\(b(t)=\log(1+1/(t-2))\), the tail must be bounded from an explicitly
+stated \(\vartheta(t)\) or \(\pi(t)\) envelope by
+\[
+ \sum_{u_0<p<z}b(p)
+ =A(z)b(z)-A(u_0)b(u_0)
+ -\int_{u_0}^{z}A(t)b'(t)\,dt,
+\tag{3.9}
+\]
+with \(A(t)\) and the endpoint convention defined in the certificate.
+\end{hypothesis}
+
+\begin{remark}
+The two decimal tail values \(1.2558668307\cdot10^{-7}\) and
+\(1.0727189017\cdot10^{-7}\) in the former manuscript are not a proof of
+(3.7): they do not specify the finite product, prime segmentation, Abel
+identity, directed rounding, or source hash.  Thus the \(u_0=10^7\) input is
+\openstatus, even though its exact target is now stated.
+\end{remark}
+
+\subsection{The published rectangle lemma}
+\label{sec:bjs-rectangle}
+
+BJS Lemma 32 is quoted here because it fixes the exact range that the
+revision is allowed to use.  Let \(y=N^{1/3}\), \(z=N^{1/8}\).  It assumes
+\[
+ \frac Ny<X\le\frac Nz,\qquad XY<2N,\qquad Y>Z,\qquad Y>z,
+\tag{3.7}
+\]
+as well as \(k_2<K_\delta(x_2(Y))\), \(N>(X_3)^8\), and
+\(\log\log x_2(X_3)\ge10.4\).  With
+\[
+ D^*=\frac{\sqrt{XY}}{\log^{10}Y},
+\tag{3.8}
+\]
+it bounds the prime--integer rectangle discrepancy by
+\[
+ \sum_{\substack{d<D^*\\d\mid P(y)}}\max_{(a,d)=1}
+ \left|
+ \sum_{n<X}\sum_{\substack{Z\le p<Y\\np\equiv N\pmod d}}a(n)
+ -\frac1{\varphi(d)}
+ \sum_n\sum_{\substack{Z\le p<Y\\(np,d)=1}}a(n)
+ \right|
+ \le \frac{m(X_3)XY}{\log^3Y},
+\tag{3.9}
+\]
+for \(|a(n)|\le1\), where
+\[
+\begin{aligned}
+ m(X_3)={}&39v_0(X_3)
+ +\frac{108\log^{16}X_3}{X_3\log\log X_3}
+ +\frac{26\log^5X_3}{\log^{10}(x_2(X_3))}\\
+ &+88\log^5X_3\left(X_3^{-8/3}+X_3^{-1/2}\right)
+ +\frac{106}{\log^6X_3}.
+\end{aligned}
+\tag{3.10}
+\]
+Since \(N/y=N^{2/3}\), (3.7) does not cover the boxes below
+\(N^{2/3}\).  The extension to \(X\ge N^{0.398}\) is therefore a new
+interface, not a quotation.
+
+\subsection{Wu's signed source identity}
+\label{sec:wu-input}
+
+We quote Wu's fifteen-row identity in the following sign convention:
+\[
+\begin{aligned}
+4D_{1,2}(N)\ge{}&
+4S(\cA;\mathbb P_N,z_*)-\Ups_1-\Ups_2-\Ups_3
+ +\Ups_4+\Ups_5+\Ups_6\\
+&-2\Ups_7-2\Ups_8-\Ups_9-\Ups_{10}
+ +\Ups_{11}+\Ups_{12}-\Ups_{13}-\Ups_{14}+\Ups_{15}.
+\end{aligned}
+\tag{3.11}
+\]
+This is an external combinatorial input.  The finite extension from its good
+source to all sources is proved below; the four positive rows
+\(\Ups_6,\Ups_{11},\Ups_{12},\Ups_{15}\) are deliberately removed before
+that extension.
+
+\section{The corrected finite Wu reduction}
+\label{sec:wu}
+
+\subsection{Good and bad source elements}
+\label{sec:bad}
+
+For an odd prime \(p\), put \(a=N-p\).  Let \(\cG_N\) be the submultiset
+of \(a\)'s that are square-free, coprime to \(N\), and free of primes below
+\(z_*\).  The source with \(p=2\) is kept in a separate one-element charge.
+On \(\cG_N\), Wu's Buchstab identities are finite exact identities.
+
+\begin{lemma}[Corrected finite Wu inequality]
+\label{lem:wu-corrected}
+For every even \(N\ge N_0\),
+\[
+\begin{aligned}
+4D_{1,2}(N)\ge{}&
+4S(\cA;\mathbb P_N,z_*)-\Ups_1-\Ups_2-\Ups_3
+ +\Ups_4+\Ups_5\\
+&-2\Ups_7-2\Ups_8-\Ups_9-\Ups_{10}
+ -\Ups_{13}-\Ups_{14}-E_{\rm bad}(N),
+\end{aligned}
+\tag{4.1}
+\]
+where
+\[
+ E_{\rm bad}(N)=
+ \left(4+\left(\frac L{\log2}\right)^2\right)
+ \left(2N^{1-\kappa_1}+\pi(\sqrt N)+\frac L{\log2}+1\right).
+\tag{4.2}
+\]
+\end{lemma}
+
+\begin{proof}
+Apply (3.11) on \(\cG_N\) and delete the positive terms
+\(\Ups_6,\Ups_{11},\Ups_{12},\Ups_{15}\).  Deleting positive terms lowers
+the right-hand side and is therefore valid before any bad-set compensation.
+
+If \(q^2\mid a\) with \(q\ge N^{\kappa_1}\), then \(q\le\sqrt N\), and the
+number of primes \(p\le N\) in the congruence \(p\equiv N\pmod {q^2}\) is at
+most \(N/q^2+1\).  Hence the total number of square-divisibility
+incidences is at most
+\[
+ \sum_{N^{\kappa_1}\le q\le\sqrt N}\left(\frac N{q^2}+1\right)
+ \le 2N^{1-\kappa_1}+\pi(\sqrt N).
+\tag{4.3}
+\]
+The \(+1\) term is retained; it is not hidden in the first summand.
+
+If \(q\mid N\) and \(q\mid N-p\), then \(q\mid p\), so \(p=q\).  There are
+at most \(\omega(N)\le L/\log2\) such source elements.  In the retained
+positive rows \(\Ups_4,\Ups_5\), a fixed bad \(a\) can be selected only by
+choosing at most two prime divisors of \(a\); its total multiplicity is at
+most \(2\binom{\omega(a)}2\).  The base row contributes at most \(4\).
+Since \(\omega(a)\le L/\log2\), the retained positive multiplicity is
+at most \(4+(L/\log2)^2\).  The \(p=2\) source contributes the final \(+1\).
+Multiplying this coefficient by (4.3) and the \(q\mid N\) count gives
+(4.2).  No positive high-multiplicity row is compensated, because it was
+deleted at the first step.
+\end{proof}
+
+\begin{remark}
+The earlier terminal \(2N^{1-\kappa_1}\) omitted both the congruence
+floor term and the positive rows of multiplicity three and four.  Formula
+(4.2) is the corrected elementary bound.  Its normalized size is not used
+to close the main theorem until it is inserted into the single ledger.
+\end{remark}
+
+\section{Tagged sieve and the five boxes}
+\label{sec:boxes}
+
+\subsection{The tagged main term}
+\label{sec:tagged}
+
+\begin{lemma}[Tagged finite linear sieve]
+\label{lem:tagged}
+Let \(\{(b_\alpha,w_\alpha)\}_{\alpha\in\mathcal I}\) be a finite multiset
+with \(w_\alpha\ge0\).  Let \(g_\alpha\) be the tag-dependent densities and
+define
+\[
+ A_d=\sum_{\alpha:d\mid b_\alpha}w_\alpha,\qquad
+ X_A=\sum_\alpha w_\alpha
+ \prod_{p\mid P(z)}(1-g_\alpha(p)),\qquad
+ r(d)=A_d-\sum_\alpha w_\alpha g_\alpha(d).
+\tag{5.1}
+\]
+If every tag satisfies the same product condition (3.2), then the BJS
+upper and lower bounds apply with this \(X_A\) and with
+\[
+ R=\sum_{\substack{d\mid P(z)\\d<QD}}|r(d)|.
+\tag{5.2}
+\]
+\end{lemma}
+
+\begin{proof}
+Represent the multiset by the nonnegative sequence
+\(a(b_\alpha)\) with repeated tags retained.  Then (5.1) is exactly (3.1)
+and (5.2) is exactly (3.3).  The BJS Rosser coefficients depend on \(D,z,Q\),
+not on the name of the tag, so the finite sum is
+\[
+ \sum_d\lambda^\pm(d)A_d
+ =\sum_\alpha w_\alpha\sum_d\lambda^\pm(d)g_\alpha(d)
+ +\sum_d\lambda^\pm(d)r(d).
+\tag{5.3}
+\]
+Applying the quoted BJS inequality to the tag sequence gives the stated
+formula.  No aggregated function
+\(\sum_\alpha w_\alpha g_\alpha\) is declared multiplicative, and no
+common \(V(z)\) is introduced unless all \(g_\alpha\) agree.
+\end{proof}
+
+\subsection{Triple reduction and positivity}
+\label{sec:triple}
+
+The exponent gaps used for the four upper rows are
+\[
+4\sigma_1-1=0.312,\quad 4\sigma_2-1=0.128,\quad
+\kappa_1+3\sigma_1-1=0.067\overline3,\quad
+\kappa_2+\sigma_2+2\sigma_1-1=0.054.
+\tag{5.4}
+\]
+Thus two surviving cofactor primes would force one of the four exponents in
+(5.4) above \(1\).  The only remaining source is a three-prime tuple plus
+explicit boundary charges.  A conservative symbolic charge is
+\[
+ E_{\rm tri}(N)=
+ 32\left(2N^{1-\kappa_1}+\pi(\sqrt N)+1\right)(1+L)
+ +16\left(\frac L{\log2}\right)^3+6N^{2359/3000}.
+\tag{5.5}
+\]
+This expression is a charge, not an assertion that it has already been
+absorbed into a numerical reserve.
+
+\subsection{Half-open boxes and the negative-source repair}
+\label{sec:box-definition}
+
+For an exponent interval \([a_i,b_i)\), define
+\[
+ M_i(c)=\left\lceil
+ \frac{(b_i-a_i)e^c}{\log(1+\eps_0)}
+ \right\rceil,\qquad
+ \omega_{i,j}=N^{a_i}(1+\eps_0)^j,\qquad
+ I_{i,j}=[\omega_{i,j},(1+\eps_0)\omega_{i,j}).
+\tag{5.6}
+\]
+The five families are
+\[
+\begin{array}{c|c|c}
+\text{family}&\text{selected coordinate}&[a_i,b_i)\\
+\hline
+7&p_1&[\sigma_1,1/3)\\
+8&p_1&[\sigma_2,1/3)\\
+9h&p_1&[1/8,\sigma_1)\\
+9\ell&p_2&[\sigma_1,11/24)\\
+10&p_3&[\sigma_1,1-\kappa_2-\sigma_2)
+\end{array}
+\tag{5.7}
+\]
+For a selected prime \(p\in I_{i,j}\), put
+\[
+ X_{i,j}=N/\omega_{i,j},\qquad
+ Z_{i,j}=\omega_{i,j},\qquad
+ Y_{i,j}=(1+\eps_0)\omega_{i,j}.
+\tag{5.8}
+\]
+The uncut rectangle and the positive source are, respectively,
+\[
+\begin{aligned}
+ \mathcal B^0_{i,j}
+ &=
+ \{N-pn:Z_{i,j}\le p<Y_{i,j},\ n<X_{i,j},\
+ a_{i,j}(n)=1\},\\
+ \mathcal B^+_{i,j}
+ &=
+ \{N-pn:Z_{i,j}\le p<Y_{i,j},\ n<X_{i,j},\
+ pn<N,\ a_{i,j}(n)=1\}.
+\end{aligned}
+\tag{5.9}
+\]
+The strip
+\[
+ \mathcal S_{i,j}=\{N-pn:Z_{i,j}\le p<Y_{i,j},\
+ n<X_{i,j},\ pn\ge N,\ a_{i,j}(n)=1\}
+\tag{5.10}
+\]
+satisfies \(\mathcal B^0_{i,j}=\mathcal B^+_{i,j}\mathbin{\dot\cup}
+\mathcal S_{i,j}\).  All sieve sequences in this revision use
+\(\mathcal B^+_{i,j}\); the strip is charged separately.  This removes the
+possibility of a negative source value.
+
+\begin{lemma}[Half-open box map]
+\label{lem:boxes}
+Each prime \(p\) in a selected interval belongs to exactly one box in
+(5.6).  The five families in (5.7) have, at \(c_0=23.36\), the following
+integer counts:
+\[
+\begin{array}{c|r|r}
+\text{family}&M_i&\text{certified quotient interval}\\
+\hline
+7&744\,971\,295\,075&
+[744971295074.63,\ 744971295074.65]\\
+8&7\,170\,348\,715\,094&
+[7170348715093.37,\ 7170348715093.40]\\
+9h&28\,355\,469\,918\,779&
+[28355469918778.36,\ 28355469918778.39]\\
+9\ell&18\,205\,236\,023\,387&
+[18205236023386.43,\ 18205236023387.45]\\
+10&38\,272\,900\,284\,460&
+[38272900284459.46,\ 38272900284459.49]
+\end{array}
+\tag{5.11}
+\]
+Consequently
+\[
+ M_{\rm actual}=92\,748\,926\,236\,795,\qquad
+ M_{\rm out}=M_{\rm actual}+5=92\,748\,926\,236\,800.
+\tag{5.12}
+\]
+\end{lemma}
+
+\begin{proof}
+The logarithm in (5.6) is strictly increasing, so the floor of
+\(\log(p/N^{a_i})/\log(1+\eps_0)\) is unique.  The five intervals are
+half-open and therefore do not duplicate their common endpoints.  The
+quotient intervals in (5.11) are outward rational intervals; each lies
+strictly between two consecutive integers, so its ceiling is the displayed
+\(M_i\).  Summing the five integers gives (5.12).  The five additional
+units are an outward remainder count only; they are not source mass.
+\end{proof}
+
+\subsection{The accepted global rectangle interface}
+\label{sec:rectangle-interface}
+
+For the local tag \(a_{i,j}(n)\), use
+\[
+ g_{i,j}(q)=
+ \begin{cases}
+ 0,&q\mid pn,\\
+ 1/(q-1),&q\nmid pn.
+ \end{cases}
+\tag{5.13}
+\]
+The congruence discrepancy is
+\[
+\mathcal R_{i,j}(d)=
+ \sum_{n<X_{i,j}}a_{i,j}(n)
+ \left(
+ \sum_{\substack{Z_{i,j}\le p<Y_{i,j}\\np\equiv N\pmod d}}1
+ -\frac1{\varphi(d)}
+ \sum_{\substack{Z_{i,j}\le p<Y_{i,j}\\(np,d)=1}}1
+ \right).
+\tag{5.14}
+\]
+The required five-box quantity is the single global sum
+\[
+ \mathcal R_{\rm five}=
+ \sum_{i,j}\sum_{\substack{d<Q_N(u_0)D^*_{i,j}\\d\mid P^{\rm all}(y)}}
+ \lambda_{i,j}(d)\mathcal R_{i,j}(d),
+\tag{5.15}
+\]
+including the strip charges (5.10), endpoint rows, order diagonals, and any
+moduli sharing a source prime.
+
+\begin{hypothesis}[Fixed-cutoff rectangle extension]
+\label{hyp:rect}
+\(\mathrm{H}_{\rm rect}\) is the assertion that for every even \(N\ge N_0\),
+every five-box tag in (5.7), and every permitted source coefficient,
+(5.15) has the BJS five-term envelope
+\[
+ E_{\rm rect}=E_1+E_2+E_3+E_4+E_5,
+\tag{5.16}
+\]
+where
+\[
+\begin{aligned}
+ E_1&=\frac{39w_*XY}{\log^3Y},&
+ E_2&=\frac{108X\log^{13}Y}{\log\log Y},\\
+ E_3&=\frac{26XY\log^2Y}{\log^{10}x_2(X_0)},&
+ E_4&=88XY\log^2Y(X^{-1/2}+Y^{-1/2}),\\
+ E_5&=\frac{106XY}{\log^9Y}.
+\end{aligned}
+\tag{5.17}
+\]
+Here
+\[
+ x_2(t)=t/\log^{15}t,\quad
+ D_0=\log^{10}x_2(X_0),\quad X_3=X_0/2,
+\tag{5.18}
+\]
+\[
+ \rho_0=\frac{\eps_0}{1+\eps_0}
+ \frac{(\log X_0+\log(1+\eps_0))^5}{\log^6X_0},\quad
+ w_*=(1+\rho_0/2)v'_*(X_0),
+\tag{5.19}
+\]
+and \(v'_*(X_0)\) is the BJS envelope with
+\(\beta=1-\nu_{\max}\),
+\[
+\nu_{\max}=
+\min\left\{
+\frac{100}{\sqrt{K_\delta(u_{\max})}\log^2K_\delta(u_{\max})},
+\frac1{2R_1\log Q_1(u_{\max})}
+\right\},
+\quad R_1=2.0452.
+\tag{5.20}
+\]
+The assertion includes \(X\ge N^{0.398}\), \(Y\ge N^{1/8}\),
+\(XY\le(1+\eps_0)N\), fixed \(D_0\), the ordinary and exceptional
+deletion versions, and a proof that the global bound (5.15), rather than
+\(M_{\rm out}\max E_{\rm rect}\), is the quantity being charged.
+\end{hypothesis}
+
+\begin{remark}
+\(\mathrm{H}_{\rm rect}\) is not proved here.  The published BJS condition
+(3.7) has \(X>N^{2/3}\), while the lower boxes have only
+\(X\ge N^{0.398}\).  The missing proof must list every use of
+\(X>N^{2/3}\), \(D_0<D^*\), \(D^*\le Y^4\), \(Y>N^{1/8}\), and the
+exceptional deletion.  A single endpoint calculation cannot replace this
+row-by-row implication.  The five terms in (5.16) are written with explicit
+plus signs; they are not a product of five fractions.
+\end{remark}
+
+\section{The corrected complementary-prime switch}
+\label{sec:switch}
+
+\subsection{The local-coprimality switch}
+\label{sec:rough-switch}
+
+For a difficult tuple put
+\[
+ \varpi=N-p_1p_2p_3p_4\rho.
+\]
+The correct local switch is
+\[
+\begin{aligned}
+ &\mathbf1_{\{\varpi\ {\rm prime}\}}
+ \mathbf1_{\{(\rho,Q_N(p_2))=1\}}\\
+ &\quad\le
+ \mathbf1_{\{(\rho,N)=1\}}
+ \mathbf1_{\{(\rho,P^{\rm all}(z_*))=1\}}
+ W^+_{z_*}(\varpi)
+ +\mathbf1_{\{\varpi\mid N\}},
+\end{aligned}
+\tag{6.1}
+\]
+for \(\varpi\ge z_*\), with the range \(\varpi<z_*\) separately charged.
+Indeed, if the left side is one but \((\rho,N)>1\), take a prime
+\(q\mid(\rho,N)\).  Since \(q\mid N-p_1p_2p_3p_4\rho=\varpi\) and
+\(\varpi\) is prime, \(\varpi=q\mid N\).  Otherwise
+\((\rho,N)=1\) and roughness relative to \(Q_N(p_2)\), with \(p_2\ge z_*\),
+implies roughness relative to the full product \(P^{\rm all}(z_*)\).
+The upper Rosser weight then gives (6.1).
+
+\begin{lemma}[Explicit count for the \(\varpi\mid N\) terminal]
+\label{lem:varpi-N}
+The exceptional term in (6.1) has the bound
+\[
+ T_{\varpi\mid N}\le
+ \frac L{\log2}
+ \left(N^{4\kappa_2}+N^{3\kappa_2+1/4}\right).
+\tag{6.2}
+\]
+Consequently
+\[
+ \frac{T_{\varpi\mid N}}{\Theta(N)}
+ \le \frac{L^3}{0.66\log2}
+ \left(N^{4\kappa_2-1}+N^{3\kappa_2-3/4}\right),
+\tag{6.3}
+\]
+which is decreasing as a function of \(c\) on \(c\ge23.36\).
+\end{lemma}
+
+\begin{proof}
+There are at most \(L/\log2\) prime divisors \(\varpi\) of \(N\).
+For \(\mathscr T_{13}\), the four source primes have fewer than
+\(N^{4\kappa_2}\) ordered choices.  For \(\mathscr T_{14}\),
+\(p_1,p_2,p_3<N^{\kappa_2}\) and
+\[
+ p_4<N^{1/2-2\kappa_1}/p_3\le N^{1/2-3\kappa_1}=N^{1/4},
+\]
+so there are fewer than \(N^{3\kappa_2+1/4}\) choices.  For a fixed tuple
+and a fixed \(\varpi\), the equation defining \(\rho\) has at most one
+integer solution.  Multiply the counts and use
+\(\Theta(N)\ge0.66N/L^2\).  The logarithmic derivative of each term in
+(6.3) is negative because its power of \(N\) is negative and the factor
+\(L^3\) is dominated by \(N^\delta\) for every displayed
+\(\delta>0\) on this half-line.
+\end{proof}
+
+\subsection{Exact source reorganization}
+\label{sec:source-reorganization}
+
+Let \(\mathcal C\) be a finite cell partition of the two difficult source
+domains.  In a cell \(\tau\), let \(X\le p_3p_4<2X\), let
+\(\mathcal I_\tau=[M_-,M_+)\) be the interval for
+\(m=p_1p_2\rho\), and define its length by
+\[
+ M=M_+-M_-.
+\tag{6.4}
+\]
+The required grouped coefficients are
+\[
+\begin{aligned}
+ \alpha_{\tau,X}(n)
+ &=\sum_{\substack{p_3p_4=n\\(p_3,p_4)\ {\rm in\ the\ }\tau{\rm\ cell}}}
+ a_\tau(p_3,p_4),\\
+ \beta_{\tau,M}(m)
+ &=\sum_{\substack{p_1p_2\rho=m\\(p_1,p_2,\rho)\ {\rm in\ the\ }\tau{\rm\ cell}}}
+ b_\tau(p_1,p_2,\rho).
+\end{aligned}
+\tag{6.5}
+\]
+The coefficients must satisfy
+\[
+ \operatorname{supp}\alpha_{\tau,X}\subset[X,2X],\qquad
+ \operatorname{supp}\beta_{\tau,M}\subset[M_-,M_+],
+\tag{6.6}
+\]
+\[
+ \sum_n|\alpha_{\tau,X}(n)|^2\le12X,\qquad
+ \sum_m|\beta_{\tau,M}(m)|^2\le \mathcal E_{\beta,\tau}M.
+\tag{6.7}
+\]
+The cell must make the order condition \(p_2<p_3\), positivity
+\(\lceil Z\rceil\le nm\le N-2\), source coprimality, and every range
+condition either separable in (6.5) or explicitly charged as
+\(E_{\rm src,\tau}\).  Under this stated separability property, finite
+distributivity gives the exact identity
+\[
+\sum_{\substack{(p_1,p_2,p_3,p_4,\rho)\in\tau\\
+\lceil Z\rceil\le p_1p_2p_3p_4\rho\le N-2}}
+ a_\tau b_\tau
+ =
+ \sum_{n,m}\alpha_{\tau,X}(n)\beta_{\tau,M}(m)
+ \mathbf1_{\{\lceil Z\rceil\le nm\le N-2\}},
+\tag{6.8}
+\]
+with the nonseparable cells appearing in \(E_{\rm src,\tau}\).
+Thus (6.8) is an identity only after the partition and the two formulas
+(6.5) have been supplied; the words “grouped coefficients” alone do not
+establish it.
+
+\subsection{Coprimality and characters}
+\label{sec:characters}
+
+Let \(d\) be a supported modulus.  Write
+\[
+ d=d_Nd_0,\qquad (d_0,N)=1,\qquad
+ \text{every prime of }d_N\text{ divides }N.
+\tag{6.9}
+\]
+On the source with \((nm,N)=1\), if \(d_N>1\) then
+\(nm\equiv N\pmod {d_N}\) is impossible.  This is a local zero term and
+is charged before character expansion.  If \(d_N=1\), then
+\[
+ \mathbf1_{\{nm\equiv N\pmod d\}}
+ =
+ \frac1{\varphi(d)}
+ \sum_{\chi\pmod d}\chi(nm\overline N),
+\tag{6.10}
+\]
+where all characters are extended by zero off \((\mathbb Z/d\mathbb Z)^*\).
+The formula is therefore used only after \((d,N)=1\) and with the
+\((nm,d)=1\) restriction displayed.
+
+For each \(\chi\pmod d\), let \(\chi^*\pmod r\) be its primitive inducing
+character, \(r\mid d\).  The exact finite grouping is
+\[
+ \sum_{\chi\pmod d} \chi(nm\overline N)
+ =
+ \sum_{r\mid d}
+ \sum_{\substack{\chi^*\pmod r\\\chi^*\ {\rm primitive}}}
+ \sum_{\substack{\chi\pmod d\\\chi\ {\rm induced\ by\ }\chi^*}}
+ \chi^*(nm\overline N)
+ \mathbf1_{\{(nm,d)=1\}}.
+\tag{6.11}
+\]
+The inner induced-character multiplicity is retained; it is not replaced by
+one.  The principal character is separated from the nonprincipal characters,
+and an exceptional real character is removed from the nonexceptional sum
+and entered into the exceptional ledger.  These are exact bookkeeping
+operations, not numerical estimates.
+
+\subsection{The energy lemma with the missing \(+1\)}
+\label{sec:energy}
+
+\begin{lemma}[Finite semiprime coefficient energy]
+\label{lem:energy}
+Let \(\mathcal A\) be a finite set of products \(a=p_1p_2\) of two
+distinct primes, let \(w_a\in\mathbb C\), and let \(\mathcal I\) be an
+integer interval of length \(M\).  Put
+\[
+ \beta(m)=\sum_{\substack{a\in\mathcal A\\a\mid m}}w_a,\qquad
+ W=\sum_{a\in\mathcal A}|w_a|.
+\]
+Then
+\[
+\begin{aligned}
+ \sum_{m\in\mathcal I}|\beta(m)|^2
+ &\le
+ M\sum_{a,b\in\mathcal A}\frac{|w_aw_b|}{[a,b]}+W^2\\
+ &=M\left(E_{\rm disj}+E_{\rm share}+E_{\rm diag}\right)+W^2,
+\end{aligned}
+\tag{6.12}
+\]
+where
+\[
+\begin{aligned}
+ E_{\rm disj}&=\sum_{(a,b)=1}\frac{|w_aw_b|}{ab},\\
+ E_{\rm share}&=\sum_{\substack{(a,b)=p\\p\ {\rm prime}}}
+ \frac{|w_aw_b|}{[a,b]},\\
+ E_{\rm diag}&=\sum_{a=b}\frac{|w_a|^2}{a}.
+\end{aligned}
+\tag{6.13}
+\]
+The first moment obeys
+\[
+ \sum_{m\in\mathcal I}|\beta(m)|
+ \le M\sum_a\frac{|w_a|}{a}+W.
+\tag{6.14}
+\]
+\end{lemma}
+
+\begin{proof}
+Expand the square and interchange the finite sums:
+\[
+ \sum_{m\in\mathcal I}|\beta(m)|^2
+ =\sum_{a,b}w_a\overline{w_b}
+ \#\{m\in\mathcal I:[a,b]\mid m\}.
+\]
+An interval of length \(M\) contains at most \(M/[a,b]+1\) multiples
+of \([a,b]\), so the triangle inequality gives the first line of (6.12).
+For two-prime products, \((a,b)\) is either \(1\), one common prime, or
+two common primes.  In the last case the unordered products satisfy
+\(a=b\); if ordered pairs are used, the two positional representations
+are included in the definition of \(w_a\) and are not counted again.
+This proves (6.13).  The same interval count without a second coefficient
+gives (6.14).
+\end{proof}
+
+\begin{remark}
+The frequently written estimate
+\(3M(H_{\rm en}^4+4H_{\rm en}^3+2H_{\rm en}^2)\) is not a consequence of
+(6.12) until a separate certificate bounds all three sums in (6.13) and
+absorbs the \(W^2\) term.  This revision never absorbs \(+1\) by assertion.
+\end{remark}
+
+\subsection{The complete conditional bilinear interface}
+\label{sec:bilinear}
+
+Define the conductor split parameter and every symbol in the large-conductor
+bound as follows:
+\[
+ 2\le q_0<D_*:=Q_N(u_0)D_\circ,\qquad
+ K_R=2+\frac{\log(D_*/q_0)}{\log2},
+\tag{6.15}
+\]
+\[
+ L_o=\frac{L+\log(3L)}{\pi},\qquad
+ L_p=\frac{2L+\log(3L)}{\pi},\qquad
+ K_n=2+\frac{(1/3-2\kappa_1)L}{\log2}.
+\tag{6.16}
+\]
+The parameter \(q_0\) is a supplied integer cutoff, not an implicit
+conductor.  Its numerical value must be part of a certificate.
+
+\begin{hypothesis}[Complementary-prime switch and bilinear remainder]
+\label{hyp:switch}
+\(\mathrm{H}_{\rm sw}\) asserts that the cell partition in (6.5) exists,
+that (6.8) is exact up to the explicitly listed \(E_{\rm src,\tau}\), and
+that after (6.9)--(6.11), Perron separation, and the split
+\(r\le q_0\) or \(r>q_0\), the complete signed remainder obeys
+\[
+ |\mathcal R_{\rm sw}|\le
+ \mathcal E_{<q_0}+\mathcal E_{>q_0}
+ +\mathcal E_{\rm Perron}+\mathcal E_{\rm local},
+\tag{6.17}
+\]
+where the large-conductor contribution is bounded by the four explicitly
+added terms
+\[
+\begin{aligned}
+ \mathcal E_{>q_0}\le&
+ 1.1\log D_*\sqrt{\mathcal E_\beta}
+ \left(B_1+B_2+B_3+B_4\right),\\
+ B_1={}&2XM/q_0,\\
+ B_2={}&K_R\sqrt{12X}\,M,\\
+ B_3={}&K_R\sqrt{12M}\,X,\\
+ B_4={}&24D_*\sqrt{XM}.
+\end{aligned}
+\tag{6.18}
+\]
+Here \(\mathcal E_\beta\) is the certified right side of (6.12) divided
+by \(M\), including its \(W^2/M\) term.  The small-conductor term must
+be a stated fixed-target BJS \texttt{PNTPAP1} estimate with its full
+variable endpoint; it is not replaced by a prime-in-interval assertion.
+\end{hypothesis}
+
+\begin{remark}
+The proof obligations behind (6.17) are four separate arrows:
+\[
+\begin{gathered}
+\text{local coprimality}
+\longrightarrow\text{character orthogonality}\\
+\longrightarrow\text{primitive conductor grouping}
+\longrightarrow\text{Cauchy--Schwarz and large sieve}.
+\end{gathered}
+\]
+Equations (6.9)--(6.14) supply the first two arrows and the exact energy
+identity.  The inducing multiplicity, the \(+1\) energy term, the
+principal/exceptional rows, and the \(q_0,D_*\) ranges still have to be
+inserted into a numerical source proof to establish (6.17).  The supplied
+manuscript did not contain that proof, so \(\mathrm{H}_{\rm sw}\) remains
+\openstatus.  In particular, the corrected (6.18) is a sum, not the
+product caused by the missing plus sign in the former display.
+
+This is a genuine reconstruction barrier, not merely an omitted decimal.
+In the supplied pre-audit source, \(q_0\) has no numerical definition,
+the cells \(\tau\) and the weights \(a_\tau,b_\tau\) are never listed, and
+the symbols \(\alpha,\beta\) occur only as \emph{grouped coefficients}.
+Thus there is no determinate left side to which the variable-endpoint
+\texttt{PNTPAP1} statement can be applied, and no determinate inducing
+multiplicity or \(W^2/M\) term to insert into (6.18).  Different choices
+of these missing data change both the support and the constant.  Supplying
+them would be new mathematical input; they cannot be recovered by
+algebraic editing or by interval evaluation of the displayed decimals.
+\end{remark}
+
+\subsection{Perron boundaries}
+\label{sec:perron}
+
+For \(\sigma>0\), \(T>0\), and \(y>0\), put
+\[
+ I_T(y)=\frac1{2\pi i}\int_{\sigma-iT}^{\sigma+iT}\frac{y^s}{s}\,ds.
+\]
+The half-integer identities used to remove equality rows are exact:
+\[
+ \mathbf1_{\{p_2<p_3\}}
+ =\mathbf1_{\{p_3/(p_2+1/2)>1\}},
+\tag{6.19}
+\]
+\[
+ \mathbf1_{\{\lceil Z\rceil\le nm\le N-2\}}
+ =
+ \mathbf1_{\{nm/(\lceil Z\rceil-1/2)>1\}}
+ -\mathbf1_{\{nm/(N-3/2)>1\}}.
+\tag{6.20}
+\]
+For \(y\ne1\), direct integration by parts on the two vertical tails gives
+\[
+ |\,\mathbf1_{\{y>1\}}-I_T(y)\,|
+ \le \frac{2y^\sigma}{\pi T|\log y|}.
+\tag{6.21}
+\]
+The minimum logarithmic gaps at the equality rows and the resulting
+supported-modulus sum are part of \(\mathcal E_{\rm Perron}\) in (6.17).
+No exponent such as \(10^{-10^9}\) is claimed without that sum being
+evaluated with outward intervals.
+
+\section{Exceptional conductors and terminal notation}
+\label{sec:exceptional}
+
+\subsection{Landau--Page split}
+\label{sec:landau}
+
+For \(u>1\), write
+\[
+ K_\delta(u)=(\log u)^\delta,\qquad Q_1(u)=(\log u)^{10}.
+\]
+The BJS exceptional alternative gives at most one exceptional primitive
+conductor in the relevant range.  If it is below \(K_\delta(x_2(Y))\), the
+small-conductor estimate is used.  If it is above that threshold, the
+divisible moduli are deleted and the local reciprocal-density factor for
+its largest odd prime \(q_1\) is
+\[
+ \frac{q_1-1}{q_1-2}.
+\tag{7.1}
+\]
+This statement does not imply that an exceptional zero is absent.
+
+\subsection{The endpoint chain calculation}
+\label{sec:chain}
+
+Put
+\[
+ K(c)=(e^c/12)^{1.16},\qquad
+ P_{\rm odd}(r)=\prod_{\substack{p\le r\\p>2}}p.
+\]
+At \(c_0=23.36\), the rational interval certificate in
+\cert{final\_interval\_ledger.py} gives
+\[
+ 3.2846409834\cdot10^{10}<K(c_0)
+ <3.2846409836\cdot10^{10},
+\tag{7.2}
+\]
+whereas
+\[
+ P_{\rm odd}(29)=3\,234\,846\,615,\qquad
+ P_{\rm odd}(31)=100\,280\,245\,065.
+\tag{7.3}
+\]
+Hence the endpoint cell has \(q_1=31\).  Moreover
+\[
+ 31P_{\rm odd}(23)=3\,457\,939\,485<K(c_0),
+\tag{7.4}
+\]
+so a chain with \(q_2\le23\) cannot reach the endpoint threshold; the
+endpoint comparison forces \(q_2\ge29\).
+
+For a fixed primorial cell, the chain coefficient has the form
+\[
+ \mathcal C(q_1,q_2,\ldots)
+ =\frac1{q_1-2}
+ \left(1+\frac2{q_2-2}
+ +\frac2{(q_2-2)(q_3-2)}+\cdots\right).
+\tag{7.5}
+\]
+The endpoint arithmetic in (7.2)--(7.4) is closed.  The assertion that the
+resulting coefficient and all exceptional source charges are no larger on
+every later cell is a separate half-line claim and is not inferred from
+the endpoint alone.
+
+\begin{hypothesis}[Exceptional and terminal package]
+\label{hyp:exceptional}
+\(\mathrm{H}_{\rm exc}\) asserts the BJS Landau--Page split, the exceptional
+chain bound (7.5) on every cell \(P_k\le K(c)<P_{k+1}\), the
+\(\varpi\mid N\) charge (6.2), all \(p=2\), collision, cofactor-one, and
+finite Stieltjes endpoint charges, with their required normalization by
+\(\Theta(N)\).  It includes both small and large exceptional branches.
+\end{hypothesis}
+
+\subsection{Johnston notation}
+\label{sec:johnston}
+
+The two previously conflated quantities are now defined separately:
+\[
+ \frac{T_J^{\rm transfer}}{\Theta(N)}
+ \le 4.096650441\cdot10^{-4},
+\tag{7.6}
+\]
+and
+\[
+ \frac{T_J^{\rm total}}{\Theta(N)}
+ =
+ \frac{T_J^{\rm transfer}+T_J^{\rm minor}
+ +T_J^{\rm collision}+T_J^{\rm endpoint}
+ +T_J^{\rm cofactor}}{\Theta(N)}.
+\tag{7.7}
+\]
+The two displayed components
+\[
+ 4.096650441\cdot10^{-4}
+ +5.717\cdot10^{-8}
+ =4.097222141\cdot10^{-4}
+\tag{7.8}
+\]
+already show that \(4.097\cdot10^{-4}\) is not an upper bound for the
+total.  The number \(0.006759\), when used, is a bound for
+\(T_J^{\rm total}\), not for (7.6).  The final ledger must charge either
+the fully certified total (7.7), or separately certified disjoint
+components; it may not charge a component under the name \(T_J\).
+
+\section{The unique ledger}
+\label{sec:ledger}
+
+\subsection{Ledger rules}
+\label{sec:ledger-rules}
+
+Every ledger row has the fields
+\[
+\begin{gathered}
+(\text{source row},\ \text{Wu coefficient},\ \text{branch factor},\ \text{division by }4),\\
+(\text{interval},\ \text{status},\ \text{included charges}).
+\end{gathered}
+\tag{8.1}
+\]
+The only accepted normalized master expression is
+\[
+\begin{aligned}
+ \mathcal M_b={}&\frac14\bigl(
+ 4F_0-F_1-F_2-F_3+F_4+F_5\\
+ &\qquad -2F_7-2F_8-F_9-F_{10}
+ -U_{13,14}^{(b)}\bigr)\\
+ &-E_{\rm bad}/(4\Theta(N))
+ -E_{\rm tri}/(4\Theta(N))
+ -E_{\rm box}^{(b)}/(4\Theta(N))\\
+ &-E_{\rm sw}^{(b)}/(4\Theta(N))
+ -T_J^{\rm total,(b)}/\Theta(N)
+ -E_{\rm floor}^{(b)}/(4\Theta(N)).
+\end{aligned}
+\tag{8.2}
+\]
+Here \(b\) is small or large exceptional; \(U_{13,14}^{(\rm large)}
+=(30/29)U_{13,14}^{(\rm small)}\) only when the exceptional package
+proves that multiplier.  The old value \(0.616651062059\) is retired and
+does not occur in (8.2).  The only retained candidate upper bound is
+\[
+ U_{13,14}^{(\rm small)}<0.744967,\qquad
+ U_{13,14}^{(\rm large)}<\frac{30}{29}\,0.744967.
+\tag{8.3}
+\]
+The factor \(1/4\) in (8.2), the branch factor in (8.3), and the inclusion
+or exclusion from \(T_J^{\rm total}\) are recorded on the row itself.
+
+\begingroup
+\scriptsize
+\setlength{\tabcolsep}{2pt}
+\begin{longtable}{p{0.17\textwidth}p{0.09\textwidth}p{0.11\textwidth}p{0.30\textwidth}p{0.25\textwidth}}
+\label{tab:ledger-lines}\\
+\toprule
+row&Wu coefficient&branch factor&normalized candidate charge&accounting rule\\
+\midrule
+\(U_{13}+U_{14}\)&\(-1/4\)&\(1\), \(30/29\)&
+\([0.18624175,0.18624175]\), \([0.1926638792,0.1926638794]\)&
+\(U\) bound only; not in \(0.02\)\\
+five-box and strip&row weights, already divided by \(4\)&
+\(1\), \(30/29\)&
+\([0.00346007789,0.00346007791]\),
+\([0.00357939092,0.00357939094]\)&
+rectangle/geometry charge; not in \(0.02\)\\
+\(T_J^{\rm transfer}\)&already normalized&\(1\)&
+\([0.00040966504,0.00040966505]\)&
+component of (7.7), separately added\\
+\(T_J^{\rm minor}\)&already normalized&\(1\)&
+\([0.00000005716,0.00000005717]\)&
+component of (7.7), separately added\\
+remaining finite terminal reserve&already normalized&\(1\)&
+\([0.02000000000,0.02000000000]\)&
+contains all remaining terminals, excludes the four rows above\\
+\(E_{\rm bad},E_{\rm tri},E_{\rm floor}\)&negative&branch-dependent&
+\textit{OPEN}&never set to zero\\
+\(E_{\rm AP},E_{\rm rect},E_{\rm sw}\)&negative&branch-dependent&
+\textit{OPEN}&never set to zero\\
+\bottomrule
+\end{longtable}
+\endgroup
+The two rows for \(T_J^{\rm transfer}\) and \(T_J^{\rm minor}\) are not a
+claim about \(T_J^{\rm total}\): all other terms in (7.7) must be proved to
+fit the separately named \(0.02\) reserve, or \(T_J^{\rm total}\) must be
+charged as one larger row.  This convention makes every inclusion decision
+visible and prevents double counting.
+
+\subsection{Machine-readable endpoint arithmetic}
+\label{sec:ledger-arithmetic}
+
+The exact rational interval script \cert{final\_interval\_ledger.py} uses
+the following candidate input intervals, all represented as decimal
+rationals:
+\[
+\begin{array}{c|c}
+\text{quantity}&\text{outward interval}\\
+\hline
+M_{\rm small}^{\rm candidate}
+ &[0.86576447960,\ 0.86576447962]\\
+M_{\rm large}^{\rm candidate}
+ &[0.38981885171,\ 0.38981885173]\\
+E_{\rm box}^{\rm small}/\Theta
+ &[0.00346007789,\ 0.00346007791]\\
+E_{\rm box}^{\rm large}/\Theta
+ &[0.00357939092,\ 0.00357939094]\\
+U_{13,14}^{\rm small}&[0.7449669,\ 0.7449670]
+\end{array}
+\tag{8.5}
+\]
+The intervals in (8.5) are candidate ledger inputs, not proved analytic
+outputs.  Exact rational subtraction nevertheless gives
+\small
+\[
+\begin{aligned}
+ [0.86576447960,0.86576447962]
+ -[0.21011155000,0.21011155020]
+ &\subset[0.65565292940,0.65565292962],\\
+ [0.38981885171,0.38981885173]
+ -[0.21665299240,0.21665299250]
+ &\subset[0.17316585921,0.17316585933].
+\end{aligned}
+\tag{8.6}
+\]
+\normalsize
+The subtraction in (8.6) is closed arithmetic only.  It does not certify
+that the two left-hand intervals are the outputs of the Wu, rectangle,
+switch, exceptional, and terminal proofs.  The full ledger must reject an
+unknown charge rather than silently set it to zero.
+
+\subsection{Critical hypotheses}
+\label{sec:critical-hypotheses}
+
+\begin{description}
+\item[\(\mathrm{H}_{\rm prod}\)] The finite product lemma (3.2) for every
+relevant tag, every required \(u,z,N\), with \(u_0=10^7\).
+\item[\(\mathrm{H}_{\rm rect}\)] The global fixed-cutoff rectangle
+extension in \cref{hyp:rect}, including \(X\ge N^{0.398}\), all five
+boxes, and no per-box \(O(1)\) multiplication.
+\item[\(\mathrm{H}_{\rm sw}\)] The exact source regrouping and all terms in
+\cref{hyp:switch}, including coprimality, inducing factors, \(+1\) energy,
+Perron, and exceptional deletions.
+\item[\(\mathrm{H}_{\rm exc}\)] The all-cell exceptional and terminal
+package in \cref{hyp:exceptional}.
+\item[\(\mathrm{H}_{\rm led}\)] The unique machine-readable ledger proves
+that every row in (8.2) has a finite outward upper/lower interval and that
+the resulting lower endpoint is at least \(0.1731658\).
+\item[\(\mathrm{H}_{\rm half}\)] The interval proof in the next subsection
+establishes the same \(0.1731658\) ledger inequality for every
+\(c\ge23.36\), including all
+primorial, ceiling, branch, and source-domain transitions.
+\end{description}
+
+\begin{remark}
+\(\mathrm{H}_{\rm prod}\), \(\mathrm{H}_{\rm rect}\), and
+\(\mathrm{H}_{\rm sw}\) are the core analysis interfaces.  They are now
+precisely stated, but they are not proved by this file.  \(\mathrm{H}_{\rm
+exc}\), \(\mathrm{H}_{\rm led}\), and \(\mathrm{H}_{\rm half}\) remain
+conditional because they depend on those interfaces and on absent source
+certificates.  This is why (8.5) is not promoted to an unconditional
+main theorem.
+
+\end{remark}
+
+\section{Half-line uniformity}
+\label{sec:halfline}
+
+\subsection{Continuous worst-case envelope}
+\label{sec:continuous-envelope}
+
+Define
+\[
+ \underline\theta(c)=
+ \frac12-\frac{\log Q_{\max}(10^7)+20c}{e^c}.
+\tag{9.1}
+\]
+Since \(Q_N(10^7)\le Q_{\max}(10^7)\), any level expression with
+\(Q_N(10^7)\) is bounded below by this fixed envelope.  Its derivative is
+\[
+ \underline\theta'(c)=e^{-c}
+ \bigl(\log Q_{\max}(10^7)+20c-20\bigr)>0
+\quad(c\ge23.36).
+\tag{9.2}
+\]
+This derivative treats \(Q_{\max}\) as a fixed number; it does not
+differentiate the discontinuous \(Q_N\).
+
+For the boxes,
+\[
+ M_i(c)\le
+ \frac{(b_i-a_i)e^c}{\log(1+\eps_0)}+1.
+\tag{9.3}
+\]
+Any claimed monotonicity of a normalized error must be proved for the full
+product containing the right side of (9.3), not for a single factor.
+Likewise the energy symbol \(H_{\rm en}\) is not replaced by the level
+function \(H_{\rm lev}(c)\).
+
+\subsection{Discrete-cell protocol}
+\label{sec:cell-protocol}
+
+The primorial cells are
+\[
+ P_k\le K(c)<P_{k+1},\qquad
+ c\in\left[
+ \log12+\frac{\log P_k}{1.16},\
+ \log12+\frac{\log P_{k+1}}{1.16}
+ \right).
+\tag{9.4}
+\]
+On each such cell the chain indices are fixed.  The ceiling transitions
+of (9.3), the source-domain endpoints, and the two exceptional alternatives
+are added to the partition.  On every finite interval \(I\) the required
+certificate is
+\[
+ \inf_{c\in I}
+ \left(\mathcal M_b(c)-E_{\rm all}^{(b)}(c)\right)>0.17,
+\tag{9.5}
+\]
+with all integrals and logarithms evaluated by outward intervals.  At each
+transition both one-sided limits are checked.  On the final half-infinite
+interval an analytic inequality must dominate every remaining polynomial
+factor by its negative exponential factor.
+
+\begin{hypothesis}[Half-line interval cover]
+\label{hyp:half}
+\(\mathrm{H}_{\rm half}\) is the existence of a finite or finitely described
+cover satisfying (9.4)--(9.5), with a supplied interval record for every
+cell.  It must include the box-count envelope, \(Q_{\max}\), the exceptional
+chain, all positive and negative signed terms, and every rounding boundary.
+\end{hypothesis}
+
+\begin{remark}
+The old endpoint differentiation did not establish (9.5): it treated
+\(Q_N\) as constant, used an energy quantity under the name \(H\), and
+ignored box-count and primorial jumps.  The endpoint \(c_0\) is therefore
+not asserted to be the worst point in this revision.  This explicitly
+closes the logical route from “two endpoint values” to “all \(c\ge c_0\)”
+only by making the missing proof a named hypothesis.
+\end{remark}
+
+\section{Proof-status matrix}
+\label{sec:status-matrix}
+
+\begingroup
+\scriptsize
+\setlength{\tabcolsep}{2pt}
+\begin{longtable}{p{0.11\textwidth}p{0.45\textwidth}p{0.25\textwidth}p{0.10\textwidth}}
+\toprule
+node&obligation&where handled&status\\
+\midrule
+W&Wu signed identity and exact row signs&\cref{sec:wu-input}&quoted\\
+W-bad&positive high-multiplicity rows removed before compensation&
+\cref{lem:wu-corrected}&\closedstatus\\
+R&full-product coprimality switch and \(\varpi\mid N\) terminal&
+\cref{sec:rough-switch,lem:varpi-N}&\closedstatus\\
+P&\(u_0=10^7\) finite product and Abel tail&
+\cref{sec:products,hyp:prod}&\openstatus\\
+T&tag-dependent \(X_A\), \(V_\alpha\), and product quantifiers&
+\cref{lem:tagged}&\closedstatus\\
+B&five-box positivity, endpoints, and exact count&
+\cref{sec:box-definition,lem:boxes}&\closedstatus\\
+Rect&\(X\ge N^{0.398}\) global rectangle estimate&
+\cref{hyp:rect}&\openstatus\\
+E&semiprime energy with diagonal/shared/disjoint cases and \(+1\)&
+\cref{lem:energy}&\closedstatus\\
+Sw&source regrouping, character, conductor, Perron, large sieve&
+\cref{hyp:switch}&\openstatus\\
+J&transfer versus total Johnston terminal&\cref{sec:johnston}&\closedstatus\textsuperscript{*}\\
+L&single ledger, all charges and branch factors&
+\cref{sec:ledger}&\openstatus\\
+H&all-\(c\) interval cover and transition checks&
+\cref{sec:halfline}&\openstatus\\
+\bottomrule
+\end{longtable}
+\endgroup
+
+\noindent\textsuperscript{*}\(\closedstatus\) means the notation and
+accounting rule are corrected; the numerical total remains an input to
+\(\mathrm{H}_{\rm exc}\) or \(\mathrm{H}_{\rm led}\), not an unconditional
+claim.
+
+\section{Reproducible interval protocol}
+\label{sec:protocol}
+
+\subsection{Rational outward arithmetic}
+\label{sec:interval}
+
+Every displayed finite decimal in the candidate ledger is interpreted as a
+rational interval \([a,b]\) with decimal endpoints.  For positive intervals
+\[
+ [a,b][c,d]=[\min(ac,ad,bc,bd),\max(ac,ad,bc,bd)],
+\]
+and subtraction is
+\[
+ [a,b]-[c,d]=[a-d,b-c].
+\]
+The script does not use binary floating point for the ledger assertions.
+For logarithms it records a rational input enclosure; when a new logarithm
+is generated, it may use
+\[
+ \log x=2\sum_{j=0}^{m}\frac{u^{2j+1}}{2j+1}+R_m,\qquad
+ u=\frac{x-1}{x+1},
+\]
+with
+\[
+ 0<R_m<
+ \frac{2u^{2m+3}}{(2m+3)(1-u^2)}
+\quad(0<u<1).
+\tag{11.1}
+\]
+Products, divisions, and the ceiling tests in (5.11) are then exact
+rational operations.  No output labelled \textit{numerical check} is
+accepted as a proof of a missing analytic inequality.
+
+\subsection{Certificate manifest}
+\label{sec:manifest}
+
+The supplied files for this revision are:
+\[
+\begin{array}{ll}
+\cert{explicit\_chen\_c2336\_final.tex}&
+\text{this complete conditional manuscript},\\
+\cert{final\_ledger.json}&
+\text{one machine-readable candidate ledger},\\
+\cert{final\_interval\_ledger.py}&
+\text{exact rational arithmetic and box-count checks},\\
+\cert{final\_audit.md}&
+\text{item-by-item audit disposition}.
+\end{array}
+\tag{11.2}
+\]
+The script verifies (5.11), (5.12), (7.2)--(7.4), and the arithmetic
+subtractions in (8.6).  It intentionally fails closed when an analytic
+interface is marked \openstatus; it never reports an unconditional
+positive Chen margin.
+
+\section{Final statement}
+\label{sec:final}
+
+The corrected file has removed the false \(N\)-independent rough-number
+claim, the undefined \(\eps\), \(q_0\), \(D_*\), \(M\), \(H\), \(B_\circ\),
+and \(F_+\) conventions, the missing plus signs, the wrong box count, the
+negative-source definition, and the conflated Johnston bounds.  It has also
+made the full-product switch, floor term, local non-coprime branches,
+tagged local products, energy \(+1\), and half-integer boundaries explicit.
+
+It has not supplied proofs of \(\mathrm{H}_{\rm prod}\),
+\(\mathrm{H}_{\rm rect}\), or \(\mathrm{H}_{\rm sw}\), nor the dependent
+all-cell ledger and half-line cover.  Therefore the strongest statement
+that can be made without inventing an external theorem or a missing
+certificate is exactly \cref{thm:conditional-conclusion} and
+\cref{prop:status}, namely:
+\[
+\boxed{\text{\rm Class 3, conditional reduction theorem only.}}
+\]
+
+\begin{thebibliography}{9}
+\bibitem{BJS}
+M. Bordignon, D. R. Johnston and V. Starichkova,
+\emph{An explicit version of Chen's theorem and the linear sieve},
+\emph{International Journal of Number Theory} 21 (2025), 2497--2572;
+\href{https://arxiv.org/abs/2207.09452}{arXiv:2207.09452v6}.
+\bibitem{WuI}
+J. Wu, \emph{Chen's double sieve, Goldbach's conjecture and the twin prime
+problem}, \emph{Acta Arithmetica} 114 (2004), 215--273;
+\href{https://arxiv.org/abs/0705.1652}{arXiv:0705.1652}.
+\end{thebibliography}
+
+\end{document}
+
