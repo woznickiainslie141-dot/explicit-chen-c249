@@ -1,0 +1,79 @@
+{
+  "presieve": {
+    "status": "strict Arb finite prefix-band bound; analytic majorant in manuscript",
+    "precision_bits": 192,
+    "prime_generation": "complete integer sieve",
+    "logarithm_base": "e",
+    "presieve_type": "pure Rosser medium weights, exact smallest-prime weights",
+    "T": 5000000,
+    "exact_cutoff": 5,
+    "exact_presieve_Q_max": 15,
+    "exact_product_ball": "0.375000000000000000000000000000000000000000000000000000000",
+    "u": "49/8",
+    "D0": "5000000^(49/8)",
+    "sigma_candidates": [
+      "0",
+      "1/10",
+      "7/50",
+      "9/50",
+      "11/50",
+      "7/25",
+      "9/25"
+    ],
+    "band_sigma_candidates": [
+      "2/25",
+      "3/25",
+      "4/25",
+      "1/5",
+      "6/25",
+      "7/25",
+      "8/25",
+      "9/25"
+    ],
+    "separate_degree_cutoff": 12,
+    "complete_odd_prime_count": 348512,
+    "medium_prime_count": 348510,
+    "minimum_larger_subset_degree": 4,
+    "degree_thresholds": [
+      5000001,
+      5000001,
+      5000001,
+      5000001,
+      55604,
+      326,
+      2,
+      1
+    ],
+    "upper_relative_Rosser_gap_ball": "[0.000349096807299115820970085666469970443311371034716 +/- 6.19e-52]",
+    "lower_relative_Rosser_gap_ball": "[0.000347781453157439521243286229537660109203807735954 +/- 7.33e-52]",
+    "relative_Rosser_gap_ball": "[0.000696878260456555342213371896007630552515178770670 +/- 7.66e-52]",
+    "ordinary_upper_relative_gap_ball": "[0.00048883231680193708594712449900950808354285088692290 +/- 7.35e-54]",
+    "ordinary_lower_relative_gap_ball": "[0.00048037030519758633775216053257047343637090961802677 +/- 4.45e-54]",
+    "degree_contributions_ball": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "[6.557187655804555764759464114903930573149496773e-6 +/- 5.86e-52]",
+      "[3.3108366464691052426856957548796872293022442999e-5 +/- 4.55e-52]",
+      "[7.42559565798889011483168071685718831092843828198e-5 +/- 8.69e-53]",
+      "[0.000143392646645144826476007861055477093109765590988 +/- 3.16e-52]",
+      "[0.000198518172599278918592550091433707404010453217539 +/- 1.79e-52]",
+      "[0.000152202837472129548970795396220057552753490139596 +/- 5.07e-52]",
+      "[6.58015005524081228252974541882562969473027525829e-5 +/- 4.84e-53]",
+      "[1.858010558399855612684829149929584607584177647254e-5 +/- 4.88e-54]",
+      "[3.9639899117353226391618495645309286711811850006064e-6 +/- 6.27e-56]",
+      "[4.9749699147553724277772321403274497168778589834785e-7 +/- 6.84e-57]"
+    ],
+    "log_support_cost_ball": "[97.185859582292253748086841445809497265607879914093345090 +/- 5.06e-55]",
+    "band_optimizers_with_strict_signs": 22599129,
+    "arithmetic": "positive raw EGF moments; Arb shifted Gram enclosures; proved nonnegative expectations",
+    "deleting_primes": "dominate for each fixed nonnegative polynomial before optimizing",
+    "formula": "sum_r,degree base * min(ordinary Rankin, exp(sigma*delta) expectation of [1+e*delta+b*delta*(2log(r)-delta)]^2), e,b>=0",
+    "elapsed_seconds": 499.235
+  },
+  "finite_generator_sha256": {
+    "conditional_chen_prefix_band_certificate.py": "ad9136ee33b25c9c8e9ab6b26e729b1860f02118f19896fcf61f86e5aea56a57",
+    "conditional_chen_rankin_certificate.py": "5f67df53975bb4e0e2631c385d00697178371feef24f464bfaa26ac9fcc7d6b7"
+  }
+}

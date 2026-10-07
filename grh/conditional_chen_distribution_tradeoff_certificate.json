@@ -1,0 +1,89 @@
+{
+  "status": "PASS: necessary distribution/onset constraints only",
+  "precision_bits": 192,
+  "B": "4000000000000000000",
+  "formula": "F_theta(y)=y^3/(2theta)*(exp(-(1-theta)y)-exp(-y))-y^4*exp(-y/2)",
+  "dependency": "prime-count lower bound pi(J)>J/log J for J>=71 (JS Lemma 3.1); manuscript integrality proof",
+  "rows": [
+    {
+      "theta": "3/4",
+      "budget": 20,
+      "C_lower_if_X_le_B_ball": "[1.16976749830762714725031927282925706407574673591613164577 +/- 9.30e-57]",
+      "displayed_C_lower": "1.1697",
+      "C_equals_one_onset_log_witness": 43,
+      "C_equals_one_obstruction_ball": "[1.13513439383859936790192976160769484345485580492756376680 +/- 4.56e-57]",
+      "C_equals_one_strict_gap_ball": "[0.13513439383859936790192976160769484345485580492756376680 +/- 4.56e-57]",
+      "current_budget_endpoint_log_witness": 22,
+      "budget_obstruction_ball": "[25.0981525840400528717799335303851969123854145165048458707 +/- 4.08e-56]",
+      "budget_constant_cap_ball": "[24.2000000000000000000000000000000000000000000000000000000 +/- 8.16e-57]",
+      "budget_strict_gap_ball": "[0.8981525840400528717799335303851969123854145165048458707 +/- 4.29e-56]",
+      "direct_sieve_main_coefficient_cap_ball": "[0.785465300626018340297358717890617451878595821128985392123 +/- 7.23e-58]"
+    },
+    {
+      "theta": "9/10",
+      "budget": 10,
+      "C_lower_if_X_le_B_ball": "[602.35215765574373649868847836261298134236234817888366716 +/- 8.56e-54]",
+      "displayed_C_lower": "602.35",
+      "C_equals_one_onset_log_witness": 143,
+      "C_equals_one_obstruction_ball": "[1.0007475051204070638029606124068419158941757879717925528 +/- 3.52e-56]",
+      "C_equals_one_strict_gap_ball": "[0.0007475051204070638029606124068419158941757879717925528 +/- 3.52e-56]",
+      "current_budget_endpoint_log_witness": 57,
+      "budget_obstruction_ball": "[344.24965166496078213735065137911492537415607036366072178 +/- 4.17e-54]",
+      "budget_constant_cap_ball": "[324.900000000000000000000000000000000000000000000000000000 +/- 9.79e-56]",
+      "budget_strict_gap_ball": "[19.34965166496078213735065137911492537415607036366072178 +/- 4.26e-54]",
+      "direct_sieve_main_coefficient_cap_ball": "[1.55650953644903316227919327868703616209549780360711731304 +/- 4.42e-57]",
+      "direct_sieve_positivity_log_witness": 18,
+      "direct_sieve_positivity_strict_gap_ball": "[18.30419108951599424620862957701905210132510561941324071 +/- 7.59e-54]"
+    },
+    {
+      "theta": "19/20",
+      "budget": 10,
+      "C_lower_if_X_le_B_ball": "[4858.1781571247287021892413725369778883602313532339872658 +/- 7.38e-53]",
+      "displayed_C_lower": "4858.17",
+      "C_equals_one_onset_log_witness": 336,
+      "C_equals_one_obstruction_ball": "[1.0095246673798260139126669722493087785382506079599671020 +/- 8.79e-56]",
+      "C_equals_one_strict_gap_ball": "[0.0095246673798260139126669722493087785382506079599671020 +/- 8.79e-56]",
+      "current_budget_endpoint_log_witness": 130,
+      "budget_obstruction_ball": "[1738.4504773535403510001087386315807049019742132771089658 +/- 7.81e-53]",
+      "budget_constant_cap_ball": "1690.00000000000000000000000000000000000000000000000000000",
+      "budget_strict_gap_ball": "[48.4504773535403510001087386315807049019742132771089658 +/- 7.81e-53]",
+      "direct_sieve_main_coefficient_cap_ball": "[1.70956851284022769522398140053338196306313320571739467833 +/- 5.65e-57]",
+      "direct_sieve_positivity_log_witness": 57,
+      "direct_sieve_positivity_strict_gap_ball": "[83.6978530256340872857681454452976400177283025496867003 +/- 9.10e-53]"
+    },
+    {
+      "theta": "99/100",
+      "budget": 10,
+      "C_lower_if_X_le_B_ball": "[25860.943744541213043346341204280605782667636800847294175 +/- 5.01e-52]",
+      "displayed_C_lower": "25860.94",
+      "C_equals_one_onset_log_witness": 2246,
+      "C_equals_one_obstruction_ball": "[1.007650679214128192263081989204119667677519014072802523 +/- 4.54e-55]",
+      "C_equals_one_strict_gap_ball": "[0.007650679214128192263081989204119667677519014072802523 +/- 4.54e-55]",
+      "current_budget_endpoint_log_witness": 834,
+      "budget_obstruction_ball": "[69954.7135490210810637378073105999810498865038532929550 +/- 2.05e-50]",
+      "budget_constant_cap_ball": "[69555.6000000000000000000000000000000000000000000000000000 +/- 3.77e-53]",
+      "budget_strict_gap_ball": "[399.1135490210810637378073105999810498865038532929550 +/- 2.05e-50]",
+      "direct_sieve_main_coefficient_cap_ball": "[1.80808944733305903665017178611760682615050956026798334328 +/- 7.54e-57]",
+      "direct_sieve_positivity_log_witness": 492,
+      "direct_sieve_positivity_strict_gap_ball": "[1363.7825733660750411527870280727160911197276022080882 +/- 6.22e-50]"
+    }
+  ],
+  "finite_checks": {
+    "exact_prime_modulus_histogram_cases": 19701,
+    "integer_x_range": [
+      3,
+      200
+    ],
+    "scope": "prime-modulus subtotal at every integer H from 2 to x-1; does not prove the general analytic lemma"
+  },
+  "witness_scope": "Specific strict witnesses, not globally optimal lower limits; passing them is not sufficient for the distribution assumption.",
+  "not_proved": [
+    "any distribution upper bound",
+    "a sufficient numerical pair C,X",
+    "a full Chen bridge",
+    "a theoretical limit for other sieve or remainder models"
+  ],
+  "input_sha256": {
+    "conditional_chen_distribution_tradeoff_certificate.py": "256606fea3249998d083405a5c1cb472e1c3859b620e8c8e2a54b05759e433af"
+  }
+}

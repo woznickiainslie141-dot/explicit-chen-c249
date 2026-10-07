@@ -1,0 +1,43 @@
+{
+  "status": "PASS: finite constants and starting gates only",
+  "log_N0": 51046,
+  "analytic_scope": "continuum propagation requires the written derivative arguments",
+  "BC_bound_at_minimum_M": "[2235.19048753073718853048772219077562088973020169703597682 +/- 1.24e-54]",
+  "smoothing_integral_constant": "[76394.3726841097611690642064188068937765406299554190953989 +/- 5.71e-53]",
+  "partial_summation_factor": "[3.62642643079648634282964964229762084569056428138821849191 +/- 5.64e-57]",
+  "A_lower_gate": "[4.57319954567851670512594911303374761136673288313276073191e-1014 +/- 8.87e-1071]",
+  "A_upper_gate": "[5.87705207068134623672765740704462641539004035575755201191e-5 +/- 2.08e-62]",
+  "pi_upper_gate": "[0.000528934686361321161305489166634016377385103632018179681072 +/- 3.55e-61]",
+  "all_small_primitive_conductors_gate": "[1.327805244805934951571430701694406626225041766948544743e-938 +/- 7.54e-993]",
+  "rectangle_constants": {
+    "E1_constant": "[38.7200000000000000000000000000000000000000000000000000000 +/- 1.64e-57]",
+    "E2_constant": "[107.184704000000000000000000000000000000000000000000000000 +/- 3.29e-56]",
+    "E3_constant": "[25.3914327196457559695346743856333016187089687930925524408 +/- 2.52e-56]",
+    "E4_constant": "[87.958503094786491810987848105151044562321894626136211163 +/- 2.09e-55]",
+    "E5_constant": "[105.600000000000000000000000000000000000000000000000000000 +/- 3.07e-56]"
+  },
+  "corrected_rectangle_deletion_ball": "[4.02274892127739954081090823947641776735508522112520e-2743 +/- 3.13e-2794]",
+  "fixed_endpoint_margin_ball": "[9.846806345273359003696786574702163946747560162943e-7 +/- 7.11e-56]",
+  "fresh_exact_support_and_Euler_product": {
+    "complete_odd_prime_count": 348512,
+    "medium_prime_count": 348510,
+    "kappa_exact": "11/169",
+    "kappa_attaining_pair": [
+      11,
+      13
+    ],
+    "C_infinity_lower_ball": "[0.660161691877076955193470093663889566421525852024815 +/- 5.26e-52]",
+    "tail": "product over all integers n>T equals (T-1)/T"
+  },
+  "input_sha256": {
+    "qrh_chen_interface_checks.py": "0798889b611350043832f0540e6e79d0b69f5eea85b23ebf2ac4faa6a68687a3",
+    "conditional_chen_rankin_certificate.py": "5f67df53975bb4e0e2631c385d00697178371feef24f464bfaa26ac9fcc7d6b7",
+    "qrh_chen_certificate.py": "edb0d02dc349bcd279f59515ab58f928cdc4358b2d9b9888b00a9a97858741b6",
+    "qrh_chen_research_20261007.md": "44494bb5ba522700c97591bbb715c771d1b499b77dbd9cddea57e5e41cb202f9"
+  },
+  "not_checked": [
+    "external seven-eighths theorem proof",
+    "general contour, sieve and distribution arguments",
+    "global threshold optimality"
+  ]
+}

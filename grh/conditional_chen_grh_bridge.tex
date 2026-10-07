@@ -1,0 +1,2730 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,hyperref}
+\hypersetup{hypertexnames=false,colorlinks=true,urlcolor=blue,citecolor=blue,linkcolor=blue}
+\setlength{\emergencystretch}{1em}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\PP}{\mathcal P_N}
+\newcommand{\li}{\operatorname{li}}
+\newcommand{\om}{\omega}
+\newcommand{\Th}{U_NN/L^2}
+\title{Exact and finite presieving in explicit Chen bounds:\\a GRH threshold and quantitative distribution interfaces}
+\author{Research manuscript}
+\date{4 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We study the gap between explicit Chen bounds and the verified binary
+Goldbach range. We combine exact weights for the smallest primes,
+finite Rosser weights for medium primes, and Rosser weights for larger
+primes; truncated Brun weights provide an alternative construction.
+Finite first-failure masses use exponents selected per degree and
+nonnegative tilted squares on a band supplied by the preceding prefix.
+Positive prefix blocks retain preceding checks. A six-state count
+bounds the union of accepted supports; an integer roughness bound
+and a finite analytic interval reduce the GRH threshold.
+The actual Rosser support is also smaller than its defining level.
+A product condition uniform at every
+upper endpoint is used throughout; the problematic fixed-endpoint-only
+application in earlier candidates is not needed. The composite weights
+retain coefficients of absolute value at most one and have support
+below $Q_*H_0D$, where $H_0$ bounds the medium-prime support and
+$Q_*$ contains only the exactly presieved primes,
+avoiding a full primorial cost through $T$. Using published
+explicit sieve constants and the GRH AP and bilinear estimates of
+Bordignon--Starichkova, we obtain $N\ge\exp(24274)$ with normalized
+surplus exceeding $10^{-5}$, and the stronger surplus $0.0181$
+for $N\ge\exp(31000)$. Quantitative signed distribution inputs at levels
+$3/4$, $9/10$, $19/20$, and $99/100$ give parameterized thresholds
+without RH or GRH, retaining unspecified constants and starting points.
+A quantified distribution input starting at $4\cdot10^{18}$ is
+withdrawn after an integrality obstruction. This unreviewed manuscript
+states its numerical certificates and analytic dependencies separately.
+\end{abstract}
+
+\section{Statements, normalization, and comparison}
+Put $L=\log N$, and let $\Omega$ count prime factors with multiplicity.
+Write $\pi_2(N)$ for the number of primes $p<N$ for which
+$N-p\ge2$ and $\Omega(N-p)\le2$. Define
+\[
+C_\infty=\prod_{p>2}\left(1-\frac1{(p-1)^2}\right),\quad
+C_N=C_\infty\prod_{\substack{p>2\\p\mid N}}\frac{p-1}{p-2},\quad
+U_N=2e^{-\gamma}C_N.
+\]
+Since the product over \emph{all} integers $n\ge3$ of
+$1-(n-1)^{-2}$ equals $1/2$, $C_N>1/2$ and $U_N>e^{-\gamma}$.
+The finite certificate also gives $C_\infty>0.66$, hence the stronger
+uniform lower bound $U_N>U_*:=1.32e^{-\gamma}$ used below.
+This normalization follows the actual sieve product; it is not the
+$2e^{\gamma}C_N$ printed in the accessible GRH preprint.
+
+\begin{theorem}[GRH threshold]\label{thm:grh}
+Assume GRH for Dirichlet $L$-functions, including RH for $\zeta$.
+Every even integer $N\ge e^{24274}$ satisfies
+\[
+\pi_2(N)>10^{-5}\,\frac{U_NN}{\log^2N}>0.
+\]
+For $N\ge e^{31000}$ the coefficient $10^{-5}$ can be replaced by $0.0181$.
+\end{theorem}
+The published GRH result \cite{BSpub} has threshold $e^{e^{14}}$;
+the older preprint \cite{BS} has $e^{e^{15.85}}$.
+Here $\log(24274)=10.097161097\ldots$. The new threshold has about
+$10543$ decimal digits, compared with about $522284$ for the published
+threshold. Theorem \ref{thm:grh} is a result of this unreviewed manuscript,
+not a published record. The stronger earlier candidates $e^{8500}$ and
+$e^{15000}$ remain unaudited at their original sieve interface and are
+not asserted by this theorem.
+We do not identify the internal unconditional manuscript at
+$e^{e^{24.9}}$ with an independently audited published result.
+
+Let $B=4\cdot10^{18}$. The following \emph{rejected candidate}, which
+was previously proposed as an additional hypothesis, is retained for audit:
+\begin{equation}\label{eq:QEH}
+\mathcal E_{9/10}(x):=
+\sum_{d\le x^{9/10}}\mu^2(d)
+\max_{(a,d)=1}\left|\pi(x;d,a)-\frac{\pi(x)}{\varphi(d)}\right|
+\le\frac{x}{10\log^2x}\qquad(x\ge B).
+\tag{QEH$_B$}
+\end{equation}
+\begin{remark}[Withdrawn full-range claim]\label{thm:bridge}
+The former full-range claim based on \eqref{eq:QEH} is withdrawn.
+The hypothesis itself is false at $B$, as proved below. Positive
+sieve-budget arithmetic under an inconsistent premise is not a
+meaningful conditional bridge.
+\end{remark}
+Ordinary Elliott--Halberstam is a standard asymptotic conjecture,
+with constants depending on the distribution level and logarithmic
+power. It does not provide this particular finite starting point
+or constant. Conversely, a single-level, single-logarithmic-power
+finite condition would not imply all of ordinary EH. They must not
+be described as two logically ordered versions of the same conjecture.
+The original published Chen theorem assumes GRH alone, and the GRH
+theorem above keeps that same conjectural assumption. RH for the zeta
+function is included in GRH here. EH and GEH are separate recognized
+distribution conjectures: for example, the GPY, Maynard, and Polymath
+conditional prime-gap results in \cite{Polymath} explicitly invoke
+them. GRH is not known to imply either conjecture. A hypothesis with
+prescribed numerical constants and a prescribed finite starting point
+must be identified separately; the standard asymptotic notation does
+not supply those data.
+Thus a distribution estimate with unspecified constants can be a
+consequence of standard EH, while the same estimate with prescribed
+constants and a prescribed starting point is additional quantitative
+input. The four distribution routes below use EH-style input in place
+of GRH, rather than requiring GRH together with EH.
+
+\begin{proposition}[Integrality obstruction]\label{prop:integrality}
+For $2\le H<x$, put $P=\pi(x)$. Then
+\[
+\sum_{d\le H}\mu^2(d)\max_{(a,d)=1}
+\left|\pi(x;d,a)-\frac{P}{\varphi(d)}\right|
+\ge\frac{\pi(H)}2-\sqrt x.
+\]
+Consequently \eqref{eq:QEH} fails at $x=B$ unconditionally.
+\end{proposition}
+\begin{proof}
+For $x<3$ the lower bound is negative and the assertion is immediate.
+We may therefore assume $x\ge3$, so $P-1\ge1$.
+Restrict the sum to prime moduli $q\le H$, and put $m=q-1$.
+The integer counts over reduced classes sum to $P-1$, because
+the prime $q$ itself is omitted. Write $P=km+r$, $0\le r<m$.
+If $r=0$, some class has count at most $k-1$, so its error is at
+least one. If $2\le r<m$, there are classes with count at most $k$
+and at least $k+1$, so the maximum error is at least
+$\max(r/m,1-r/m)\ge1/2$. The remaining case $r=1$ requires
+$q-1\mid P-1$. There are at most $\tau(P-1)\le2\sqrt{P-1}<2\sqrt x$
+such exceptional prime moduli. This proves the lower bound.
+At $B$, take $H=B^{9/10}$ and $J=\lfloor H\rfloor$.
+By \cite[Lemma 3.1]{JS}, $\pi(J)>J/\log J$ for $J\ge71$.
+The Arb certificate gives
+\[
+\frac{J}{2\log J}-\sqrt B>7.15819\cdot10^{14},\qquad
+\frac{B}{10\log^2B}<2.18026\cdot10^{14}.
+\]
+The lower bound already exceeds the proposed upper bound by a
+factor greater than $3.28$. The earlier candidate with level $3/4$
+and budget $B/\log^4B$ also fails this check, by a factor greater than
+$1.169$. Both are rejected, independently of RH or GRH.
+\end{proof}
+
+\begin{proposition}[Distribution constants and onsets]\label{prop:tradeoff}
+Suppose $0<\theta<1$ and
+$\mathcal E_\theta(x)\le Cx/\log^4x$ for every $x\ge X$,
+where $C>0$, $X>1$, and the complete square-free modulus sum is
+defined in \eqref{eq:EHinput}.
+For $y\ge\log X$ with $e^{\theta y}\ge72$, necessarily
+\begin{equation}\label{eq:integralitytradeoff}
+\begin{aligned}
+C&>\mathfrak I_\theta(y),\\
+\mathfrak I_\theta(y)
+&=\frac{y^3}{2\theta}
+ \bigl(e^{-(1-\theta)y}-e^{-y}\bigr)-y^4e^{-y/2}.
+\end{aligned}
+\end{equation}
+Let
+$R=\max\{\log X,A,\sqrt{bC}\}$, where $A>0$ and $b>0$.
+If $\mathfrak I_\theta(M)>M^2/b$ and $e^{\theta M}\ge72$,
+then $R>M$. The following are strict, certified necessary bounds,
+with $B=4\cdot10^{18}$:
+\[
+\begin{array}{c|r|r|r|r}
+\theta & C\text{ if }X\le B & \log X\text{ if }C=1 & b & R\\ \hline
+3/4    & >1.1697    & >43   &20& >22\\
+9/10   & >602.35    & >143  &10& >57\\
+19/20  & >4858.17   & >336  &10& >130\\
+99/100 & >25860.94  & >2246 &10& >834
+\end{array}
+\]
+These are necessary constraints, not sufficient choices of $C,X$.
+The witnesses are not asserted to give optimal lower limits.
+\end{proposition}
+\begin{proof}
+Put $x=e^y$, $H=x^\theta$, and $J=\lfloor H\rfloor\ge71$.
+Proposition \ref{prop:integrality} and the prime-count bound in
+\cite[Lemma 3.1]{JS} give
+\[
+\mathcal E_\theta(x)>
+\frac{J}{2\log J}-\sqrt x>
+\frac{H-1}{2\log H}-\sqrt x.
+\]
+Multiplying by $y^4/e^y$ gives \eqref{eq:integralitytradeoff}.
+For the endpoint constraint, suppose $R\le M$. Then $e^M\ge X$,
+so $C>\mathfrak I_\theta(M)>M^2/b\ge R^2/b\ge C$, a contradiction.
+The first numerical column evaluates \eqref{eq:integralitytradeoff}
+at $y=\log B$. The second uses the witnesses $y=43,143,336,2246$,
+where $\mathfrak I_\theta(y)>1$. The last uses
+$M=22,57,130,834$, respectively. The 192-bit Arb certificate checks
+each strict inequality, including its domain condition, and compares
+the closed formula with the separately evaluated normalized
+prime-count lower bound.
+\end{proof}
+In particular, the level $99/100$ thresholds in Theorem
+\ref{prop:EH} are always greater than $e^{834}$ under their present
+budget, even though their displayed analytic starts are $141$ and $142$.
+If $C=1$, the same distribution input instead requires $X>e^{2246}$.
+The other fixed analytic starts still dominate the corresponding
+last-column bounds. A higher distribution level alone does not
+justify a lower effective threshold.
+
+\section{Product estimates and an unused fixed-endpoint candidate}
+For $t>2$, use strict upper endpoints and put
+\[
+D(t)=\log t\prod_{2<p<t}\left(1-\frac1{p-1}\right),\qquad
+D_\infty=2e^{-\gamma}C_\infty.
+\]
+The identity
+\[
+\left(1-\frac1{p-1}\right)
+=\left(1-\frac1p\right)\left(1-\frac1{(p-1)^2}\right)
+\]
+explains the normalization and avoids bounding two cancelling terms
+independently. We use the following two primary inputs:
+\begin{align}
+\sum_{p<t}\frac1p&\ge\log\log t+M-\frac{2.964\cdot10^{-6}}{\log t}
+&& (t\ge2),\label{eq:recip}\\
+\left|e^\gamma\log t\prod_{p<t}(1-1/p)-1\right|
+&\le\delta(t):=\frac{3\log t}{8\pi\sqrt t}
+&& (t\ge23.8,\ \mathrm{RH}).\label{eq:mertens}
+\end{align}
+These are respectively \cite[Lemma 3.2]{JS} and
+\cite[Corollary 1.3]{LN}. The strict endpoint in the second follows
+by a one-sided limit of the published non-strict version.
+
+Let $T=10^6$ and set
+\[
+r_T=\frac{2.964\cdot10^{-6}}{\log T}+\frac1{T-1}+\frac{0.54}{T}
+<1.754543\cdot10^{-6}.
+\]
+\begin{lemma}\label{lem:product}
+The certificate described below proves $D(u)<D_\infty$ for
+$11<u\le T$. For $u>T$, $D(u)/D_\infty<e^{r_T}$.
+Consequently, under RH, for every $z>T$ and $1<u<z$,
+\begin{equation}\label{eq:product}
+\prod_{\substack{u\le p<z\\p>11}}
+\left(1-\frac1{p-1}\right)^{-1}
+<\frac{e^{r_T}}{1-\delta(z)}\frac{\log z}{\log u}.
+\end{equation}
+In particular the factor preceding $\log z/\log u$ is less than
+$1+2\cdot10^{-6}$ for $z\ge e^{40}$, and less than $1+1/700$
+for $z\ge B^{1/3}$.
+\end{lemma}
+\begin{proof}
+Between consecutive primes $D(u)$ is increasing, and its downward
+jumps occur just after a prime. It is enough to check $D(p)$ for
+prime $11<p\le T$ and the endpoint $T$. Let
+$C_T=\prod_{2<p\le T}(1-(p-1)^{-2})$. Since
+\[
+\log\frac{C_T}{C_\infty}
+\le\sum_{p>T}\frac1{p(p-2)}<\frac1{T-1},
+\]
+we may compare every peak with the rigorous lower bound
+$2e^{-\gamma}C_Te^{-1/(T-1)}$.
+The script \path{conditional_chen_product_certificate.py}
+uses a complete Eratosthenes sieve and 192-bit Arb arithmetic.
+It checks 78493 peaks; the largest occurs at $p=463181$. Its ball
+lies below $0.741284513$, whereas the lower bound for
+$D_\infty$ exceeds $0.741307533$. These are strict ball comparisons,
+not rounded floating-point decisions.
+
+For $p>T$, put
+$r(p)=-\log(1-1/(p-1))-1/p$. The factorization above gives
+\[
+0<r(p)\le\frac1{p(p-2)}+\frac{0.54}{p^2}.
+\]
+Writing $E(u)=\sum_{p<u}1/p-\log\log u-M$ gives the exact identity
+\[
+\log\frac{D(u)}{D_\infty}=-E(u)+\sum_{p\ge u}r(p).
+\]
+Use \eqref{eq:recip} and bound the tails by sums over all integers
+larger than $T$. This proves the claimed $r_T$ bound.
+Also \eqref{eq:mertens} and $C(z)\ge C_\infty$ give
+$D(z)/D_\infty\ge1-\delta(z)$. For $u>11$, the product in
+\eqref{eq:product} equals $D(u)\log z/(D(z)\log u)$.
+For $u\le11$, take a limit $u'\downarrow11$ from above; no factor
+changes and $\log u'\ge\log u$. Finally $\delta(z)$ decreases
+for $z>e^2$; the two endpoint comparisons are certified in the scripts.
+\end{proof}
+
+Deleting primes dividing $N$, or reducing any local density below
+$1/(p-1)$, only decreases the left side. We take $\PP$ to be the
+odd primes not dividing $N$ and presieve its primes at most 11.
+The actual $Q_N$ divides $1155$, hence $\log Q_N<7.1$.
+We occasionally use the weaker bound $\log Q_N<8$.
+
+\begin{remark}[Endpoint quantifiers]\label{rem:endpoints}
+Lemma \ref{lem:product} is a condition at the specified upper endpoint
+$z$, for every smaller $u$. It is not a uniform condition for all
+intermediate upper endpoints: at $u=17,v=19$ the normalized product
+equals
+$\frac{16}{15}\frac{\log17}{\log19}>1.0263$.
+The wording of \cite[Theorem 6]{BJS}, also reproduced in
+\cite[Lemma 2.2]{DJ}, is a fixed-upper-endpoint condition. However,
+the proof of BJS Lemma 11 applies an induction at lower upper endpoints,
+through the recursion $T_n(D,z)=\sum_{p<z}g(p)T_{n-1}(D/p,p)$
+in its relevant ranges. The product hypothesis at such an endpoint $p$
+does not follow simply by dividing two inequalities at $z$.
+We have not verified an alternative argument that closes this gap for
+the present product. This is a pending audit of \emph{our application},
+not a claim that the published theorem is false.
+Neither a positive budget nor a finer parameter scan settles this
+interface. The earlier candidates using only this lemma remain pending.
+Theorem \ref{thm:grh} instead uses the uniform product estimate and
+finite presieving proved next, so its induction has the required
+premise at every intermediate endpoint.
+\end{remark}
+
+\section{Uniform products and composite sieve weights}
+For an integer $T\ge10^4$, put
+\[
+b_T=\max\left\{\frac2{\sqrt T\log T},
+\frac{6.836\cdot10^{-6}}{\log(10^{12})}\right\},\quad
+K_T=\exp\left(b_T+\frac{2.964\cdot10^{-6}}{\log T}
++\frac1{T-1}+\frac{0.54}{T}\right).
+\]
+\begin{lemma}[Uniform product condition]\label{lem:uniform}
+For every $1<u<v$, unconditionally,
+\[
+\prod_{\substack{u\le p<v\\p>T}}
+\left(1-\frac1{p-1}\right)^{-1}
+\le K_T\frac{\log v}{\log u}.
+\]
+Deleting primes or decreasing local densities preserves this bound.
+\end{lemma}
+\begin{proof}
+BJS Lemma 16 gives $E(v)\le2/(\sqrt v\log v)$ for $v\le10^{12}$;
+JS Lemma 3.2 gives $E(v)\le6.836\cdot10^{-6}/\log v$ for
+$v>10^{12}$. Strict endpoints follow by limits, so $E(v)\le b_T$
+for $v>T$. For $T<u<v$, use
+\[
+\log\frac{D(u)}{D(v)}
+=E(v)-E(u)+\sum_{p\ge u}r(p)-\sum_{p\ge v}r(p)
+\le b_T+\frac{2.964\cdot10^{-6}}{\log T}
++\frac1{T-1}+\frac{0.54}{T}.
+\]
+This proves the bound. For $u\le T<v$, take $u'\downarrow T$
+from above and use $\log u'\ge\log u$. For $v\le T$ the product
+is empty. The argument includes all intermediate upper endpoints.
+\end{proof}
+
+\begin{lemma}[Finite ordered products with an analytic tail]\label{lem:ordered}
+Let $10^4\le T<S\le10^{12}$ be even integers, put $d(t)=\log D(t)$,
+and let $\lambda_Q$ be the explicit lower bound
+\[
+\lambda_Q=\log2-\gamma+
+\sum_{2<p\le Q}\log(1-(p-1)^{-2})+\log(1-1/Q)
+\le\log D_\infty\qquad(Q\ge3).
+\]
+Suppose a finite certificate supplies $A_T,M_T$ such that
+\[
+A_T\ge\sup_{T\le u<v\le S}(d(u)-d(v)),\qquad
+M_T\ge\sup_{T\le u\le S}(d(u)-\lambda_Q).
+\]
+Writing $b_S,K_S$ for the original bounds above, set
+\[
+B_T=\max\{A_T,M_T+b_S,\log K_S\}.
+\]
+Then Lemma \ref{lem:uniform} holds with $K_T$ replaced by $e^{B_T}$.
+It remains unconditional and uniform at every intermediate endpoint.
+\end{lemma}
+\begin{proof}
+The prime-only tail of $C_\infty$ is at least the product over all
+integers $n>Q$:
+\[
+\prod_{n>Q}(1-(n-1)^{-2})=(Q-1)/Q.
+\]
+This proves the asserted lower bound $\lambda_Q$.
+For $T<u<v\le S$, use the bound $A_T$. For $T<u\le S<v$,
+the identity for $D(v)/D_\infty$ gives
+$d(v)-\log D_\infty=-E(v)+\sum_{p\ge v}r(p)\ge-b_S$,
+so $d(u)-d(v)\le M_T+b_S$.
+For $S\le u<v$, apply the original uniform bound with cutoff $S$;
+$S$ is composite, so it introduces no missing boundary prime.
+The cases $u\le T$ and $v\le T$ follow as in Lemma \ref{lem:uniform}.
+Finally, $D(u)/D(v)$ is the product in that lemma multiplied by
+$\log u/\log v$.
+
+The function $d(t)$ increases strictly between primes and has a
+negative jump at each prime. Thus its ordered drawdown on $[T,S]$
+is bounded by checking every left limit as a potential earlier
+maximum and every right limit as a potential later minimum, together
+with the initial endpoint and the final endpoint.
+For adjacent finite intervals with peak, trough and drawdown
+enclosures $(P_1,Q_1,A_1)$ and $(P_2,Q_2,A_2)$, the combined
+drawdown is bounded by
+$\max\{A_1,A_2,P_1-Q_2\}$.
+This gives a finite, complete certificate for the continuum of ordered
+pairs, rather than a sample of individual endpoints.
+\end{proof}
+In the applications below take $S=10^8$, $Q=10^7$, and use
+$\widehat K_T=e^{B_T}$ from Lemma \ref{lem:ordered}.
+The complete integer sieve generates all $5761454$ odd primes through
+$S$ and checks $5760226$ prime jumps above the smallest cutoff.
+Strict Arb comparisons certify the following rational upper bounds:
+\[
+\begin{array}{r|r|c}
+T&10^{12}\log\widehat K_T&\widehat K_T-1\ \text{(upper bound)}\\\hline
+10000&987086120&0.000987573450\\
+22000&582114805&0.000582284267\\
+70000&291898888&0.000291941495\\
+5000000&24260241&0.000024260536
+\end{array}
+\]
+Here the middle column is a certified upper bound, not an asserted
+exact maximum. Finite and infinite ranges are joined by the three
+cases in the proof; no conjectural prime-product estimate is used.
+
+Let $g(p)=1/(p-1)$ on the odd primes not dividing $N$. Choose
+$2\le w_0<T<z$ and split $P_N(z)$ into the exact part $P_E$ with
+$p\le w_0$, the medium-prime part $P_0$ with $w_0<p\le T$,
+and the large-prime part $P_1$ with $T<p<z$. Put
+\[
+\begin{aligned}
+Q_0&=P_E,& Q_*&=\prod_{2<p\le w_0}p,\\
+V_*^{(0)}&=\prod_{2<p\le w_0}\left(1-\frac1{p-1}\right),&
+W_*^{(0)}&=\sum_{2<p\le w_0}\frac1{p-1}.
+\end{aligned}
+\]
+Then $Q_0\mid Q_*$. Exact inclusion--exclusion on $Q_0$ has
+divisor sum $1_{(n,Q_0)=1}$ and support at most $Q_*$.
+Fix an even integer $k\ge2$.
+Define Brun coefficients $b^+(d)=\mu(d)$ for $d\mid P_0$,
+$\om(d)\le k$, and zero otherwise; define $b^-(d)$ with cutoff
+$k-1$. The binomial identity
+$\sum_{j=0}^k(-1)^j\binom rj=\binom{r-1}k$ for $r\ge1$
+proves the pointwise upper bound, with the analogous negative identity
+for $k-1$ proving the lower bound. Put
+\[
+V_0=\prod_{p\mid P_0}(1-g(p)),\quad
+B^\pm=\sum_{d\mid P_0}b^\pm(d)g(d),\quad
+\Delta=B^+-B^-.
+\]
+Then $B^-\le V_0\le B^+$ and
+\[
+0\le\Delta=\sum_{\substack{d\mid P_0\\\om(d)=k}}g(d)
+\le W_{w_0,T}^k/k!,\qquad B^+\le(1+\eta)V_0,
+\quad\Delta\le\eta V_0,
+\]
+provided
+\begin{equation}\label{eq:Bruneta}
+\begin{aligned}
+W_{w_0,T}&=\log\log T+0.262-\frac12+c_0+b_T-W_*^{(0)},\\
+c_0&=\sum_{2<p\le1000}\frac1{p(p-1)}+\frac1{1000},\\
+\eta&\ge\frac{V_*^{(0)}\log T\,e^{b_T}}{U_*}
+\frac{W_{w_0,T}^k}{k!}.
+\end{aligned}
+\end{equation}
+The inequalities $B^-\le V_0\le B^+$ follow by averaging the
+pointwise Brun inequalities over independent prime-divisibility
+indicators with probabilities $g(p)$. Their difference is the
+nonnegative elementary symmetric sum of degree $k$ displayed above.
+Indeed $M<0.262$, and the integer telescoping tail bounds the
+correction from $1/p$ to $1/(p-1)$ by $c_0$. The exact identity
+for $D(T+)$ gives the complete odd-prime product through $T$
+at least $U_*e^{-b_T}/\log T$. Dividing this product by
+$V_*^{(0)}$ gives a lower bound for the complete medium-prime product,
+hence
+\[
+V_0\ge\frac{U_*e^{-b_T}}{V_*^{(0)}\log T}.
+\]
+The medium density sum is at most $W_{w_0,T}$. These two bounds
+remain valid when primes dividing $N$ are omitted, including omitted
+primes in the exact part: the bounds use the complete medium-prime
+product and sum, not $V(P_E)$ as a substitute for $V_*^{(0)}$.
+The bound $M<0.262$ is independently certified by the partial sum
+$\gamma+\sum_{p\le1000}(\log(1-1/p)+1/p)$, whose omitted terms
+are negative. The bound $C_\infty>0.66$ is certified by the finite
+product through $10^4$, times $e^{-1/9999}$.
+
+There is a second medium-prime construction that uses the divisor
+product rather than its number of prime factors to restrict support.
+It needs no dimension-one product premise on the medium primes.
+\begin{lemma}[Finite Rosser presieving]\label{lem:rankin}
+Let $D_0\ge T^2$ and $\sigma>0$. On $P_0$, take $b^\pm(d)=\mu(d)$
+if, for $d=p_1\cdots p_n$ with $p_1>\cdots>p_n$, every odd
+prefix $m\le n$ (upper sign), or every even prefix (lower sign),
+satisfies $p_1\cdots p_mp_m^2<D_0$; otherwise take zero.
+These weights have support $d<D_0$, coefficients in $\{\mu(d),0\}$,
+and pointwise divisor sums bracketing $1_{(n,P_0)=1}$.
+With $B^\pm,V_0,\Delta$ defined as above, put
+\begin{equation}\label{eq:Rankineta}
+\mathcal R_{w_0,T}(D_0,\sigma)=D_0^{-\sigma}
+\sum_{\substack{w_0<r\le T\\r\ \mathrm{prime}}}
+\frac{g(r)}{1-g(r)}r^{3\sigma}
+\prod_{\substack{r<p\le T\\p\ \mathrm{prime}}}
+\frac{1+g(p)p^\sigma}{1-g(p)},\qquad g(p)=\frac1{p-1}.
+\end{equation}
+The sum and product in this expression use \emph{all} medium odd primes,
+including any primes dividing $N$. Then
+\[
+0\le\Delta\le\mathcal R_{w_0,T}(D_0,\sigma)V_0,
+\qquad V_0\le B^+\le(1+\mathcal R_{w_0,T}(D_0,\sigma))V_0.
+\]
+\end{lemma}
+\begin{proof}
+For any finite prime set, expand its full inclusion--exclusion product.
+Partition the terms omitted by $b^+$ according to their first failing
+odd prefix, and those omitted by $b^-$ according to their first failing
+even prefix. Summing all possible remaining primes below the minimum
+prime $r$ of that prefix gives $V_0(r)=\prod_{p\mid P_0,\ p<r}(1-g(p))$.
+If $T_n^{(0)}$ is the sum of $g(p_1\cdots p_n)V_0(p_n)$ over first
+failing prefixes of length $n$ of the relevant parity, this proves the
+finite polynomial identities
+\[
+B^+=V_0+\sum_{n\ \mathrm{odd}}T_n^{(0)},\qquad
+B^-=V_0-\sum_{n\ \mathrm{even}}T_n^{(0)},\qquad
+\Delta=\sum_{n\ge1}T_n^{(0)}.
+\]
+They are the finite version of the identities used in BJS Proposition 13.
+They also hold when $g(p)=1_{p\mid n}$: all terms are nonnegative,
+giving the pointwise brackets. To see the support statement, if the
+last prefix has the checked parity then $dp_n^2<D_0$; otherwise, for
+$n\ge2$, the preceding checked prefix gives
+$d<p_1\cdots p_{n-1}p_{n-1}^2<D_0$. The remaining case is the
+one-prime lower weight, where $p\le T<D_0$.
+
+Every first failure satisfies $dp_n^2\ge D_0$. Drop the preceding
+prefix restrictions, apply
+$1_{dp_n^2\ge D_0}\le(dp_n^2/D_0)^\sigma$, and group by $r=p_n$.
+Since
+\[
+\frac{g(d)V_0(r)}{V_0}
+=\frac{g(r)}{1-g(r)}
+\prod_{p\mid d,\ p>r}g(p)
+\prod_{p\mid P_0,\ p>r}(1-g(p))^{-1},
+\]
+summing every subset of primes larger than $r$ gives exactly the
+positive expression in \eqref{eq:Rankineta} for the actual prime set.
+There is no factor two: the odd and even sums partition the prefix
+lengths in $\Delta$. Restoring deleted primes adds nonnegative summands
+and factors $(1+g(p)p^\sigma)/(1-g(p))\ge1$, so the complete-prime
+expression dominates it. Finally $B^+-V_0\le\Delta$.
+\end{proof}
+
+\begin{lemma}[Separate finite gaps]\label{lem:parity}
+Write $a_0=(B^+-V_0)/V_0$ and $b_0=(V_0-B^-)/V_0$.
+For each medium prime $r$, let
+\[
+H_r(t)=\prod_{r<p\le T}(1+g(p)p^\sigma t),\qquad
+e_j(r)=[t^j]H_r(t),\qquad
+W_r=\prod_{r<p\le T}(1-g(p))^{-1}.
+\]
+Both products use all medium primes. At $D_0=T^u$, a prefix with
+$k$ primes larger than its minimum $r$ satisfies
+$dp_{\min}^2\le T^kr^3$. Retain only degrees for which
+$T^kr^3\ge T^u$. If $u>3$, also retain only $k\ge\lfloor u-2\rfloor$.
+Define $E_r$ and $O_r$ as the sums of $e_k(r)$ over the retained even
+and odd degrees, respectively. Then
+\[
+a_0\le R_+:=D_0^{-\sigma}\sum_{w_0<r\le T}
+\frac{g(r)}{1-g(r)}r^{3\sigma}W_rE_r,\qquad
+b_0\le R_-:=D_0^{-\sigma}\sum_{w_0<r\le T}
+\frac{g(r)}{1-g(r)}r^{3\sigma}W_rO_r.
+\]
+The bounds remain valid upon deleting primes dividing $N$.
+All terms and elementary coefficients are nonnegative.
+\end{lemma}
+\begin{proof}
+Apply the first-failure proof above separately to odd and even prefix
+lengths. An odd prefix has an even number of primes larger than $r$,
+and conversely for an even prefix. The degree restriction from
+$T^kr^3<D_0$ removes only impossible failures. When $u>3$, a prefix
+of length $n$ with $n+2\le u$ cannot fail: for $n=1$ its product is
+at most $T^3<T^u$, and for $n\ge2$ distinct primes make the comparison
+strict even at equality $n+2=u$. Thus $k=n-1\ge\lfloor u-2\rfloor$.
+Each retained polynomial has positive coefficients; restoring primes
+increases it and $W_r$, and adds positive minimum-prime terms.
+For rational $u=A/B$, the degree test is exactly
+$r^{3B}T^{kB}\ge T^A$, so no approximate cutoff is required.
+
+The finite certificate maintains low elementary coefficients and the
+two tails beyond a fixed degree $M\ge\lceil u\rceil$.
+On adding a larger prime with $h=g(p)p^\sigma$, the low coefficients
+update by $e_j'=e_j+he_{j-1}$ in descending order.
+If $M$ is odd, the tails update by
+$E'=E+hO$ and $O'=O+h(E+e_{M-1})$; if $M$ is even they update by
+$E'=E+h(O+e_{M-1})$ and $O'=O+hE$, using old values throughout.
+Adding the required low coefficients to these tails evaluates
+$E_r,O_r$ using positive arithmetic only.
+\end{proof}
+
+\begin{lemma}[Local exponents for separate degrees]\label{lem:degreewise}
+Let $\Sigma\subset[0,\infty)$ be finite and nonempty, let $D_0=T^u$
+with $u>3$, and let $M\ge\lceil u\rceil$ be an integer.
+For each medium prime $r$, partition the retained even and odd degrees
+of Lemma \ref{lem:parity} into singleton degrees below $M$ and their
+respective residual tails at or above $M$.
+For such a group $J$ and $\sigma\in\Sigma$, put
+\[
+q_{r,\sigma}(J)=D_0^{-\sigma}\frac{g(r)}{1-g(r)}
+r^{3\sigma}W_r
+\sum_{k\in J}[x^k]\prod_{r<p\le T}(1+g(p)p^\sigma x).
+\]
+Then
+\[
+a_0\le\widehat R_+
+ :=\sum_r\sum_{J\ {\rm even}}\min_{\sigma\in\Sigma}q_{r,\sigma}(J),
+\qquad
+b_0\le\widehat R_-
+ :=\sum_r\sum_{J\ {\rm odd}}\min_{\sigma\in\Sigma}q_{r,\sigma}(J).
+\]
+The expressions use complete prime sets and remain valid when primes
+dividing $N$ are deleted. Their evaluation uses the positive recurrence
+of Lemma \ref{lem:parity} separately for each exponent.
+\end{lemma}
+\begin{proof}
+Fix $r$ and a degree group $J$. Its contribution to the normalized
+first-failure sum is independent of $\sigma$. For every $\sigma\ge0$,
+the inequality
+$1_{dr^2\ge D_0}\le(dr^2/D_0)^\sigma$ bounds that contribution by
+$q_{r,\sigma}(J)$; the exponent zero is also permitted.
+Every member of the finite family is thus an upper bound for the same
+nonnegative contribution, so their minimum is an upper bound.
+Sum over the disjoint groups and minimum primes.
+Since $M\ge\lceil u\rceil$, all degrees in the residual tails satisfy
+the necessary degree conditions; no possible failure is discarded.
+For a deleted prime set the complete-prime expression dominates its
+corresponding contribution for each exponent. Taking a minimum
+preserves this domination. Neither the sieve weights nor their support
+have changed; only their finite mass estimates have been tightened.
+\end{proof}
+
+\begin{lemma}[Nonnegative quadratic product bounds]\label{lem:quadratic}
+Fix a minimum prime $r$ and one of the degree groups $J$ in
+Lemma \ref{lem:degreewise}. For $\sigma>0$, use the complete larger
+prime set and put
+\[
+m_j=\sum_{\substack{S\subset\{p:r<p\le T\}\\ |S|\in J}}
+ \left(\prod_{p\in S}g(p)\right)
+ \left(\frac{r^3\prod_{p\in S}p}{D_0}\right)^{j\sigma},
+ \qquad j=0,1,2.
+\]
+For every $0\le b<1$, the normalized first-failure contribution
+of this group is at most
+\[
+\frac{g(r)}{1-g(r)}W_r
+ \frac{m_2-2bm_1+b^2m_0}{(1-b)^2}.
+\]
+If $m_2<m_1<m_0$, $m_0-2m_1+m_2>0$, and
+$b_*=(m_1-m_2)/(m_0-m_1)\in(0,1)$, one may use the bound
+\[
+\frac{g(r)}{1-g(r)}W_r
+ \frac{m_0m_2-m_1^2}{m_0-2m_1+m_2}.
+\]
+Take a finite minimum with the ordinary Rankin bounds and sum
+over the same degree groups and minimum primes. Denote the resulting
+gap bounds by $\widehat R^{(2)}_+$ and $\widehat R^{(2)}_-$.
+They remain valid when primes dividing $N$ are deleted.
+\end{lemma}
+\begin{proof}
+For $X\ge0$ and $0\le b<1$,
+$1_{X\ge1}\le (X-b)^2/(1-b)^2$: the right side is nonnegative
+everywhere and at least one on $X\ge1$.
+Use $X=(r^3\prod_{p\in S}p/D_0)^\sigma$.
+Dropping preceding-prefix restrictions adds only nonnegative
+polynomial values. For a deleted prime set, restoring primes
+increases both the subset sum of these nonnegative values and $W_r$,
+so the displayed complete-prime bound dominates the actual contribution
+for every fixed $b$. Only after this domination do we optimize $b$;
+no monotonicity of a moment quotient under deletion is assumed.
+Differentiating the rational quadratic gives $b_*$ and the second
+displayed expression. Finite weighted Cauchy--Schwarz gives
+$m_0m_2-m_1^2\ge0$.
+The moments at exponents $0,\sigma,2\sigma$ are evaluated by the
+positive coefficient and parity-tail recurrences above.
+Interval subtraction and division enclose the quadratic expression;
+the optimizer is used only when all required signs are certified
+strictly. An unresolved comparison is skipped. Enclosing the maximum
+of the variance expression and zero is legitimate by its proved
+nonnegativity, even when a rounded enclosure of exact zero has a
+slightly negative lower endpoint. The weights and support are unchanged.
+\end{proof}
+
+\begin{lemma}[A preceding-pass product band]\label{lem:prefixband}
+Let $D_0=T^u$ with $u>3$. Every first-failing prefix $d$,
+with minimum prime $r$, satisfies
+\[
+D_0/r^2\le d<D_0.
+\]
+Consequently $\delta=\log(dr^2/D_0)$ belongs to $[0,R)$,
+where $R=2\log r$. For $\sigma,c,b\ge0$, the function
+\[
+P_{\sigma,c,b}(\delta)
+ =\exp(\sigma\delta)\{1+c\delta+b\delta(R-\delta)\}^2
+\]
+is nonnegative on the real line and at least one on $[0,R]$.
+For a retained degree group $J$, take the complete larger prime set
+and put
+\[
+m_j=\sum_{\substack{S\subset\{p:r<p\le T\}\\ |S|\in J}}
+ \left(\prod_{p\in S}g(p)\right)e^{\sigma\delta_S}\delta_S^j,\quad
+\delta_S=\log(r^3\prod_{p\in S}p/D_0),\quad 0\le j\le4.
+\]
+Write
+\[
+v_0=m_1,\quad v_1=Rm_1-m_2,\quad
+A=m_2,\quad B=Rm_2-m_3,\quad
+C=R^2m_2-2Rm_3+m_4.
+\]
+The group's normalized first-failure contribution is bounded by
+$g(r)W_r/(1-g(r))$ times any of the following certified candidates:
+$m_0$; $m_0-v_0^2/A$ if $v_0<0$, $A>0$;
+$m_0-v_1^2/C$ if $v_1<0$, $C>0$; and
+$m_0+v_0c_*+v_1b_*$ if
+\[
+AC-B^2>0,\qquad
+c_*=\frac{Bv_1-Cv_0}{AC-B^2}\ge0,\qquad
+b_*=\frac{Bv_0-Av_1}{AC-B^2}\ge0.
+\]
+Take finite minima with ordinary Rankin candidates, then sum over
+the degree groups and $r$. Denote the resulting gap bounds by
+$\widehat R^{\rm band}_\pm$. They remain valid upon deleting primes
+dividing $N$; neither the weights nor their support changes.
+\end{lemma}
+\begin{proof}
+A one-prime prefix cannot fail since $T^3<D_0$.
+A two-prime prefix has product less than $T^2<D_0$.
+For a longer first failure of length $n$, the preceding checked
+prefix of length $n-2$ passed. Writing its last prime as $s$ and
+the last two primes as $q>r$, we have $s>q>r$ and
+$d=d_{n-2}qr<d_{n-2}s^2<D_0$.
+Failure gives $dr^2\ge D_0$, proving the band.
+On the band both $\delta$ and $\delta(R-\delta)$ are nonnegative;
+this proves the majorant. Restoring primes increases the expectation
+of this nonnegative function and $W_r$, before any optimization.
+This proves domination for every fixed $\sigma,c,b$, including for
+deleted prime sets.
+
+The complete expectation of the square equals
+$m_0+2cv_0+2bv_1+c^2A+2cbB+b^2C$.
+The two boundary candidates and the interior candidate follow by
+minimizing this quadratic over $c,b\ge0$ when their stated signs hold.
+The matrix with entries $A,B,C$ is a finite weighted Gram matrix,
+so all accepted minimum values are nonnegative. Interval maximum
+with zero therefore preserves enclosure. All optimizer conditions
+are checked strictly; unresolved candidates are omitted.
+
+Raw logarithmic moments are computed positively. Put
+\[
+E_{k,j}=\sum_{|S|=k}\prod_{p\in S}g(p)p^\sigma
+\frac{(\sum_{p\in S}\log p)^j}{j!}.
+\]
+Adding a prime of logarithm $\ell$
+updates $E_{k,j}$ by adding
+$g(p)p^\sigma\sum_{a=0}^j\ell^{j-a}E_{k-1,a}/(j-a)!$.
+The two parity tails use the same positive convolution on their
+opposite tail and the boundary degree, as in Lemma \ref{lem:parity}.
+After these positive recurrences, finite binomial shifts give the
+$m_j$ with Arb inclusion. The signed shifts and Gram formulas are
+not evaluated by floating subtraction or unproved truncation.
+Native polynomial multiplication truncated after order four evaluates
+these exact moment coefficients: higher orders cannot enter them.
+Any fixed logarithm base greater than one gives the same majorant
+family after rescaling $\sigma,c,b$ by positive constants.
+\end{proof}
+
+\begin{lemma}[Positive prefix blocks]\label{lem:prefixblocks}
+Use the finite Rosser weights of Lemma \ref{lem:rankin}, with
+$D_0=T^u$ and $u>3$. Let $r_1<r_2<\cdots$ be the complete medium
+primes, and let $K$ be the largest integer with
+$r_1\cdots r_K<D_0$. Choose $0<h<\log r_1$, put
+$J=\lceil\log D_0/h\rceil$, and label a chosen prefix by
+$B=\sum_{p\mid d}\lfloor\log p/h\rfloor$.
+Partition the complete medium primes into descending blocks with
+common label $b=\lfloor\log p/h\rfloor$. In a block set
+\[
+c=\left\lceil\frac{\log D_0-3\log p_{\min}}h\right\rceil,\qquad
+f=\max\left\{0,
+\left\lceil\frac{\log D_0-3\log p_{\max}}h\right\rceil-K+1\right\}.
+\]
+For each of the upper and lower weights, keep two nonnegative
+polynomials $X_0,X_1$ for the parity of possible passing prefixes,
+truncated to degrees $B<J$, initially $(1,0)$.
+Let $A$ append label $b$, flip parity, and, when the appended prefix
+has the checked parity, retain only source labels $B<c$.
+Always truncate resulting labels to $B<J$.
+Let $\mathcal F$ sum source coefficients with $B\ge f$ in the
+parity that is checked upon appending one prime.
+For $t_p=1/(p-2)$ form the polynomials in the operator variable $a$
+\[
+D(a)=\prod_{p\ {\rm in\ block}}(1+t_p+t_pa),\qquad
+C(a)=\frac{D(a)-1}{1+a}.
+\]
+Their coefficients are nonnegative. For each block add
+$\mathcal F\sum_{j=0}^K[a^j]C(a)A^jX$ to the corresponding gap
+bound, and replace $X$ by
+$\sum_{j=0}^K[a^j]D(a)A^jX$.
+The resulting two totals bound $(B^+-V_0)/V_0$ and
+$(V_0-B^-)/V_0$ for every deletion of medium primes.
+The rounding changes only the mass bound, not the defining sieve weights.
+\end{lemma}
+\begin{proof}
+Every accepted prefix has product below $D_0$, by the support proof
+in Lemma \ref{lem:rankin}; every first-failing prefix does also,
+by Lemma \ref{lem:prefixband}. Both therefore have at most $K$
+chosen primes. For a source prefix of degree $k$ and true logarithm
+$v$, floor labels give $hB\le v\le h(B+k)$.
+A checked pass requires $v+3\log p<\log D_0$, so $B<c$.
+A first failure has $k\le K-1$ and
+$v+3\log p\ge\log D_0$, so $B\ge f$.
+Thus these are necessary possible-pass and possible-failure
+conditions. A rounding ambiguity may contribute to both; this only
+increases the nonnegative bounds. Truncating labels at $J$ removes
+no actual accepted prefix.
+
+Before a prime $p$, multiply the accepted-prefix generating
+polynomials by the factor
+$W=\prod_{q>p}(1-g(q))^{-1}$ over previously processed primes.
+For a common relaxed append operator $A$, processing $p$ gives
+\[
+X'=((1+t_p)I+t_pA)X,\qquad
+G'=G+t_p\mathcal FX,
+\]
+where $G$ is the accumulated normalized gap.
+The actual passing prefixes and first failures are bounded by this
+positive evolution. The augmented update matrices commute because
+$A$ and $\mathcal F$ are common throughout the block. Multiplying
+them gives $X'=D(A)X$ and
+$G'=G+\mathcal FC(A)X$.
+Equivalently, as a prime with value $t$ is added,
+\[
+D_{\rm new}=(1+t+ta)D,\qquad
+C_{\rm new}=(1+t+ta)C+t.
+\]
+Starting from $D=1,C=0$, these recurrences use positive arithmetic.
+With $e_m$ the elementary symmetric sums of the block's $t_p$,
+\[
+[a^j]D=\sum_{m\ge j}\binom mj e_m,\qquad
+[a^j]C=\sum_{m\ge j+1}\binom{m-1}j e_m.
+\]
+An $A^j$ term selects $j$ primes within this block. Actual
+passing prefixes have total degree at most $K$, and actual first
+failures have at most $K-1$ preceding selected primes. Hence
+omitting terms $j>K$ cannot remove an actual contribution.
+Artificial paths of greater total degree may remain; their positive
+mass only enlarges the bound.
+
+For a deleted prime set use the same complete-set $K$, blocks,
+and cutoffs. They still contain every actual possible pass or failure.
+Deleting primes decreases every coefficient of $D$ and $C$,
+as their displayed positive formulas show. The positive operators
+therefore give complete-set domination. This proves the uniform
+claim; no cancellation of prefix masses is used.
+\end{proof}
+
+\begin{lemma}[Sharper finite support]\label{lem:sharpsupport}
+For the complete medium prime set, let $p_0$ be its least member and put
+\[
+\kappa=\max\left\{\frac1{p_0^2},
+ \max_{\substack{w_0<r<s\le T\\r,s\ {\rm prime}}}\frac r{s^2}\right\},
+\]
+with the inner maximum omitted for a singleton set.
+If $D_0=T^u$, $u>3$, every nonzero coefficient of $b^+$ or $b^-$
+has support $d<\kappa D_0$. This remains true for every deleted
+prime set. Consequently the composite weights below have support
+less than $\kappa Q_*D_0D$.
+Their finite gap estimates still use the original level $D_0$.
+\end{lemma}
+\begin{proof}
+If the final prefix is checked, $dr^2<D_0$, hence
+$d<D_0/r^2\le\kappa D_0$.
+If it is unchecked and has length at least two, the preceding
+checked prefix has last prime $s>r$ and passed; thus
+$d=d_{\rm prev}r<D_0r/s^2\le\kappa D_0$.
+The remaining one-prime lower coefficient satisfies
+$d\le T<\kappa T^u$, since $\kappa\ge1/T^2$ and $u>3$.
+The empty coefficient also satisfies the bound.
+The complete-set maximum dominates every pair in a deleted set.
+For a fixed $s$ its largest $r$ is the preceding complete prime,
+so a complete adjacent-prime scan computes the maximum.
+The convolution support follows by multiplying the exact, medium,
+and large support bounds. No coefficient or gap mass has changed.
+\end{proof}
+For the present cutoffs the exact maxima are $11/169$ at $w_0=5$
+and $5/49$ at $w_0=3$. The support-only certificate verifies these
+maxima and 52488 finite coefficient/deletion cases. The current
+endpoint charges below use $H_0=\kappa D_0$. Their finite gap
+estimates still use the original defining level $D_0$.
+
+Take the usual Rosser coefficients $\lambda_1^\pm$ on $P_1$ at
+level $D$. They equal either $\mu(d)$ or zero, have support $d<D$,
+and their divisor sums bracket $1_{(n,P_1)=1}$; see the construction
+used in BJS Proposition 13 and \cite[Theorem 9.3]{Nathanson}. In particular,
+the upper divisor sum is nonnegative. A precise definition takes
+$d=p_1\cdots p_r$, $p_1>\cdots>p_r$, and requires
+$p_1\cdots p_m p_m^2<D$ at every odd $m\le r$ for the upper
+weights and every even $m\le r$ for the lower weights.
+Their main masses $G_1^\pm$ obey the BJS bounds with $Q=1$, since
+either Lemma \ref{lem:uniform} or Lemma \ref{lem:ordered} verifies the
+product premise at every endpoint. Write $\mathcal K_T$ for the
+uniform product constant supplied by the chosen lemma.
+
+\begin{lemma}[Composite presieving]\label{lem:composite}
+Suppose $0<\epsilon\le1/74$, $\mathcal K_T<1+\epsilon$, and use the BJS
+constants $C_1,C_2$.
+Use either the Brun medium weights, with $H_0=T^k$ and $\eta$ as in
+\eqref{eq:Bruneta}, or the finite Rosser medium weights, with
+$H_0=D_0$ (or $H_0=\kappa D_0$ under Lemma \ref{lem:sharpsupport})
+and $\eta\ge\mathcal R_{w_0,T}(D_0,\sigma)$.
+For a nonnegative finite sequence with local density $g$, write
+$s=\log D/\log z$ and
+$R=\sum_{d\mid P_N(z),\ d<Q_*H_0D}|r(d)|$.
+If $D\ge z^2$ and $f(s)-\epsilon C_2e^2h(s)>0$, then the lower
+bound in \eqref{eq:sieve} holds. If $D\ge z$, its upper bound holds.
+\end{lemma}
+\begin{proof}
+First convolve the medium/large-prime coefficients to form
+\[
+\widetilde\lambda^+=b^+*\lambda_1^+,\qquad
+\widetilde\lambda^-=b^+*\lambda_1^--(b^+-b^-)*\lambda_1^+.
+\]
+For pointwise upper and lower brackets $a^-\le I_0\le a^+$
+and $c^-\le I_1\le c^+$ with $a^+,c^+\ge0$, one has
+\[
+a^-c^++a^+c^--a^+c^+\le I_0I_1\le a^+c^+.
+\]
+For the lower inequality, its left side is at most
+$I_0c^++a^+I_1-a^+c^+=I_0I_1-(a^+-I_0)(c^+-I_1)$.
+Thus these convolutions are legitimate bounds for the medium/large
+parts. Multiply the pointwise inequalities by
+$1_{(n,Q_0)=1}\ge0$, equivalently convolve both coefficients with
+$\mu_E(d)=\mu(d)1_{d\mid Q_0}$, to obtain the full weights $\lambda^\pm$.
+Every divisor has a unique medium/large factorization. Write
+$b^\pm(d_0)=\mu(d_0)I^\pm$ and
+$\lambda_1^\pm(d_1)=\mu(d_1)J^\pm$, where all four indicators
+belong to $\{0,1\}$. The normalized lower coefficient is
+$I^+J^--(I^+-I^-)J^+$. If $J^+=0$, it is $I^+J^-$;
+if $J^+=1$, it is $I^-$ when $J^-=1$ and $I^--I^+$ otherwise.
+Thus it belongs to $\{-1,0,1\}$, as does the normalized upper
+coefficient. This argument applies to both medium constructions.
+The exact factorization is also unique and $|\mu_E|\le1$, so the full
+coefficients have the same bound. Their support is below $Q_*H_0D$.
+Consequently no new divisor multiplicity is charged
+to $R$.
+Writing $V_E=\prod_{p\mid P_E}(1-g(p))$, the upper main mass is
+$V_EB^+G_1^+$ and is at most
+$(1+\eta)V(z)(F(s)+\epsilon C_1e^2h(s))$.
+The lower main mass is $V_E(B^+G_1^--\Delta G_1^+)$ and is at least
+$V(z)(f(s)-\epsilon C_2e^2h(s)
+-\eta(F(s)+\epsilon C_1e^2h(s)))$.
+Here the positivity assumption permits using $B^+\ge V_0$ in
+the first term. Expanding the divisor sums against the sequence
+and using the coefficient bounds proves the remainder claim.
+\end{proof}
+
+The resulting inequalities are
+\begin{align}\label{eq:sieve}
+S(A,z)&\ge|A|V(z)\{f(s)-\epsilon C_2 e^2h(s)
+-\eta(F(s)+\epsilon C_1e^2h(s))\}-R,
+&&D\ge z^2,\notag\\
+S(A,z)&\le|A|V(z)(1+\eta)\{F(s)+\epsilon C_1 e^2h(s)\}+R,
+&&D\ge z,
+\end{align}
+where the lower bound includes the stated positivity condition, and
+$V(z)=\prod_{p\mid P(z)}(1-g(p))$.
+
+When $a_0\le\eta_+$ and $b_0\le\eta_-$ are supplied by Lemmas
+\ref{lem:parity}, \ref{lem:degreewise}, \ref{lem:quadratic},
+\ref{lem:prefixband}, or \ref{lem:prefixblocks}, put
+$l(s)=f(s)-\epsilon C_2e^2h(s)$ and
+$u(s)=F(s)+\epsilon C_1e^2h(s)$. Since $u(s)\ge l(s)$ and $u(s)>0$,
+the same composite weights give the sharper bounds
+\begin{align}\label{eq:sieveparity}
+S(A,z)&\ge |A|V(z)\{(1+\eta_+)l(s)-(\eta_++\eta_-)u(s)\}-R,
+&&D\ge z^2,\notag\\
+S(A,z)&\le |A|V(z)(1+\eta_+)u(s)+R,
+&&D\ge z.
+\end{align}
+Indeed their normalized lower mass is at least
+$(1+a_0)l-(a_0+b_0)u=l-a_0(u-l)-b_0u$,
+which decreases in both $a_0,b_0$; the upper mass uses only $a_0$.
+The earlier coarse form remains available without separate gap inputs.
+For the finite Rosser construction these refined inequalities use the
+separate inputs of Lemmas \ref{lem:parity}, \ref{lem:degreewise},
+\ref{lem:quadratic}, \ref{lem:prefixband}, or \ref{lem:prefixblocks}
+directly; the coarse constant can always be chosen as
+$\mathcal R_{w_0,T}(D_0,\sigma)$ and is not charged in this refined form.
+
+\section{Analytic inputs and elementary envelopes}
+In the ranges needed here,
+\[
+F(s)=\frac{2e^\gamma}{s}\ (1\le s\le3),\quad
+f(s)=\frac{2e^\gamma\log(s-1)}s\ (2\le s\le4),
+\]
+\[
+h(s)=e^{-2}\ (1\le s\le2),\quad e^{-s}\ (2\le s\le3),
+\quad 3e^{-s}/s\ (s\ge3).
+\]
+For $3\le s\le4$, we also retain the exact expression from
+\cite{BJS} (the explicit formulas for $F,f$), equivalently obtained
+from $(sF(s))'=f(s-1)$:
+\begin{equation}\label{eq:F34}
+F(s)=\frac{2e^\gamma}{s}
+\left(1+\int_3^s\frac{\log(x-2)}{x-1}\,dx\right).
+\end{equation}
+The integral is evaluated by Arb/Acb analytic integration.
+Table 1 of \cite{BJS} permits $(C_1,C_2)=(106,108)$ when
+$\epsilon\le10^{-4}$, $(109,110)$ when $\epsilon\le1/2000$,
+$(113,114)$ when $\epsilon\le1/1000$,
+and $(116,117)$ when $\epsilon\le1/700$.
+
+The prime sequence is
+$A=\{N-p:p<N,\ p\text{ prime},\ p\nmid N\}$,
+and $g(p)=1/(p-1)$ on $\PP$.
+The exact product identity and \eqref{eq:mertens} imply
+\begin{equation}\label{eq:Vbounds}
+\frac{U_N}{\log x}
+\left(1-\delta(x)-\frac{2L}{x}\right)
+<V(x)
+<\frac{U_N}{\log x}(1+v),
+\end{equation}
+for the lower bound whenever $x\ge B^{1/3}$, and for the upper
+bound at $x=N^{1/8},N^{1/3}$ when $L\ge8500$, with $v=10^{-10}$.
+Indeed, the missing factors for $p\mid N$, $p\ge x$, have loss
+at most $\om(N)/(x-1)\le L/(\log2\,(x-1))<2L/x$.
+The tail $C(x)/C_\infty$ is at most $\exp(1/(x-2))$.
+At both large endpoints its effect, the missing-factor loss, and
+$\delta(x)$ together are bounded by $Le^{-L/16}<v$.
+
+Schoenfeld's RH bound, for the large $x$ used here, is
+$|\pi(x)-\li(x)|\le\sqrt x\log x/(8\pi)$.
+For $t=\log x\ge20$ elementary envelopes give
+\[
+\frac{x}{t}(1+1/t)<\li(x)<\frac{x}{t}(1+1/t+3/t^2).
+\]
+For completeness, the two inequalities are checked at $t=20$ by
+Arb evaluation of $\operatorname{Ei}(20)$; their derivatives differ
+from $1/\log x$ by $-2/t^3$ and $(t-9)/t^4$, respectively.
+Thus, after subtracting the primes dividing $N$,
+\begin{equation}\label{eq:A}
+|A|>N/L\quad(N\ge B),\qquad
+|A|\le(1+2/L)N/L\quad(L\ge8500).
+\end{equation}
+The required error comparisons at $B$ follow already from
+$L_B=42.832826035\ldots$ and $\om(N)\le L/\log2$.
+Likewise, for every $x\ge y=N^{1/3}$ and $L\ge8500$,
+\begin{equation}\label{eq:piupper}
+\pi(x)\le(1+4/L)x/\log x.
+\end{equation}
+The error term in the normalized prime count is at most
+$L^2e^{-L/6}/(72\pi)$ and is absorbed by $1/L-27/L^2$.
+
+Under GRH, the AP estimate recorded in \cite[Section 2]{BS}, from
+Ernvall-Hyt\"onen--Paloj\"arvi, gives
+\[
+|\pi(N;d,a)-\li(N)/\varphi(d)|\le q_G(N)\sqrt N\log N
+\quad(3\le d\le\sqrt N,\ (a,d)=1).
+\]
+For $L\ge8500$, $q_G(N)<0.17$. To verify this uniformly, omit the
+only negative term of the formula in BS and put
+\begin{align*}
+q_+(w)={}&0.165+12.683/w+254.980/w^2+2607.854/w^3+11605.056/w^4\\
+&+e^{-w/4}\{1.314w+0.092\log w+60.883
++8.250\log w/w+939.260/w\}.
+\end{align*}
+Every positive term decreases for $w\ge8500$; the certificate gives
+$q_+(8500)<0.166496$. Set $\beta=7/2$ and
+$H=\sqrt N/L^\beta$. Then
+\begin{equation}\label{eq:R}
+\sum_{\substack{d\le H\\(d,N)=1}}\mu^2(d)|r(d)|
+\le0.12\,N/L^{5/2}=:R_A.
+\end{equation}
+Indeed, $r(1)=0$, and $d=2$ is excluded because $N$ is even. For
+$d\ge3$, $\varphi(d)\ge2$, so centering at $\pi(N)/\varphi(d)$
+and deleting primes costs at most
+\[
+\left(0.17+\frac1{16\pi}+\frac{2e^{-L/2}}{\log2}\right)\sqrt N L.
+\]
+The coefficient is less than $0.195$. Use the unconditional bound
+$\sum_{d\le H}\mu^2(d)\le0.608H$ for $H\ge10^9$, recorded in
+BS; the certificate verifies $0.608$ times this coefficient is less
+than $0.12$. Separately, counting at most $y=N^{1/3}$ prime moduli gives
+\begin{equation}\label{eq:Rprime}
+\sum_{\substack{z\le q<y\\q\nmid N}}|r(q)|
+\le0.2\,N^{5/6}L=:R_{\rm prime}.
+\end{equation}
+This avoids charging $\log H$ against the entire sum $R_A$.
+We also use the unconditional bound
+\begin{equation}\label{eq:phimu}
+\sum_{d\le H}\frac{\mu^2(d)}{\varphi(d)}\le1.1\log H\quad(H\ge10^9)
+\end{equation}
+recorded in \cite[Section 2]{BS}.
+
+We will repeatedly use the following consequence of RH.
+\begin{lemma}[Weighted reciprocal sums]\label{lem:weighted}
+For $L\ge8500$, $z=N^{1/8}$, and all $x\ge z$,
+$|\sum_{p<x}1/p-\log\log x-M|\le\xi=L^{-2}$.
+For a nonnegative monotone function $w$ on $[a,b]\subseteq[z,\infty)$,
+\[
+\sum_{a\le p<b}\frac{w(p)}p
+\le\int_a^b\frac{w(t)}{t\log t}\,dt+2\xi\max(w(a),w(b)).
+\]
+\end{lemma}
+\begin{proof}
+Use \cite[Corollary 1.3]{LN} and
+$\delta(z)=3Le^{-L/16}/(64\pi)<L^{-2}$. Stieltjes integration
+by parts bounds the difference by
+$\xi(w(a)+w(b)+\operatorname{Var}(w))$.
+Both endpoint conventions satisfy the same bound by limits.
+\end{proof}
+
+\section{The three terms in Chen's inequality}
+Set
+\[
+\alpha=4215/10^6,\quad t=1/2-\alpha,\quad D=N^t,\quad
+\epsilon=1/41200,\quad z=N^{1/8},\quad y=N^{1/3},
+\]
+\[
+s=4-8\alpha=3.966280,\quad k=8(1/6-\alpha),\quad
+\delta=10^{-8},\quad \ell=\log(1+\delta).
+\]
+The exact cutoff is $w_0=5$, so $Q_*=15$ and
+$V_*^{(0)}=3/8$. Use the finite Rosser medium weights with
+$T=5\cdot10^6$, $D_0=T^{49/8}$,
+$\eta_+=1/2768$, and $\eta_-=1/2784$.
+Use Lemmas \ref{lem:degreewise} and \ref{lem:prefixband} with $M=12$ and
+\[
+\Sigma_G=\{0,1/10,7/50,9/50,11/50,7/25,9/25\},\quad
+\Gamma_G=\{2/25,3/25,4/25,1/5,6/25\}.
+\]
+The ordered uniform product certificate gives
+$\widehat K_T-1<2.426054\cdot10^{-5}<\epsilon$. Positive moment
+recurrences and certified shifted Gram combinations over all 348510
+medium primes give
+$\widehat R^{(\mathrm{band})}_+<0.000361187945<\eta_+$ and
+$\widehat R^{(\mathrm{band})}_-<0.000359148152<\eta_-$,
+with the degree restrictions of Lemma \ref{lem:parity}.
+Lemma \ref{lem:sharpsupport} gives $\kappa=11/169$.
+For $L\ge31000$,
+$\alpha L-(7/2)\log L>\log(\kappa Q_*)+(49/8)\log T$,
+increasing with $L$. The right side is less than $94.454$;
+the certified support slack at the endpoint exceeds $0.015045$.
+Therefore $\kappa Q_*D_0D\le H$. Also $D\ge z^2$, $D/y\ge z$,
+$D\ge y$, $y\le H$, and $H\ge10^9$.
+Every sieve in this section uses \eqref{eq:sieveparity}; its
+product premise holds uniformly at all intermediate endpoints.
+
+Nathanson's combinatorial Chen inequality, reproduced in the
+preliminaries to sieving in \cite{BS}, is
+\begin{equation}\label{eq:Chen}
+\pi_2(N)\ge S(A,z)-\frac12\sum_{z\le q<y}S(A_q,z)
+-\frac12 S(\mathcal B,y)-2N^{7/8}-N^{1/3}-1.
+\end{equation}
+Here
+$\mathcal B=\{N-p_1p_2p_3:z\le p_1<y\le p_2\le p_3,
+p_1p_2p_3<N,(p_1p_2p_3,N)=1\}$.
+The extra subtraction of one safely excludes $N-p=1$ under either
+convention for almost primes.
+
+\subsection{Lower sieve}
+From \eqref{eq:sieveparity}, \eqref{eq:A}, \eqref{eq:Vbounds}, and
+\eqref{eq:R}, in units $\Th$,
+\begin{equation}\label{eq:low}
+\begin{aligned}
+S(A,z)/\Th&\ge M_0-\frac{0.12}{U_*\sqrt L},\\
+M_0&=8(1-v)\bigl\{(1+\eta_+)(f(s)-108\epsilon e^2h(s))\\
+&\qquad -(\eta_++\eta_-)(F(s)+106\epsilon e^2h(s))\bigr\}.
+\end{aligned}
+\end{equation}
+
+\subsection{The prime-factor sum}
+Apply the upper sieve to $A_q$ with $D_q=D/q$.
+Primes $q\mid N$ contribute nothing and are omitted in all remainder
+sums below; main-term upper bounds may include them.
+Then $s_q=8(t-\log q/L)\in[k,3]$, so $F(s_q)=2e^\gamma/s_q$.
+We retain the correction $e^2h(s_q)$ rather than replacing it by one.
+Put $F_*=2e^\gamma/k+106\epsilon$ and $J=\log(8/3)$.
+Since both $F(s_q)$ and $h(s_q)$ increase with $q$, their sum is a
+nonnegative monotone weight, bounded by $F_*$.
+Lemma \ref{lem:weighted} and
+$1/(q-1)\le (1-z^{-1})^{-1}/q$ give
+\[
+\sum_{z\le q<y}\frac{F(s_q)+106\epsilon e^2h(s_q)}{q-1}
+\le\frac{I+106\epsilon J_h(t)+2F_*/L^2}{1-z^{-1}},
+\]
+where direct integration yields
+\[
+I=\int_{1/8}^{1/3}\frac{F(8(t-\beta))}{\beta}\,d\beta
+=\frac{e^\gamma}{4t}\log\left(6\frac{3-8\alpha}{3-18\alpha}\right).
+\]
+Writing $\beta_0=t-1/4$, which lies between $1/8$ and $1/3$,
+the two pieces of $h$ give
+\begin{equation}\label{eq:Jh}
+J_h(t)=\int_{1/8}^{\beta_0}\frac{e^{2-8(t-\beta)}}{\beta}\,d\beta
++\log\frac{1/3}{\beta_0}
+=\int_{1/8}^{1/3}\frac{e^2h(8(t-\beta))}{\beta}\,d\beta.
+\end{equation}
+Thus $0<J_h(t)<J$. At the fixed parameter value, analytic interval
+integration gives $J_h(t)=0.715653586850489\ldots$.
+In the error sum, $r_q(d)=r(qd)-r(q)/\varphi(d)$.
+The map $(q,d)\mapsto qd$, for $d\mid P(z)$ and $q\ge z$,
+is injective. Thus the total sieve remainder is at most
+$R_A+0.55L R_{\rm prime}$ by \eqref{eq:phimu}. The substitution
+$|A_q|=|A|/(q-1)+r(q)$ costs at most
+$(1+\eta_+)V(z)F_*R_{\rm prime}$. It follows that
+\begin{equation}\label{eq:upper}
+\frac{1}{2\Th}\sum S(A_q,z)\le M_1+
+\frac{0.06}{U_*\sqrt L}
++\frac{0.055L^4e^{-L/6}}{U_*}
++0.8(1+\eta_+)(1+v)F_*L^2e^{-L/6},
+\end{equation}
+\[
+M_1=\frac{4(1+\eta_+)(1+2/L)(1+v)}{1-e^{-L/8}}
+\left(I+106\epsilon J_h(t)+\frac{2F_*}{L^2}\right).
+\]
+
+\subsection{The switched triple-prime mass}
+Partition $p_1$ into the intervals $[w_j,(1+\delta)w_j)$, truncated
+at $y$, where $w_j=z(1+\delta)^j$. Enlarge the product restriction
+to $w_jp_2p_3<N$, and drop $(p_1,N)=1$. Denote the disjoint enlarged
+sets by $\mathcal B_j$, with union $\overline{\mathcal B}$.
+Then $\mathcal B\subseteq\overline{\mathcal B}$ and its products
+are less than $(1+\delta)N$. Unique sorted prime factorization
+ensures that these are legitimate sets, including $p_2=p_3$.
+Some enlarged differences $N-p_1p_2p_3$ can be negative. Translate
+each finite sequence by a sufficiently large integer multiple of
+$P_N(y)$ to make its indices positive. This preserves every divisibility
+condition $d\mid P_N(y)$, its cardinality, and all sieve remainders,
+so the arithmetic-function form of the cited sieve is still usable.
+
+For $u=p_1$, put $w=\sqrt{(1+\delta)N/u}$ and
+\[
+H(u)=\int_y^{\sqrt{N/u}}
+\frac{dv}{v\log v\log(N/uv)}
+=\frac{\log(2-3\beta)}{L(1-\beta)},\quad \beta=\log u/L.
+\]
+By \eqref{eq:piupper}, the mass is bounded by
+$(1+\delta)(1+4/L)N$ times
+$\sum_{z\le p_1<y}p_1^{-1}
+\sum_{y\le p_2<w}(p_2\log(N/p_1p_2))^{-1}$.
+The inner weight is increasing and at most $4/L$.
+Lemma \ref{lem:weighted} costs $8/L^3$; extending its integral
+from $\sqrt{N/u}$ to $w$ costs at most $6\ell/L^2$.
+The function $H(u)$ is positive decreasing, with $H(z)<1/L$,
+so the outer weighted sum costs at most $2/L^3$.
+Consequently
+\begin{equation}\label{eq:mass}
+|\overline{\mathcal B}|\le\frac{(1+\delta)(1+4/L)N}{L}
+\left\{\bar c+\frac2{L^2}
++\left(J+\frac2{L^2}\right)
+\left(\frac{6\ell}{L}+\frac8{L^2}\right)\right\},
+\end{equation}
+\[
+\bar c=\int_{1/8}^{1/3}\frac{\log(2-3\beta)}{\beta(1-\beta)}\,d\beta
+=0.3630837292483046\ldots<0.363084.
+\]
+The integral is certified by Arb/Acb analytic integration, with the
+logarithm's analyticity flag enabled. This direct argument uses a
+prime-count \emph{upper} envelope and does not use the negative RH
+error printed in the triple-mass estimate of the old GRH preprint.
+
+Apply the upper sieve at $y$ to every $\mathcal B_j$ with level $D$.
+Its parameter $3t$ lies in $[1,2]$. Therefore, using \eqref{eq:mass},
+the normalized half-main-term is at most
+\begin{equation}\label{eq:switch}
+M_2=\frac{(1+\eta_+)(1+v)}{2}\left(\frac{2e^\gamma}{t}+318\epsilon\right)
+(1+\delta)(1+4/L)
+\left\{\bar c+\frac2{L^2}+
+\left(J+\frac2{L^2}\right)\left(\frac{6\ell}{L}+\frac8{L^2}\right)\right\}.
+\end{equation}
+
+\section{Uniform rectangle errors and the half-line certificate}
+The GRH bilinear lemma in \cite{BS} states, for $|a(n)|\le1$,
+$X,Y,Z\ge25$, $Z<Y$, $H\ge10^9$, and
+\[
+\left(\frac{\sqrt Y\log H}{q_G(Y)\log Y\log2}\right)^{2/3}\le Z,
+\]
+that the total square-free AP error of
+$\sum_{n<X}\sum_{Z\le p<Y}a(n)$ is at most
+\begin{equation}\label{eq:bilinear}
+m(X,Y,H)\frac{XY\log^{5/3}H\log^{1/3}Y}{Y^{1/6}}.
+\end{equation}
+The principal term here restricts $(np,d)=1$. The explicit coefficient is
+\begin{align*}
+m={}&2.81q_G(Y)^{1/3}
++\frac{2.809}{q_G(Y)^{2/3}\sqrt Y\log Y}
++\frac{1.721\log^{2/3}H}{q_G(Y)^{1/3}Y^{2/3}\log^{2/3}Y\log\log H}\\
+&+5.498(X^{-1/2}+Y^{-1/2})Y^{1/6}
+\frac{\log^{1/3}H}{\log^{1/3}Y}
++\frac{19.044H\log^{1/3}H}{XY^{5/6}\log^{1/3}Y}.
+\end{align*}
+For our rectangles, $X=N/w_j$, $Y=\min(y,(1+\delta)w_j)$,
+$Z=w_j$, and $a(n)$ indicates $n=p_2p_3$ with
+$y\le p_2\le p_3$ and $(n,N)=1$. Thus $|a(n)|\le1$,
+$X\ge N^{2/3}$, $Y\ge z$, $Y<\sqrt N$, and $XY\le(1+\delta)N$.
+The AP bound gives $0.16<q_G(Y)<0.64$ in this range; this follows
+also directly from the formula in \cite[Section 2]{BS}, since
+$\log Y\ge1062.5$, its constant term is $0.165$, and its only
+negative term is exponentially small.
+Termwise, without any monotonicity assertion for $m$, we have
+\begin{align*}
+m\le{}&2.81(0.64)^{1/3}
++\frac{2.809e^{-L/16}}{(0.16)^{2/3}(L/8)}
++13e^{-L/12}\\
+&+9(e^{-5L/18}+e^{-L/24})+31e^{-13L/48}<3.
+\end{align*}
+The rectangle condition follows from
+$13(1+\delta)^{1/3}e^{-L/12}<1$.
+Since both logarithms in \eqref{eq:bilinear} are at most $L/2$,
+the error in one rectangle is at most
+$\frac34(1+\delta)N^{47/48}L^2$.
+
+Removing $(np_1,d)=1$ from the principal term costs at most
+$2(1+\delta)N\om(d)/(z\varphi(d))$: a prime dividing $d$ can
+divide either $n$ or $p_1$, and both possibilities are counted.
+Using $\om(d)\le\log H/\log2$ and \eqref{eq:phimu}, its sum
+is at most $(1+\delta)N^{7/8}L^2$, since
+$2\cdot1.1/(4\log2)<1$ and $\log H\le L/2$.
+There are $\lceil5L/(24\ell)\rceil<L/\ell$ rectangles.
+Thus the normalized half-remainder is bounded by
+\begin{equation}\label{eq:Erect}
+E_{\rm rect}(L)=\frac{(1+\delta)L^5}{2U_*\ell}
+\left(\frac34e^{-L/48}+e^{-L/8}\right).
+\end{equation}
+All endpoints, including the truncated final rectangle, have now
+been included; no floating-point underflow is used to discard errors.
+
+Combining \eqref{eq:Chen}--\eqref{eq:Erect}, set
+\begin{align*}
+E_{\rm AP}(L)&=\frac{0.18}{U_*\sqrt L}
++\frac{0.055L^4e^{-L/6}}{U_*}
++0.8(1+\eta_+)(1+v)F_*L^2e^{-L/6},\\
+E_{\rm fin}(L)&=\frac{L^2}{U_*}
+\left(2e^{-L/8}+e^{-2L/3}+e^{-L}\right).
+\end{align*}
+Then
+\[
+\pi_2(N)/\Th\ge
+M_0-M_1(L)-M_2(L)-E_{\rm AP}(L)-E_{\rm rect}(L)-E_{\rm fin}(L).
+\]
+Every subtracted term is decreasing for $L\ge31000$.
+For the exponential terms use $L^be^{-aL}$ decreasing when $L>b/a$;
+the largest such cutoff is $240$. All other factors are positive
+decreasing rational functions of $L$ or $(1-e^{-L/8})^{-1}$.
+The fixed $\alpha$ makes $M_0$ constant and avoids any moving
+parameter issue. At $L=31000$, the 192-bit certificate gives
+\begin{center}
+\begin{tabular}{lr}\toprule
+Term & certified value (rounded for display)\\\midrule
+$M_0$ & $7.806859399895$\\
+$M_1$ & $6.498312561553$\\
+$M_2$ & $1.306394071261$\\
+$E_{\rm AP}$ & $0.001379428851$\\
+$E_{\rm rect}$ & $<10^{-248}$\\
+$E_{\rm fin}$ & $<10^{-1670}$\\\midrule
+Surplus & $>0.0007733382290$\\\bottomrule
+\end{tabular}
+\end{center}
+This proves the earlier counting coefficient $0.0006$,
+using the uniform product premise and composite weights established above.
+For its lower starting point, keep all finite weights and gap inputs fixed,
+but take $\alpha=4238/10^6$ and $L_0=30824$.
+The same 192-bit checks of every support, parameter and remainder
+condition give support slack $>0.002084$ and
+\[
+M_0-M_1-M_2-E_{\rm AP}-E_{\rm rect}-E_{\rm fin}
+>0.0000337669646>10^{-5}.
+\]
+Here $E_{\rm rect}<10^{-248}$ and $E_{\rm fin}<10^{-1660}$;
+both are charged positively. The new $s=3.966096$ and $k>1$ obey
+all the same analytic ranges. With this fixed $\alpha$ the support slack
+increases and every deducted expense decreases on $L\ge30824$,
+by the same monotonicity argument. Thus the earlier bound holds for
+$N\ge e^{30824}$, with $\log(30824)=10.336048886\ldots$ and about
+$13387$ decimal digits at its starting point.
+Both calculations cover the entire half-line, rather than a finite mesh.
+
+\subsection{An enlarged finite grid and a sharper AP budget}\label{sec:densegrh}
+The defining weights, $T$, $D_0$, $Q_*$, $M$, $\Sigma_G$, and
+$\kappa$ remain as above. Enlarge only the finite majorant choices to
+\[
+\Gamma_G^{\rm new}=\{a/25:2\le a\le9\}.
+\]
+Lemma \ref{lem:prefixband} applies to each of these nonnegative
+majorants; taking their finite minimum cannot increase either gap.
+A fresh complete integer sieve and 192-bit positive-moment recurrence
+over all 348510 medium primes gives
+\[
+\widehat R_+<0.000349096808<1/2864,\qquad
+\widehat R_-<0.000347781454<1/2875.
+\]
+Set $\epsilon=1/41219$, which still exceeds the previously certified
+uniform product error, and use these two new gap budgets.
+With $\beta=7/2$ and the previous AP charge, the endpoint already
+falls to $L_0=30779$.
+
+There is a further saving in the AP charge. For a fixed
+$7/2\le\beta<4$, set $H=\sqrt N/L^\beta$ and retain the positive
+envelope $q_+(L)$ above, rather than replacing it by $0.17$.
+The proof of \eqref{eq:R} gives
+\[
+R_A\le0.608\,P(L)\frac{N}{L^{\beta-1}},\qquad
+P(L)=q_+(L)+\frac1{16\pi}+\frac{2e^{-L/2}}{\log2}.
+\]
+Its coefficients in the lower sieve and half of the prime-factor
+sum total $3/2$. Hence replace only the leading term
+$0.18/(U_*\sqrt L)$ in $E_{\rm AP}$ by
+\begin{equation}\label{eq:denseap}
+\frac{0.912\,P(L)}{U_*L^{\beta-3}}.
+\end{equation}
+Keep the two other AP charges, the entire rectangle charge, and
+every finite loss. The support condition becomes
+$\alpha L-\beta\log L>\log(\kappa Q_*D_0)$.
+All rectangle estimates above used only $H\le\sqrt N$ and
+$H\ge10^9$, and continue to hold.
+
+That preceding threshold had $\log(30747)=10.333547707\ldots$
+and about $13354$ decimal digits.
+For the preceding assertions $N\ge e^{30747}$ with coefficient $10^{-5}$
+and $N\ge e^{31000}$ with coefficient $0.001$, use the following
+fixed parameters and strict certified endpoint inequalities:
+\begin{center}
+\begin{tabular}{lrr}\toprule
+ & Lower starting point & Stronger count\\\midrule
+$L_0$ & $30747$ & $31000$\\
+$\alpha$ & $4255/10^6$ & $4218/10^6$\\
+$\beta$ & $88/25$ & $351/100$\\
+$s$ & $3.965960$ & $3.966256$\\
+Support slack & $>0.0005409294$ & $>0.0046277428$\\
+$E_{\rm AP}$ & $<0.0010576384$ & $<0.0011678640$\\
+$E_{\rm rect}$ & $<10^{-248}$ & $<10^{-250}$\\
+$E_{\rm fin}$ & $<10^{-1659}$ & $<10^{-1673}$\\
+Surplus & $>0.0000139212861$ & $>0.0010866414727$\\\bottomrule
+\end{tabular}
+\end{center}
+The certificate checks every preceding analytic range, the actual
+$H\ge10^9$, and the support inequality at each new endpoint.
+For the half-line, $\alpha-\beta/L>0$ and
+$1/2-\beta/L>0$ at the endpoint and thereafter. Thus support slack
+and $H$ increase. The function $P(L)$ decreases for
+$L\ge8500$, and $\beta>3$; \eqref{eq:denseap} therefore decreases.
+The remaining monotonicity arguments are unchanged.
+This proves those earlier assertions for all $N$ in their respective half-lines.
+No distribution hypothesis beyond GRH has been introduced.
+The eight tested values $\beta=3.50,3.51,\ldots,3.57$ are a finite
+parameter search, not a proof of optimality.
+
+% BEGIN CURRENT PREFIX GRH
+\subsection{All preceding checks and the actual modulus count}\label{sec:prefixgrh}
+The following calculation proves the earlier starting point $e^{26820}$
+and the preceding stronger coefficient $0.0179$.
+Use Lemma \ref{lem:prefixblocks} with $T=5000000$, $w_0=5$,
+$Q_*=15$, $u=87/16$, and $h=1/200$.
+The complete integer sieve has 348510 medium primes;
+the exact degree bound is $K=22$, the label limit is $J=16775$,
+and there are 1810 nonempty blocks. The strict positive recurrences give
+\[
+\widehat R_+<0.000369501096<1/2706,\qquad
+\widehat R_-<0.000369035200<1/2709.
+\]
+Set $\epsilon=1/41219$, $\eta_+=1/2706$, $\eta_-=1/2709$,
+$(C_1,C_2)=(106,108)$, and retain $\kappa=11/169$.
+The actual support cost is
+\[
+c=\log(\kappa Q_*)+u\log T=83.849204066\ldots.
+\]
+All uses of \eqref{eq:sieveparity} accept the new separate gap inputs;
+its proof depends only on their domination of the two finite masses.
+
+\begin{lemma}[Counting the actual modulus support]\label{lem:sparsecount}
+For the composite coefficients in Lemma \ref{lem:composite}, put
+$H_0=\kappa D_0$ and let $m$ be the number of complete exact primes.
+For every $\sigma>0$, the number of their nonzero coefficients is at most
+\[
+2^m D H_0^\sigma
+\prod_{w_0<p\le T}(1+p^{-\sigma}).
+\]
+This bound holds for every deletion of primes dividing $N$ and both signs.
+If $Q_*H_0D\le H$, this number is at most $\nu H$, where
+\begin{equation}\label{eq:sparsefraction}
+\nu=\frac{2^m}{Q_*}H_0^{\sigma-1}
+\prod_{w_0<p\le T}(1+p^{-\sigma}).
+\end{equation}
+\end{lemma}
+\begin{proof}
+Every contributing divisor has a unique exact, medium and large factorization.
+There are at most $2^m$ exact divisors. Every medium factor is square-free,
+uses only primes in $(w_0,T]$, and is below $H_0$ by Lemma
+\ref{lem:sharpsupport}, for either medium sign. Rankin's elementary inequality
+$1_{d_0<H_0}\le(H_0/d_0)^\sigma$ bounds their number by the Euler product
+in the statement. A large factor is a positive integer below $D$,
+so there are fewer than $D$ choices. Counting all such triples bounds
+the coefficient support, even when some coefficients vanish.
+Deleting primes decreases the positive Euler product and the available
+exact factors, while the complete-set $H_0$ still bounds their support.
+Dividing by $Q_*H_0D\le H$ proves the second assertion.
+\end{proof}
+
+For $\sigma=4/5$, a fresh 192-bit Euler-product sum over the complete
+medium primes gives
+\[
+\log\prod_{5<p\le T}(1+p^{-\sigma})<10.1391321865,\qquad
+\nu<0.000604653842<1/1653.
+\]
+For the prime-factor sieves $A_q$, $q\ge z>T$ and the large level is $D/q$.
+For their aggregate AP remainder, write $d=e d_0d_1$ and absorb $q$
+into the large factor: $qd_1<D$. Since $d\mid P(z)$, the prime $q$
+is the unique prime factor of $qd$ that is at least $z$. Thus
+$(q,d)\mapsto qd$ is injective over the whole sum. All its images
+belong to the same enlarged set of exact, medium and large triples,
+so the same count bounds the aggregate first AP remainder.
+The additional centering term
+$r(q)/\varphi(d)$ retains its previous charge.
+
+Set $H=\sqrt N/L^\beta$ with $\beta\ge3$. The pointwise AP bound and
+centering argument used for \eqref{eq:R} give, for each actual support,
+\[
+R_{\rm support}\le\nu P(L)\frac{N}{L^{\beta-1}},\qquad
+P(L)=q_+(L)+\frac1{16\pi}+\frac{2e^{-L/2}}{\log2}.
+\]
+Thus the lower sieve and half of the prime-factor sum charge a total of
+$3R_{\rm support}/2$. Replace \eqref{eq:denseap} by
+\begin{equation}\label{eq:sparseap}
+\frac{3\nu P(L)}{2U_*L^{\beta-3}},
+\end{equation}
+using the fixed upper budget $\nu_*=1/1653$ in this expense.
+Both other AP terms, the prime-modulus centering cost, the full rectangle
+charge, and every finite loss remain in the proof. The bilinear lemma
+still uses the full maximum modulus $H$, rather than this count.
+
+The strict endpoint certificate gives
+\begin{center}
+\begin{tabular}{lrr}\toprule
+ & Lower starting point & Stronger count\\\midrule
+$L_0$ & $26820$ & $31000$\\
+$\alpha$ & $4267/1000000$ & $1853/500000$\\
+$\beta$ & $3$ & $3$\\
+$s$ & $3.965864$ & $3.970352$\\
+Support slack & $>0.0010264627$ & $>0.0115684828$\\
+$E_{\rm AP}$ & $<0.0002269656$ & $<0.0002268874$\\
+Surplus & $>0.000034241255$ & $>0.017948372354$\\
+$E_{\rm rect}$ & $<10^{-212}$ & $<10^{-250}$\\
+$E_{\rm fin}$ & $<10^{-1446}$ & $<10^{-1673}$\\\bottomrule
+\end{tabular}
+\end{center}
+The respective surpluses exceed $10^{-5}$ and $0.0179$.
+All analytic ranges used in the earlier calculation are checked again,
+including $H\ge10^9$, $T<z$, $3<s<4$, $k>1$, and actual support
+$\alpha L-\beta\log L>c$.
+For each fixed parameter pair, support slack and $H$ increase thereafter.
+With $\beta=3$, the leading AP expense decreases with $P(L)$;
+every other expense decreases as before. The inequalities therefore
+hold on the whole half-lines. This uses GRH alone.
+
+The previous prefix-block budget using the full square-free modulus count
+gave $N\ge e^{28279}$ and coefficient $0.0116$ at $e^{31000}$.
+The original finite grid gave $e^{28334}$.
+The new support count accounts for the further improvement.
+The searched finite parameters and the four Rankin exponents do not
+prove global optimality.
+% END CURRENT PREFIX GRH
+% BEGIN CURRENT ROUGH INTERVAL
+\subsection{Logarithmic support counts and rough large factors}\label{sec:roughinterval}
+Two elementary count bounds improve the previous support estimate.
+They introduce no distribution hypothesis. Throughout this subsection,
+the actual sieve coefficients remain those of Lemma \ref{lem:composite}.
+
+\begin{lemma}[Positive logarithmic-bin support count]\label{lem:binnedcount}
+Let $\mathcal M$ be the complete medium-prime set, $H_0=\kappa T^u>1$,
+and let $K$ be the largest number of its smallest primes whose product
+is below $H_0$. Choose $0<h<\log\min\mathcal M$, put
+$b(p)=\lfloor\log p/h\rfloor$ and $J=\lceil\log H_0/h\rceil$.
+Partition $\mathcal M$ into blocks $\mathcal M_b$ of common label $b$.
+For $\sigma\ge0$, define positive coefficients by
+\[
+\prod_{p\in\mathcal M_b}(1+p^{-\sigma}a)=\sum_j e_{b,j}a^j,
+\qquad
+P(v)=\prod_b\left(\sum_{0\le j\le K}e_{b,j}v^{jb}\right)\pmod{v^J}.
+\]
+Write $P_B=[v^B]P$. The number of square-free products of primes in
+$\mathcal M$ that are below $H_0$ is at most
+\begin{equation}\label{eq:binnedcount}
+A_\sigma=\sum_{B<J}P_B
+ \exp\!\left(\sigma\min\{\log H_0,h(B+K)\}\right).
+\end{equation}
+The same complete-set upper bound holds after arbitrary prime deletion.
+For $\sigma=0$, $e_{b,j}=\binom{|\mathcal M_b|}{j}$ and $A_0=\sum_{B<J}P_B$.
+\end{lemma}
+\begin{proof}
+A true product $d<H_0$ contains at most $K$ primes. Its label $B$ satisfies
+$hB\le\log d<\log H_0$, hence $B<J$. Its block degrees are at most $K$,
+so its positive contribution $d^{-\sigma}$ occurs in $P_B$.
+Every intermediate label is at most its final label; truncation modulo
+$v^J$ after each block cannot remove that contribution. Also
+$\log d\le h(B+K)$, so its contribution to \eqref{eq:binnedcount} is at
+least one. Products of excessive total degree that survive the block
+truncations are harmless additional positive contributions.
+Deleting primes decreases every elementary coefficient $e_{b,j}$,
+while the complete-set degree and label bounds remain valid.
+\end{proof}
+
+\begin{lemma}[Counting rough integers]\label{lem:integerrough}
+Let $V_T=\prod_{p\le T}(1-1/p)$, and let $\eta_+$ be the complete
+normalized medium upper-gap budget supplied by Lemma \ref{lem:prefixblocks}
+for $g(p)=1/(p-1)$. With the same $D_0$, $H_0$ and exact odd product $Q_*$,
+the number $R_T(D)$ of positive integers $n<D$ having no prime factor
+at most $T$ satisfies
+\begin{equation}\label{eq:integerrough}
+R_T(D)\le a_TD+b_T,\qquad
+a_T=(1+\eta_+)V_T,\qquad b_T=2Q_*H_0.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Use full inclusion--exclusion at all primes at most $w_0$, including $2$,
+and the finite Rosser upper coefficients at $w_0<p\le T$.
+For the integer sequence the density is $g_0(p)=1/p$.
+The normalized positive recurrences in Lemma \ref{lem:prefixblocks}
+also hold with $t_p=g(p)/(1-g(p))$: their passing and failing operators
+depend only on the prime labels and $D_0$, and every coefficient of
+$D(a)$ and $C(a)$ is a nonnegative polynomial in the $t_p$.
+Thus decreasing $t_p$ decreases every propagated state and gap bound.
+Here $t_{0,p}=1/(p-1)\le1/(p-2)$, so the normalized medium upper gap
+at density $g_0$ is at most $\eta_+$. Multiplying by the exact small-prime
+factor gives an upper main mass $\sum_d\lambda_d^+/d\le a_T$.
+
+These integer upper weights have $|\lambda_d^+|\le1$ and support
+$d<2Q_*H_0$ by Lemma \ref{lem:sharpsupport}; the factor $2$ is required
+for the exact even prime. The number of positive multiples of $d$
+strictly below $D$ is $\lceil D/d\rceil-1$, differing from $D/d$ by
+an amount in $[-1,0)$. Summing the pointwise upper weights therefore gives
+\[
+R_T(D)\le\sum_d\lambda_d^+(\lceil D/d\rceil-1)
+\le D\sum_d\frac{\lambda_d^+}{d}+\#\{d:\lambda_d^+\ne0\}
+\le a_TD+b_T.
+\]
+This is an elementary integer-count bound, not an AP distribution input.
+\end{proof}
+
+Put $m=\omega(Q_*)$ for the complete exact odd-prime set and
+\[
+\nu_\sigma=\frac{2^m A_\sigma}{Q_*H_0}.
+\]
+Every large-prime factor of a composite coefficient has no prime factor
+at most $T$. The coefficient support therefore has size at most
+$2^mA_\sigma(a_TD+b_T)$. If $Q_*H_0D\le H$, its size is at most
+\begin{equation}\label{eq:roughsupport}
+\nu_\sigma(a_T+b_T/D)H.
+\end{equation}
+This counts all possible exact, medium and large factors; any vanishing
+coefficient only reduces the support. Prime deletion preserves the bound.
+For the aggregate $A_q$ remainder, write $d=e d_0d_1$ with large level
+$D/q$ and absorb $q$ into $d_1$. The resulting large factor
+$qd_1<D$ has no prime factor at most $T$. Because $d\mid P(z)$ and
+$q\ge z$, $q$ is the unique prime factor of $qd$ that is at least $z$.
+The map $(q,d)\mapsto qd$ is therefore injective over the whole sum,
+and its complete image has at most $2^mA_\sigma R_T(D)$ elements.
+Thus \eqref{eq:roughsupport} bounds the aggregate first AP remainder,
+without summing a separate floor charge for each $q$.
+The separate prime-modulus centering cost is retained.
+
+For $T=5000000$, $w_0=5$, $u=87/16$ and $\kappa=11/169$,
+use the preceding gap budgets and $\sigma=0$, $h=1/100$ for the count.
+The complete count uses 348510 medium primes, $K=22$, $J=8115$,
+and 992 nonempty blocks. Its positive polynomial calculation yields
+\[
+A_0<5.488142\cdot10^{30},\qquad
+\nu_0<0.000008437984<\nu_*:=1/118511.
+\]
+The gap computation still uses $h=1/200$ as in Section \ref{sec:prefixgrh};
+the two bin widths serve different bounds.
+An independently regenerated complete integer prime set contains 348513
+primes through $T$ and gives
+\[
+V_T<0.036397999733,\qquad
+a_T<a_*:=36411450583/10^{12}.
+\]
+
+\paragraph{Finite analytic interval and the existing tail.}
+Let $L_*=26820$, fix $\alpha=2117/500000$, $\beta=209/100$,
+and put $D=e^{tL}$, $t=1/2-\alpha$, $H=e^{L/2}/L^\beta$.
+Set $L_0=24799$ and $c=\log(Q_*H_0)$.
+On the closed interval $L_0\le L\le L_*$, the support condition
+$\alpha L-\beta\log L>c$ persists since
+$\alpha-\beta/L_0>0$. Also $H\ge10^9$, $H\le\sqrt N$,
+$T<z$, $3<s<4$ and $k>1$ hold throughout.
+Using \eqref{eq:roughsupport} in the pointwise GRH AP bound gives the
+normalized leading expense
+\[
+\frac{3\nu_*}{2U_*}(a_*+b_Te^{-tL})P(L)L^{3-\beta}.
+\]
+Because $0<\beta<3$, this expression is not claimed to decrease on a
+whole half-line. Instead, use the constant upper bound
+\begin{equation}\label{eq:intervalplateau}
+C_{\rm AP}=\frac{3\nu_*}{2U_*}
+(a_*+b_Te^{-tL_0})P(L_0)L_*^{3-\beta}
+\end{equation}
+throughout this finite interval. This is valid because $P(L)$ and
+$e^{-tL}$ decrease, and $L^{3-\beta}\le L_*^{3-\beta}$.
+The positive floor charge is kept; at $L_0$,
+$b_Te^{-tL_0}<10^{-5302}$.
+
+Replace only the leading AP term by $C_{\rm AP}$.
+Both other AP terms described after \eqref{eq:denseap}, every prime-modulus centering
+charge, \eqref{eq:Erect}, and the finite loss are retained.
+The bilinear estimate still uses the maximum modulus $H$.
+Its proof in Section 6 needs $H\le\sqrt N$ and $H\ge10^9$, both verified
+here; it does not use the smaller support count.
+The endpoint certificate gives $s=3.966128$ and
+\begin{center}
+\begin{tabular}{lr}\toprule
+Term & Certified value\\\midrule
+$M_0$ & $>7.806706554276225$\\
+$M_1$ & $<6.498953398927134$\\
+$M_2$ & $<1.306496415897830$\\
+$E_{\rm AP}$ & $<0.001235093952316$\\
+Support slack & $>0.001974440924078$\\
+Surplus & $>0.000021645498948$\\
+$E_{\rm rect}$ & $<10^{-194}$\\
+$E_{\rm fin}$ & $<10^{-1337}$\\\bottomrule
+\end{tabular}
+\end{center}
+For these fixed parameters $M_0$ is constant, while $M_1$, $M_2$,
+the other AP terms and all remaining expenses decrease for $L\ge L_0$.
+Thus the strict surplus exceeding $10^{-5}$ at $L_0$ holds throughout
+$[L_0,L_*]$. Section \ref{sec:prefixgrh} already proves the same
+claim for every $L\ge L_*$, with common normalization $U_NN/L^2$.
+These inclusive ranges cover the whole half-line $L\ge L_0$ and prove
+the preceding starting point $e^{24799}$ using GRH alone.
+The preceding stronger $0.0179$ coefficient at $L\ge31000$ retains
+its earlier half-line certificate.
+
+The separate-formula check reproduces 12 endpoint quantities and
+regenerates the integer product with an independent prime sieve.
+The histogram checks enumerate 9216 subsets and verify 17172 exact
+rational coefficients at $\sigma=0,1$; the integer checks cover 16384
+divisor-floor terms and 24316 roughness patterns.
+An additional finite enumeration checks 8608 prime-factor modulus patterns,
+including the injective aggregate map and its rough-factor support count.
+These finite checks accompany the two general proofs above.
+The 135 endpoint candidates are a finite parameter grid, not a global
+optimality proof. This analytic-regime join does not connect to the
+finite Goldbach verification endpoint $4\cdot10^{18}$.
+% END CURRENT ROUGH INTERVAL
+% BEGIN CURRENT ACCEPTED INTERVAL
+\subsection{The union of the accepted medium supports}\label{sec:acceptedinterval}
+The preceding logarithmic count includes medium products that neither
+Rosser sign accepts. The following positive count keeps every preceding
+acceptance condition. It bounds the union of the two supports once,
+without changing the sieve coefficients in Lemma \ref{lem:composite}.
+
+\begin{lemma}[Six-state union count]\label{lem:acceptedcount}
+Let $D_0=T^u$, $u>3$, and let $H_0=\kappa D_0>1$ bound both pure-medium
+Rosser supports as in Lemma \ref{lem:sharpsupport}. Use the complete
+medium-prime set, the degree bound $K$, labels $b(p)$ and cutoff $J$
+of Lemma \ref{lem:binnedcount}, with $0<h<\log\min\mathcal M$.
+Process the complete blocks in decreasing label order. In block
+$\mathcal M_b$, put
+\[
+c_b=\left\lceil\frac{\log D_0-3\log\min\mathcal M_b}{h}\right\rceil,
+\qquad m_b=|\mathcal M_b|.
+\]
+For a positive polynomial $F=\sum_B F_Bv^B$, define the positive operators
+\[
+\mathcal L_cF=\sum_{B<c}F_Bv^B,\quad
+\mathcal H_cF=\sum_{B\ge c}F_Bv^B,\quad
+\mathcal S_bF=v^bF\pmod{v^J}.
+\]
+Track the vector $X=(U_e,U_o,L_e,L_o,B_e,B_o)^\mathsf T$.
+The first two coordinates mean only the upper sign is alive, the next
+two mean only the lower sign is alive, and the final two mean both signs
+are alive; subscripts record the parity of the number of selected primes.
+Start with $B_e=1$ and every other coordinate zero. Within the block,
+the append operator is
+\begin{equation}\label{eq:acceptedoperator}
+\mathcal A_bX=
+\begin{pmatrix}
+\mathcal S_b(U_o+\mathcal H_{c_b}B_o)\\
+\mathcal S_b\mathcal L_{c_b}U_e\\
+\mathcal S_b\mathcal L_{c_b}L_o\\
+\mathcal S_b(L_e+\mathcal H_{c_b}B_e)\\
+\mathcal S_b\mathcal L_{c_b}B_o\\
+\mathcal S_b\mathcal L_{c_b}B_e
+\end{pmatrix}.
+\end{equation}
+Apply the complete-block update
+\begin{equation}\label{eq:acceptedblock}
+X\ \longleftarrow\ \sum_{j=0}^{\min(K,m_b)}
+                  \binom{m_b}{j}\mathcal A_b^jX.
+\end{equation}
+Then $A_{\rm acc}:=\sum_iX_i(1)$ bounds the number of distinct medium
+products accepted by at least one Rosser sign. The same complete-set
+bound holds after arbitrary prime deletion, retaining the complete
+$K,J,c_b$ and replacing only $m_b$ by the number of available primes.
+\end{lemma}
+\begin{proof}
+At new selected length $r$, the upper sign checks odd $r$ and the lower
+sign checks even $r$. If $d_{\rm old}$ is the preceding product, a checked
+append of prime $p$ passes only if $d_{\rm old}p^3<D_0$.
+Its preceding label $B$ has $hB\le\log d_{\rm old}$, so actual passing
+implies
+\[
+B<\frac{\log D_0-3\log p}{h}
+ \le\frac{\log D_0-3\log\min\mathcal M_b}{h},\qquad B<c_b.
+\]
+Consequently, a true surviving sign is never killed by the relaxed
+cutoff. Unchecked appends preserve that sign. For both signs alive,
+exactly one sign is checked at each append: a high-label append leaves
+the other sign alone. This gives \eqref{eq:acceptedoperator}.
+Each label and flag state has at most one destination; the low and high
+branches are disjoint. Induction shows that the relaxed alive set
+contains the true alive set, and every retained relaxed subset occurs
+in exactly one of the six exclusive states. Subsets with no surviving sign may
+be dropped permanently.
+
+All primes in a block have the same label and relaxed cutoff. Choosing
+$j$ distinct primes therefore applies the same operator $j$ times, with
+exact multiplicity $\binom{m_b}{j}$. Their actual decreasing order does
+not affect this relaxed update. Every true final accepted product is
+below $H_0$, hence contains at most $K$ primes and has label below $J$.
+Every preceding label is no larger, so neither the block degree cutoff
+nor intermediate truncation can remove that true contribution.
+Excessive total degrees and possible passes retained by rounding are
+additional positive terms. The resulting sum bounds the union, without
+counting a subset twice when both signs survive.
+
+After deletion, every surviving prime still belongs to its complete
+block. The same complete minimum supplies a valid necessary passing
+condition; the complete $K,J$ still cover every accepted product.
+The operators have nonnegative coefficients and
+$\binom{m_b'}{j}\le\binom{m_b}{j}$ for $m_b'\le m_b$.
+Induction over the blocks therefore gives coefficientwise domination
+in every state. No subtraction of uncertain intervals is required.
+\end{proof}
+
+Replace $A_\sigma$ by $A_{\rm acc}$ in \eqref{eq:roughsupport} and set
+\begin{equation}\label{eq:acceptedfraction}
+\nu_{\rm acc}=\frac{2^{\omega(Q_*)}A_{\rm acc}}{Q_*H_0}.
+\end{equation}
+The composite coefficient support is bounded by the union of the two
+medium supports and a $T$-rough large factor, so the same proof gives
+$\nu_{\rm acc}(a_T+b_T/D)H$ for both sieve signs.
+For the whole $A_q$ sum, absorb $q$ into the large factor as in Section
+\ref{sec:roughinterval}. The medium product is still in this same union;
+the unique prime at least $z$ makes $(q,d)\mapsto qd$ injective over
+the entire sum. Thus the new count also bounds its aggregate image.
+The integer roughness boundary, prime-modulus centering, and bilinear
+charges are unchanged.
+
+For $T=5000000$, $w_0=5$, $u=87/16$, $\kappa=11/169$ and count width
+$h=1/100$, the complete count has $K=22$, $J=8115$ and 992 blocks.
+It gives
+\[
+A_{\rm acc}=655257348020585286337311701158,
+\qquad \nu_{\rm acc}<1.007455\cdot10^{-6}<1/992601.
+\]
+The preceding unfiltered $A_0$ is more than $8.37$ times as large.
+The gap budgets still use their independently certified width $1/200$.
+
+\paragraph{Coverage of all larger integers.}
+For the lower starting point use $L_0=24274$, $L_*=24799$,
+$\alpha=1057/250000$ and $\beta=93/50$; the medium family is $u=87/16$.
+Equation \eqref{eq:intervalplateau}, with the new
+$\nu_*:=1/992601$ and the same $a_*:=36411450583/10^{12}$,
+supplies a constant leading AP expense throughout $[L_0,L_*]$.
+The support condition $\alpha L-\beta\log L>\log(Q_*H_0)$,
+$H\ge10^9$, $H\le\sqrt N$, $T<z$, $3<s<4$ and $k>1$ hold at
+$L_0$ and persist. In particular $\alpha-\beta/L_0>0$ and
+$1/2-\beta/L_0>0$. The finite charge $b_Te^{-tL_0}$ is positive
+and below $10^{-5189}$; it has not been discarded.
+The fixed-parameter monotonicity argument in Section \ref{sec:roughinterval}
+proves the required surplus over this entire closed interval.
+The preceding interval $[24799,26820]$ and the preceding half-line
+$[26820,\infty)$ use the same $10^{-5}$ claim and normalization.
+Together these inclusive ranges prove the first assertion of Theorem
+\ref{thm:grh} for every $L\ge24274$.
+
+For the stronger claim, use $u=11/2$, the same $T,w_0,\kappa$,
+$\alpha=3737/1000000$, $\beta=3$ and $L_0=31000$.
+Its gap budgets are $\eta_+=1/3231$, $\eta_-=1/3242$, with
+$\epsilon=1/41219$. The accepted count gives
+$\nu_{\rm acc}<8.498637\cdot10^{-7}<\nu_*:=1/1176659$, and
+$a_T<a_*:=36409264976/10^{12}$.
+Now $L^{3-\beta}=1$, so the leading AP expense
+\[
+\frac{3\nu_*}{2U_*}(a_*+b_Te^{-tL})P(L)
+\]
+decreases on the whole half-line. Its value at $31000$ is a valid
+constant upper bound for every $L\ge31000$.
+All other losses decrease and the support slack increases.
+This separate half-line argument proves the stronger coefficient
+$0.0181$ of Theorem \ref{thm:grh}; it does not transfer a larger
+claim through an earlier certificate with a smaller surplus.
+The bilinear estimate continues to use the maximum modulus $H$.
+
+\begin{center}
+\begin{tabular}{lrr}\toprule
+Term & $L_0=24274$ & $L_0=31000$\\\midrule
+$\alpha$ & $1057/250000$ & $3737/1000000$\\
+$\beta$ & $93/50$ & $3$\\
+$s$ & $3.966176$ & $3.970104$\\
+$M_0$ & $>7.806728439046083$ & $>7.809030620429977$\\
+$M_1$ & $<6.498811372057018$ & $<6.485781769136601$\\
+$M_2$ & $<1.306485180691536$ & $<1.305068915489237$\\
+$E_{\rm AP}$ & $<0.001407561467773$ & $<0.000000011604981$\\
+Support slack & $>0.000548291572001$ & $>0.008509203429583$\\
+Surplus & $>0.000024324829757$ & $>0.018179924199159$\\
+$E_{\rm rect}$ & $<10^{-188}$ & $<10^{-250}$\\
+$E_{\rm fin}$ & $<10^{-1300}$ & $<10^{-1673}$\\\bottomrule
+\end{tabular}
+\end{center}
+The separate-formula program reproduces 12 quantities for each new
+endpoint, regenerates all 348513 integer primes through $T$, and
+rechecks the earlier interval and tails. Exact small-set checks cover
+4608 complete subsets, 114876 integer histogram coefficients,
+104976 deleted-subset patterns and 384 deleted production histograms.
+The earlier 8608 aggregate prime-factor patterns remain applicable.
+The 70 weak-endpoint candidates and nine stronger-count
+candidates are a finite search, not a proof of global optimality.
+These checks supplement the general proof above; they do not replace
+the external analytic inputs or independent research review.
+No distribution hypothesis beyond GRH has been introduced, and this
+analytic interval join still does not reach finite verification.
+% END CURRENT ACCEPTED INTERVAL
+\section{A parameterized EH-style reduction}
+For a quantitative comparison with standard distribution conjectures,
+put
+\[
+\mathcal E_\theta(x)=\sum_{d\le x^\theta}\mu^2(d)
+\max_{(a,d)=1}|\pi(x;d,a)-\pi(x)/\varphi(d)|.
+\]
+\begin{lemma}[Deleted-prime remainders]\label{lem:deleted}
+If $10^9\le H\le N^\theta$, then, with the density $g(d)=1/\varphi(d)$,
+\[
+\sum_{\substack{d\le H\\d\mid P_N(z)}}|r_A(d)|
+\le\mathcal E_\theta(N)+\om(N)\{2\sqrt N+1.1\log H\}.
+\]
+\end{lemma}
+\begin{proof}
+Let $\kappa$ be the number of deleted primes dividing $N$, and let
+$\kappa_d$ count those with $d\mid N-p$. Since $(d,N)=1$,
+\[
+r_A(d)=\pi(N;d,N)-\frac{\pi(N)}{\varphi(d)}
+-\kappa_d+\frac{\kappa}{\varphi(d)}.
+\]
+Each $N-p<N$ has at most $2\sqrt N$ positive divisors, and
+$\kappa\le\om(N)$. Summing and using \eqref{eq:phimu} proves the claim.
+\end{proof}
+
+The usual EH conjecture provides asymptotic estimates with parameter
+dependent implied constants; see \cite[Claim 2.2]{Polymath}. It does
+not prescribe a numerical constant or a numerical starting point.
+We retain these two quantities rather than assign them convenient values.
+
+\begin{theorem}[Quantitative distribution inputs]\label{prop:EH}
+Suppose a finite distribution input provides numbers $C>0$ and $X$
+such that
+\begin{equation}\label{eq:EHinput}
+\mathcal E_\theta(x)\le Cx/\log^4x\quad(x\ge X).
+\end{equation}
+No RH or GRH is assumed. The following conclusions hold:
+\[
+\begin{array}{c|c|c}
+\theta & \text{threshold for even }N & \pi_2(N)L^2/N\\\hline
+3/4 & \max\{X,\exp(\max\{786,\sqrt{20C}\})\} & >0.01\\
+9/10 & \max\{X,\exp(\max\{212,\sqrt{10C}\})\} & >0.02\\
+19/20 & \max\{X,\exp(\max\{166,\sqrt{10C}\})\} & >0.02\\
+99/100 & \max\{X,\exp(\max\{142,\sqrt{10C}\})\} & >0.02
+\end{array}
+\]
+No numerical value of $C$ or $X$ is asserted by this theorem.
+There are also weaker counting bounds
+$\pi_2(N)>10^{-5}N/L^2$ with the same square-root constraints and
+the smaller fixed starts $774$, $210$, $165$, and $141$, respectively.
+\end{theorem}
+\begin{proof}
+Use the finite Rosser medium weights of Lemma \ref{lem:rankin},
+with $D_0=T^u$, and Lemmas \ref{lem:degreewise} and
+\ref{lem:prefixband} with $M=10$,
+$\Sigma_E=\{0\}\cup\{a/20:2\le a\le12\}$, and
+$\Gamma_E=\{0,3/25,6/25,9/25\}$.
+Take the following fixed parameters:
+\[
+\begin{array}{c|r|r|c|c|r|r|r|c}
+\theta&w_0&T&u&M&\epsilon^{-1}&\eta_+^{-1}&\eta_-^{-1}&(C_1,C_2)\\\hline
+3/4&3&22000&39/8&10&1717&141&143&(113,114)\\
+9/10&3&10000&35/8&10&1012&46&45&(113,114)\\
+19/20&3&10000&17/4&10&1012&34&33&(113,114)\\
+99/100&3&10000&17/4&10&1012&34&33&(113,114)
+\end{array}
+\]
+For $\theta=3/4$ Lemma \ref{lem:ordered} gives
+$\widehat K_T-1<0.000582284267$
+and separate Rosser gaps
+$\widehat R^{(\mathrm{band})}_+<0.007043548708$,
+$\widehat R^{(\mathrm{band})}_-<0.006945935768$.
+For $\theta=9/10$ the ordered product error is less than $0.000987573450$,
+and the gaps obey
+$\widehat R^{(\mathrm{band})}_+<0.021591509791$,
+$\widehat R^{(\mathrm{band})}_-<0.021953570359$.
+The higher two levels use the same product error and gap bounds,
+less than $0.029170196992$ and $0.029947327150$, respectively.
+The finite sums use all 2462 and 1227 medium primes, respectively.
+They are strictly below the chosen $\epsilon,\eta_+,\eta_-$.
+Take $z=N^{1/3}$, $H=N^\theta$, and
+$D=H/(\kappa Q_*D_0)$, using Lemma \ref{lem:sharpsupport}.
+Put $c=\log(\kappa Q_*)+u\log T$.
+Then $s=3\theta-3c/L$ and $\kappa Q_*D_0D=H$.
+Here $Q_*=3$ and $\kappa=5/49$ throughout; the costs are
+$c<47.561$, $c<39.112$, and $c<37.961$ for the two higher levels.
+At all four stated starting points, $s>2$, so $D\ge z^2$.
+The refined inequalities \eqref{eq:sieveparity} apply with the
+uniform product condition and Lemmas \ref{lem:parity},
+\ref{lem:degreewise}, and \ref{lem:prefixband}.
+Using JS Lemma 3.2 and the exact product identity gives, unconditionally,
+\[
+|A|V(z)\ge\frac{3U_NN}{L^2}\rho_U(L),\qquad
+\rho_U(L)=1-\frac{20.508\cdot10^{-6}}{L}-2Le^{-L/3}.
+\]
+Indeed $z>10^{12}$ throughout, $D(z)/D_\infty\ge
+\exp(-6.836\cdot10^{-6}/\log z)$, and the missing factors for
+$p\mid N$ cost at most $2L/z$. The count $|A|>N/L$ is
+unconditional by JS Lemma 3.1.
+The normalized lower main coefficient is at least
+\[
+3U_*\rho_U(L)\{(1+\eta_+)(f(s)-C_2\epsilon e^{2-s})
+-(\eta_++\eta_-)(2e^\gamma/s+C_1\epsilon e^{2-s})\}.
+\]
+For $2<s<3$, $f(s)$ increases while both subtracted corrections
+decrease. Thus this coefficient increases with $L$ at every listed level.
+The input costs $C/L^2$, which is at most $1/20$ or $1/10$
+under the corresponding square-root constraint.
+Lemma \ref{lem:deleted}, with $\om(N)\le L/\log2$, costs at most
+\[
+\frac{L^3}{\log2}\{2e^{-L/2}+1.1\theta Le^{-L}\},
+\]
+and excluding the survivor one costs $L^2e^{-L}$. Both decrease on
+these ranges. The certificates give main coefficients greater than
+$0.0607006692223$ at $(\theta,L)=(3/4,786)$ and
+$0.1228594687806$ at $(9/10,212)$. At the higher levels they exceed
+$0.1220961708146$ at $(19/20,166)$ and
+$0.1354387463886$ at $(99/100,142)$.
+
+After all charges the surpluses exceed $0.0107006692223$,
+$0.0228594687806$, $0.0220961708146$, and $0.0354387463886$,
+respectively.
+For the weaker counting bounds keep every finite parameter and error
+budget fixed, and evaluate the same expression at $L=774,210,165,141$.
+The resulting full surpluses exceed $0.0003941826699$,
+$0.0050969071192$, $0.0083045836547$, and $0.0166813945298$,
+respectively. The same support, product, $2<s<3$, deleted-prime and
+survivor-one checks hold at these starts. Their monotonicity extends
+each bound to its whole half-line.
+An element $N-p$ of $A$ is coprime to $N$, so it has no prime factor
+omitted from $P_N(z)$. Every remaining survivor other than one therefore
+has all prime factors at least $z$, and at most two prime factors,
+because it is less than $z^3=N$. This proves all four conclusions.
+\end{proof}
+
+More generally, under \eqref{eq:EHinput} at the specified level,
+the same argument gives a usable criterion for any fixed $2/3<\theta<1$.
+Choose valid parameters of Lemma
+\ref{lem:composite}, let $c=\log(Q_*H_0)$, and put
+$s=3\theta-3c/L$. For $N\ge X$, $L>3\log(10^{12})$,
+$T<N^{1/3}$, and $2<s<3$, define
+\begin{align}\label{eq:generaldistribution}
+\Xi(L)={}&3U_*\rho_U(L)
+\{f(s)-C_2\epsilon e^{2-s}-\eta(2e^\gamma/s+C_1\epsilon)\}
+-\frac{C}{L^2}\notag\\
+&-\frac{L^3}{\log2}\{2e^{-L/2}+1.1\theta Le^{-L}\}
+-L^2e^{-L}.
+\end{align}
+Whenever $\Xi(L)>0$, the sieve factor is positive and the preceding
+proof gives $\pi_2(N)L^2/N\ge\Xi(L)>0$. All parameter and distribution
+conditions must be supplied; the criterion introduces no numerical
+value for $C$ or $X$. Since $s<3$, its negative corrections decrease
+as $L$ increases for fixed parameters, and the positive main factor
+increases. Thus a positive starting-point bound extends to the
+corresponding half-line. With separate gap bounds one can replace the
+sieve factor by $(1+\eta_+)l(s)-(\eta_++\eta_-)u(s)$, using
+$l(s)=f(s)-C_2\epsilon e^{2-s}$ and
+$u(s)=2e^\gamma/s+C_1\epsilon e^{2-s}$.
+This factor is also increasing for $2<s<3$; the four rows above use
+this refined version.
+
+The existence of unspecified constants of the type in
+\eqref{eq:EHinput} follows from the usual EH conjecture.
+One may transfer its von Mangoldt formulation to prime counting with
+a small loss in distribution level and logarithmic power, using partial
+summation; ordinary EH supplies all such fixed levels below one and
+all logarithmic powers. This observation does not make the constants
+effective or supply $X\le e^{212}$. For instance, substituting $C=1$
+and $X=e^{212}$ in the second row would be a new finite hypothesis.
+We do not make that substitution or report $e^{212}$ as a numerical
+threshold or record under ordinary EH alone.
+
+\section{Signed remainders and the support actually used}
+The absolute modulus sum is sufficient but is more than the lower sieve
+uses. Fix one of the four parameter sets in Theorem \ref{prop:EH}.
+At each even $N$ in the sieve domain use its composite lower coefficients $\lambda_N^-$,
+with $z=N^{1/3}$ and $D=N^\theta/(Q_*H_0)$. Define
+\[
+G_N^-=\sum_d\frac{\lambda_N^-(d)}{\varphi(d)},\qquad
+\mathcal R_N^-=\sum_d\lambda_N^-(d)
+\left(\pi(N;d,N)-\frac{\pi(N)}{\varphi(d)}\right).
+\]
+These sums have precisely the support of the lower weights,
+contained in $d\mid P_N(z)$, $d<N^\theta$.
+
+\begin{lemma}[Signed lower remainder and deletions]\label{lem:signed}
+For the sequence $A=\{N-p:p<N,\ p\text{ prime},\ p\nmid N\}$,
+\[
+S(A,z)\ge\pi(N)G_N^-+\mathcal R_N^- -\om(N).
+\]
+\end{lemma}
+\begin{proof}
+First sieve $A^*=\{N-p:p\le N,\ p\text{ prime}\}$.
+Since $N$ is even and at least four, no term has $p=N$.
+Summing the pointwise lower divisor inequality of Lemma
+\ref{lem:composite} over $A^*$ gives
+\[
+S(A^*,z)\ge\sum_d\lambda_N^-(d)\pi(N;d,N)
+=\pi(N)G_N^-+\mathcal R_N^-.
+\]
+Deleting the primes dividing $N$ removes at most $\om(N)$ survivors.
+This proves the claim without taking absolute values of their divisor sums.
+In particular, the $2\sqrt N$ deletion cost in Lemma \ref{lem:deleted}
+is unnecessary when only this signed lower remainder is used.
+\end{proof}
+
+The following is a \emph{tailored quantitative input}, not a newly named
+standard conjecture. Let $\mathfrak D_\theta$ be the even integers in
+the preceding domain $L>3\log(10^{12})$, $T<z$, $2<s<3$.
+For the specified family of weights, suppose
+\begin{equation}\label{eq:signedinput}
+\mathcal R_N^-\ge-\frac{CN}{\log^4N}
+\qquad(N\ge X,\ N\in\mathfrak D_\theta).
+\end{equation}
+The complete input \eqref{eq:EHinput} implies \eqref{eq:signedinput},
+with the same $C,X$, because $|\lambda_N^-(d)|\le1$.
+Only one side of one signed sum is required here. Neither GRH nor a
+published weighted asymptotic estimate supplies its numerical $C,X$.
+The integrality lower bound for the complete maximum-error sum does not,
+by itself, give a lower bound for this signed sum.
+
+Put $c=\log(Q_*H_0)$, $s=3\theta-3c/L$, and use the separate gaps of
+Theorem \ref{prop:EH}. With its functions $l(s),u(s)$, write
+\[
+M_\theta(L)=3U_*\rho_U(L)
+\{(1+\eta_+)l(s)-(\eta_++\eta_-)u(s)\}.
+\]
+Lemma \ref{lem:signed}, the same product and prime-count inputs, and
+$\om(N)\le L/\log2$ give the sharper criterion
+\begin{equation}\label{eq:signedcriterion}
+\pi_2(N)\frac{L^2}{N}\ge
+\Xi_{\rm w}(L):=M_\theta(L)-\frac{C}{L^2}
+-\left(\frac{L^3}{\log2}+L^2\right)e^{-L},
+\end{equation}
+when the main factor is positive and the preceding sieve domains hold.
+The last $L^2e^{-L}$ charge removes the possible survivor one.
+For a requested surplus $a>0$, the admissible budget at $L$ is therefore
+\[
+C<L^2\left\{M_\theta(L)
+-\left(\frac{L^3}{\log2}+L^2\right)e^{-L}-a\right\}.
+\]
+This spends the actual positive main mass, instead of imposing the
+fixed $1/20$ or $1/10$ budgets of Theorem \ref{prop:EH}.
+
+\begin{proposition}[Finite-constant budget conversion]\label{prop:weighted}
+Suppose \eqref{eq:signedinput} holds for one of the four specified weight
+families. Each entry $A$ below gives
+$\pi_2(N)>10^{-5}N/\log^2N$ for every even $N\ge\max\{X,e^A\}$,
+provided $C$ does not exceed the indicated column label:
+\[
+\begin{array}{c|rrrr}
+\theta&C\le1&C\le10^3&C\le10^4&C\le10^6\\\hline
+3/4&722&723&740&1632\\
+9/10&200&202&222&936\\
+19/20&158&161&182&872\\
+99/100&136&138&159&829
+\end{array}
+\]
+The same conclusions hold under the complete input \eqref{eq:EHinput}.
+The column labels are allowed budgets, not distribution constants proved
+for the primes. The onset $X$ is retained in every conclusion.
+\end{proposition}
+\begin{proof}
+The 192-bit certificate evaluates \eqref{eq:signedcriterion} strictly
+above $10^{-5}$ at each entry, checks all sieve domains, and reproduces
+the saved main masses of Theorem \ref{prop:EH} within $10^{-45}$.
+It also evaluates the main mass by an independent algebraic expression
+in which the $e^\gamma$ factors are cancelled explicitly.
+On $2<s<3$, $l(s)$ increases and $u(s)$ decreases, so the composite
+factor increases. The positive $\rho_U(L)$ increases on these ranges.
+Both exponential charges and $C/L^2$ decrease. Hence the inequality
+extends to the whole half-line. For smaller $C$ the bound only improves.
+The $P_2$ transfer is the same as in Theorem \ref{prop:EH}.
+\end{proof}
+For example, if a quantitative input is supplied with upper constant
+$C=10^6$ at level $99/100$, the earlier square-root allocation requires
+$L\ge\sqrt{10^7}=3162.277\ldots$, whereas Proposition
+\ref{prop:weighted} requires $L\ge829$. Both retain the same unknown
+onset $X$. This is an improvement of the budget conversion under the
+same input; it is not a numerical record under ordinary EH.
+Even with zero charged remainder the current certified expression has
+negative main factor at $L=721,199,157,135$ for the four rows.
+Its first positive integer starts are $722,200,158,136$.
+This limitation concerns these fixed weights and main-mass bounds.
+
+% BEGIN CURRENT PREFIX DISTRIBUTION
+\subsection{Prefix-block finite-constant conversion}\label{sec:prefixdistribution}
+Recompute the finite medium masses using Lemma \ref{lem:prefixblocks}.
+The following five families use $w_0=3$, $Q_*=3$, $\kappa=5/49$,
+$D_0=T^u$, and the indicated gap and product budgets:
+\begin{center}
+\small
+\begin{tabular}{rrrrrrrr}\toprule
+Family & $T$ & $u$ & $h$ & $\epsilon$ & $\eta_+$ & $\eta_-$ & $(C_1,C_2)$\\\midrule
+$1$ & $22000$ & $33/8$ & $1/200$ & $1/1717$ & $1/100$ & $1/103$ & $(113,114)$\\
+$2$ & $100000$ & $9/2$ & $1/100$ & $1/4729$ & $1/233$ & $1/235$ & $(109,110)$\\
+$3$ & $10000$ & $29/8$ & $1/200$ & $1/1012$ & $1/32$ & $1/31$ & $(113,114)$\\
+$4$ & $10000$ & $15/4$ & $1/200$ & $1/1012$ & $1/42$ & $1/42$ & $(113,114)$\\
+$5$ & $10000$ & $7/2$ & $1/200$ & $1/1012$ & $1/24$ & $1/23$ & $(113,114)$\\
+\bottomrule\end{tabular}
+\end{center}
+For a chosen cell, use that family's composite lower weights at
+$z=N^{1/3}$ and $D=N^\theta/(\kappa Q_*D_0)$.
+If only the signed input \eqref{eq:signedinput} is assumed, it must hold
+for this specified family on its sieve domain. The full absolute input
+\eqref{eq:EHinput} implies it for every family with the same $C,X$.
+No value of $C$ or $X$ is supplied by this construction.
+
+\begin{proposition}[Prefix-block budget conversion]\label{prop:prefixdistribution}
+Under that cell's signed input, or the full absolute input, every even
+$N\ge\max\{X,e^A\}$ satisfies $\pi_2(N)>10^{-5}N/\log^2N$.
+Here each entry is $A$ followed by its family number, and $C$ is bounded
+by the column label:
+\[
+\begin{array}{c|rrrr}
+\theta&C\le1&C\le10^3&C\le10^4&C\le10^6\\\hline
+$3/4$ & $627\ (1)$ & $629\ (1)$ & $648\ (1)$ & $1510\ (2)$\\
+$9/10$ & $171\ (3)$ & $174\ (3)$ & $198\ (4)$ & $885\ (2)$\\
+$19/20$ & $135\ (5)$ & $138\ (5)$ & $162\ (3)$ & $825\ (2)$\\
+$99/100$ & $115\ (5)$ & $118\ (5)$ & $143\ (3)$ & $791\ (2)$\\
+\end{array}
+\]
+\end{proposition}
+\begin{proof}
+The complete-set bounds of Lemma \ref{lem:prefixblocks} supply the two
+gaps in \eqref{eq:sieveparity}; all coefficient, support and signed
+remainder identities continue to apply. Use exactly
+\eqref{eq:signedcriterion} with each family's $c=\log(\kappa Q_*)+u\log T$.
+The 192-bit certificates check every cell's strict surplus, $T<z$,
+$L>3\log(10^{12})$, and $2<s=3\theta-3c/L<3$.
+For fixed parameters, $l(s)$ increases and $u(s)$ decreases on $(2,3)$,
+$s$ and $\rho_U(L)$ increase, and every deducted expense decreases.
+Thus every cell extends to the claimed half-line.
+The exact and separate-formula checks test finite arithmetic, not a
+distribution upper bound or independent mathematical review.
+\end{proof}
+Ordinary EH still supplies only unspecified constants and starting points.
+These entries improve the conversion of a supplied quantitative input,
+and are not numeric EH-only records. In particular $X$ cannot be discarded.
+The smallest support cost among these five families is 31.052421204;
+even $\theta<1$ allows only $L_B/3<14.278$ at $B$.
+Thus these families still cannot reach the verified endpoint, even with
+zero signed error. The complete absolute input also retains the integrality
+constraints of Proposition \ref{prop:tradeoff}.
+% END CURRENT PREFIX DISTRIBUTION
+\begin{proposition}[A support obstruction to triple factorability]
+\label{prop:factorability}
+The present four lower-weight families are not triply well-factorable
+of level $N^\theta$ on a whole half-line.
+\end{proposition}
+\begin{proof}
+For a prime $T<p<z$ with $p\nmid N$, the lower Rosser weight has no
+checked even prefix, and the empty medium gap is zero. Consequently
+$\lambda_N^-(p)=-1$. A triply well-factorable sequence of level $H$
+must have coefficient zero at every prime $p>H^{1/3}$: apply the
+balanced split $H_1=H_2=H_3=H^{1/3}$ in the definition
+\cite[Definition 1.1]{Pascadi}. Every factorization of a prime has a
+factor equal to $p$, outside its allowed support.
+
+For the four rational levels, take $N=2^{3000k}$, $k\ge1$.
+Then $H^{1/3}=2^{1000\theta k}$ is an integer. Bertrand's theorem
+provides a prime strictly between $H^{1/3}$ and $2H^{1/3}<z$.
+It exceeds $T$ and cannot divide $N$. The parameter certificate
+checks $D\ge z^2$ already at $k=1$, and that support slack increases
+with $k$. This prime has coefficient $-1$, a contradiction.
+The certificate also supplies the exact small witness
+$N=10^{18}$, $z=10^6$, $T=5$, $D_0=625$, $D=10^{14}$:
+$p=999983$ is prime, its coefficient is $-1$, and
+$p^3>H=3D_0D=187500000000000000$.
+\end{proof}
+This does not decide two-factor well-factorability or the applicability
+of a separately constructed well-factorable linear-sieve variant.
+Changing the coefficient family requires a new pointwise and main-mass
+proof; support size alone is not enough.
+
+Pascadi's fixed-residue theorem gives $5/8-\varepsilon$ for triply
+well-factorable weights \emph{unconditionally}, and $3/5-\varepsilon$
+for its upper linear-sieve variant; Theorem 5.4 treats specified lower
+blocks with factor-dependent levels \cite{Pascadi}. Its constants
+depend on the residue $a$, so setting $a=N$ does not give the required
+uniform input. Lichtman's large-residue formula is
+$(5-\vartheta_{\rm RP})/8-\varepsilon$, giving $153/256-\varepsilon$
+at $\vartheta_{\rm RP}=7/32$ \cite[Theorem 1.7]{Lichtman}.
+Setting $\vartheta_{\rm RP}=0$ requires the Ramanujan--Petersson
+input identified there, rather than Dirichlet GRH alone.
+Even the resulting $5/8$ is below the $2/3$ needed for this direct
+$z=N^{1/3}$ linear lower sieve; Chen switching remains necessary
+for such lower distribution levels.
+
+The MPZ smooth-modulus input allows a primitive residue depending
+on $N$, but requires prime factors of its moduli at most $N^\delta$.
+The proved region in \cite[Claim 2.4, Theorem 2.5]{Polymath} is
+$600\varpi+180\delta<7$ at level $1/2+2\varpi$.
+The current nonzero prime coefficients extend to $N^{1/3}$ on a
+half-line, so their uniform coverage needs $\delta\ge1/3$:
+apply Bertrand near $z$ along $N=2^{3000k}$.
+This is outside that region, whose level supremum is only
+$157/300<2/3$. A restriction to smooth moduli would leave
+uncontrolled coefficients and needs a different decomposition.
+
+Li's 2026 theorem states the asymptotic lower count
+$1.9728C_NN/\log^2N$, combining weighted sieves, switching, the
+double sieve and Harman's sieve \cite{Li2026}.
+Its statement does not supply a numerical starting point.
+Explicit uniform estimates for its switched blocks are a route
+to investigate, not an explicit threshold certified here.
+
+\section{Cost calculation for the rejected bridge candidate}
+\textbf{Withdrawal notice.} Proposition \ref{prop:integrality} refutes
+the distribution premise of this section. The following algebra is
+retained to identify the original error: it checks that a proposed
+budget would suffice, without checking whether that budget is possible.
+It does not prove a nonvacuous full-range result.
+Here we do not use the GRH rectangle machinery. Put $z=N^{1/3}$,
+$H=N^{9/10}$, $D=H/e^8$, $N\ge B$. Lemma \ref{lem:product}
+permits $\epsilon=1/700$, $C_2=117$, and
+\[
+s(L)=2.7-24/L\ge s(L_B)=2.139682079805\ldots>2.
+\]
+The former calculation had $D\ge z^2$ and $Q_ND\le H$; its
+fixed-endpoint-only sieve application was not independently justified.
+For $2\le s\le2.7$, $f(s)$ increases while $e^2h(s)=e^{2-s}$
+decreases. Hence the positive sieve factor is at least
+\[
+f_B=f(s(L_B))-(117/700)e^{2-s(L_B)}
+>0.0723184176500.
+\]
+Also \eqref{eq:Vbounds} and \eqref{eq:A} give
+\[
+|A|V(z)\ge\frac{3U_NN}{L^2}\rho(L),\qquad
+\rho(L)=1-\frac{L}{8\pi}e^{-L/6}-2Le^{-L/3}.
+\]
+The function $\rho$ increases on this range, and
+$\rho(L_B)>0.9985933587896$.
+
+QEH$_B$ concerns all primes, while $A$ excludes $p\mid N$.
+We explicitly account for the difference. Write
+$\kappa=\#\{p<N:p\mid N\}$ and
+$\kappa_d=\#\{p<N:p\mid N,\ d\mid N-p\}$.
+For $(d,N)=1$,
+\[
+r_A(d)=\pi(N;d,N)-\frac{\pi(N)}{\varphi(d)}
+-\kappa_d+\frac{\kappa}{\varphi(d)}.
+\]
+For each deleted prime $p$, the integer $N-p$ has at most
+$2\sqrt N$ positive divisors. Therefore, irrespective of $H$,
+\begin{equation}\label{eq:del}
+\sum_{\substack{d\le H\\d\mid P(z)}}|r_A(d)|
+\le\frac{N}{10L^2}
++\om(N)\{2\sqrt N+1.1\log H\}.
+\end{equation}
+This divisor count avoids the wasteful $\om(N)H$ estimate.
+Use Robin's bound $\om(N)<1.3841L/\log L$, recorded in \cite{BS}.
+After normalizing by $N/L^2$ and excluding the possible survivor one,
+\begin{align}\label{eq:bridgemargin}
+\pi_2(N)\frac{L^2}{N}\ge{}&3e^{-\gamma}\rho(L_B)f_B-\frac1{10}
+\\&-\frac{1.3841L^3}{\log L}
+\left(2e^{-L/2}+0.99Le^{-L}\right)-L^2e^{-L}.\notag
+\end{align}
+An element of $A$ surviving $P_N(z)$ is coprime to $N$, hence has
+no excluded prime factor. Its prime factors are all at least $z$.
+Three factors would give an integer at least $z^3=N$, whereas every
+element of $A$ is less than $N$. So every surviving element other
+than one is a legitimate prime or semiprime.
+The error terms on the second line of \eqref{eq:bridgemargin} decrease
+for $L\ge L_B$. At $B$ the main coefficient exceeds
+$0.1216402390842$; the deleted-prime budget is less than
+$0.0000289481782$ and $L_B^2/B<4.59\cdot10^{-16}$.
+The final surplus exceeds $0.0216112909060>0.021$.
+The computation of \cite{OHP} covers every even $4\le N\le B$
+by two primes. Nevertheless the proposed analytic premise fails
+at $B$, so this calculation does not establish a bridge.
+
+\section{Interpretation and remaining research questions}
+The GRH theorem changes finite constants and presieving cost,
+while retaining the asymptotic square-root distribution level.
+The composite weights resolve the endpoint problem for this theorem,
+but its threshold still does not bridge the verified range.
+Under the usual GRH absolute-error summation,
+direct sieving at $z=N^{1/3}$ has asymptotic parameter $s\le3/2$;
+the lower linear sieve has no positive main term there.
+Chen's switching avoids that obstruction at large $N$, with a
+finite support and error cost that remains large near $B$.
+For the present direct distribution route, $D=N^\theta/e^c$ and
+$z=N^{1/3}$ require $c\le(\theta-2/3)L$ just to have $D\ge z^2$.
+At $B=4\cdot10^{18}$, $L_B=42.832826035\ldots$, the allowances are
+only $3.569402170$ and $9.994326075$ at the two chosen levels, whereas
+the earlier fixed-family costs are $47.560368848\ldots$ and $39.111469030\ldots$.
+Thus even zero AP error would not make these fixed weights reach $B$.
+A substantially smaller support cost or a different sieve construction
+is needed for this route. This is an obstruction to the present
+construction, not an impossibility theorem for conditional Chen bounds.
+
+The rejected QEH$_B$ candidate changes the level and supplies an
+explicit constant and starting point. Its sieve budget would have
+been sufficient, but its distribution budget is impossible at $B$.
+Any replacement must first pass the integrality obstruction and then
+be related to a recognized conjecture or independently supported finite
+distribution input. Whole-range stitching remains open in this project.
+RH alone controls complete prime products and global prime counts,
+and has not supplied the AP input required by Theorem \ref{thm:grh}.
+Finite-height GRH verification cannot be substituted for full GRH
+without a certified explicit-formula tail.
+
+For whole-range comparisons the 2026 thesis summary of Johnston
+\cite{Jthesis} states GRH $p+P_{16}$, improving the older $p+P_{31}$.
+It must not be confused with a whole-range $p+P_2$ theorem.
+The withdrawn candidate supplies no improvement on this whole-range result.
+EH and GEH are recognized conjectures used for conditional prime-gap
+results \cite{Polymath}. GRH is not known to imply either. Their usual
+forms do not provide the concrete constants and starting points needed
+to connect a finite verification with an explicit analytic threshold.
+Theorem \ref{prop:EH} records this dependence instead of hiding it.
+
+Proposition \ref{prop:tradeoff} also constrains the optimization itself:
+the level $99/100$ route of Theorem \ref{prop:EH} has an actual threshold
+greater than $e^{834}$ under that theorem's square-root budget.
+Merely relaxing that budget cannot recover
+an endpoint near $e^{141}$ within the present direct-sieve expression.
+Indeed, for \eqref{eq:generaldistribution} and its separate-gap
+version, assume the proved conditions $0<\rho_U(L)\le1$,
+$2<s\le3\theta<3$, nonnegative support cost, and nonnegative error
+parameters. Since $f(s)<F(s)$ and $f$ increases on this interval,
+the main coefficient is at most
+\[
+3U_*f(3\theta)
+=\frac{7.92\log(3\theta-1)}{3\theta}
+=:K_\theta.
+\]
+All other charges are nonnegative, so $\Xi(R)>0$ requires
+$C<K_\theta R^2$. At $\theta=99/100$, the strict certificate gives
+$\mathfrak I_\theta(492)>K_\theta\,492^2$.
+If such a positive endpoint satisfied $R\le492$ and $e^R\ge X$,
+the input at $x=e^{492}$ would imply
+$C>\mathfrak I_\theta(492)>K_\theta\,492^2\ge K_\theta R^2$,
+a contradiction. Thus even after reducing support cost and choosing
+a larger error budget, this direct-sieve expression needs $R>492$.
+This conclusion uses the stated normalization and main-term model;
+it is not a bound for all conditional Chen arguments.
+
+\section*{Reproducibility and dependency ledger}
+% BEGIN ACCEPTED INTERVAL LEDGER
+For the accepted-support union and current endpoints, run:
+\begin{quote}\small
+\path{conditional_chen_accepted_support_checks.py}\\
+\path{conditional_chen_accepted_interval_certificate.py}\\
+\path{conditional_chen_accepted_interval_checks.py}
+\end{quote}
+The counter uses six positive exclusive flag/parity states and exact
+binomial block multiplicities. Its complete cutoffs remain fixed after
+deletion. Counts are generated completely or reused only after generator
+hash checks. The scalar checker uses its own endpoint formulas and
+integer prime sieve, checks exact sums of the six state counts, and
+rechecks the preceding interval and tails. The weak interval covers
+$[24274,24799]$ and joins the earlier $[24799,26820]$ and GRH tail;
+the stronger coefficient uses its own fixed-$\beta=3$ half-line.
+Continuous coverage follows from Section \ref{sec:acceptedinterval},
+not from finitely many sample points. Neither a finite-verification
+splice nor independent research review is supplied by these programs.
+% END ACCEPTED INTERVAL LEDGER
+% BEGIN ROUGH INTERVAL LEDGER
+For the logarithmic count and rough-integer interval, run:
+\begin{quote}\small
+\path{conditional_chen_binned_support_checks.py}\\
+\path{conditional_chen_rough_interval_certificate.py}\\
+\path{conditional_chen_rough_interval_checks.py}
+\end{quote}
+The support histograms are generated completely or reused from per-case
+caches after checking generator hashes. The interval program computes the
+complete integer Euler product freshly; the separate checker regenerates
+its prime set independently. It rechecks the old tail, verifies the common
+claim and inclusive join, and uses its own formulas for 12 new endpoint
+quantities. Continuous coverage follows from the fixed-parameter argument
+in Section \ref{sec:roughinterval}, not from the five sample points.
+This work does not supply independent research review or a splice to the
+finite verification range.
+% END ROUGH INTERVAL LEDGER
+For the current prefix-block results, run the following files in order:
+\begin{quote}\small
+\path{conditional_chen_prefix_block_checks.py}\\
+\path{conditional_chen_prefix_block_endpoint_certificate.py}\\
+\path{conditional_chen_prefix_block_refinement.py}
+\end{quote}
+The refinement records
+per-case caches tied to generator hashes. The initial grid includes a
+previously generated $u=11/2$ finite sum, explicitly reused by hash.
+The separate support-count program
+\path{conditional_chen_sparse_modulus_certificate.py} freshly evaluates
+the complete Euler products at four rational exponents for each of three
+cutoffs; it also checks 18 exact small Rankin counts.
+Then run \path{conditional_chen_prefix_block_endpoint_checks.py}.
+It independently reproduces eight GRH quantities at each asserted endpoint
+and the main mass and surplus in all 16 distribution cells, without calling
+the production scalar evaluators. The exact prefix-block checks cover
+4608 deleted prime subsets, 9216 first-failure identities, 104976 divisor
+patterns, and 132 block-coefficient groups. These tests do not replace
+Lemmas \ref{lem:prefixblocks} and \ref{lem:sparsecount}, the external inputs,
+independent research review, or a verification-range splice.
+
+First run \texttt{python}\ \path{conditional_chen_composite_certificate.py}
+to regenerate the finite inputs and the conservative-support baseline.
+Then run \texttt{python}\ \path{conditional_chen_sharp_endpoint_certificate.py}
+for the preceding GRH endpoints and the distribution theorem.
+For the preceding dense-grid GRH endpoints, then run
+\texttt{python}\ \path{conditional_chen_dense_band_grh_certificate.py}.
+It freshly generates the enlarged-grid finite sums, saves
+\path{conditional_chen_dense_band_grh_finite.json}, and checks the
+new AP budget and endpoints. The optional argument
+\texttt{--reuse-finite} reuses that file after checking its generator
+hashes. Five quantities at the earlier $L=30824$ are reproduced
+within $10^{-45}$; direct AP, surplus and support formulas are also
+checked within $10^{-45}$. The ordered product input is reused with
+its hash, not regenerated in this additional run.
+The sharp endpoint program records the SHA-256 hashes of
+the saved finite inputs, scans the complete medium-prime sets again for
+the support maxima, and checks all new support, parameter and surplus
+conditions. Its independent scalar implementation also reproduces eight
+baseline GRH quantities within $10^{-45}$ before recharging the support.
+The first program regenerates the
+complete ordered-product certificate through $10^8$ by calling
+\path{conditional_chen_uniform_product_certificate.py}; saved
+JSON values are not used as proof inputs in that first program.
+The independent finite
+\path{conditional_chen_uniform_product_checks.py} checks 4096
+integer sequences against exhaustive ordered pairs, 1954 exact prime
+product endpoint pairs, and nine integer/prime tail comparisons.
+Those checks exercise the merging and endpoint conventions, and do
+not replace Lemma \ref{lem:ordered} or its published tail inputs.
+The module
+\path{conditional_chen_rankin_certificate.py} generates all
+medium primes by a complete integer sieve and sums the positive Rankin
+bound in 192-bit Arb. The earlier
+\path{conditional_chen_degreewise_rankin_certificate.py}
+uses its integer sieve and degree thresholds, and maintains the positive
+recurrence separately for each exponent. The earlier
+\path{conditional_chen_quadratic_rankin_certificate.py}
+adds the moments at $0,\sigma,2\sigma$, checks the optimizer signs
+strictly, and encloses the nonnegative quadratic expression.
+It is retained as a baseline and can also be run separately.
+The separate run writes a \texttt{\_standalone.json} file, preserving
+the production JSON with its freshly computed uniform-product metadata.
+The separate \path{conditional_chen_degreewise_rankin_checks.py}
+compares nine finite coefficient configurations with exact rational
+subset sums and verifies 2304 first-failure and prime-deletion cases.
+The independent \path{conditional_chen_quadratic_rankin_checks.py}
+also checks nine configurations and 2304 cases, evaluating the optimized
+polynomial by exact rational subset sums and comparing actual first
+failures for all deleted prime subsets.
+The current \path{conditional_chen_prefix_band_certificate.py}
+maintains positive raw exponential-generating moments through degree four,
+encloses the signed shift and Gram optimization by Arb, and skips any
+optimizer whose signs cannot be certified. Native truncated polynomial
+multiplication computes the required coefficients exactly, without omitting
+any subset mass. Its separate run preserves the production JSON.
+The independent \path{conditional_chen_prefix_band_checks.py}
+uses formal power-of-two atoms, not primes, so that base-two logarithms
+and polynomial expectations are exact rational numbers. It checks twelve
+configurations, 2688 first-failure/deletion cases, and 25 actual product-band
+instances, including one two-atom first failure. These checks validate the
+finite algebra; they do not replace the general prime-set proof.
+The \path{conditional_chen_prefix_band_eh_search.py} explores 96
+strict scalar candidates. Its four selected finite inputs are regenerated
+by the composite certificate; the sharp endpoint program then selects the
+new starts with the smaller proved support costs. The earlier quadratic
+search of 80 and degreewise search of 144 candidates remain baselines.
+The \path{conditional_chen_sharp_support_certificate.py}
+computes the exact support maxima by complete adjacent-prime scans and
+checks 52488 exact coefficient/deletion cases.
+The older
+\path{conditional_chen_product_certificate.py} and
+\path{conditional_chen_interval_certificate.py} are retained
+for the unused fixed-endpoint candidates and withdrawn bridge costs.
+The separate
+\path{conditional_chen_integrality_certificate.py} refutes both
+finite EH-style candidates. Only strict Arb comparisons accept a claim.
+The \path{conditional_chen_distribution_tradeoff_certificate.py}
+certifies the necessary constant/onset witnesses in Proposition
+\ref{prop:tradeoff} and the direct-sieve positivity obstruction above.
+It also computes actual reduced-class prime histograms for 19701
+integer pairs $3\le x\le200$, $2\le H<x$, checking the prime-modulus
+subtotal against the integrality lower bound with exact rational
+counts. These finite checks do not replace the general proof or
+provide any distribution upper bound.
+The \path{conditional_chen_weighted_distribution_certificate.py}
+reproduces the saved distribution main masses and certifies Proposition
+\ref{prop:weighted}. It uses exact rational arithmetic in 10748 composite
+cases over 1156 selected even integers, checks 99158 divisor patterns and
+21496 signed identities, including deleted primes and the $P_2$ transfer.
+It verifies the finite prime witness in Proposition \ref{prop:factorability}
+and the support inequalities for its infinite families.
+It does not prove a signed distribution upper bound, regenerate the
+large finite prime products, or certify global optimality.
+The exact-integer script \path{conditional_chen_weight_checks.py}
+also checks 2347008 pointwise divisor patterns across six finite
+exact/Brun/Rosser configurations, including the integer levels on either side
+of every weight transition. These finite checks exercise the coefficient,
+support and pointwise inequalities; they do not replace the general
+proof of Lemma \ref{lem:composite} or the external main-mass estimates.
+The \path{conditional_chen_rosser_checks.py} checks 602368
+pointwise patterns across three finite exact/Rosser/Rosser configurations,
+eight additional rational-power configurations, 16 normalized coefficient
+cases, and 3088 exact first-failure and prime-deletion cases. The integer
+configurations include both sides of every weight transition; the rational-power
+ones compare levels by exact integer powers, without numerical roots.
+They also check the separate parity bounds by explicit subset sums and
+the minimum-prime degree restrictions by integer powers, including the
+eight rational powers $5$, $9/2$, $35/8$, $25/4$, $17/4$,
+$49/8$, $39/8$, and $33/8$.
+These checks do not replace Lemmas \ref{lem:rankin}, \ref{lem:parity},
+\ref{lem:degreewise}, \ref{lem:quadratic}, and \ref{lem:prefixband}.
+The script \path{conditional_chen_source_audit.py} checks source
+structure, references, and agreement of the current manuscript and notes
+with the saved certificates. It records input hashes for reproducibility;
+it does not establish the analytic dependencies or compile the manuscript.
+Neither the scripts nor successful compilation mechanically verify the
+analytic lemmas. The dependencies to check in a research review are:
+\begin{enumerate}
+\item The Rosser construction and main-mass estimates in BJS
+Proposition 13, Table 1, and Nathanson Theorem 9.3. The uniform product
+condition in Lemma \ref{lem:uniform} is verified at every endpoint.
+Lemma \ref{lem:ordered} tightens that condition by a complete finite
+computation and an unconditional analytic tail.
+Lemma \ref{lem:rankin} derives the finite medium-prime mass identity
+directly by first failure, and Lemma \ref{lem:composite} proves the
+presieving step and its coefficient and support bounds.
+Lemma \ref{lem:degreewise} permits independent exponents for disjoint
+degree groups. Lemma \ref{lem:quadratic} uses a nonnegative polynomial
+majorant and finite weighted Cauchy--Schwarz; optimization follows
+complete-prime domination. Lemma \ref{lem:prefixband} retains the
+preceding-pass constraint and uses a nonnegative tilted square with a
+finite weighted Gram matrix. None changes the weights.
+Lemma \ref{lem:sharpsupport} sharpens their support bound without changing
+the coefficients, their defining level, or their finite gap estimates.
+\item The AP and bilinear estimates in the accessible BS preprint.
+Their constants are used directly; its specialized three-term
+threshold formulas and normalization are not used.
+\item BJS Lemma 16, JS Lemma 3.2, Lee--Nosal Corollary 1.3, the square-free reciprocal
+totient bound, Robin's $\om$ bound, and Nathanson's combinatorial inequality.
+\item Theorem \ref{prop:EH} retains the unspecified $C,X$ in
+\eqref{eq:EHinput}; no effective EH constants have been supplied.
+\item Proposition \ref{prop:weighted} retains the same missing numerical
+data, with a weaker signed input proved sufficient in Lemma \ref{lem:signed}.
+Its smaller budgets do not supply that input or bypass the product and
+support conditions. The cited weighted distribution results require
+their stated coefficient classes and residue uniformity.
+\item The finite distribution hypothesis in \eqref{eq:QEH} is refuted
+by Proposition \ref{prop:integrality}; there is no full-bridge theorem.
+\end{enumerate}
+The old floating-point probe is exploratory and is superseded by this
+ledger. No new unproved minorant module is
+hidden inside the retained cost calculation, but its distribution
+premise is impossible. This distinguishes positive cost arithmetic
+from a viable conditional research result.
+
+\begin{thebibliography}{99}
+\bibitem{Pascadi} A. Pascadi,
+\emph{On the exponents of distribution of primes and smooth numbers},
+2025, version 2. \url{https://arxiv.org/abs/2505.00653v2}.
+\bibitem{Lichtman} J. D. Lichtman,
+\emph{Primes in arithmetic progressions to large moduli, and Goldbach
+beyond the square-root barrier}.
+\url{https://arxiv.org/abs/2309.08522}.
+\bibitem{Li2026} R. Li,
+\emph{On Chen's theorem, Goldbach's conjecture and almost prime twins II},
+Math. Reports 28(78) (2026), 39--61.
+\url{https://imar.ro/journals/Mathematical_Reports/Pdfs/2026/1_2/3.pdf}.
+\bibitem{BJS} M. Bordignon, D. R. Johnston, V. V. Starichkova,
+\emph{An explicit version of Chen's theorem and the linear sieve},
+Int. J. Number Theory 21 (2025), 2497--2572.
+\url{https://arxiv.org/abs/2207.09452v6}.
+\bibitem{BS} M. Bordignon, V. Starichkova,
+\emph{An explicit version of Chen's theorem assuming the Generalized
+Riemann Hypothesis}, accessible preprint, 2022.
+\url{https://arxiv.org/abs/2211.08844}.
+\bibitem{BSpub} Same authors, published version, Ramanujan J. 64
+(2024), 1213--1242. The publisher's abstract states $e^{e^{14}}$.
+\url{https://doi.org/10.1007/s11139-024-00866-x}.
+\bibitem{JS} D. R. Johnston, V. V. Starichkova,
+\emph{Some explicit results on the sum of a prime and an almost prime}.
+\url{https://arxiv.org/abs/2208.01229}.
+\bibitem{LN} E. S. Lee, P. Nosal,
+\emph{Sharper bounds for the error in the prime number theorem assuming
+the Riemann Hypothesis}, version 4 (2025).
+\url{https://arxiv.org/abs/2312.05628v4}.
+\bibitem{DJ} A. W. Dudek, D. R. Johnston,
+\emph{Almost primes between all squares}.
+\url{https://arxiv.org/abs/2501.18048}.
+\bibitem{Jthesis} D. R. Johnston,
+\emph{New explicit and asymptotic results in sieve theory}, thesis
+summary, Bull. Aust. Math. Soc. 113 (2026), 372--374.
+\url{https://doi.org/10.1017/S0004972725100828}.
+\bibitem{OHP} T. Oliveira e Silva, S. Herzog, S. Pardi,
+\emph{Empirical verification of the even Goldbach conjecture and
+computation of prime gaps up to $4\cdot10^{18}$}, Math. Comp. 83
+(2014), 2033--2060.
+\url{https://doi.org/10.1090/S0025-5718-2013-02787-1}.
+\bibitem{Polymath} D. H. J. Polymath,
+\emph{Variants of the Selberg sieve, and bounded intervals containing
+many primes}, Research in the Mathematical Sciences 1 (2014), 12.
+\url{https://arxiv.org/abs/1407.4897}.
+\bibitem{Nathanson} M. B. Nathanson,
+\emph{Additive Number Theory: The Classical Bases}, Graduate Texts
+in Mathematics 164, Springer, 1996.
+\url{https://doi.org/10.1007/978-1-4757-3845-2}.
+\end{thebibliography}
+\end{document}

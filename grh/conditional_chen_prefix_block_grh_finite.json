@@ -1,0 +1,37 @@
+{
+  "status": "strict Arb positive prefix-block bounds; analytic domination lemma required",
+  "precision_bits": 192,
+  "T": 5000000,
+  "exact_cutoff": 5,
+  "u": "11/2",
+  "presieve_type": "pure Rosser medium weights, exact smallest-prime weights",
+  "exact_presieve_Q_max": 15,
+  "exact_product_ball": "0.375000000000000000000000000000000000000000000000000000000",
+  "logarithm_base": "e",
+  "D0": "5000000^(11/2)",
+  "log_support_cost_ball": "[87.5452667882932696988938989074767642124002484853176228532 +/- 9.20e-56]",
+  "log_bin_width": "1/100",
+  "bin_limit": 8484,
+  "maximum_actual_prefix_degree": 22,
+  "nonempty_prime_blocks": 992,
+  "prime_generation": "complete integer sieve",
+  "complete_odd_prime_count": 348512,
+  "medium_prime_count": 348510,
+  "upper_relative_Rosser_gap_ball": "[0.000319093931331641871302779607841055037951041804184271 +/- 5.03e-55]",
+  "lower_relative_Rosser_gap_ball": "[0.0003179926557291657010933350422996902780267569490723423 +/- 8.53e-56]",
+  "relative_Rosser_gap_ball": "[0.000637086587060807572396114650140745315977798753256613 +/- 2.58e-55]",
+  "retains_all_preceding_checked_prefixes": true,
+  "relaxation": "floor-log labels; possible-pass and possible-failure cutoffs; positive block coefficients",
+  "deleting_primes": "complete-block positive coefficients dominate deleted blocks; actual prefix degree <=K",
+  "input_sha256": {
+    "conditional_chen_prefix_block_certificate.py": "9098125b3cd3b24133fd8fa230a4c595074e005113d24e01278ec63a37c1ab24",
+    "conditional_chen_rankin_certificate.py": "5f67df53975bb4e0e2631c385d00697178371feef24f464bfaa26ac9fcc7d6b7"
+  },
+  "elapsed_seconds": 23.281,
+  "not_checked": [
+    "external analytic inputs",
+    "global optimality",
+    "Chen endpoint",
+    "PDF compilation"
+  ]
+}

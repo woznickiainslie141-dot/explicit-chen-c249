@@ -1,0 +1,8 @@
+{
+  "status": "PASS: finite ordered-product checks only",
+  "integer_sequence_checks": 4096,
+  "direct_prime_product_endpoint_pairs": 1954,
+  "integer_and_prime_tail_checks": 9,
+  "precision_bits": 192,
+  "not_checked": "general analytic lemmas, published far-range envelopes, full Chen bridge"
+}

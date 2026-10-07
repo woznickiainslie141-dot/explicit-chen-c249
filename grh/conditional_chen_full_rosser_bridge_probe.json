@@ -1,0 +1,109 @@
+{
+  "status": "PASS: finite-support and positive-main-mass interface; AP hypothesis unproved",
+  "precision_bits": 192,
+  "verified_goldbach_endpoint": "4000000000000000000",
+  "candidate_analytic_interval": [
+    "4000000000000000000",
+    "8000000000000000000"
+  ],
+  "T": 2000000,
+  "exact_cutoff": 3,
+  "u": "3001/1000",
+  "theta": "99/100",
+  "Q": 3,
+  "kappa": "5/49",
+  "support_maximizer": {
+    "kind": "unchecked final prime",
+    "r": 5,
+    "s": 7
+  },
+  "finite_rosser_gap_certificate": {
+    "status": "strict Arb positive prefix-block bounds; analytic domination lemma required",
+    "precision_bits": 192,
+    "T": 2000000,
+    "exact_cutoff": 3,
+    "u": "3001/1000",
+    "presieve_type": "pure Rosser medium weights, exact smallest-prime weights",
+    "exact_presieve_Q_max": 3,
+    "exact_product_ball": "0.500000000000000000000000000000000000000000000000000000000",
+    "logarithm_base": "e",
+    "D0": "2000000^(3001/1000)",
+    "log_support_cost_ball": "[44.6390941619792921513843129664651755075074998652875616758 +/- 5.21e-56]",
+    "log_bin_width": "1/200",
+    "bin_limit": 8709,
+    "maximum_actual_prefix_degree": 14,
+    "nonempty_prime_blocks": 1628,
+    "prime_generation": "complete integer sieve",
+    "complete_odd_prime_count": 148932,
+    "medium_prime_count": 148931,
+    "upper_relative_Rosser_gap_ball": "[0.1447336889606122936235043190840566700408533484819533 +/- 2.90e-53]",
+    "lower_relative_Rosser_gap_ball": "[0.1416720265860852083520577027530874819306771823375583 +/- 1.66e-53]",
+    "relative_Rosser_gap_ball": "[0.2864057155466975019755620218371441519715305308195116 +/- 3.81e-53]",
+    "retains_all_preceding_checked_prefixes": true,
+    "relaxation": "floor-log labels; possible-pass and possible-failure cutoffs; positive block coefficients",
+    "deleting_primes": "complete-block positive coefficients dominate deleted blocks; actual prefix degree <=K",
+    "input_sha256": {
+      "conditional_chen_prefix_block_certificate.py": "9098125b3cd3b24133fd8fa230a4c595074e005113d24e01278ec63a37c1ab24",
+      "conditional_chen_rankin_certificate.py": "5f67df53975bb4e0e2631c385d00697178371feef24f464bfaa26ac9fcc7d6b7"
+    },
+    "elapsed_seconds": 10.562,
+    "not_checked": [
+      "external analytic inputs",
+      "global optimality",
+      "Chen endpoint",
+      "PDF compilation"
+    ]
+  },
+  "complete_odd_prime_count": 148932,
+  "complete_medium_prime_count": 148931,
+  "complete_density_ball": "[0.05109165955497561969334169549568744815164519229105462 +/- 6.84e-54]",
+  "main_mass_lower_ball": "[0.04385340060417589933545019298886972071238918728923248 +/- 5.88e-54]",
+  "log_B_ball": "[42.8328260350127129311583104272349088729708270640384240768 +/- 4.38e-56]",
+  "log_actual_support_upper_ball": "[42.3567117763027659157743668128050036877589317603923570208 +/- 5.25e-56]",
+  "support_slack_ball": "[0.0477859983598198860723605101575560964821870330056828153 +/- 9.48e-56]",
+  "signed_AP_constant_capacity_ball": "[3446.125998243550376017139954856054050304773383161625 +/- 7.30e-49]",
+  "signed_AP_constant_budget": 3446,
+  "claimed_count_coefficient": "1/100000",
+  "exceptional_prime_and_unit_loss_at_B_ball": "[2.88015921879646184709779235025122058175978971938245400761e-14 +/- 7.62e-71]",
+  "interval_samples": [
+    {
+      "N": "4000000000000000000",
+      "normalized_margin_ball": "[7.8676955182129847267191246034009202884971545931e-5 +/- 3.28e-52]"
+    },
+    {
+      "N": "5000000000000000000",
+      "normalized_margin_ball": "[0.029282791288218153760792338678409920850313998168196 +/- 2.69e-52]"
+    },
+    {
+      "N": "6000000000000000000",
+      "normalized_margin_ball": "[0.052921621123278728315438887929174380189026862409586 +/- 2.82e-52]"
+    },
+    {
+      "N": "8000000000000000000",
+      "normalized_margin_ball": "[0.089822280975658476137579606548845347758640940518996 +/- 2.01e-52]"
+    }
+  ],
+  "required_hypothesis": "For every even N in [B,T^3], the actual deleted-prime finite Rosser sum R_W(N)=sum_d lambda_N^-(d)*(pi(N;d,N)-pi(N)/phi(d)) is >= -C*N/log(N)^4, with the stated C.",
+  "continuous_interval_dependencies": "same fixed T,D0 and complete gap bound; deletion domination; prime-count lower bound pi(N)>N/log(N); increasing L*G and decreasing C/L^2 and exceptional losses for L>=log(B)",
+  "prime_count_input": {
+    "source": "Rosser-Schoenfeld (1962), Corollary 1",
+    "validity": "x>=17",
+    "statement": "pi(x)>x/log(x)",
+    "doi": "https://doi.org/10.1215/ijm/1255631807"
+  },
+  "input_sha256": {
+    "conditional_chen_full_rosser_bridge_probe.py": "3465c7812a71c7ac4407e6003137d21239c12775e12be4a20a692e89c3f3f400",
+    "conditional_chen_prefix_block_certificate.py": "9098125b3cd3b24133fd8fa230a4c595074e005113d24e01278ec63a37c1ab24",
+    "conditional_chen_rankin_certificate.py": "5f67df53975bb4e0e2631c385d00697178371feef24f464bfaa26ac9fcc7d6b7",
+    "conditional_chen_sharp_support_certificate.py": "7d559c00662b34df6bdcec57552127bf2387fb3e52a7295e81ad2cd9fa72ce7a"
+  },
+  "not_checked": [
+    "signed AP hypothesis",
+    "independent full-formula reproduction",
+    "general Rosser and deletion lemmas",
+    "external prime-count and verification sources",
+    "coverage above T^3",
+    "independent research review",
+    "full finite-verification splice"
+  ]
+}

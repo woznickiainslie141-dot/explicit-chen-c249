@@ -1,0 +1,177 @@
+{
+  "status": "PASS: separate endpoint formulas, six-state count identities and analytic coverage interfaces",
+  "precision_bits": 192,
+  "complete_integer_primes_independently_generated": 348513,
+  "complete_medium_prime_count": 348510,
+  "selected_count_checks": [
+    {
+      "u": "87/16",
+      "degree": 22,
+      "label_limit": 8115,
+      "union_integer_count": "655257348020585286337311701158",
+      "six_states_sum_exactly": true
+    },
+    {
+      "u": "11/2",
+      "degree": 22,
+      "label_limit": 8211,
+      "union_integer_count": "1449511000783081225403768272233",
+      "six_states_sum_exactly": true
+    }
+  ],
+  "accepted_exact_small_subsets": 4608,
+  "accepted_exact_integer_coefficients": 114876,
+  "accepted_deleted_subset_patterns": 104976,
+  "accepted_deleted_production_histograms": 384,
+  "aggregate_prime_factor_modulus_patterns": 8608,
+  "interval_checks": [
+    {
+      "log_N": 24274,
+      "margin_ball": "[2.43248297571863435388239321582632513220901138921336e-5 +/- 6.58e-56]",
+      "pointwise_AP_leading_ball": "[0.0013736419756970556668620370128253143842850544208950404297 +/- 3.92e-59]",
+      "plateau_leading_ball": "[0.0014075614677720107501708118169164934725284775159309479369 +/- 2.40e-59]",
+      "support_slack_ball": "[0.000548291572001000944964083701109663155800728845547638 +/- 3.29e-55]",
+      "positive_floor_charge_retained": true,
+      "independent_endpoint_quantities": 12
+    },
+    {
+      "log_N": 24405,
+      "margin_ball": "[2.8355254235168689966274418758355092201018655288958e-5 +/- 1.29e-55]",
+      "pointwise_AP_leading_ball": "[0.0013820752281123534148949838418573586433513211637532835871 +/- 6.48e-59]",
+      "plateau_leading_ball": "[0.0014075614677720107501708118169164934725284775159309479369 +/- 2.40e-59]",
+      "support_slack_ball": "[0.544405379753810606034550300852588346982856218618161592 +/- 2.17e-55]",
+      "positive_floor_charge_retained": true,
+      "independent_endpoint_quantities": 0
+    },
+    {
+      "log_N": 24536,
+      "margin_ball": "[3.23426355616493882195577692581004362888005374333812e-5 +/- 9.39e-56]",
+      "pointwise_AP_leading_ball": "[0.0013905148049299631572727632157086929408322286492807286255 +/- 5.64e-59]",
+      "plateau_leading_ball": "[0.0014075614677720107501708118169164934725284775159309479369 +/- 2.40e-59]",
+      "support_slack_ball": "[1.088316060454328954023549469286746609590528684914765726 +/- 3.74e-55]",
+      "positive_floor_charge_retained": true,
+      "independent_endpoint_quantities": 0
+    },
+    {
+      "log_N": 24667,
+      "margin_ball": "[3.62876595970276501259603443591871983720484214883042e-5 +/- 7.66e-56]",
+      "pointwise_AP_leading_ball": "[0.0013989606771693553868934866671005902698191766801610045180 +/- 3.08e-59]",
+      "plateau_leading_ball": "[0.0014075614677720107501708118169164934725284775159309479369 +/- 2.40e-59]",
+      "support_slack_ball": "[1.632279762922180330223205525495105833582210196997982771 +/- 5.47e-55]",
+      "positive_floor_charge_retained": true,
+      "independent_endpoint_quantities": 0
+    },
+    {
+      "log_N": 24799,
+      "margin_ball": "[4.0220635560574769829256907058223643993065280342287e-5 +/- 4.24e-55]",
+      "pointwise_AP_leading_ball": "[0.0014074773603085676017470485770894256458009843844729664998 +/- 5.89e-59]",
+      "plateau_leading_ball": "[0.0014075614677720107501708118169164934725284775159309479369 +/- 2.40e-59]",
+      "support_slack_ball": "[2.180448920938752268732699757874992942145524685019712690 +/- 6.18e-55]",
+      "positive_floor_charge_retained": true,
+      "independent_endpoint_quantities": 0
+    }
+  ],
+  "strong_half_line_checks": [
+    {
+      "log_N": 31000,
+      "margin_ball": "[0.0181799241991595310036801813375966287198228045619551745 +/- 8.64e-56]",
+      "pointwise_AP_leading_ball": "[1.16049809990447547623471161502395157534562578965704566886e-8 +/- 8.22e-65]",
+      "plateau_leading_ball": "[1.16049809990447547623471161502395157534562578965704566886e-8 +/- 8.22e-65]",
+      "support_slack_ball": "[0.008509203429583335201716331902394197628850361164641505 +/- 3.04e-55]",
+      "positive_floor_charge_retained": true,
+      "independent_endpoint_quantities": 12
+    },
+    {
+      "log_N": 32000,
+      "margin_ball": "[0.0181982648918167794065309498473163838234370320592095781 +/- 9.09e-56]",
+      "pointwise_AP_leading_ball": "[1.16041792749653407595742710662353679573636655658987336915e-8 +/- 7.61e-65]",
+      "plateau_leading_ball": "[1.16049809990447547623471161502395157534562578965704566886e-8 +/- 8.22e-65]",
+      "support_slack_ball": "[3.650263108485842431730727483656817307846165137202588608 +/- 4.02e-55]",
+      "positive_floor_charge_retained": true,
+      "independent_endpoint_quantities": 0
+    },
+    {
+      "log_N": 62000,
+      "margin_ball": "[0.0184733613085881380086116139951328742129580587582623217 +/- 7.50e-56]",
+      "pointwise_AP_leading_ball": "[1.15921573114694357625733656459904994381798887291108860747e-8 +/- 9.31e-65]",
+      "plateau_leading_ball": "[1.16049809990447547623471161502395157534562578965704566886e-8 +/- 8.22e-65]",
+      "support_slack_ball": "[113.776067661749747406950019967527864493402349958083875742 +/- 6.29e-55]",
+      "positive_floor_charge_retained": true,
+      "independent_endpoint_quantities": 0
+    }
+  ],
+  "previous_interval_checks": [
+    {
+      "log_N": 24799,
+      "margin_ball": "[2.1645498948030998395312161904831866545053982060894e-5 +/- 3.19e-55]",
+      "pointwise_AP_leading_ball": "[0.0011501052997531821223417943589655399572512999413599889170 +/- 4.44e-59]",
+      "plateau_leading_ball": "[0.0012350939523150913639636770493214211234174256314172064729 +/- 3.11e-59]",
+      "support_slack_ball": "[0.001974440924078476244701271026167386269353517348560130 +/- 6.21e-55]",
+      "positive_floor_charge_retained": true,
+      "independent_endpoint_quantities": 12
+    },
+    {
+      "log_N": 26820,
+      "margin_ball": "[7.7028386960328365926173704408515958589455723322340e-5 +/- 3.28e-55]",
+      "pointwise_AP_leading_ball": "[0.0012348368247926377580655899272369446817472638938778632721 +/- 5.86e-59]",
+      "plateau_leading_ball": "[0.0012350939523150913639636770493214211234174256314172064729 +/- 3.11e-59]",
+      "support_slack_ball": "[8.395148335444782343084509192080337516499518597603483380 +/- 2.99e-55]",
+      "positive_floor_charge_retained": true,
+      "independent_endpoint_quantities": 0
+    }
+  ],
+  "previous_tail_checks": [
+    {
+      "log_N0": 26820,
+      "alpha": "4267/1000000",
+      "beta": "3",
+      "quantities_independently_reproduced": 8,
+      "fixed_parameter_half_line_ranges_checked": true
+    },
+    {
+      "log_N0": 31000,
+      "alpha": "3706/1000000",
+      "beta": "3",
+      "quantities_independently_reproduced": 8,
+      "fixed_parameter_half_line_ranges_checked": true
+    }
+  ],
+  "analytic_join": {
+    "covered_log_interval": [
+      24274,
+      24799
+    ],
+    "prior_interval": [
+      24799,
+      26820
+    ],
+    "existing_half_line_start": 26820,
+    "common_claim": ".00001",
+    "inclusive_endpoints": true
+  },
+  "strong_half_line": {
+    "start": 31000,
+    "beta": "3",
+    "claim": "181/10000",
+    "dependencies": "fixed alpha; L^(3-beta)=1; decreasing P, rough floor and every other expense"
+  },
+  "continuous_interval_dependencies": "general six-state union domination; fixed alpha; constant AP plateau; increasing support slack and H; decreasing upper masses and other charges; prior GRH interval and tail",
+  "input_sha256": {
+    "conditional_chen_accepted_interval_certificate.json": "5120b14756629bc862f3e506b5bc2d558387e1fd544bd156356dbb426f8f283f",
+    "conditional_chen_accepted_support_checks.json": "9ccdc1481c86834fe2cb40b53ee0a1c2eac6a923e05b2569dee0fed090621fff",
+    "conditional_chen_rough_interval_certificate.json": "ca1495d1b0f91c6aeff6919567b8bbfd8e3143d12c5070782b4f69eca956d5af",
+    "conditional_chen_rough_interval_checks.json": "a9eeeb7fd4800b3751ca7e92d5193348512fb7a306baac0af4ffd9b23c228ab7",
+    "conditional_chen_binned_support_checks.json": "8337f17a9ea96d1faa398d9f022415210cc0ac25604ec688339e9cb5a803235b",
+    "conditional_chen_sparse_modulus_certificate.json": "4b918d47ef697d4162fdb680db05d41fa85eabea628315c4b008ac351cb08f21",
+    "conditional_chen_accepted_interval_checks.py": "8007237e2d4d91794e653fb7048863c921f554c9887ad5256bcf99ccd00f5eaf",
+    "conditional_chen_prefix_block_endpoint_checks.py": "9351e0aca58880927aec1dc52e940816a88b64e326b5e24f77826153fb5c9d9b"
+  },
+  "not_checked": [
+    "general six-state and density-domination proofs",
+    "external analytic inputs",
+    "independent research review",
+    "global optimality",
+    "finite Goldbach splice",
+    "PDF compilation"
+  ]
+}

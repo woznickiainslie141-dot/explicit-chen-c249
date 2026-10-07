@@ -1,0 +1,74 @@
+{
+  "status": "strict positive union-support count; general six-state domination lemma required",
+  "precision_bits": 192,
+  "T": 5000000,
+  "exact_cutoff": 5,
+  "u": "87/16",
+  "kappa": "11/169",
+  "support_maximizer": {
+    "kind": "unchecked final prime",
+    "r": 11,
+    "s": 13
+  },
+  "sigma": "0",
+  "log_bin_width": "1/100",
+  "log_medium_support_ball": "[81.141153865666458299933568778329269653117564394765786398 +/- 3.99e-55]",
+  "maximum_actual_degree": 22,
+  "label_limit": 8115,
+  "medium_prime_count": 348510,
+  "available_medium_prime_count": 348510,
+  "nonempty_blocks": 992,
+  "count_upper_ball": "655257348020585286337311701158.000000000000000000000000000",
+  "modulus_count_fraction_ball": "[1.0074540636097434133136552774228063611379504679495740653e-6 +/- 7.49e-62]",
+  "state_count_balls": [
+    {
+      "alive_flags": 1,
+      "selected_parity": 0,
+      "count_ball": "175710429822041647907402172337.000000000000000000000000000"
+    },
+    {
+      "alive_flags": 1,
+      "selected_parity": 1,
+      "count_ball": "70611323050623225513745948531.0000000000000000000000000000"
+    },
+    {
+      "alive_flags": 2,
+      "selected_parity": 0,
+      "count_ball": "65583434297967702515917046315.0000000000000000000000000000"
+    },
+    {
+      "alive_flags": 2,
+      "selected_parity": 1,
+      "count_ball": "186320797308420283797376075820.000000000000000000000000000"
+    },
+    {
+      "alive_flags": 3,
+      "selected_parity": 0,
+      "count_ball": "78698840773013146852633013612.0000000000000000000000000000"
+    },
+    {
+      "alive_flags": 3,
+      "selected_parity": 1,
+      "count_ball": "78332522768519279750237444543.0000000000000000000000000000"
+    }
+  ],
+  "state_convention": "1 upper alive; 2 lower alive; 3 both alive; parity before append",
+  "prime_generation": "complete integer sieve",
+  "retains_all_preceding_checked_prefixes": true,
+  "union_without_duplication": true,
+  "complete_cutoffs_retained_after_deletion": true,
+  "elapsed_seconds": 6.594,
+  "input_sha256": {
+    "conditional_chen_accepted_support_certificate.py": "774f0f2625255457a49d07f96000c9827b75f2c77ca0010e88e3d3620894fe31",
+    "conditional_chen_rankin_certificate.py": "5f67df53975bb4e0e2631c385d00697178371feef24f464bfaa26ac9fcc7d6b7",
+    "conditional_chen_prefix_block_certificate.py": "9098125b3cd3b24133fd8fa230a4c595074e005113d24e01278ec63a37c1ab24",
+    "conditional_chen_sharp_support_certificate.py": "7d559c00662b34df6bdcec57552127bf2387fb3e52a7295e81ad2cd9fa72ce7a",
+    "conditional_chen_binned_support_certificate.py": "c842a4e2b98e4410f079b236f8e4e324c20260f63e4c20b3e1cfd6e0f4db6c83"
+  },
+  "not_checked": [
+    "general domination proof",
+    "external analytic inputs",
+    "Chen endpoint",
+    "full splice"
+  ]
+}

@@ -1,0 +1,97 @@
+{
+  "status": "PASS: separate scalar formulas, complete integer density and analytic interval join",
+  "precision_bits": 192,
+  "complete_integer_primes_independently_generated": 348513,
+  "complete_medium_prime_count": 348510,
+  "count_degree_bound": 22,
+  "binned_histogram_exact_small_subsets": 9216,
+  "aggregate_prime_factor_modulus_patterns": 8608,
+  "interval_checks": [
+    {
+      "log_N": 24799,
+      "margin_ball": "[2.1645498948030998395312161904831866545053982060894e-5 +/- 3.19e-55]",
+      "pointwise_AP_leading_ball": "[0.0011501052997531821223417943589655399572512999413599889170 +/- 4.44e-59]",
+      "plateau_leading_ball": "[0.0012350939523150913639636770493214211234174256314172064729 +/- 3.11e-59]",
+      "support_slack_ball": "[0.001974440924078476244701271026167386269353517348560130 +/- 6.21e-55]",
+      "positive_floor_charge_retained": true,
+      "independent_endpoint_quantities": 12
+    },
+    {
+      "log_N": 25304,
+      "margin_ball": "[3.63135804229453908143714461053991599859256749919319e-5 +/- 8.63e-56]",
+      "pointwise_AP_leading_ball": "[0.0011713339110903839252457695528401589676840072227816224670 +/- 5.40e-59]",
+      "plateau_leading_ball": "[0.0012350939523150913639636770493214211234174256314172064729 +/- 3.11e-59]",
+      "support_slack_ball": "[2.098011804411668467196706996482086885966369133346284066 +/- 3.71e-55]",
+      "positive_floor_charge_retained": true,
+      "independent_endpoint_quantities": 0
+    },
+    {
+      "log_N": 25809,
+      "margin_ball": "[5.04075764932325766790853550208975667753689208751691e-5 +/- 7.32e-56]",
+      "pointwise_AP_leading_ball": "[0.0011925245396801674925743329442184084754829955762731222398 +/- 6.37e-59]",
+      "plateau_leading_ball": "[0.0012350939523150913639636770493214211234174256314172064729 +/- 3.11e-59]",
+      "support_slack_ball": "[4.194881769396364795341986973863171047232431439024126277 +/- 5.68e-55]",
+      "positive_floor_charge_retained": true,
+      "independent_endpoint_quantities": 0
+    },
+    {
+      "log_N": 26314,
+      "margin_ball": "[6.39605434593310766845024111637018848462356164746597e-5 +/- 6.51e-56]",
+      "pointwise_AP_leading_ball": "[0.0012136779925461423664211659824248662965842696614627958608 +/- 5.69e-59]",
+      "plateau_leading_ball": "[0.0012350939523150913639636770493214211234174256314172064729 +/- 3.11e-59]",
+      "support_slack_ball": "[6.292552065746444080051406348278897285339020528985000520 +/- 2.45e-55]",
+      "positive_floor_charge_retained": true,
+      "independent_endpoint_quantities": 0
+    },
+    {
+      "log_N": 26820,
+      "margin_ball": "[7.7028386960328365926173704408515958589455723322340e-5 +/- 3.28e-55]",
+      "pointwise_AP_leading_ball": "[0.0012348368247926377580655899272369446817472638938778632721 +/- 5.86e-59]",
+      "plateau_leading_ball": "[0.0012350939523150913639636770493214211234174256314172064729 +/- 3.11e-59]",
+      "support_slack_ball": "[8.395148335444782343084509192080337516499518597603483380 +/- 2.99e-55]",
+      "positive_floor_charge_retained": true,
+      "independent_endpoint_quantities": 0
+    }
+  ],
+  "old_tail_checks": [
+    {
+      "log_N0": 26820,
+      "alpha": "4267/1000000",
+      "beta": "3",
+      "quantities_independently_reproduced": 8,
+      "fixed_parameter_half_line_ranges_checked": true
+    },
+    {
+      "log_N0": 31000,
+      "alpha": "3706/1000000",
+      "beta": "3",
+      "quantities_independently_reproduced": 8,
+      "fixed_parameter_half_line_ranges_checked": true
+    }
+  ],
+  "analytic_join": {
+    "covered_log_interval": [
+      24799,
+      26820
+    ],
+    "existing_half_line_start": 26820,
+    "common_claim": ".00001",
+    "inclusive_endpoints": true
+  },
+  "continuous_interval_dependencies": "fixed alpha; constant AP plateau; increasing support slack and H; decreasing upper masses, other charges and q_+",
+  "input_sha256": {
+    "conditional_chen_rough_interval_checks.py": "8192d934c1b17884944d7e9c5116e95ebf4579e1f4132d2965bdfd945c0e7fa4",
+    "conditional_chen_rough_interval_certificate.json": "ca1495d1b0f91c6aeff6919567b8bbfd8e3143d12c5070782b4f69eca956d5af",
+    "conditional_chen_binned_support_checks.json": "8337f17a9ea96d1faa398d9f022415210cc0ac25604ec688339e9cb5a803235b",
+    "conditional_chen_sparse_modulus_certificate.json": "4b918d47ef697d4162fdb680db05d41fa85eabea628315c4b008ac351cb08f21",
+    "conditional_chen_prefix_block_endpoint_checks.py": "9351e0aca58880927aec1dc52e940816a88b64e326b5e24f77826153fb5c9d9b"
+  },
+  "not_checked": [
+    "general histogram and density-domination proofs",
+    "external analytic inputs",
+    "independent research review",
+    "global optimality",
+    "finite Goldbach splice",
+    "PDF compilation"
+  ]
+}

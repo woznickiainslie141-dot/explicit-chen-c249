@@ -1,0 +1,355 @@
+{
+  "status": "FLOAT ONLY: proposals for a fresh Arb run; no new theorem",
+  "sigma_candidates": [
+    "0",
+    "1/50",
+    "1/25",
+    "3/50",
+    "2/25",
+    "1/10",
+    "3/25",
+    "7/50",
+    "4/25",
+    "9/50",
+    "1/5",
+    "11/50",
+    "6/25",
+    "13/50",
+    "7/25",
+    "3/10",
+    "8/25",
+    "17/50",
+    "9/25"
+  ],
+  "u_candidates": [
+    "6",
+    "97/16",
+    "49/8",
+    "99/16",
+    "25/4"
+  ],
+  "records": [
+    {
+      "T": 5000000,
+      "w": 5,
+      "u": "49/8",
+      "upper_gap": 0.0003406667597462594,
+      "lower_gap": 0.0003390803261535472,
+      "ordinary_upper": 0.00048310813984479026,
+      "ordinary_lower": 0.00047465915393332886,
+      "log_support_cost": 97.18585958229225,
+      "kappa": "11/169",
+      "kappa_witness": {
+        "kind": "unchecked final prime",
+        "r": 11,
+        "s": 13
+      },
+      "sharp_log_support_cost": 94.45385614016755,
+      "epsilon_float": 2.4260559542561747e-05,
+      "float_log_start": 30742,
+      "margin_at_30824_float": 0.00037219609366837144,
+      "alpha_at_30824_float": 0.004238
+    },
+    {
+      "T": 5000000,
+      "w": 5,
+      "u": "99/16",
+      "upper_gap": 0.0002834467539090569,
+      "lower_gap": 0.0002821609316373703,
+      "ordinary_upper": 0.0004019596179136394,
+      "ordinary_lower": 0.00039630669305755576,
+      "log_support_cost": 98.14991886169216,
+      "kappa": "11/169",
+      "kappa_witness": {
+        "kind": "unchecked final prime",
+        "r": 11,
+        "s": 13
+      },
+      "sharp_log_support_cost": 95.41791541956745,
+      "epsilon_float": 2.4260559542561747e-05,
+      "float_log_start": 30759,
+      "margin_at_30824_float": 0.0002875098022333837,
+      "alpha_at_30824_float": 0.00427
+    },
+    {
+      "T": 5000000,
+      "w": 5,
+      "u": "97/16",
+      "upper_gap": 0.00040858519881829813,
+      "lower_gap": 0.0004064868857075243,
+      "ordinary_upper": 0.000580595354104363,
+      "ordinary_lower": 0.0005684354305381924,
+      "log_support_cost": 96.22180030289236,
+      "kappa": "11/169",
+      "kappa_witness": {
+        "kind": "unchecked final prime",
+        "r": 11,
+        "s": 13
+      },
+      "sharp_log_support_cost": 93.48979686076765,
+      "epsilon_float": 2.4260559542561747e-05,
+      "float_log_start": 30769,
+      "margin_at_30824_float": 0.00025148885597140055,
+      "alpha_at_30824_float": 0.004207
+    },
+    {
+      "T": 5000000,
+      "w": 5,
+      "u": "25/4",
+      "upper_gap": 0.0002358855743086889,
+      "lower_gap": 0.0002347460999937137,
+      "ordinary_upper": 0.00033411248997911475,
+      "ordinary_lower": 0.00033042175482431174,
+      "log_support_cost": 99.11397814109205,
+      "kappa": "11/169",
+      "kappa_witness": {
+        "kind": "unchecked final prime",
+        "r": 11,
+        "s": 13
+      },
+      "sharp_log_support_cost": 96.38197469896734,
+      "epsilon_float": 2.4260559542561747e-05,
+      "float_log_start": 30806,
+      "margin_at_30824_float": 7.763525013096558e-05,
+      "alpha_at_30824_float": 0.004301
+    },
+    {
+      "T": 5000000,
+      "w": 5,
+      "u": "6",
+      "upper_gap": 0.0004896354505440045,
+      "lower_gap": 0.0004876756020304246,
+      "ordinary_upper": 0.0006954013762874547,
+      "ordinary_lower": 0.00068129644825701,
+      "log_support_cost": 95.25774102349246,
+      "kappa": "11/169",
+      "kappa_witness": {
+        "kind": "unchecked final prime",
+        "r": 11,
+        "s": 13
+      },
+      "sharp_log_support_cost": 92.52573758136775,
+      "epsilon_float": 2.4260559542561747e-05,
+      "float_log_start": 30850,
+      "margin_at_30824_float": -8.961298904227991e-05,
+      "alpha_at_30824_float": 0.004176
+    },
+    {
+      "T": 5000000,
+      "w": 3,
+      "u": "25/4",
+      "upper_gap": 0.00032779206255690674,
+      "lower_gap": 0.0003276238433788374,
+      "ordinary_upper": 0.00047212077565734746,
+      "ordinary_lower": 0.0004713739437570108,
+      "log_support_cost": 97.50454022865794,
+      "kappa": "5/49",
+      "kappa_witness": {
+        "kind": "unchecked final prime",
+        "r": 5,
+        "s": 7
+      },
+      "sharp_log_support_cost": 95.22215784298142,
+      "epsilon_float": 2.4260559542561747e-05,
+      "float_log_start": 30883,
+      "margin_at_30824_float": -0.00022474381437262284,
+      "alpha_at_30824_float": 0.004263
+    },
+    {
+      "T": 5000000,
+      "w": 3,
+      "u": "99/16",
+      "upper_gap": 0.00039404572289724146,
+      "lower_gap": 0.0003936541095068029,
+      "ordinary_upper": 0.0005681958791203117,
+      "ordinary_lower": 0.0005662126145382904,
+      "log_support_cost": 96.54048094925805,
+      "kappa": "5/49",
+      "kappa_witness": {
+        "kind": "unchecked final prime",
+        "r": 5,
+        "s": 7
+      },
+      "sharp_log_support_cost": 94.25809856358153,
+      "epsilon_float": 2.4260559542561747e-05,
+      "float_log_start": 30904,
+      "margin_at_30824_float": -0.00032041504438459615,
+      "alpha_at_30824_float": 0.004232
+    },
+    {
+      "T": 5000000,
+      "w": 7,
+      "u": "97/16",
+      "upper_gap": 0.00033119753874456695,
+      "lower_gap": 0.00033073239560003995,
+      "ordinary_upper": 0.0004647474152757291,
+      "ordinary_lower": 0.00045576043620198126,
+      "log_support_cost": 98.16771045194767,
+      "kappa": "11/169",
+      "kappa_witness": {
+        "kind": "unchecked final prime",
+        "r": 11,
+        "s": 13
+      },
+      "sharp_log_support_cost": 95.43570700982296,
+      "epsilon_float": 2.4260559542561747e-05,
+      "float_log_start": 30942,
+      "margin_at_30824_float": -0.0005010088698625666,
+      "alpha_at_30824_float": 0.00427
+    },
+    {
+      "T": 5000000,
+      "w": 7,
+      "u": "6",
+      "upper_gap": 0.0003963607122568219,
+      "lower_gap": 0.00039701882490472185,
+      "ordinary_upper": 0.0005560407441706197,
+      "ordinary_lower": 0.0005465351818365982,
+      "log_support_cost": 97.20365117254777,
+      "kappa": "11/169",
+      "kappa_witness": {
+        "kind": "unchecked final prime",
+        "r": 11,
+        "s": 13
+      },
+      "sharp_log_support_cost": 94.47164773042306,
+      "epsilon_float": 2.4260559542561747e-05,
+      "float_log_start": 30963,
+      "margin_at_30824_float": -0.0005898063179881881,
+      "alpha_at_30824_float": 0.004239
+    },
+    {
+      "T": 5000000,
+      "w": 7,
+      "u": "49/8",
+      "upper_gap": 0.00027646709721687997,
+      "lower_gap": 0.0002755008123589496,
+      "ordinary_upper": 0.0003876248297808241,
+      "ordinary_lower": 0.00038009067149402117,
+      "log_support_cost": 99.13176973134756,
+      "kappa": "11/169",
+      "kappa_witness": {
+        "kind": "unchecked final prime",
+        "r": 11,
+        "s": 13
+      },
+      "sharp_log_support_cost": 96.39976628922285,
+      "epsilon_float": 2.4260559542561747e-05,
+      "float_log_start": 30965,
+      "margin_at_30824_float": -0.0006201080102575514,
+      "alpha_at_30824_float": 0.004302
+    },
+    {
+      "T": 5000000,
+      "w": 3,
+      "u": "49/8",
+      "upper_gap": 0.0004741511584619968,
+      "lower_gap": 0.0004736711062250639,
+      "ordinary_upper": 0.0006839085306142098,
+      "ordinary_lower": 0.000677396574368363,
+      "log_support_cost": 95.57642166985815,
+      "kappa": "5/49",
+      "kappa_witness": {
+        "kind": "unchecked final prime",
+        "r": 5,
+        "s": 7
+      },
+      "sharp_log_support_cost": 93.29403928418162,
+      "epsilon_float": 2.4260559542561747e-05,
+      "float_log_start": 30978,
+      "margin_at_30824_float": -0.0006440626486719765,
+      "alpha_at_30824_float": 0.004201
+    },
+    {
+      "T": 5000000,
+      "w": 7,
+      "u": "99/16",
+      "upper_gap": 0.000230426257542997,
+      "lower_gap": 0.00022924371962424348,
+      "ordinary_upper": 0.0003229825128687899,
+      "ordinary_lower": 0.00031689886405930243,
+      "log_support_cost": 100.09582901074747,
+      "kappa": "11/169",
+      "kappa_witness": {
+        "kind": "unchecked final prime",
+        "r": 11,
+        "s": 13
+      },
+      "sharp_log_support_cost": 97.36382556862276,
+      "epsilon_float": 2.4260559542561747e-05,
+      "float_log_start": 31018,
+      "margin_at_30824_float": -0.0008521298137563456,
+      "alpha_at_30824_float": 0.004333
+    },
+    {
+      "T": 5000000,
+      "w": 7,
+      "u": "25/4",
+      "upper_gap": 0.00019191633745458016,
+      "lower_gap": 0.0001906745556159151,
+      "ordinary_upper": 0.0002687272907663054,
+      "ordinary_lower": 0.0002641475694526651,
+      "log_support_cost": 101.05988829014736,
+      "kappa": "11/169",
+      "kappa_witness": {
+        "kind": "unchecked final prime",
+        "r": 11,
+        "s": 13
+      },
+      "sharp_log_support_cost": 98.32788484802265,
+      "epsilon_float": 2.4260559542561747e-05,
+      "float_log_start": 31100,
+      "margin_at_30824_float": -0.0012089336891728238,
+      "alpha_at_30824_float": 0.004364
+    },
+    {
+      "T": 5000000,
+      "w": 3,
+      "u": "97/16",
+      "upper_gap": 0.0005699710481150715,
+      "lower_gap": 0.0005677441794204974,
+      "ordinary_upper": 0.0008236441354307491,
+      "ordinary_lower": 0.0008108536707844433,
+      "log_support_cost": 94.61236239045826,
+      "kappa": "5/49",
+      "kappa_witness": {
+        "kind": "unchecked final prime",
+        "r": 5,
+        "s": 7
+      },
+      "sharp_log_support_cost": 92.32998000478173,
+      "epsilon_float": 2.4260559542561747e-05,
+      "float_log_start": 31116,
+      "margin_at_30824_float": -0.0012114404911481565,
+      "alpha_at_30824_float": 0.00417
+    },
+    {
+      "T": 5000000,
+      "w": 3,
+      "u": "6",
+      "upper_gap": 0.0006836563648682975,
+      "lower_gap": 0.000680773076651001,
+      "ordinary_upper": 0.000988149193625875,
+      "ordinary_lower": 0.0009723469445445404,
+      "log_support_cost": 93.64830311105835,
+      "kappa": "5/49",
+      "kappa_witness": {
+        "kind": "unchecked final prime",
+        "r": 5,
+        "s": 7
+      },
+      "sharp_log_support_cost": 91.36592072538183,
+      "epsilon_float": 2.4260559542561747e-05,
+      "float_log_start": 31328,
+      "margin_at_30824_float": -0.0020483827211104904,
+      "alpha_at_30824_float": 0.004138
+    }
+  ],
+  "input_sha256": {
+    "conditional_chen_uniform_product_certificate.json": "2255fb4282d1d3e055ad91e93b2961af4359d863b5dc0ff74e19782fb6b037a7",
+    "conditional_chen_prefix_band_probe.py": "6aea23a5b0bdb482651f5ca408db0adf70c74fe023d8ca503ee4ff5d5860a0dc",
+    "conditional_chen_uniform_grh_probe.py": "adf17b94501582728c41409356f8a3a0ae71aeae17a9d3d14948f5ef5f0fca53",
+    "conditional_chen_sharp_support_certificate.py": "7d559c00662b34df6bdcec57552127bf2387fb3e52a7295e81ad2cd9fa72ce7a",
+    "conditional_chen_sharp_grh_parameter_probe.py": "fb3d8a4ebde53605a689baebf17cae077f7e7744293f31acba178b8ae2a1bc97"
+  }
+}

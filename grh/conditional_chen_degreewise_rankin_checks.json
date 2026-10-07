@@ -1,0 +1,54 @@
+{
+  "status": "PASS: finite degreewise checks only",
+  "precision_bits": 192,
+  "explicit_coefficient_configurations": 9,
+  "first_failure_and_deleted_prime_checks": 2304,
+  "configurations": [
+    {
+      "u": 4,
+      "degree_cutoff": 4,
+      "prime_subsets": 256
+    },
+    {
+      "u": 4,
+      "degree_cutoff": 5,
+      "prime_subsets": 256
+    },
+    {
+      "u": 4,
+      "degree_cutoff": 12,
+      "prime_subsets": 256
+    },
+    {
+      "u": 5,
+      "degree_cutoff": 5,
+      "prime_subsets": 256
+    },
+    {
+      "u": 5,
+      "degree_cutoff": 6,
+      "prime_subsets": 256
+    },
+    {
+      "u": 5,
+      "degree_cutoff": 12,
+      "prime_subsets": 256
+    },
+    {
+      "u": 6,
+      "degree_cutoff": 6,
+      "prime_subsets": 256
+    },
+    {
+      "u": 6,
+      "degree_cutoff": 7,
+      "prime_subsets": 256
+    },
+    {
+      "u": 6,
+      "degree_cutoff": 12,
+      "prime_subsets": 256
+    }
+  ],
+  "not_checked": "general analytic sieve inputs or full Chen bridge"
+}

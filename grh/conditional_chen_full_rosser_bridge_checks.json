@@ -1,0 +1,529 @@
+{
+  "status": "PASS: independent finite checks and rigorous numerical-input refutations",
+  "precision_bits": 192,
+  "complete_odd_prime_count": 148932,
+  "local_scalar_reproductions": [
+    {
+      "w": 3,
+      "u": "3001/1000",
+      "C_budget": 3446,
+      "kappa": "5/49"
+    },
+    {
+      "w": 2,
+      "u": "3001/1000",
+      "C_budget": 3439,
+      "kappa": "3/25"
+    },
+    {
+      "w": 2,
+      "u": "61/20",
+      "C_budget": 3489,
+      "kappa": "3/25"
+    }
+  ],
+  "small_exact_checks": {
+    "configurations": [
+      {
+        "w": 2,
+        "u": "3001/1000",
+        "h": "1/2",
+        "sigma": "0"
+      },
+      {
+        "w": 2,
+        "u": "3001/1000",
+        "h": "1/2",
+        "sigma": "1/2"
+      },
+      {
+        "w": 2,
+        "u": "3001/1000",
+        "h": "1/2",
+        "sigma": "1"
+      },
+      {
+        "w": 2,
+        "u": "3001/1000",
+        "h": "1/10",
+        "sigma": "0"
+      },
+      {
+        "w": 2,
+        "u": "3001/1000",
+        "h": "1/10",
+        "sigma": "1/2"
+      },
+      {
+        "w": 2,
+        "u": "3001/1000",
+        "h": "1/10",
+        "sigma": "1"
+      },
+      {
+        "w": 2,
+        "u": "61/20",
+        "h": "1/2",
+        "sigma": "0"
+      },
+      {
+        "w": 2,
+        "u": "61/20",
+        "h": "1/2",
+        "sigma": "1/2"
+      },
+      {
+        "w": 2,
+        "u": "61/20",
+        "h": "1/2",
+        "sigma": "1"
+      },
+      {
+        "w": 2,
+        "u": "61/20",
+        "h": "1/10",
+        "sigma": "0"
+      },
+      {
+        "w": 2,
+        "u": "61/20",
+        "h": "1/10",
+        "sigma": "1/2"
+      },
+      {
+        "w": 2,
+        "u": "61/20",
+        "h": "1/10",
+        "sigma": "1"
+      },
+      {
+        "w": 3,
+        "u": "3001/1000",
+        "h": "1/2",
+        "sigma": "0"
+      },
+      {
+        "w": 3,
+        "u": "3001/1000",
+        "h": "1/2",
+        "sigma": "1/2"
+      },
+      {
+        "w": 3,
+        "u": "3001/1000",
+        "h": "1/2",
+        "sigma": "1"
+      },
+      {
+        "w": 3,
+        "u": "3001/1000",
+        "h": "1/10",
+        "sigma": "0"
+      },
+      {
+        "w": 3,
+        "u": "3001/1000",
+        "h": "1/10",
+        "sigma": "1/2"
+      },
+      {
+        "w": 3,
+        "u": "3001/1000",
+        "h": "1/10",
+        "sigma": "1"
+      },
+      {
+        "w": 3,
+        "u": "61/20",
+        "h": "1/2",
+        "sigma": "0"
+      },
+      {
+        "w": 3,
+        "u": "61/20",
+        "h": "1/2",
+        "sigma": "1/2"
+      },
+      {
+        "w": 3,
+        "u": "61/20",
+        "h": "1/2",
+        "sigma": "1"
+      },
+      {
+        "w": 3,
+        "u": "61/20",
+        "h": "1/10",
+        "sigma": "0"
+      },
+      {
+        "w": 3,
+        "u": "61/20",
+        "h": "1/10",
+        "sigma": "1/2"
+      },
+      {
+        "w": 3,
+        "u": "61/20",
+        "h": "1/10",
+        "sigma": "1"
+      }
+    ],
+    "enumerated_complete_subsets": 9216,
+    "weighted_histogram_coefficients_checked": 152316,
+    "deleted_production_histograms_checked": 768,
+    "pointwise_divisor_patterns_and_first_failure_identity_cases": 26244,
+    "rational_weight_exponents": [
+      "0",
+      "1"
+    ],
+    "square_root_weight_exponent": "1/2"
+  },
+  "centered_pi_input_counterexamples": [
+    {
+      "w": 3,
+      "u": "3001/1000",
+      "exact": [
+        3
+      ],
+      "medium": [
+        140053,
+        47,
+        41,
+        37,
+        29,
+        23,
+        19,
+        17,
+        11,
+        7,
+        5
+      ],
+      "N": "4000000000000000048",
+      "primes": [
+        1515229998243811363
+      ],
+      "d": "2484770001756188685",
+      "phi_d": "789994515411763200",
+      "actual_coefficient": 1,
+      "AP_prime_count_lower": 1,
+      "AP_mean_upper_ball": "[0.148362339906673789462284782231996303264348908133926399173 +/- 2.25e-58]",
+      "AP_error_lower_ball": "[0.851637660093326210537715217768003696735651091866073600827 +/- 3.79e-58]",
+      "necessary_A_epsilon_1_1000_lower_ball": "[0.6430813281037387585123573069685084056474892144654546904 +/- 3.56e-56]",
+      "candidate_A_capacity_ball": "[0.2551031950988067494081831964448532270912102273027086 +/- 6.64e-53]",
+      "status": "REFUTED: every A within this candidate capacity fails at this actual supported modulus"
+    },
+    {
+      "w": 2,
+      "u": "3001/1000",
+      "exact": [],
+      "medium": [
+        873017,
+        43,
+        37,
+        31,
+        29,
+        23,
+        19,
+        17,
+        7,
+        5,
+        3
+      ],
+      "N": "4000000000000000268",
+      "primes": [
+        3025970232859408883,
+        1077910698578226113
+      ],
+      "d": "974029767140591385",
+      "phi_d": "337217175449763840",
+      "actual_coefficient": -1,
+      "AP_prime_count_lower": 2,
+      "AP_mean_upper_ball": "[0.347566622796140691173590388782593390210735089277437552995 +/- 4.61e-58]",
+      "AP_error_lower_ball": "[1.65243337720385930882640961121740660978926491072256244700 +/- 5.39e-57]",
+      "necessary_A_epsilon_1_1000_lower_ball": "[0.7812283908226354139818826657986963711572450751152265215 +/- 2.67e-56]",
+      "candidate_A_capacity_ball": "[0.2558288836523021163854582250896792884113789515397306 +/- 8.64e-53]",
+      "status": "REFUTED: every A within this candidate capacity fails at this actual supported modulus"
+    },
+    {
+      "w": 2,
+      "u": "61/20",
+      "exact": [],
+      "medium": [
+        1777351,
+        43,
+        37,
+        31,
+        29,
+        23,
+        19,
+        17,
+        7,
+        5,
+        3
+      ],
+      "N": "4000000000000000016",
+      "primes": [
+        2016999920211064361
+      ],
+      "d": "1983000079788935655",
+      "phi_d": "686531457368064000",
+      "actual_coefficient": -1,
+      "AP_prime_count_lower": 1,
+      "AP_mean_upper_ball": "[0.170721142581368634751587068190239361059082371897182484931 +/- 6.49e-58]",
+      "AP_error_lower_ball": "[0.829278857418631365248412931809760638940917628102817515069 +/- 8.48e-58]",
+      "necessary_A_epsilon_1_1000_lower_ball": "[0.5594095849342617861488048556552062834870027879166006786 +/- 5.23e-56]",
+      "candidate_A_capacity_ball": "[0.1965956317856656612891697212863685227347762438478278 +/- 4.75e-53]",
+      "status": "REFUTED: every A within this candidate capacity fails at this actual supported modulus"
+    }
+  ],
+  "primality_certificate_nodes": {
+    "3": {
+      "kind": "trial division"
+    },
+    "5": {
+      "kind": "trial division"
+    },
+    "7": {
+      "kind": "trial division"
+    },
+    "11": {
+      "kind": "trial division"
+    },
+    "17": {
+      "kind": "trial division"
+    },
+    "19": {
+      "kind": "trial division"
+    },
+    "23": {
+      "kind": "trial division"
+    },
+    "29": {
+      "kind": "trial division"
+    },
+    "31": {
+      "kind": "trial division"
+    },
+    "37": {
+      "kind": "trial division"
+    },
+    "41": {
+      "kind": "trial division"
+    },
+    "43": {
+      "kind": "trial division"
+    },
+    "47": {
+      "kind": "trial division"
+    },
+    "140053": {
+      "kind": "trial division"
+    },
+    "873017": {
+      "kind": "trial division"
+    },
+    "1777351": {
+      "kind": "trial division"
+    },
+    "2": {
+      "kind": "trial division"
+    },
+    "313": {
+      "kind": "trial division"
+    },
+    "7333": {
+      "kind": "trial division"
+    },
+    "852263": {
+      "kind": "trial division"
+    },
+    "53809439825191": {
+      "kind": "full-factor Lucas",
+      "factors_of_n_minus_1": {
+        "2": 1,
+        "3": 1,
+        "5": 1,
+        "7": 1,
+        "41": 1,
+        "7333": 1,
+        "852263": 1
+      },
+      "witnesses": {
+        "2": 3,
+        "3": 2,
+        "5": 2,
+        "7": 2,
+        "41": 5,
+        "7333": 2,
+        "852263": 2
+      }
+    },
+    "1077910698578226113": {
+      "kind": "full-factor Lucas",
+      "factors_of_n_minus_1": {
+        "2": 6,
+        "313": 1,
+        "53809439825191": 1
+      },
+      "witnesses": {
+        "2": 3,
+        "313": 2,
+        "53809439825191": 2
+      }
+    },
+    "15061": {
+      "kind": "trial division"
+    },
+    "85513": {
+      "kind": "trial division"
+    },
+    "7262357": {
+      "kind": "trial division"
+    },
+    "1515229998243811363": {
+      "kind": "full-factor Lucas",
+      "factors_of_n_minus_1": {
+        "2": 1,
+        "3": 4,
+        "15061": 1,
+        "85513": 1,
+        "7262357": 1
+      },
+      "witnesses": {
+        "2": 2,
+        "3": 2,
+        "15061": 2,
+        "85513": 2,
+        "7262357": 2
+      }
+    },
+    "13": {
+      "kind": "trial division"
+    },
+    "149": {
+      "kind": "trial division"
+    },
+    "449": {
+      "kind": "trial division"
+    },
+    "757": {
+      "kind": "trial division"
+    },
+    "366461": {
+      "kind": "trial division"
+    },
+    "2016999920211064361": {
+      "kind": "full-factor Lucas",
+      "factors_of_n_minus_1": {
+        "2": 3,
+        "5": 1,
+        "11": 1,
+        "13": 1,
+        "19": 1,
+        "149": 1,
+        "449": 1,
+        "757": 1,
+        "366461": 1
+      },
+      "witnesses": {
+        "2": 3,
+        "5": 2,
+        "11": 2,
+        "13": 3,
+        "19": 2,
+        "149": 2,
+        "449": 2,
+        "757": 2,
+        "366461": 2
+      }
+    },
+    "2267": {
+      "kind": "trial division"
+    },
+    "1091": {
+      "kind": "trial division"
+    },
+    "55933": {
+      "kind": "trial division"
+    },
+    "366137419": {
+      "kind": "full-factor Lucas",
+      "factors_of_n_minus_1": {
+        "2": 1,
+        "3": 1,
+        "1091": 1,
+        "55933": 1
+      },
+      "witnesses": {
+        "2": 2,
+        "3": 2,
+        "1091": 2,
+        "55933": 2
+      }
+    },
+    "37824627910742611": {
+      "kind": "full-factor Lucas",
+      "factors_of_n_minus_1": {
+        "2": 1,
+        "3": 1,
+        "5": 1,
+        "7": 2,
+        "31": 1,
+        "2267": 1,
+        "366137419": 1
+      },
+      "witnesses": {
+        "2": 2,
+        "3": 3,
+        "5": 3,
+        "7": 2,
+        "31": 2,
+        "2267": 2,
+        "366137419": 2
+      }
+    },
+    "1512985116429704441": {
+      "kind": "full-factor Lucas",
+      "factors_of_n_minus_1": {
+        "2": 3,
+        "5": 1,
+        "37824627910742611": 1
+      },
+      "witnesses": {
+        "2": 3,
+        "5": 2,
+        "37824627910742611": 2
+      }
+    },
+    "3025970232859408883": {
+      "kind": "full-factor Lucas",
+      "factors_of_n_minus_1": {
+        "2": 1,
+        "1512985116429704441": 1
+      },
+      "witnesses": {
+        "2": 2,
+        "1512985116429704441": 2
+      }
+    }
+  },
+  "continuous_interval_proof": "In the separate research note, not supplied by finite sampling",
+  "input_sha256": {
+    "conditional_chen_full_rosser_bridge_checks.py": "dedab8a9f25b253749da395210c52ddaf51d2019f9a79429ff18bb54aef3b6b0",
+    "conditional_chen_full_rosser_bridge_probe.py": "3465c7812a71c7ac4407e6003137d21239c12775e12be4a20a692e89c3f3f400",
+    "conditional_chen_full_rosser_bridge_probe.json": "54688d1f6fd7e32d64d30e172eba6d260ee11b84d650e7644dcc53b1e8eb7717",
+    "conditional_chen_weighted_rosser_support_certificate.py": "20cd774e878c0d522515c2da4651934a843df714545bba88200debacdd2ebe78",
+    "conditional_chen_weighted_rosser_support_certificate.json": "ba1a7e7c9f73c4d342bcfefca7336e599cc0d729e9c77c5cf34310028d9646ee",
+    "conditional_chen_full_rosser_w2_probe.py": "b0b06503155fd05de7a8b3ba57b2647c3ba4b0aa6de9fe6a29001c0fb5e5e1c1",
+    "conditional_chen_full_rosser_w2_probe.json": "98c5b50d318884803c9926bf9badf7bd56fcd6c63167fbcdb210bf391600bb93",
+    "conditional_chen_prefix_block_checks.py": "629bcb59de53464e62cc41571612f13c7c988297a3eac4fd963b7dd16760e571"
+  },
+  "not_checked": [
+    "unproved signed AP input",
+    "independent general proof review",
+    "finite constants implied by standard named conjectures",
+    "coverage above T^3",
+    "full splice"
+  ]
+}

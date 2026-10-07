@@ -1,0 +1,234 @@
+{
+  "warning": "Not a new GRH Chen theorem. Product bounds only use rigorous Arb arithmetic.",
+  "sources": {
+    "JS": "https://arxiv.org/html/2208.01229#S3",
+    "BS_v1": "https://arxiv.org/html/2211.08844",
+    "BJS_v6": "https://arxiv.org/abs/2207.09452v6"
+  },
+  "product_bounds": {
+    "20000": {
+      "epsilon_ball": "[9.086396574729311460734234043409032080177945678125940e-6 +/- 5.16e-58]",
+      "epsilon_budget_decimal": "0.000009086399",
+      "theta_ball": "[19805.30962430786733289225752107595180240485678198484761 +/- 8.33e-51]",
+      "Q_support_log_budget": 20000
+    },
+    "10000": {
+      "epsilon_ball": "[1.7122191600319785995020874168875376116352694646683892e-5 +/- 7.70e-58]",
+      "epsilon_budget_decimal": "0.000017122194",
+      "theta_ball": "[9895.99137915698731266894967030687702032269771541635543 +/- 2.77e-51]",
+      "Q_support_log_budget": 10000
+    },
+    "5000": {
+      "epsilon_ball": "[3.4508270598013178551728625991301051177932411939615478e-5 +/- 6.68e-58]",
+      "epsilon_budget_decimal": "0.000034508273",
+      "theta_ball": "[4911.695351706863544301349620266485557739621993858398847 +/- 4.13e-52]",
+      "Q_support_log_budget": 5000
+    },
+    "3000": {
+      "epsilon_ball": "[5.9146117994794102080816721396112522315684930153715640e-5 +/- 5.56e-58]",
+      "epsilon_budget_decimal": "0.000059146120",
+      "theta_ball": "[2932.359211878726820241329376571161398969135761822007821 +/- 5.06e-52]",
+      "Q_support_log_budget": 3000
+    },
+    "2000": {
+      "epsilon_ball": "[9.1911517850555901421799165458144245083370454141417889e-5 +/- 3.71e-58]",
+      "epsilon_budget_decimal": "0.000091911520",
+      "theta_ball": "[1939.8392003025610298338560427137126933815402881281041922 +/- 7.16e-53]",
+      "Q_support_log_budget": 2000
+    },
+    "1500": {
+      "epsilon_ball": "[0.000124801239084347641021394487570302437649968191273738799 +/- 7.28e-58]",
+      "epsilon_budget_decimal": "0.000124801242",
+      "theta_ball": "[1462.1416518014232384155746422684755326625275664745077202 +/- 8.18e-53]",
+      "Q_support_log_budget": 1500
+    },
+    "1000": {
+      "epsilon_ball": "[0.000197830762595725391478060684715158907852037067334287032 +/- 6.07e-58]",
+      "epsilon_budget_decimal": "0.000197830765",
+      "theta_ball": "[956.2452651200588678124015167655726853082466202843485324 +/- 3.45e-53]",
+      "Q_support_log_budget": 1000
+    },
+    "800": {
+      "epsilon_ball": "[0.000254006405333262340528388019944884983754227282433136213 +/- 7.09e-58]",
+      "epsilon_budget_decimal": "0.000254006408",
+      "theta_ball": "[759.0946607343151309062558605506167348164623194365695491 +/- 1.46e-53]",
+      "Q_support_log_budget": 800
+    },
+    "600": {
+      "epsilon_ball": "[0.000352574652335198373584310812351925860601704133962320718 +/- 4.75e-58]",
+      "epsilon_budget_decimal": "0.000352574655",
+      "theta_ball": "[562.9811195237298896409251565199492856409169941162532723 +/- 1.97e-53]",
+      "Q_support_log_budget": 600
+    },
+    "400": {
+      "epsilon_ball": "[0.000554929161111099335062765605447022143034339650102926836 +/- 8.26e-58]",
+      "epsilon_budget_decimal": "0.000554929164",
+      "theta_ball": "[370.73317323908597092378381560313973140704177057669378184 +/- 3.92e-54]",
+      "Q_support_log_budget": 400
+    }
+  },
+  "BS_diagnostics": [
+    {
+      "c": 10,
+      "u": 400,
+      "alpha": 0.020429968393118184,
+      "epsilon": 0.000554929164,
+      "lower": 7.68108684448506,
+      "half_upper": 7.178688520072159,
+      "half_switch": 1.3829334688272672,
+      "diagnostic_ap": 9.541887710612904e-06,
+      "diagnostic_bilinear": 1.0866673291886958e-174,
+      "diagnostic_margin": -0.8805446863020765
+    },
+    {
+      "c": 11,
+      "u": 600,
+      "alpha": 0.010939614017610908,
+      "epsilon": 0.000352574655,
+      "lower": 7.749846490609218,
+      "half_upper": 6.821237647951942,
+      "half_switch": 1.3441876691229222,
+      "diagnostic_ap": 3.509714812359182e-06,
+      "diagnostic_bilinear": 0.0,
+      "diagnostic_margin": -0.4155823361804585
+    },
+    {
+      "c": 12,
+      "u": 800,
+      "alpha": 0.005284022623862261,
+      "epsilon": 0.000254006408,
+      "lower": 7.783459271039896,
+      "half_upper": 6.628268555002278,
+      "half_switch": 1.3229599913716577,
+      "diagnostic_ap": 1.2910775705355814e-06,
+      "diagnostic_bilinear": 0.0,
+      "diagnostic_margin": -0.1677705664116104
+    },
+    {
+      "c": 12.5,
+      "u": 1000,
+      "alpha": 0.003959568995333587,
+      "epsilon": 0.000197830765,
+      "lower": 7.794027448569044,
+      "half_upper": 6.569426930499783,
+      "half_switch": 1.3160022024200766,
+      "diagnostic_ap": 7.830678043094416e-07,
+      "diagnostic_bilinear": 0.0,
+      "diagnostic_margin": -0.09140246741861995
+    },
+    {
+      "c": 13,
+      "u": 1500,
+      "alpha": 0.00353741552192535,
+      "epsilon": 0.000124801242,
+      "lower": 7.802626901259533,
+      "half_upper": 6.5263028274509365,
+      "half_switch": 1.3103928289092734,
+      "diagnostic_ap": 4.749508331817837e-07,
+      "diagnostic_bilinear": 0.0,
+      "diagnostic_margin": -0.03406923005151027
+    },
+    {
+      "c": 13.5,
+      "u": 1500,
+      "alpha": 0.0021489783679070522,
+      "epsilon": 0.000124801242,
+      "lower": 7.8076922594646225,
+      "half_upper": 6.491271138566157,
+      "half_switch": 1.3067562601775236,
+      "diagnostic_ap": 2.880708447067176e-07,
+      "diagnostic_bilinear": 0.0,
+      "diagnostic_margin": 0.009664572650097264
+    },
+    {
+      "c": 14,
+      "u": 2000,
+      "alpha": 0.0017212644485443856,
+      "epsilon": 9.191152e-05,
+      "lower": 7.812324132545931,
+      "half_upper": 6.465975691736971,
+      "half_switch": 1.3036147134236449,
+      "diagnostic_ap": 1.7472328538503534e-07,
+      "diagnostic_bilinear": 0.0,
+      "diagnostic_margin": 0.04273355266202962
+    }
+  ],
+  "Wu_diagnostics": [
+    {
+      "c": 9,
+      "u": 400,
+      "epsilon": 0.000554929164,
+      "theta": 0.4284223136297259,
+      "margin_before_new_errors": -4.312732962650374,
+      "status": "diagnostic only; no c249 error budgets transferred"
+    },
+    {
+      "c": 9.5,
+      "u": 400,
+      "epsilon": 0.000554929164,
+      "theta": 0.45583742036625663,
+      "margin_before_new_errors": -1.8891887646856207,
+      "status": "diagnostic only; no c249 error budgets transferred"
+    },
+    {
+      "c": 10,
+      "u": 400,
+      "epsilon": 0.000554929164,
+      "theta": 0.4727600421425091,
+      "margin_before_new_errors": -0.795467848774956,
+      "status": "diagnostic only; no c249 error budgets transferred"
+    },
+    {
+      "c": 10.5,
+      "u": 400,
+      "epsilon": 0.000554929164,
+      "theta": 0.48320276589665423,
+      "margin_before_new_errors": -0.23218801723397461,
+      "status": "diagnostic only; no c249 error budgets transferred"
+    },
+    {
+      "c": 11,
+      "u": 400,
+      "epsilon": 0.000554929164,
+      "theta": 0.48964494551004767,
+      "margin_before_new_errors": 0.0803402912488032,
+      "status": "diagnostic only; no c249 error budgets transferred"
+    },
+    {
+      "c": 12,
+      "u": 400,
+      "epsilon": 0.000554929164,
+      "theta": 0.49606770409386997,
+      "margin_before_new_errors": 0.36963623080985597,
+      "status": "diagnostic only; no c249 error budgets transferred"
+    }
+  ],
+  "bridge_support": {
+    "verification_B": 4000000000000000000,
+    "log_B": 42.832826035012715,
+    "c_B": 3.7573047720564703,
+    "B_one_third": 1587401.0519681983,
+    "B_one_twelfth": 35.495366597555694,
+    "Q400_log_ball": "[370.73317323908597092378381560313973140704177057669378184 +/- 3.92e-54]",
+    "sqrt_B_log": 21.416413017506358
+  },
+  "proposed_transfer_arithmetic": {
+    "c": 11,
+    "ordinary_and_box_d_coefficient": 83496,
+    "two_switched_rows_d_coefficient": 17280000,
+    "rounded_d_coefficient": 17400000,
+    "h_coefficient": 150000,
+    "inflation_budget": ".003",
+    "normalized_ball": "[0.012379610172285611122459345440429345149234821331944815438 +/- 6.63e-58]",
+    "status": "rigorous arithmetic only; new applicability of kernel table unproved"
+  },
+  "quantitative_EH_bridge_gate": {
+    "explicit_extra_assumption": "sum_{d<=N^(3/4)} mu(d)^2 max_a |pi(N;d,a)-pi(N)/phi(d)| <= N/log(N)^4 for every N>=4e18",
+    "unproved_arithmetic_module": "pointwise lower weights |lambda|<=1 with sum lambda/phi >= .001/log(N) for every even N>=4e18",
+    "AP_bound_at_B": "[0.000545062798075210900928175788142888471591000671096580053495 +/- 5.40e-61]",
+    "deleted_primes_bound_at_B": "[2.8948178132476940681543379105321463817560029181257652424e-5 +/- 1.25e-61]",
+    "eta_equals_one_exclusion_at_B": "[4.58662746536415720690599461191794347902543949138503319308e-16 +/- 5.91e-73]",
+    "conditional_gate_margin_at_B": "[0.00042598902379185349564374441703109946513024750537425975013 +/- 2.61e-60]",
+    "status": "WITHDRAWN: the assumed AP bound fails at B by prime-modulus integrality; see conditional_chen_integrality_certificate.py"
+  }
+}

@@ -1,0 +1,290 @@
+{
+  "status": "PASS: finite exact arithmetic checks only",
+  "normalized_coefficient_boolean_checks": 16,
+  "universes": [
+    {
+      "exact_primes": [
+        3
+      ],
+      "medium_primes": [
+        5,
+        7,
+        11
+      ],
+      "large_primes": [
+        13,
+        17,
+        19,
+        23
+      ],
+      "medium_transition_levels": 22,
+      "large_transition_levels": 46,
+      "level_pairs": 1012,
+      "pointwise_pattern_checks": 259072,
+      "gap_identity_and_deleted_subset_checks": 176
+    },
+    {
+      "exact_primes": [
+        3,
+        5
+      ],
+      "medium_primes": [
+        7,
+        11,
+        13
+      ],
+      "large_primes": [
+        17,
+        19,
+        23
+      ],
+      "medium_transition_levels": 22,
+      "large_transition_levels": 22,
+      "level_pairs": 484,
+      "pointwise_pattern_checks": 123904,
+      "gap_identity_and_deleted_subset_checks": 176
+    },
+    {
+      "exact_primes": [],
+      "medium_primes": [
+        3,
+        5,
+        7,
+        11
+      ],
+      "large_primes": [
+        13,
+        17,
+        19
+      ],
+      "medium_transition_levels": 43,
+      "large_transition_levels": 22,
+      "level_pairs": 946,
+      "pointwise_pattern_checks": 121088,
+      "gap_identity_and_deleted_subset_checks": 688
+    }
+  ],
+  "fractional_power_universes": [
+    {
+      "T": 29,
+      "u": "5/1",
+      "medium_primes": [
+        5,
+        7,
+        11,
+        13,
+        17,
+        19,
+        23,
+        29
+      ],
+      "large_primes": [
+        31,
+        37,
+        41
+      ],
+      "exact_primes": [
+        3
+      ],
+      "pointwise_pattern_checks": 12288,
+      "gap_identity_and_deleted_subset_checks": 256,
+      "level_comparisons": "integer powers only; no floating roots",
+      "nonzero_medium_gap": true
+    },
+    {
+      "T": 29,
+      "u": "9/2",
+      "medium_primes": [
+        5,
+        7,
+        11,
+        13,
+        17,
+        19,
+        23,
+        29
+      ],
+      "large_primes": [
+        31,
+        37,
+        41
+      ],
+      "exact_primes": [
+        3
+      ],
+      "pointwise_pattern_checks": 12288,
+      "gap_identity_and_deleted_subset_checks": 256,
+      "level_comparisons": "integer powers only; no floating roots",
+      "nonzero_medium_gap": true
+    },
+    {
+      "T": 29,
+      "u": "35/8",
+      "medium_primes": [
+        5,
+        7,
+        11,
+        13,
+        17,
+        19,
+        23,
+        29
+      ],
+      "large_primes": [
+        31,
+        37,
+        41
+      ],
+      "exact_primes": [
+        3
+      ],
+      "pointwise_pattern_checks": 12288,
+      "gap_identity_and_deleted_subset_checks": 256,
+      "level_comparisons": "integer powers only; no floating roots",
+      "nonzero_medium_gap": true
+    },
+    {
+      "T": 29,
+      "u": "25/4",
+      "medium_primes": [
+        5,
+        7,
+        11,
+        13,
+        17,
+        19,
+        23,
+        29
+      ],
+      "large_primes": [
+        31,
+        37,
+        41
+      ],
+      "exact_primes": [
+        3
+      ],
+      "pointwise_pattern_checks": 12288,
+      "gap_identity_and_deleted_subset_checks": 256,
+      "level_comparisons": "integer powers only; no floating roots",
+      "nonzero_medium_gap": true
+    },
+    {
+      "T": 29,
+      "u": "17/4",
+      "medium_primes": [
+        5,
+        7,
+        11,
+        13,
+        17,
+        19,
+        23,
+        29
+      ],
+      "large_primes": [
+        31,
+        37,
+        41
+      ],
+      "exact_primes": [
+        3
+      ],
+      "pointwise_pattern_checks": 12288,
+      "gap_identity_and_deleted_subset_checks": 256,
+      "level_comparisons": "integer powers only; no floating roots",
+      "nonzero_medium_gap": true
+    },
+    {
+      "T": 29,
+      "u": "49/8",
+      "medium_primes": [
+        5,
+        7,
+        11,
+        13,
+        17,
+        19,
+        23,
+        29
+      ],
+      "large_primes": [
+        31,
+        37,
+        41
+      ],
+      "exact_primes": [
+        3
+      ],
+      "pointwise_pattern_checks": 12288,
+      "gap_identity_and_deleted_subset_checks": 256,
+      "level_comparisons": "integer powers only; no floating roots",
+      "nonzero_medium_gap": true
+    },
+    {
+      "T": 29,
+      "u": "39/8",
+      "medium_primes": [
+        5,
+        7,
+        11,
+        13,
+        17,
+        19,
+        23,
+        29
+      ],
+      "large_primes": [
+        31,
+        37,
+        41
+      ],
+      "exact_primes": [
+        3
+      ],
+      "pointwise_pattern_checks": 12288,
+      "gap_identity_and_deleted_subset_checks": 256,
+      "level_comparisons": "integer powers only; no floating roots",
+      "nonzero_medium_gap": true
+    },
+    {
+      "T": 29,
+      "u": "33/8",
+      "medium_primes": [
+        5,
+        7,
+        11,
+        13,
+        17,
+        19,
+        23,
+        29
+      ],
+      "large_primes": [
+        31,
+        37,
+        41
+      ],
+      "exact_primes": [
+        3
+      ],
+      "pointwise_pattern_checks": 12288,
+      "gap_identity_and_deleted_subset_checks": 256,
+      "level_comparisons": "integer powers only; no floating roots",
+      "nonzero_medium_gap": true
+    }
+  ],
+  "total_pointwise_pattern_checks": 602368,
+  "total_gap_identity_and_deleted_subset_checks": 3088,
+  "checks": [
+    "first-failure odd/even main-mass identities",
+    "Rankin upper bound with no factor two",
+    "separate upper/lower Rankin bounds by explicit subsets",
+    "rational-power levels exclude impossible low-degree prefixes",
+    "minimum-prime degree restrictions by exact integer powers",
+    "positive bound decreases when primes are deleted",
+    "exact/Rosser/Rosser composite pointwise brackets",
+    "coefficients in {-1,0,1} and support below Q D0 D"
+  ],
+  "limitation": "Does not certify general analytic main-mass estimates or external inputs."
+}

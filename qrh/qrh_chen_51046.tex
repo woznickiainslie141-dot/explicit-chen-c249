@@ -1,0 +1,1090 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=25mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,booktabs,longtable,array}
+\usepackage{mathrsfs}
+\usepackage{xurl}
+\usepackage{microtype}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\hypersetup{hypertexnames=false,pdfauthor={}}
+\setlength{\emergencystretch}{3em}
+\allowdisplaybreaks
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\A}{\mathcal A}
+\newcommand{\B}{\mathcal B}
+\newcommand{\PP}{\mathcal P_N}
+\newcommand{\li}{\operatorname{li}}
+\newcommand{\Th}{\Theta_N}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\cert}[1]{\texttt{\detokenize{#1}}}
+\title{A uniform seven-eighths zero-free input in an explicit Chen sieve}
+\author{}
+\date{7 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We give an explicit reduction from a uniform zero-free half-plane for
+Dirichlet $L$-functions to positive Chen representations. If every such
+function is zero-free in $\Re s>7/8$, apart from the principal pole at
+$1$, every even $N\ge e^{51046}$ satisfies
+$D_{1,2}(N)>9\cdot10^{-7}U_NN/(\log N)^2$.
+The argument uses three Chen sieve terms, exact weights at the smallest
+primes, and finite Rosser weights at medium primes. We derive an effective
+prime-character estimate from the zero-free input, account for small
+primitive conductors even when induced to large moduli, and prove a
+fixed-cutoff prime--integer rectangle estimate. Complete finite prime
+enumerations and outward-rounded interval integration certify the starting
+inequalities; analytic monotonicity propagates them to the whole half-line.
+The external zero-free assertion is kept separate from the finite
+certificates. No GRH distribution estimate is used.
+\end{abstract}
+\tableofcontents
+
+\section{Result and proof plan}
+Let $\Omega(n)$ count prime factors with multiplicity, and for even $N$ put
+\[
+D_{1,2}(N)=\#\{p<N:p\text{ prime},\ N-p\ge2,\ \Omega(N-p)\le2\}.
+\]
+Write $L=\log N$ and
+\[
+C_\infty=\prod_{p>2}\left(1-\frac1{(p-1)^2}\right),\quad
+C_N=C_\infty\prod_{\substack{p>2\\p\mid N}}\frac{p-1}{p-2},\quad
+U_N=2e^{-\gamma}C_N,\quad \Th=\frac{U_NN}{L^2}.
+\]
+The analytic input to be used is the following precise assertion:
+\begin{equation}\label{eq:Z}
+L(s,\chi)\ne0\quad(\Re s>7/8),
+\qquad\text{except for the principal pole at }s=1.\tag{Z}
+\end{equation}
+It is uniform over all Dirichlet characters, moduli, and heights.
+\begin{theorem}\label{thm:main}
+Under \eqref{eq:Z}, every even integer $N\ge e^{51046}$ satisfies
+\[
+D_{1,2}(N)>9\cdot10^{-7}\Th>0.
+\]
+\end{theorem}
+Theorem 1.1 of the external manuscript \cite{QRH} asserts exactly
+\eqref{eq:Z}; adopting that theorem removes the hypothesis of
+Theorem \ref{thm:main}. Its proof is not certified by our interval programs.
+Our citation fixes a source revision rather than treating a downloaded
+formalization entry point as a locally checked proof of its dependencies.
+
+There are two different roles for the zero-free input. It controls a
+bounded range of conductors inside the averaged ordinary AP estimate, and
+it controls the low-conductor part of the switched rectangles.
+High conductors are handled by published mean estimates and the
+multiplicative large sieve. Summing a bound of order $x^{7/8}$ over
+$\sqrt{x}$ moduli would not give the distribution estimate we need.
+
+The combinatorial reduction has one positive sieve term and two negative
+ones. Exact/finite presieving makes their distribution support inexpensive;
+it replaces a large primorial with a small exact product and a bounded
+medium-prime weight. The last negative term is a three-prime sequence.
+Its smallest prime is separated into short intervals so that the other
+two primes give a coefficient sequence bounded by one in each rectangle.
+Section \ref{sec:ledger} gives the complete normalized ledger.
+
+All parameters used in the theorem are fixed rational numbers:
+\begin{equation}\label{eq:parameters}
+\begin{gathered}
+L_0=51046,\quad \alpha=\frac{2158047}{500000000},\quad
+t=\frac12-\alpha,\quad D=N^t,\quad z=N^{1/8},\quad y=N^{1/3},\\
+T=5000000,\quad w_0=5,\quad u=11/2,\quad D_0=T^u,\quad
+\kappa=11/169,\quad Q_*=15,\\
+\eps=1/41219,\quad \eta_+=1/3231,\quad \eta_-=1/3242,\quad
+\delta=10^{-6},\quad \ell=\log(1+\delta),\quad v=10^{-8}.
+\end{gathered}
+\end{equation}
+Here $D$ is the large-prime Rosser level, $D_0$ the defining medium level,
+and $\kappa D_0$ its actual support bound. Neither is the conductor cutoff
+$D_{R0}$ introduced in Section \ref{sec:rectangle}.
+The certificate proves $C_\infty>0.66$ by a finite product and an integer
+tail, hence throughout we use $U_N>U_*:=1.32e^{-\gamma}$.
+
+\section{An effective consequence of the zero-free input}\label{sec:character}
+We first supply the character estimate needed later. Its deliberately
+generous constants avoid unspecified implied constants.
+For a character $\chi$ modulo $q$, set
+$\psi(x,\chi)=\sum_{n\le x}\Lambda(n)\chi(n)$ and
+$\pi(x,\chi)=\sum_{p\le x}\chi(p)$.
+\begin{lemma}\label{lem:character}
+Assume \eqref{eq:Z}. For $q\ge1$, $x\ge2$, and every character modulo $q$,
+with $a=61/64$ and $\delta_\chi=1$ for the principal character and $0$
+otherwise,
+\[
+|\psi(x,\chi)-\delta_\chi x|\le10^6x^a\log(50qx),\qquad
+|\pi(x,\chi)-\delta_\chi\li(x)|\le10^7x^a\log^2(50qx).
+\]
+Both bounds hold at left limits as well.
+\end{lemma}
+\begin{proof}
+For nonprincipal $\chi$, its periodic partial sums have absolute value
+at most $q$. Partial summation gives
+$|L(s,\chi)|\le q|s|/\sigma$ for $\sigma=\Re s>0$.
+For a principal character use the holomorphic normalization
+$K(s)=(s-1)L(s,\chi)/(s+1)$, taking its removable value
+$\varphi(q)/(2q)>0$ at $1$; otherwise put $K=L$.
+The identity
+\[
+\zeta(s)=\frac{s}{s-1}-s\int_1^\infty\{r\}r^{-s-1}\,dr
+\]
+and the omitted Euler factors give the same growth bound for this $K$.
+In detail, $|s|/|s+1|\le1$ for $\Re s>0$,
+and their product has absolute value at most $2^{\omega(q)}\le q$.
+
+On the closed disk centered at $2+i\tau$ of radius $71/64$,
+$\Re s\ge57/64>7/8$, so $K$ is holomorphic and nonzero and
+$|K(s)|\le10q(|\tau|+5)$. Choose $g=\log K$ using the Euler logarithm
+at the center. Its absolute value there is less than $4$: the Euler
+logarithm has absolute value less than $1$, and the additional principal
+logarithm has absolute value at most $\log3+\pi/2$.
+Put $M=\log(10q(|\tau|+5))\ge\log50$.
+Borel--Carath\'eodory on the inner radius $141/128$ gives
+\[
+|g|\le282(M+4)+4<600M.
+\]
+Every point $\sigma+i\tau$ with $29/32\le\sigma\le2$ is at distance
+at most $140/128$ from the center. Cauchy's formula on its radius
+$1/128$ gives $|g'|<76800M$.
+At $\sigma=29/32$, the extra principal logarithmic derivatives have
+absolute sum at most $32/3+32/61<12$. Thus
+\[
+|L'/L(29/32+i\tau,\chi)|<80000\log(10q(|\tau|+5)).
+\]
+On horizontal segments of the strip the same bound holds for
+$|\tau|\ge1$, with the pole correction at most $2$.
+
+For $\psi_1(x,\chi)=\sum_{n\le x}(x-n)\Lambda(n)\chi(n)$,
+the absolutely convergent smoothed Perron identity is
+\[
+\psi_1(x,\chi)=\frac1{2\pi i}\int_{(2)}
+-\frac{L'}L(s,\chi)\frac{x^{s+1}}{s(s+1)}\,ds.
+\]
+Move the contour to $29/32$. There are no zeros in the strip;
+only the principal pole contributes, with residue $x^2/2$.
+The horizontal integrals tend to zero, since for fixed $x$ their
+integrands are bounded by a constant times $\log(q(|\tau|+5))/\tau^2$.
+The denominator on the new line is at least $.81+\tau^2$ in absolute
+value. With $B=\log(50q)$,
+\[
+\int_0^\infty\frac{\log(10q(\tau+5))}{.81+\tau^2}\,d\tau
+\le(100/81+1)(B+\log2)+1<3B.
+\]
+Here use $\log(1+\tau)\le\log2$ on $[0,1]$ and
+$\log(1+\tau)\le\log2+\log\tau$ on $[1,\infty)$.
+Since $240000/\pi<10^5$,
+\[
+|\psi_1(x,\chi)-\delta_\chi x^2/2|<10^5x^{61/32}\log(50q).
+\]
+Take $h=x^{61/64}\le x$. The forward difference quotient differs
+from $\psi(x,\chi)$ by at most $(h+1)\log(x+h)$.
+The two smoothed errors divided by $h$ total less than
+$5\cdot10^5x^a\log(50q)$, since $1+2^{61/32}<5$.
+The principal main term adds $h/2$. As $h\ge1$ and
+$\log(x+h)\le\log(50qx)$, these terms imply the first bound.
+
+Removing prime powers costs at most
+$\sqrt{x}(\log x)^2/\log2\le2x^a\log^2(50qx)$.
+Thus the corresponding $\theta$ error has constant $10^6+2$.
+Partial summation from $2$ bounds the endpoint and integral by
+$x^a\log^2(50qx)$ times
+\[
+\frac1{\log2}+\frac1{a\log^22}<4.
+\]
+The principal integration constant $2/\log2-\li(2)$ has absolute
+value less than $4$, absorbed by $10^7$.
+No primitivity has been assumed: the periodic sum and omitted Euler
+factors use the actual modulus $q$. Left limits follow by continuity
+of the error bounds.
+\end{proof}
+
+Put $r_0=3/64$ and define, for $x\ge2$,
+\begin{equation}\label{eq:tail}
+\tau(x)=10^7x^{-r_0}\left[
+(1+r_0^{-1})\log^2(50x)+\frac{2\log(50x)}{r_0^2}+\frac2{r_0^3}\right].
+\end{equation}
+\begin{lemma}\label{lem:primeinputs}
+For $L\ge L_0$, the following inputs hold under \eqref{eq:Z}:
+\begin{gather*}
+\left|\sum_{p<x}\frac1p-\log\log x-M\right|\le\tau(x),\qquad
+\tau(x)<L^{-2}\quad(x\ge z),\\
+N/L<|\A|<(1+2/L)N/L,\quad
+\pi(x)<(1+4/L)x/\log x\quad(x\ge y),\\
+\frac{U_N}{\log x}(1-v)<V_N(x)<\frac{U_N}{\log x}(1+v)
+\quad(x=z,y).
+\end{gather*}
+Here $\A=\{N-p:p<N,\ p\nmid N\}$, $M$ is the Meissel--Mertens constant,
+$\PP$ is the set of odd primes not dividing $N$, and
+$V_N(x)=\prod_{p<x,p\in\PP}(1-1/(p-1))$.
+If $W$ is a nonnegative monotone kernel on $[b,c]$ with $z\le b<c$,
+then
+\begin{equation}\label{eq:weighted}
+\left|\sum_{b\le p<c}\frac{W(p)}p
+-\int_b^c\frac{W(x)}{x\log x}\,dx\right|
+\le 2L^{-2}\max\{W(b),W(c)\}.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Partial summation of Lemma \ref{lem:character} with $q=1$ gives the
+reciprocal-prime error $E(x)=e(x)/x-\int_x^\infty e(t)t^{-2}\,dt$,
+where $e(x)=\pi(x)-\li(x)$. The integral converges and its bound is
+exactly \eqref{eq:tail}; the constant is $M$ by taking limits.
+The Stieltjes identity gives \eqref{eq:weighted}, because the sum of
+endpoint contributions and total variation of $W$ is $2\max W$.
+
+Elementary envelopes, starting at $\log x=20$, are
+\[
+\frac{x}{\log x}\left(1+\frac1{\log x}\right)<\li(x)
+<\frac{x}{\log x}\left(1+\frac1{\log x}+\frac3{\log^2x}\right).
+\]
+The starting comparison is an interval evaluation of $\operatorname{Ei}(20)$;
+the two derivatives minus $\li'(x)$ are respectively
+$-2/\log^3x$ and $(\log x-9)/\log^4x$.
+Set $e_0(b)=10^7e^{-3b/64}(b+\log50)^2$.
+The three mass conclusions follow respectively from
+\[
+L^2e_0(L)+\frac{L^3e^{-L}}{\log2}<1,\quad
+L^2e_0(L)+3/L<1,\quad
+L(L/3)e_0(L/3)+27/L<1.
+\]
+The first pays for every prime divisor of $N$. All three conditions
+are certified at $L_0$; their positive terms decrease thereafter.
+
+The constant matches the Euler product through
+\[
+M=\gamma+\sum_p\left(\log(1-1/p)+1/p\right).
+\]
+For completeness, compare $\log\zeta(1+h)$ as $h\downarrow0$.
+Partial summation of $\sum_{p\le x}1/p=\log\log x+M+o(1)$ gives
+$\sum_pp^{-1-h}=\log(1/h)-\gamma+M+o(1)$, using
+$\int_0^\infty e^{-u}\log u\,du=-\gamma$.
+The absolutely convergent terms with prime-power exponent at least two
+in $\log\zeta(1+h)$ tend to
+$-\sum_p(\log(1-1/p)+1/p)$, whereas
+$\log\zeta(1+h)=\log(1/h)+o(1)$. Comparing the constants proves the identity.
+The logarithmic error of the Mertens product is consequently at most
+$\tau(x)+1/(x-1)$, using the convergent expansion of $-\log(1-1/p)$.
+The product factorization yields
+\[
+\frac{V_N(x)\log x}{U_N}=
+e^\gamma\log x\prod_{p<x}(1-1/p)\,
+\frac{\prod_{2<p<x}(1-(p-1)^{-2})}{C_\infty}
+\prod_{\substack{p\mid N\\p\ge x}}\frac{p-2}{p-1}.
+\]
+The middle factor has logarithm between $0$ and $1/(x-2)$.
+The last loses at most $2L/x$ in the present range. Both product
+errors are bounded by
+\[
+e^{\tau(z)+4/z}-1+4L/z<v.
+\]
+The certificate also checks $\tau(z)<L^{-2}$. These conditions
+continue to hold: their positive terms are bounded by polynomials in
+$L$ times $e^{-3L/512}$ or $e^{-L/8}$, with negative derivatives
+already at $L_0$. This uses no RH Mertens estimate.
+\end{proof}
+
+\section{Uniform products and finite presieving}\label{sec:presieve}
+This section establishes weights whose coefficients are bounded by one
+and whose support fits the later average distribution estimates.
+Only the primes through $w_0$ are presieved exactly; it is not necessary
+to multiply every prime through $T$ into an exact primorial.
+
+\subsection{A product condition at every intermediate endpoint}
+For $b>2$ put
+\[
+\mathscr D(b)=\log b\prod_{2<p<b}(1-1/(p-1)),\qquad
+\mathscr D_\infty=2e^{-\gamma}C_\infty.
+\]
+The external unconditional inputs, for $b\ge10^4$ and in the endpoint
+convention of limits, are \cite[Lemma 16 (finite upper bound) and
+Lemma 17 (lower bound)]{BJS} and \cite[Lemma 3.2]{JS}:
+\begin{gather*}
+E(b):=\sum_{p<b}1/p-\log\log b-M\ge-2.964\cdot10^{-6}/\log b,\\
+E(b)\le 2/(\sqrt b\log b)\quad(b\le10^{12}),\qquad
+E(b)\le6.836\cdot10^{-6}/\log b\quad(b>10^{12}).
+\end{gather*}
+Let $b_A=\max\{2/(\sqrt A\log A),6.836\cdot10^{-6}/\log(10^{12})\}$
+and $k_A=b_A+2.964\cdot10^{-6}/\log A+1/(A-1)+.54/A$.
+For $A\ge10^4$ even, these inputs imply
+\begin{equation}\label{eq:originalproduct}
+\prod_{\substack{b\le p<c\\p>A}}(1-1/(p-1))^{-1}
+\le e^{k_A}\frac{\log c}{\log b}\quad(1<b<c).
+\end{equation}
+Indeed $\log(\mathscr D(b)/\mathscr D_\infty)
+=-E(b)+\sum_{p\ge b}\rho(p)$, where
+$\rho(p)=-\log(1-1/(p-1))-1/p>0$ and
+$\rho(p)\le1/[p(p-2)]+.54/p^2$ for $p>A$.
+The two integer tails sum to at most $1/(A-1)+.54/A$.
+Use the upper bound at $c$ and the lower bound at $b$.
+For $b\le A<c$ take $b'\downarrow A$; for $c\le A$ the product is empty.
+
+To sharpen this uniformly, take $S=10^8$ and $Q=10^7$, both composite,
+and the finite lower bound
+\[
+\lambda_Q=\log2-\gamma+\sum_{2<p\le Q}\log(1-(p-1)^{-2})
++\log(1-1/Q)\le\log\mathscr D_\infty.
+\]
+The inequality follows from the all-integer telescoping tail
+$\prod_{n>Q}(1-(n-1)^{-2})=(Q-1)/Q$.
+Put $d(b)=\log\mathscr D(b)$ and bound the following quantities:
+\[
+A_T\ge\sup_{T\le b<c\le S}(d(b)-d(c)),\quad
+M_T\ge\sup_{T\le b\le S}(d(b)-\lambda_Q),\quad
+B_T=\max\{A_T,M_T+b_S,k_S\}.
+\]
+Finite--finite pairs are covered by $A_T$; finite--infinite pairs by
+$M_T+b_S$, since $d(c)-\log\mathscr D_\infty\ge-b_S$ for $c>S$;
+infinite--infinite pairs by \eqref{eq:originalproduct} at $S$.
+Between primes $d$ increases, and it jumps down just after each prime.
+Thus every ordered pair is covered by every left-limit peak followed by
+every right-limit trough and the two composite endpoints.
+For adjacent intervals their peak/trough/drawdown triples combine as
+$(\max P_i,\min Q_i,\max\{A_1,A_2,P_1-Q_2\})$.
+This is a complete finite algorithm, not endpoint sampling.
+The certified conclusion is
+\begin{equation}\label{eq:uniformproduct}
+\prod_{\substack{b\le p<c\\p>T}}(1-1/(p-1))^{-1}
+<(1+\eps)\frac{\log c}{\log b}\quad(1<b<c).
+\end{equation}
+Deletion of primes preserves it. The finite certificate enumerates all
+5761454 odd primes through $S$ and proves
+$e^{B_T}-1<0.000024260536<\eps$.
+
+\subsection{Medium weights and first failure}
+For any deletion of the complete primes $w_0<p\le T$, let $P_0$ be
+their product and $g(p)=1/(p-1)$. For $d=p_1\cdots p_n$,
+$p_1>\cdots>p_n$, set $b^\pm(d)=\mu(d)$ precisely when
+\[
+p_1\cdots p_m p_m^2<D_0
+\]
+at every odd $m\le n$ for the upper sign, and every even $m\le n$
+for the lower sign; otherwise set it to zero. The empty weight is $1$.
+Write $B^\pm=\sum_{d\mid P_0}b^\pm(d)g(d)$ and
+$V_0=\prod_{p\mid P_0}(1-g(p))$.
+\begin{lemma}\label{lem:firstfailure}
+The weights bracket the roughness indicator pointwise. Their masses obey
+\[
+B^+=V_0+\sum_{n\text{ odd}}T_n,\qquad
+B^-=V_0-\sum_{n\text{ even}}T_n,
+\]
+where $T_n$ sums $g(p_1\cdots p_n)\prod_{p<p_n,p\mid P_0}(1-g(p))$
+over prefixes whose first checked failure is at length $n$.
+Every supported divisor and every first-failing prefix has product $<D_0$.
+Supported divisors in fact satisfy $d<\kappa D_0$.
+\end{lemma}
+\begin{proof}
+Expand the full inclusion--exclusion product and partition omitted terms
+by their first checked failure. For a fixed such prefix, the unrestricted
+smaller-prime suffix sums to the displayed product. Its sign is positive
+in $B^+-V_0$ and in $V_0-B^-$ because of the relevant parity.
+The same finite identities hold at $g(p)=1_{p\mid m}$ and imply the
+pointwise brackets; all these first-failure products are nonnegative.
+
+For a supported divisor, if its last prime $r$ is checked, $dr^2<D_0$.
+If it is unchecked and follows prime $s>r$, the preceding checked
+prefix gives $d<D_0r/s^2$. A single unchecked prime is at most $T$.
+For a first failure of length at least three, its preceding checked
+prefix is two primes shorter, ending at $s>q>r$, and
+$d=d_{n-2}qr<d_{n-2}s^2<D_0$.
+Lengths one and two have product at most $T^2<D_0$.
+This proves the product bound for every first failure.
+
+For the sharper support use
+\[
+\kappa=\max\left\{p_0^{-2},\max_{w_0<r<s\le T}\frac r{s^2}\right\},
+\]
+with $p_0$ the smallest complete medium prime.
+The checked and unchecked cases above give $d<\kappa D_0$;
+also $T<\kappa T^u$ since $\kappa\ge T^{-2}$ and $u>3$.
+Deletion cannot increase this complete-set maximum. For each $s$ only
+its preceding complete prime need be checked. Exact integer comparisons
+over all adjacent pairs give $\kappa=11/169$, attained at $(11,13)$.
+\end{proof}
+
+\subsection{A positive block bound for both masses}
+This supplies a finite reproducible bound without dropping the preceding
+Rosser prefix checks. Let $r_1<r_2<\cdots$ be all medium primes and let
+$K$ be the largest integer with $r_1\cdots r_K<D_0$.
+Take $h=1/200$ and $J=\lceil\log D_0/h\rceil$.
+Label a prefix by $B=\sum\lfloor\log p/h\rfloor$ and group primes in
+descending blocks of equal individual label $b$.
+For each block set
+\[
+c=\left\lceil\frac{\log D_0-3\log p_{\min}}h\right\rceil,\qquad
+f=\max\left\{0,\left\lceil\frac{\log D_0-3\log p_{\max}}h\right\rceil-K+1\right\}.
+\]
+For each sign maintain two nonnegative polynomials $(X_0,X_1)$,
+initially $(1,0)$, for the parity of accepted prefixes.
+Define $A$ to append label $b$, flip parity, and at a checked append
+retain only source labels $B<c$. Truncate output labels to $B<J$.
+Let $\mathcal F$ sum source coefficients $B\ge f$ of the parity checked
+by one append. With $t_p=g(p)/(1-g(p))=1/(p-2)$ set
+\[
+D_b(a)=\prod_{p\text{ in block}}(1+t_p+t_pa),\quad
+C_b(a)=\frac{D_b(a)-1}{1+a}.
+\]
+Both have nonnegative coefficients. Replace $X$ by
+\[
+\sum_{j=0}^K[a^j]D_b(a)A^jX,
+\]
+and add $\mathcal F\sum_{j=0}^K[a^j]C_b(a)A^jX$ to the sign's gap total.
+\begin{lemma}\label{lem:block}
+These two totals bound $(B^+-V_0)/V_0$ and $(V_0-B^-)/V_0$,
+uniformly under every deletion of medium primes. Their certified values
+satisfy
+\[
+(B^+-V_0)/V_0<0.000309498615<\eta_+,\qquad
+(V_0-B^-)/V_0<0.000308430014<\eta_-.
+\]
+\end{lemma}
+\begin{proof}
+If a prefix has $k$ chosen primes and logarithm $v_1$, then
+$hB\le v_1<h(B+k)$. Every true pass satisfies $B<c$.
+A first failure has $k\le K-1$ preceding primes and
+$v_1+3\log p\ge\log D_0$, which implies $B\ge f$.
+All actual prefixes have product $<D_0$ by Lemma \ref{lem:firstfailure},
+hence degree at most $K$ and label $<J$. The relaxed tests therefore
+contain every actual pass and failure. Counting an ambiguous label both
+ways only increases positive bounds.
+
+Before processing a prime multiply the accepted-prefix mass by
+$\prod_{q>p}(1-g(q))^{-1}$. One prime then gives
+\[
+X'=((1+t_p)I+t_pA)X,\qquad G'=G+t_p\mathcal FX.
+\]
+The augmented matrices commute within a block since $A,\mathcal F$ are
+common. Their product gives $X'=D_b(A)X$ and
+$G'=G+\mathcal FC_b(A)X$.
+Equivalently $D_{\rm new}=(1+t+ta)D$ and
+$C_{\rm new}=(1+t+ta)C+t$, starting from $D=1,C=0$.
+If $e_m$ are elementary symmetric sums of $t_p$, then
+\[
+[a^j]D_b=\sum_{m\ge j}\binom mj e_m,\quad
+[a^j]C_b=\sum_{m\ge j+1}\binom{m-1}j e_m.
+\]
+Terms $j>K$ cannot contain an actual contribution. Artificial paths
+of excessive total degree may survive and harmlessly enlarge the bound.
+Deletion decreases every coefficient of $D_b,C_b$; retaining the complete
+blocks and their positive operators proves deletion uniformity.
+
+The finite evaluation generates all 348510 medium primes, takes $K=22$,
+$J=16968$, and processes all 1810 nonempty blocks.
+Every logarithmic integer cutoff is resolved by an Arb interval with
+a unique integer floor or ceiling. Polynomial coefficients use positive
+Arb addition and multiplication. This evaluates exactly the finite
+majorant above and proves the stated strict rational comparisons.
+\end{proof}
+
+\subsection{Composite weights and the large-prime linear sieve}
+The external large-prime input is the Rosser main-mass estimate in
+\cite[Theorem 6, Proposition 13 and Table 1]{BJS} with $Q=1$.
+Its local density satisfies $0\le g(p)<1$, and its dimension-one product
+premise holds at every intermediate endpoint by \eqref{eq:uniformproduct}.
+With $s=\log D/\log x$, the masses $G_1^\pm$ satisfy
+\[
+G_1^-\ge V_1(x)l(s),\quad G_1^+\le V_1(x)u(s),\quad
+l(s)=f(s)-108\eps e^2h(s),\quad u(s)=F(s)+106\eps e^2h(s).
+\]
+The lower estimate needs $D\ge x^2$ and the upper $D\ge x$.
+The coefficients $\lambda_1^\pm$ are $\mu(d)$ or zero, have support
+$d<D$, and their divisor sums bracket the corresponding roughness indicator.
+In the ranges used here,
+\[
+F(s)=2e^\gamma/s\ (1\le s\le3),\quad
+f(s)=2e^\gamma\log(s-1)/s\ (2\le s\le4),
+\]
+\[
+F(s)=\frac{2e^\gamma}{s}\left(1+\int_3^s\frac{\log(x-2)}{x-1}\,dx\right)
+\ (3\le s\le4),\quad
+h(s)=\begin{cases}e^{-2}&1\le s\le2,\\e^{-s}&2\le s\le3,\\3e^{-s}/s&s\ge3.\end{cases}
+\]
+The table constants $(106,108)$ are valid since $\eps<10^{-4}$.
+
+Let $Q_N$ contain the retained odd primes through $5$, so $Q_N\mid Q_*$,
+and let $\mu_E(d)=\mu(d)1_{d\mid Q_N}$. Define
+\[
+\lambda^+=\mu_E*b^+*\lambda_1^+,\qquad
+\lambda^-=\mu_E*(b^+*\lambda_1^--(b^+-b^-)*\lambda_1^+).
+\]
+For pointwise brackets $a^-\le I_0\le a^+$ and $c^-\le I_1\le c^+$,
+with upper brackets nonnegative,
+\[
+a^-c^++a^+c^--a^+c^+\le I_0I_1\le a^+c^+.
+\]
+The lower expression is at most
+$I_0I_1-(a^+-I_0)(c^+-I_1)$. Multiplication by exact roughness gives
+the displayed composite weights.
+Their prime ranges are disjoint, so factorization is unique.
+Write $b^\pm(d_0)=\mu(d_0)I^\pm$ and
+$\lambda_1^\pm(d_1)=\mu(d_1)J^\pm$ with indicators in $\{0,1\}$.
+The lower normalized coefficient
+$I^+J^--(I^+-I^-)J^+$ belongs to $\{-1,0,1\}$, by the two cases
+$J^+=0,1$. Thus all full coefficients have absolute value at most one
+and support $d<\kappa Q_*D_0D$.
+
+For any nonnegative finite sequence $\mathcal C$ with
+$|\mathcal C_d|=|\mathcal C|/\varphi(d)+r_{\mathcal C}(d)$,
+put $R=\sum_{d<\kappa Q_*D_0D,d\mid P_N(x)}|r_{\mathcal C}(d)|$.
+The main-mass calculation gives
+\begin{equation}\label{eq:composite}
+\begin{aligned}
+S(\mathcal C,x)&\ge|\mathcal C|V_N(x)
+\{(1+\eta_+)l(s)-(\eta_++\eta_-)u(s)\}-R,\\
+S(\mathcal C,x)&\le|\mathcal C|V_N(x)(1+\eta_+)u(s)+R.
+\end{aligned}
+\end{equation}
+Indeed, with $a_0=(B^+-V_0)/V_0$, $b_0=(V_0-B^-)/V_0$, the normalized
+lower mass is at least $(1+a_0)l-(a_0+b_0)u$.
+It decreases in $a_0,b_0$ because $u\ge l$ and $u>0$.
+The positive lower-mass condition is certified for the actual $s$.
+Expanding the bounded coefficients against the sequence gives $R$.
+
+\section{Ordinary AP distribution}\label{sec:AP}
+Put $x_1=N/L^5$, $w=\log x_1=L-5\log L$, and
+$H=\sqrt{x_1}/\log^{10}x_1$.
+The distribution cost is averaged over squarefree moduli, not estimated
+one modulus at a time by Lemma \ref{lem:character}.
+The external ordinary tools in \cite[Lemmas 22--24]{BJS} give
+\begin{align*}
+\omega(d)&<1.3841\log d/\log\log d,\\
+\sum_{d\le R}\mu^2(d)&\le.65R\quad(R\ge45),\\
+\sum_{d\le R}\mu^2(d)/\varphi(d)&\le1.1\log R\quad(R\ge10^9).
+\end{align*}
+The first bound is used for $d\ge3$.
+The high-primitive-conductor input is the last displayed estimate in
+the proof of \cite[Lemma 30, source label \texttt{small313}]{BJS},
+obtained there from Akbary--Hambrook \cite[Theorem 1.2]{AH} and partial
+summation. For $Q=\log^{10}x_1$, $x_1\le Y\le N$, it gives
+\begin{equation}\label{eq:AHinput}
+\log Y\sum_{\substack{Q<r\le H\\(r,N)=1}}\frac{\mu^2(r)}{\varphi(r)}
+\sum_{\chi\bmod r}^{*}|\psi(Y,\chi)|\le27\mathcal E(Y),
+\end{equation}
+where
+\[
+\mathcal E(Y)=\frac{4Y\log^{9/2}Y}{\log^{10}(Y/\log^5Y)}
++\frac{4Y}{\log^{11/2}Y}
++\frac{18Y^{11/12}}{\sqrt{\log Y}}
++\frac52Y^{5/6}\log^{11/2}Y.
+\]
+Its required starting condition is $\log\log x_1\ge10.4$ and
+$Q<H$; both are verified here. The restriction $(r,N)=1$ is retained
+exactly as in the source: it holds automatically when $r\mid d$ and
+$(d,N)=1$ in the application below. This high-conductor input is
+unconditional and contains no zero term; the exceptional-modulus
+restriction on the full BJS lemma is not used to estimate this isolated
+primitive high-conductor sum. Stars mean primitive characters; in this
+range none is principal.
+
+\begin{lemma}\label{lem:AP}
+Under \eqref{eq:Z}, for $L\ge L_0$ and
+$r(d)=|\A_d|-|\A|/\varphi(d)$,
+\[
+R_A:=\sum_{\substack{d\le H\\(d,N)=1}}\mu^2(d)|r(d)|
+\le c_4(N)N/L^3,\qquad c_4(N)L^2<2.21.
+\]
+The estimate includes all squarefree moduli, not only $d\mid P_N(z)$.
+\end{lemma}
+\begin{proof}
+In character orthogonality write every nonprincipal character modulo
+$d$ as an induction of a unique primitive character modulo $r\mid d$.
+Its induction error in $\psi(Y)$ is at most
+$\omega(d)\log Y\le\log^2Y/(2\log2)$.
+The total such error is at most $\sqrt Y/(2\log2\log^8Y)$ since
+$H\le\sqrt Y/\log^{10}Y$.
+The principal deletion carries $1/\varphi(d)$, and totals less than
+$.4\log^3Y$.
+
+Exact conductor regrouping of the remaining terms is bounded by
+\[
+A(H)\sum_{r\le H}\frac{\mu^2(r)}{\varphi(r)}
+\sum_{\chi\bmod r}^{*\prime}|\psi(Y,\chi)|,
+\quad A(H)=\sum_{m\le H}\mu^2(m)/\varphi(m)\le.55\log Y.
+\]
+For $r\le Q$, Lemma \ref{lem:character}, the bound of $\varphi(r)$
+characters, and $\log(50QY)<2\log Y$ give
+$1.1\cdot10^6Y^{61/64}(\log Y)^{12}$ for the entire low-conductor sum,
+including its inductions to large $d$.
+At $w$, the certificate checks
+$1.1\cdot10^6e^{-3w/64}w^{20}<3.2\cdot10^{-8}$.
+The left side decreases for $w>1280/3$; thus this cost is at most
+$3.2\cdot10^{-8}Y/\log^8Y$.
+The program retains the larger allowance
+$1.1\log(\log^{10}Y)3.2\cdot10^{-8}Y/\log^8Y$.
+For $r>Q$, use $A(H)\le.55\log Y$ and \eqref{eq:AHinput};
+the resulting cost is at most $.55\cdot27\mathcal E(Y)<27\mathcal E(Y)$.
+The resulting four positive costs are exactly the zero-term-free
+$\psi$ bound used in the next formula.
+
+Convert $\psi$ to $\theta$ and then $\pi$ as in
+\cite[Lemma 31, source label \texttt{small533}]{BJS}.
+The prime-power bound is $1.02\sqrt Y+3Y^{1/3}$.
+Brun--Titchmarsh on the initial segment $x_1$ costs $2.2x_1$.
+With $E_\theta(Y;d)=\theta(Y;d,N)-\theta(Y)/\varphi(d)$, the exact
+partial summation identity used is
+\[
+E_\pi(N;d)=E_\pi(x_1;d)+\frac{E_\theta(N;d)}L
+-\frac{E_\theta(x_1;d)}w+
+\int_{x_1}^{N}\frac{E_\theta(Y;d)}{Y\log^2Y}\,dY.
+\]
+The integral is bounded by its elementary antiderivative majorant
+$N/[L^4(1-4/w)]$. Put
+\begin{align*}
+E_w={}&\frac{4w^{9/2}}{(w-5\log w)^{10}}+4w^{-11/2}
++18e^{-w/12}w^{-1/2}+\frac52e^{-w/6}w^{11/2},\\
+p_2={}&w^2\left(1.1\cdot10\log w\frac{3.2\cdot10^{-8}}{w^8}
++27E_w+\frac{e^{-w/2}}{2\log2\,w^8}+.4w^3e^{-w}\right),\\
+p_1={}&p_2+(.67+2e^{-w/6})w^{-8},\\
+p={}&p_1\left(1+\frac1{L^2w^3}+\frac1{(1-4/w)L}\right)+2.2/L^2,\\
+c_4(N)={}&p+.9e^{w/2-L}\frac{L^4}{w^{10}\log L}.
+\end{align*}
+All positive $p_2$ summands decrease as functions of $\log Y\ge w$;
+therefore their supremum is the displayed endpoint.
+Finally deleting the primes dividing $N$ costs at most
+$1.3841L/\log L$ per modulus, and at most $.65H$ moduli occur.
+This gives the last summand of $c_4$, since $.65\cdot1.3841<.9$.
+This deletion argument uses only squarefreeness and $(d,N)=1$,
+so the narrower printed sieve-modulus range in BJS Lemma 43 is unnecessary.
+The starting inequality $c_4(N)L^2<2.21$ is certified; its half-line
+extension is proved in Section \ref{sec:halfline}.
+\end{proof}
+
+\section{A fixed-cutoff rectangle estimate}\label{sec:rectangle}
+The third sieve term has a prime in a short interval and an integer
+coefficient formed from two larger primes. We need a uniform estimate
+whose low-conductor input remains valid at its much smaller endpoints.
+Put $X_3=N^{1/8}/2$, $x_3=\log X_3$, and $D_{R0}=x_3^{10}$.
+For $r\le\log^{10}X_3$ and $b\ge X_3$, Lemma \ref{lem:character} gives
+\begin{equation}\label{eq:v}
+\sum_{\chi\bmod r,\chi\ne\chi_0}|\pi(b,\chi)|
+\le v_3\frac b{\log^5b},\qquad
+v_3=4\cdot10^7X_3^{-3/64}x_3^{17}.
+\end{equation}
+Indeed $\log(50rb)<2\log b$, there are at most $r$ characters,
+and $e^{-3\xi/64}\xi^{17}$ decreases for $\xi>1088/3$.
+
+\begin{lemma}\label{lem:rectangle}
+Let $X=N/w_j$, $Z=w_j$, $Y=\min(y,(1+\delta)w_j)$, where $z\le w_j<y$.
+For $|a(n)|\le1$, the sum of the absolute nonprincipal rectangle errors
+over squarefree $d\le H$ with $d\mid P_N(y)$ is at most
+\begin{align*}
+&39v_3XY/\log^3Y+108X\log^{13}Y/\log\log Y\\
+&\quad+26XY\log^2Y/D_{R0}
++88XY\log^2Y(X^{-1/2}+Y^{-1/2})+106XY/\log^9Y.
+\end{align*}
+The error is centered at
+$\varphi(d)^{-1}\sum_{n<X}\sum_{Z\le p<Y,(np,d)=1}a(n)$.
+\end{lemma}
+\begin{proof}
+Here $XY\ge N$, $XY\le(1+\delta)N$, $X>N^{2/3}$ and $Y>z$.
+Consequently $H<\sqrt{XY}/\log^{10}Y$ and $H\le Y^4$.
+Also $10^9<D_{R0}<z<H$ and $Z>X_3$.
+Orthogonality and primitive conductor decomposition $d=sr$ give
+\[
+\sum_{sr\le H}\frac1{\varphi(sr)}\sum_{\chi\bmod r}^{*\prime}
+\left|\sum_{n<X,(n,s)=1}a(n)\chi(n)\right|
+\left|\sum_{Z\le p<Y,p\nmid s}\chi(p)\right|.
+\]
+All moduli remain squarefree; hence $(r,s)=1$ and
+$\varphi(rs)=\varphi(r)\varphi(s)$.
+For $r<D_{R0}$, use \eqref{eq:v} at both left limits of $Z,Y$.
+Since $b/\log^5b$ increases in this range, their total is at most
+$2v_3Y/\log^5Y+\varphi(r)\omega(s)$.
+The integer sum is at most $X$. Two reciprocal-totient sums give
+\[
+2.42v_3XY\log^2H/\log^5Y
++1.21\cdot1.3841D_{R0}X\log^3H/\log\log H.
+\]
+In bounding $\omega(s)$ by $1.3841\log H/\log\log H$, use
+monotonicity of $\log b/\log\log b$ for $b\ge16$.
+For $1\le s\le15$, $\omega(s)\le3$ and the same endpoint bound
+is greater than $3$, so the small values introduce no exception.
+Use $H\le Y^4$, $D_{R0}\le\log^{10}Y$, and monotonicity of
+$\log^3b/\log\log b$ for $b\ge5$.
+The first two constants become $2.42\cdot16<39$ and
+$1.21\cdot1.3841\cdot64<108$.
+
+For high conductors split into half-open intervals
+$R_j\le r<\min(2R_j,H)$, with $R_j=2^jD_{R0}$.
+The number of nonempty intervals is at most $\log H/\log2$ because
+$D_{R0}\ge2$, including the last interval, and $\sum_jR_j<2H$.
+The multiplicative large-sieve input in the proof of
+\cite[Lemma 32, source label \texttt{lemma:bf}]{BJS} is
+\[
+\sum_{R\le r<2R}\frac r{\varphi(r)}\sum_\chi^*
+\left|\sum_{n<X}b_n\chi(n)\right|^2\le(X+12R^2)\sum_{n<X}|b_n|^2.
+\]
+Use it for the integer and prime sequences, whose squared norms are
+at most $X$ and $Y$. Cauchy's inequality bounds one interval by
+\[
+XY/R+\sqrt{12X}Y+\sqrt{12Y}X+12R\sqrt{XY}.
+\]
+Sum over $s$ at cost $1.1\log H$, the first three terms by the number
+of intervals and the fourth by their geometric sum. With $\log H\le4\log Y$
+and $H\le\sqrt{XY}/\log^{10}Y$, the constants are
+$1.1\cdot16/\log2<26$, $1.1\cdot16\sqrt{12}/\log2<88$, and
+$1.1\cdot4\cdot24=105.6<106$. This proves every term of the estimate.
+The final prime interval may be truncated; none of these bounds assumes
+that it has the full relative width $\delta$.
+\end{proof}
+
+\section{Three Chen terms and their main masses}\label{sec:three}
+Define $P_N(b)=\prod_{p<b,p\in\PP}p$ and
+$S(\mathcal C,b)=\#\{n\in\mathcal C:(n,P_N(b))=1\}$.
+For every positive $d$, let $\A_d=\{a/d:a\in\A,d\mid a\}$;
+in particular this defines $\A_q$ for $q\in\PP$.
+The pointwise combinatorial input is Nathanson's Theorem 10.2 as
+restated in \cite[Lemma 37, source label \texttt{lem:>}]{BJS}:
+\begin{equation}\label{eq:Chen}
+D_{1,2}(N)\ge S(\A,z)-\frac12\sum_{z\le q<y,q\nmid N}S(\A_q,z)
+-\frac12S(\B,y)-2N^{7/8}-N^{1/3}-1,
+\end{equation}
+where $\B=\{N-p_1p_2p_3:z\le p_1<y\le p_2\le p_3,
+p_1p_2p_3<N,(p_1p_2p_3,N)=1\}$.
+The extra $1$ safely excludes $N-p=1$ under either almost-prime convention.
+The exponent $7/8$ here comes from a combinatorial truncation, not from
+\eqref{eq:Z}. We retain it in full.
+
+For the lower sieve use level $D$ at $z$, with $s=8t\in(3,4)$.
+For the prime-factor sum use level $D/q$, giving
+$s_q=8(t-\log q/L)\in[k,3]$, $k=8(t-1/3)\in(1,2)$.
+For $\B$ use level $D$ at $y$, giving $3t\in(1,2)$.
+The conditions $D\ge z^2$, $D/q\ge z$, $D\ge y$ follow from these ranges.
+The common distribution support is legitimate because
+\begin{equation}\label{eq:support}
+\alpha L-\frac{25}2\log L>\log(\kappa Q_*)+u\log T,
+\qquad H>\sqrt N/L^{25/2}.
+\end{equation}
+The first is certified at $L_0$ and increases thereafter. Thus
+$\kappa Q_*D_0D<H$, and the $\A_q$ support is below $H/q$.
+
+\subsection{The positive term}
+Equation \eqref{eq:composite} and Lemma \ref{lem:primeinputs} give
+\[
+S(\A,z)/\Th\ge M_0-R_A/\Th,
+\quad M_0=8(1-v)\{(1+\eta_+)l(s)-(\eta_++\eta_-)u(s)\}.
+\]
+Its bracket is strictly positive, as certified.
+
+\subsection{The prime-factor term: a full representative calculation}
+Fix $q\in[z,y)$ not dividing $N$. The sequence $\A_q$ has model
+mass $|\A|/(q-1)$ and level $D/q$. For $d\mid P_N(z)$,
+\[
+r_q(d)=r(qd)-r(q)/\varphi(d),\qquad
+|\A_q|=|\A|/(q-1)+r(q).
+\]
+Its main mass is bounded by
+$|\A_q|V_N(z)(1+\eta_+)(F(s_q)+106\eps e^2h(s_q))$.
+The kernel is nonnegative nondecreasing in $q$ and at most
+$F_*=2e^\gamma/k+106\eps$.
+Apply \eqref{eq:weighted}, using
+$1/(q-1)\le(1-z^{-1})^{-1}/q$, and substitute $q=N^\beta$.
+Since $dq/(q\log q)=d\beta/\beta$, its normalized half-main term is
+\begin{equation}\label{eq:M1}
+M_1=\frac{4(1+\eta_+)(1+2/L)(1+v)}{1-e^{-L/8}}
+\left(I+106\eps J_h(t)+2F_*/L^2\right),
+\end{equation}
+where
+\[
+I=\frac{e^\gamma}{4t}\log\left(6\frac{3-8\alpha}{3-18\alpha}\right),
+\]
+\[
+J_h(t)=\int_{1/8}^{t-1/4}\frac{e^{2-8(t-\beta)}}\beta\,d\beta
++\log\frac{1/3}{t-1/4}.
+\]
+The split is exactly $s_q=2$, where the two definitions of $h$ meet.
+This derives the integral, rather than treating it as an unexplained constant.
+
+Since $q\ge z$ and every factor of $d$ is $<z$, the map $(q,d)\mapsto qd$
+is injective. Hence $\sum_q\sum_d|r(qd)|\le R_A$.
+Also $\sum_q|r(q)|\le R_A$ since $y<H$, and
+$\sum_{d\le H/q}\mu^2(d)/\varphi(d)\le1.1\log H<.55L$.
+Here $H/q\ge10^9$ throughout. The relative sieve remainders are thus at
+most $(1+.55L)R_A$. The mass-centering correction adds at most
+$(1+\eta_+)V_N(z)F_*R_A$ before taking the half.
+Together with the positive term, their normalized expense is bounded by
+\begin{equation}\label{eq:EAP}
+E_{AP}=\frac{(1.5+.275L)2.21}{U_*L^3}
++4(1+\eta_+)(1+v)F_*\frac{2.21}{L^4}.
+\end{equation}
+This uses the same averaged $R_A$ for every occurrence, never a GRH
+pointwise bound for the prime moduli.
+
+\subsection{The triple-prime term}
+Take $w_j=z(1+\delta)^j<y$ and replace the product restriction in
+each $p_1$ interval by $w_jp_2p_3<N$. Drop $(p_1,N)=1$, but retain
+$(p_2p_3,N)=1$. The enlarged sequences $\overline{\B}_j$ are disjoint:
+the unique prime factor below $y$ recovers $p_1$, and unique sorted
+factorization of $n=p_2p_3$ recovers the remaining factors, including
+$p_2=p_3$. Thus their integer coefficients are at most one.
+If some differences are nonpositive, translate each sequence by a large
+integer multiple of $P_N(y)$. All relevant divisibilities, masses, and
+remainders are unchanged, so the nonnegative-index sieve still applies.
+
+For $b=\log u/L$ put
+\[
+H_1(u)=\int_y^{\sqrt{N/u}}\frac{dv}{v\log v\log(N/(uv))}
+=\frac{\log(2-3b)}{L(1-b)}.
+\]
+Counting the last prime by Lemma \ref{lem:primeinputs} bounds the total
+mass by $(1+\delta)(1+4/L)N$ times
+\[
+\sum_{z\le p_1<y}\frac1{p_1}
+\sum_{y\le p_2<\sqrt{(1+\delta)N/p_1}}
+\frac1{p_2\log(N/(p_1p_2))}.
+\]
+The inner kernel is nondecreasing and at most $4/L$; its weighted
+reciprocal-prime error is $8/L^3$. Extending the integral by logarithmic
+length $\ell/2$ costs $6\ell/L^2$, since its logarithmic integrand is
+at most $12/L^2$. The outer kernel $H_1$ is nonnegative nonincreasing
+and $H_1(z)<1/L$, so its error is $2/L^3$. Finally the sum of $1/p_1$
+is at most $J+2/L^2$, with $J=\log(8/3)$.
+Consequently
+\[
+|\overline{\B}|\le\frac{(1+\delta)(1+4/L)N}{L}
+\left[\bar c+2/L^2+(J+2/L^2)(6\ell/L+8/L^2)\right],
+\]
+where
+$\bar c=\int_{1/8}^{1/3}\log(2-3b)/(b(1-b))\,db$.
+Apply the upper composite sieve at $y$ and use $e^2h(3t)=1$.
+The normalized half-main term is at most
+\begin{equation}\label{eq:M2}
+M_2=\frac{(1+\eta_+)(1+v)}2(2e^\gamma/t+318\eps)
+(1+\delta)(1+4/L)
+\left[\bar c+2/L^2+(J+2/L^2)(6\ell/L+8/L^2)\right].
+\end{equation}
+
+Each sequence is a rectangle with the endpoints of Lemma \ref{lem:rectangle}.
+Because the integer factors are primes at least $y$, they are coprime
+to every $d\mid P_N(y)$. Only deleting primes $p_1\mid d$ changes the
+principal character's mass from $|\overline{\B}_j|/\varphi(d)$.
+Its per-modulus difference is at most $N\omega(d)/(z\varphi(d))$.
+With at most $B(L)=5L/(24\ell)+1$ boxes and
+\begin{align*}
+m(L)={}&39v_3+108x_3^{16}e^{-x_3}/\log x_3+26L^5/x_3^{10}\\
+&+88L^5(e^{-L/3}+e^{-L/16})+106/x_3^6,
+\end{align*}
+the normalized half-error is bounded by
+\begin{equation}\label{eq:Erect}
+E_R=\frac{(1+\delta)512m(L)B(L)}{2U_*L},\qquad
+E_{\rm del}=\frac{(1+\delta)1.1L^4e^{-L/8}B(L)}{2U_*}.
+\end{equation}
+For $E_R$, divide each term of the rectangle bound by $XY/\log^3Y$;
+$\log Y\ge L/8$ gives the factor $512$, and $XY\le(1+\delta)N$.
+The function $\xi^{16}e^{-\xi}/\log\xi$ decreases for $\xi\ge x_3$,
+which handles its second term. For $E_{\rm del}$, the raw expense per
+box is at most $1.1NL^2/z$; division by $2\Th$ supplies another $L^2$.
+No factor of $L$ is discarded in this normalization.
+
+\section{Ledger, certification, and the half-line}\label{sec:ledger}
+Combining \eqref{eq:Chen}--\eqref{eq:Erect} gives
+\begin{equation}\label{eq:ledger}
+\frac{D_{1,2}(N)}{\Th}\ge
+M_0-M_1-M_2-E_{AP}-E_R-E_{\rm del}-E_f,
+\quad E_f=\frac{L^2}{U_*}(2e^{-L/8}+e^{-2L/3}+e^{-L}).
+\end{equation}
+This is the single ledger; no auxiliary floating-point budget enters it.
+\begin{proposition}[Strict starting inequalities]\label{prop:certificate}
+At $L=L_0$ with \eqref{eq:parameters}, all product, support, mass,
+conductor, and sieve-range conditions in the preceding sections hold.
+The right side of \eqref{eq:ledger} is strictly greater than
+$9.8468\cdot10^{-7}>9\cdot10^{-7}$.
+\end{proposition}
+\begin{proof}
+The finite algorithms and interval integrals are specified in the appendix.
+For clarity, coarser decimal endpoints, all verified against their full
+Arb intervals, enclose the decisive entries as follows:
+\begin{center}\begin{tabular}{lll}\toprule
+Entry&Lower endpoint&Upper endpoint\\\midrule
+$M_0$&$7.806926624899798362$&$7.806926624899798363$\\
+$M_1$&$6.500392797042414805$&$6.500392797042414806$\\
+$M_2$&$1.306527039983525481$&$1.306527039983525482$\\
+$E_{AP}$&$3.1474\cdot10^{-10}$&$3.1475\cdot10^{-10}$\\
+$E_R$&$5.8028784809024\cdot10^{-6}$&$5.8028784809025\cdot10^{-6}$\\
+$E_{\rm del}+E_f$&$0$&$10^{-2700}$\\
+Net margin&$9.8468\cdot10^{-7}$&$9.8469\cdot10^{-7}$\\\bottomrule
+\end{tabular}\end{center}
+The support slack in \eqref{eq:support} exceeds $4.0153\cdot10^{-5}$.
+The three prime-count gates in Lemma \ref{lem:primeinputs} are bounded by
+$10^{-1013}$, $.000058771$, and $.000528935$, respectively.
+The entire low-conductor absorption gate is below $1.328\cdot10^{-938}$.
+Also $c_4(N)L^2<2.200019$, $w>50991$,
+$D_{R0}>10^9$, and all the stated integer cutoffs and strict signs resolve.
+The medium-prime bounds of Lemma \ref{lem:block}, ordered-product bound,
+and $C_\infty>0.66$ are regenerated from complete integer prime sieves,
+not obtained by reusing a GRH certificate.
+The programs check the full intervals and the coarser endpoints above;
+rounded decimal display alone is not used as an acceptance test.
+\end{proof}
+
+\subsection{Analytic propagation}\label{sec:halfline}
+We now keep all rational parameters fixed, rather than recomputing
+$\alpha$ by the search recipe. The left side of \eqref{eq:support}
+increases, with derivative $\alpha-12.5/L>0$ at $L_0$ and thereafter.
+Thus every distribution support continues to fit $H$.
+The product condition of Section \ref{sec:presieve} already covers every
+real upper endpoint, independently of $N$.
+
+The ordinary AP envelope also propagates. Dots in the next calculation
+mean derivatives with respect to $\log L$. Put
+$a_1=(L-5)/w$ and $b_1=a_1(w-5)/(w-5\log w)$.
+For all $L\ge L_0$,
+\[
+1<a_1<1.01,\quad b_1>1,\quad w>50000.
+\]
+For the upper bound on $a_1$, use positivity and increasingness of
+$.01L-5.05\log L+5$. The other inequalities follow from $\log L>1$
+and $\log w>1$.
+Apart from fixed positive coefficients, the nonconstant summands in
+$L^2p_1$ have forms
+\[
+L^2w^{-6}\log w,\quad L^2w^{13/2}(w-5\log w)^{-10},\quad
+L^2w^{-7/2},\quad L^2w^{3/2}e^{-w/12},\quad
+L^2w^{15/2}e^{-w/6},
+\]
+\[
+L^2w^{-6}e^{-w/2},\quad L^2w^5e^{-w},\quad
+L^2w^{-8},\quad L^2w^{-8}e^{-w/6}.
+\]
+Their logarithmic derivatives are respectively bounded by
+$2-6+1.01/\log w$, $2+6.5\cdot1.01-10$, and $2-3.5$ for the
+first three; the others have either a negative power derivative or
+a negative exponential contribution $(L-5)/12$ or larger, dominating
+their displayed fixed powers. They are all negative.
+The correction $1+1/(L^2w^3)+1/((1-4/w)L)$ decreases.
+The last summand of $L^2c_4$ is
+$.9L^6e^{w/2-L}/(w^{10}\log L)$, with logarithmic derivative
+$6+(L-5)/2-L-10a_1-1/\log L<0$.
+Only the constant $2.2$ remains fixed. This proves $L^2c_4<2.21$
+on the whole half-line, not just at its initial point.
+
+The lower main term $M_0$ is fixed. Every varying factor in $M_1,M_2$,
+namely $1+2/L$, $1+4/L$, $(1-e^{-L/8})^{-1}$, $L^{-2}$ and $\ell/L$,
+decreases. Hence both negative main terms decrease.
+The positive terms of $E_{AP}$ decrease individually.
+For rectangles put $x_3=L/8-\log2$.
+The functions $x_3^{17}e^{-3x_3/64}$,
+$x_3^{16}e^{-x_3}/\log x_3$, $x_3^{-6}$, and
+$L^5e^{-L/3},L^5e^{-L/16}$ all decrease at and beyond $L_0$.
+The logarithmic derivative of $L^5/x_3^{10}$ is
+$5-10L/(8x_3)<-5$. Also $B(L)/L=5/(24\ell)+1/L$ decreases.
+Thus $E_R$ decreases. The deletion cost is a positive linear combination
+of $L^5e^{-L/8}$ and $L^4e^{-L/8}$, and $E_f$ consists of decreasing
+exponential-polynomial terms.
+The tail and prime-mass gates in Section \ref{sec:character} decrease
+by the same direct derivatives; all their exponents dominate their
+fixed polynomial degrees already at $L_0$.
+Every side condition persists. Discrete prime sets and the truncated
+last box need not vary continuously: the common positive envelopes
+already cover them. The right side of \eqref{eq:ledger} is therefore
+bounded below by its certified starting value.
+This proves Theorem \ref{thm:main} under its explicitly stated input.
+
+\appendix
+\section{Finite arithmetic and reproducibility}\label{sec:implementation}
+The proof assigns programs only finite arithmetic tasks. Theorems about
+zeros, Rosser weights, mean character sums, and the continuum propagation
+are analytic dependencies; a finite program does not prove them.
+The reference implementation uses Python with python-flint, Arb/ACB,
+and 192-bit working precision. It runs from its own directory:
+\begin{verbatim}
+python qrh_chen_reproduce.py
+python qrh_chen_positivity_search.py
+\end{verbatim}
+The first is the theorem's fresh arithmetic reproduction; the second
+records a bounded parameter exploration and is not needed for the
+half-line proof. All theorem parameters are declared directly as rationals.
+No old GRH JSON ledger or GRH distribution evaluator is read by the
+fresh reproduction.
+
+Complete integer Eratosthenes sieves generate all primes for the medium
+and ordered-product calculations. The medium block algorithm is exactly
+Lemma \ref{lem:block}; multiplication of polynomials uses
+\cert{arb_poly} and discards only coefficients proved irrelevant there.
+The support maximum uses integer cross multiplication over adjacent
+primes. The lower bound for $C_\infty$ uses the full odd prime set through
+$T$, multiplied by $(T-1)/T$, the all-integer telescoping tail.
+The ordered-product algorithm keeps peaks before each prime jump and
+troughs after it, not sampled interior values; its analytic tail is stated
+in Section \ref{sec:presieve}.
+
+There are three interval integrations: the delayed $F(s)$ integral,
+the first piece of $J_h$, and the integral $\bar c$ (the second $J_h$
+piece is a logarithm). They use \cert{acb.integral}, retaining its real
+enclosure. Logarithms in integrands use the integration API's analytic
+flag, so branch boundaries are not silently crossed.
+The path of the $F$ integral lies in $3\le x\le s<4$, with $x-2>0$;
+the $J_h$ path lies in $1/8\le b\le t-1/4<1/3$ with $b>0$;
+the $\bar c$ path lies in $1/8\le b\le1/3$, with $b,1-b,2-3b>0$.
+Thus each integrand is holomorphic on a neighborhood of its compact
+path and has no endpoint singularity. The piecewise sieve function is
+split at its exact rational/parameter breakpoint before integration.
+Arb's outward rounding encloses elementary evaluations and ACB's
+validated integration encloses each entire integral, rather than a
+floating quadrature subsequently decorated with a tolerance.
+
+\cert{qrh_chen_reproduction.json} contains the fresh prime masses,
+ordered product, two fixed rational endpoints, and source SHA-256 hashes.
+\cert{qrh_chen_interface_checks.py} independently reconstructs the
+deleted-prime normalization and checks the contour/rectangle constants.
+\cert{qrh_chen_positivity_search.json} specifies the explored integer
+range $50000\le L\le51200$, five relative widths, and the exact
+$10^{-9}$ ceiling recipe for $\alpha$. It records every branch outcome;
+the selected positive endpoint is 51046. The preceding recipe endpoint
+is negative. This establishes neither continuous-parameter nor global
+optimality. These exploration parameters are frozen, not adapted, in
+Theorem \ref{thm:main}.
+
+\section{Notation and external-input map}
+\begin{longtable}{p{.22\linewidth}p{.69\linewidth}}
+\toprule Symbol&Meaning\\\midrule\endhead
+$L,L_0$&$\log N$ and its fixed starting value 51046.\\
+$\alpha,t,D$&Support reserve, $t=1/2-\alpha$, and large Rosser level $N^t$.\\
+$z,y$&Chen cutoffs $N^{1/8},N^{1/3}$.\\
+$\PP,P_N(x),V_N(x)$&Odd primes not dividing $N$, their sieve product, and model density product.\\
+$T,w_0,Q_*$&Medium cutoff, exact small cutoff, and complete exact odd product 15.\\
+$D_0,\kappa$&Defining medium Rosser level and support contraction $11/169$.\\
+$\eta_+,\eta_-$&Separate normalized medium upper/lower gap budgets.\\
+$\eps,F,f,h$&Dimension-one tolerance and explicit linear-sieve functions.\\
+$x_1,w,H$&$N/L^5$, its logarithm, and average AP modulus support.\\
+$r(d),R_A$&Centered ordinary AP remainder and its full squarefree sum.\\
+$X_3,x_3,D_{R0},v_3$&Fixed rectangle reference point, its logarithm, low-conductor cutoff, and character envelope.\\
+$w_j,X,Y,Z$&Small-prime box endpoint and prime--integer rectangle bounds.\\
+$U_N,U_*,\Th$&Singular-series normalization, uniform lower bound, and units of the ledger.\\
+$M_0,M_1,M_2$&Positive lower main term and the two half-weighted negative main terms.\\
+$E_{AP},E_R,E_{\rm del},E_f$&All ordinary, rectangle, model-deletion, and finite combinatorial charges.\\\bottomrule
+\end{longtable}
+The carrying external inputs are \eqref{eq:Z} from \cite[Theorem 1.1]{QRH};
+large-prime Rosser masses from \cite[Theorem 6, Proposition 13, Table 1]{BJS};
+the unconditional reciprocal-prime tails from \cite[Lemmas 16--17]{BJS} and
+\cite[Lemma 3.2]{JS}; squarefree, totient, and divisor-count bounds from
+\cite[Lemmas 22--24]{BJS}; the high-conductor estimate \eqref{eq:AHinput};
+the multiplicative large-sieve inequality explicitly restated in Section
+\ref{sec:rectangle}; and \eqref{eq:Chen}.
+Every modification of a published sieve range is proved in the text,
+not effected by dropping a printed hypothesis without a replacement.
+
+\begin{thebibliography}{9}
+\bibitem{QRH} OpenAI, \emph{The Quasi-Riemann Hypothesis: A Zero-Free
+Half-Plane $\Re(s)>7/8$}, 30 September 2026, Theorem 1.1.
+Source snapshot at commit
+\cert{adc7f1241b42e322a6451854ab7e4b4c146bf78a}:
+\url{https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/The-Quasi-Riemann-Hypothesis-September-30-2026/build/paper.tex}.
+\bibitem{BJS} M. Bordignon, D. R. Johnston, V. V. Starichkova,
+\emph{An explicit version of Chen's theorem and the linear sieve},
+Int. J. Number Theory 21 (2025), 2497--2572; version 6,
+\url{https://arxiv.org/abs/2207.09452v6}.
+\bibitem{AH} A. Akbary, K. Hambrook, \emph{A variant of the
+Bombieri--Vinogradov theorem with explicit constants and applications},
+Math. Comp. 84 (2015), 1901--1934. The displayed weighted consequence
+used here is also recorded in the proof of BJS Lemma 30.
+\bibitem{JS} D. R. Johnston, V. V. Starichkova,
+\emph{Some explicit results on the sum of a prime and an almost prime},
+\url{https://arxiv.org/abs/2208.01229}, Lemma 3.2.
+\bibitem{Nathanson} M. B. Nathanson,
+\emph{Additive Number Theory: The Classical Bases}, GTM 164,
+Springer, 1996, Theorems 9.3 and 10.2.
+\end{thebibliography}
+\end{document}

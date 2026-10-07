@@ -1,0 +1,1627 @@
+{
+  "status": "PASS: strict accepted-support scalar endpoints; separate general domination proof required",
+  "precision_bits": 192,
+  "GRH_positivity": {
+    "presieve": {
+      "status": "strict Arb positive prefix-block bounds; analytic domination lemma required",
+      "precision_bits": 192,
+      "T": 5000000,
+      "exact_cutoff": 5,
+      "u": "87/16",
+      "presieve_type": "pure Rosser medium weights, exact smallest-prime weights",
+      "exact_presieve_Q_max": 15,
+      "exact_product_ball": "0.375000000000000000000000000000000000000000000000000000000",
+      "logarithm_base": "e",
+      "D0": "5000000^(87/16)",
+      "log_support_cost_ball": "[86.5812075088933712939746046536434909070794853424400506296 +/- 5.83e-56]",
+      "log_bin_width": "1/200",
+      "bin_limit": 16775,
+      "maximum_actual_prefix_degree": 22,
+      "nonempty_prime_blocks": 1810,
+      "prime_generation": "complete integer sieve",
+      "complete_odd_prime_count": 348512,
+      "medium_prime_count": 348510,
+      "upper_relative_Rosser_gap_ball": "[0.000369501095151250084047800063013867588117286535411327 +/- 3.13e-55]",
+      "lower_relative_Rosser_gap_ball": "[0.000369035199307429554232600786613899319919325005538897 +/- 3.69e-55]",
+      "relative_Rosser_gap_ball": "[0.000738536294458679638280400849627766908036611540950224 +/- 2.20e-55]",
+      "retains_all_preceding_checked_prefixes": true,
+      "relaxation": "floor-log labels; possible-pass and possible-failure cutoffs; positive block coefficients",
+      "deleting_primes": "complete-block positive coefficients dominate deleted blocks; actual prefix degree <=K",
+      "input_sha256": {
+        "conditional_chen_prefix_block_certificate.py": "9098125b3cd3b24133fd8fa230a4c595074e005113d24e01278ec63a37c1ab24",
+        "conditional_chen_rankin_certificate.py": "5f67df53975bb4e0e2631c385d00697178371feef24f464bfaa26ac9fcc7d6b7"
+      },
+      "elapsed_seconds": 65.204,
+      "not_checked": [
+        "external analytic inputs",
+        "global optimality",
+        "Chen endpoint",
+        "PDF compilation"
+      ],
+      "uniform_epsilon_ball": "[2.4260535282026468524012099358981840620602344768225095e-5 +/- 6.42e-58]"
+    },
+    "epsilon": "1/41219",
+    "eta_plus": "1/2706",
+    "eta_minus": "1/2709",
+    "C1": 106,
+    "C2": 108,
+    "effective_log_support_cost_ball": "[83.849204066768668365929573348477982997290656306857053572 +/- 1.52e-55]",
+    "sharp_support": {
+      "T": 5000000,
+      "exact_cutoff": 5,
+      "u": "87/16",
+      "Q": 15,
+      "kappa": "11/169",
+      "maximizer": {
+        "kind": "unchecked final prime",
+        "r": 11,
+        "s": 13
+      },
+      "complete_medium_prime_count": 348510,
+      "original_log_support_cost_ball": "[86.5812075088933712939746046536434909070794853424400506296 +/- 5.83e-56]",
+      "sharp_log_support_cost_ball": "[83.849204066768668365929573348477982997290656306857053572 +/- 1.34e-55]"
+    },
+    "binned_support_count": {
+      "status": "strict positive union-support count; general six-state domination lemma required",
+      "precision_bits": 192,
+      "T": 5000000,
+      "exact_cutoff": 5,
+      "u": "87/16",
+      "kappa": "11/169",
+      "support_maximizer": {
+        "kind": "unchecked final prime",
+        "r": 11,
+        "s": 13
+      },
+      "sigma": "0",
+      "log_bin_width": "1/100",
+      "log_medium_support_ball": "[81.141153865666458299933568778329269653117564394765786398 +/- 3.99e-55]",
+      "maximum_actual_degree": 22,
+      "label_limit": 8115,
+      "medium_prime_count": 348510,
+      "available_medium_prime_count": 348510,
+      "nonempty_blocks": 992,
+      "count_upper_ball": "655257348020585286337311701158.000000000000000000000000000",
+      "modulus_count_fraction_ball": "[1.0074540636097434133136552774228063611379504679495740653e-6 +/- 7.49e-62]",
+      "state_count_balls": [
+        {
+          "alive_flags": 1,
+          "selected_parity": 0,
+          "count_ball": "175710429822041647907402172337.000000000000000000000000000"
+        },
+        {
+          "alive_flags": 1,
+          "selected_parity": 1,
+          "count_ball": "70611323050623225513745948531.0000000000000000000000000000"
+        },
+        {
+          "alive_flags": 2,
+          "selected_parity": 0,
+          "count_ball": "65583434297967702515917046315.0000000000000000000000000000"
+        },
+        {
+          "alive_flags": 2,
+          "selected_parity": 1,
+          "count_ball": "186320797308420283797376075820.000000000000000000000000000"
+        },
+        {
+          "alive_flags": 3,
+          "selected_parity": 0,
+          "count_ball": "78698840773013146852633013612.0000000000000000000000000000"
+        },
+        {
+          "alive_flags": 3,
+          "selected_parity": 1,
+          "count_ball": "78332522768519279750237444543.0000000000000000000000000000"
+        }
+      ],
+      "state_convention": "1 upper alive; 2 lower alive; 3 both alive; parity before append",
+      "prime_generation": "complete integer sieve",
+      "retains_all_preceding_checked_prefixes": true,
+      "union_without_duplication": true,
+      "complete_cutoffs_retained_after_deletion": true,
+      "elapsed_seconds": 6.594,
+      "input_sha256": {
+        "conditional_chen_accepted_support_certificate.py": "774f0f2625255457a49d07f96000c9827b75f2c77ca0010e88e3d3620894fe31",
+        "conditional_chen_rankin_certificate.py": "5f67df53975bb4e0e2631c385d00697178371feef24f464bfaa26ac9fcc7d6b7",
+        "conditional_chen_prefix_block_certificate.py": "9098125b3cd3b24133fd8fa230a4c595074e005113d24e01278ec63a37c1ab24",
+        "conditional_chen_sharp_support_certificate.py": "7d559c00662b34df6bdcec57552127bf2387fb3e52a7295e81ad2cd9fa72ce7a",
+        "conditional_chen_binned_support_certificate.py": "c842a4e2b98e4410f079b236f8e4e324c20260f63e4c20b3e1cfd6e0f4db6c83"
+      },
+      "not_checked": [
+        "general domination proof",
+        "external analytic inputs",
+        "Chen endpoint",
+        "full splice"
+      ]
+    },
+    "binned_modulus_count_budget": "1/992601",
+    "integer_rough_product_ball": "[0.03639799973275486638535278878328103165103501661349904 +/- 6.38e-54]",
+    "rough_density_ball": "[0.03641145058261915125837028796612777260877745379628304 +/- 8.21e-54]",
+    "rough_density_budget": "36411450583/1000000000000",
+    "log_N0": 24274,
+    "alpha": "4228/1000000",
+    "claimed_margin": ".00001",
+    "log_log_N0_ball": "[10.0971610976663067920029368644198426556739478302674187042 +/- 1.92e-56]",
+    "s_ball": "[3.96617600000000000000000000000000000000000000000000000000 +/- 1.26e-57]",
+    "support_slack_ball": "[0.000548291572001000944964083701109663155800728845547638 +/- 3.75e-55]",
+    "F_s_ball": "[1.02338223140203293540779346145113140223289059667205645609 +/- 4.46e-57]",
+    "h_integral_ball": "[0.71564043804532527469228299604357358634526599219032960839 +/- 8.47e-57]",
+    "lower_composite_factor_ball": "[0.97584105497834448176549622889065649189620346422578872592 +/- 6.77e-57]",
+    "lower_ball": "[7.8067284390460830101412942457128549520571025202893470360 +/- 3.42e-56]",
+    "half_upper_ball": "[6.4988113720570178282154555724630768682175504714594657151 +/- 5.79e-56]",
+    "half_switch_ball": "[1.3064851806915359848321290375007033271157014812000582394 +/- 2.84e-56]",
+    "AP_budget_ball": "[0.0014075614677720107501708118169164934725284775159309479369 +/- 2.40e-59]",
+    "half_rectangle_error_ball": "[1.0081079509493364070110273946015643151270262130328e-190 +/- 4.32e-240]",
+    "finite_error_ball": "[2.77580288534014772159625165386985494057463266278386152011e-1309 +/- 8.45e-1366]",
+    "margin_ball": "[2.4324829757186343538823932158263251322090113892134e-5 +/- 5.58e-55]",
+    "rectangle_display_bound": "1e-188",
+    "finite_display_bound": "1e-1300",
+    "sieve_interface": "six-state union of medium Rosser supports and T-rough aggregate large factors",
+    "beta": "93/50",
+    "AP_plateau_leading_ball": "[0.0014075614677720107501708118169164934725284775159309479369 +/- 2.37e-59]",
+    "AP_pointwise_leading_at_start_ball": "[0.0013736419756970556668620370128253143842850544208950404297 +/- 3.95e-59]",
+    "AP_leading_coefficient_ball": "[1.02024569358690159081866257575067601775211642783232497734e-8 +/- 6.57e-65]",
+    "rough_floor_error_ratio_ball": "[1.8030071078087841275257757634740074224485612152798848e-5190 +/- 4.34e-5243]",
+    "valid_log_interval": [
+      24274,
+      24799
+    ],
+    "preceding_integer_recipe_margin_ball": "[-7.546036801391754722697463064277913934217219014304e-6 +/- 2.34e-55]"
+  },
+  "GRH_at_31000": {
+    "presieve": {
+      "status": "strict Arb positive prefix-block bounds; analytic domination lemma required",
+      "precision_bits": 192,
+      "T": 5000000,
+      "exact_cutoff": 5,
+      "u": "11/2",
+      "presieve_type": "pure Rosser medium weights, exact smallest-prime weights",
+      "exact_presieve_Q_max": 15,
+      "exact_product_ball": "0.375000000000000000000000000000000000000000000000000000000",
+      "logarithm_base": "e",
+      "D0": "5000000^(11/2)",
+      "log_support_cost_ball": "[87.5452667882932696988938989074767642124002484853176228532 +/- 9.20e-56]",
+      "log_bin_width": "1/200",
+      "bin_limit": 16968,
+      "maximum_actual_prefix_degree": 22,
+      "nonempty_prime_blocks": 1810,
+      "prime_generation": "complete integer sieve",
+      "complete_odd_prime_count": 348512,
+      "medium_prime_count": 348510,
+      "upper_relative_Rosser_gap_ball": "[0.0003094986149677244255658756944420862947021466928632274 +/- 8.32e-56]",
+      "lower_relative_Rosser_gap_ball": "[0.000308430013320786053858730566171095918861143178165327 +/- 4.21e-55]",
+      "relative_Rosser_gap_ball": "[0.000617928628288510479424606260613182213563289871028555 +/- 3.70e-55]",
+      "retains_all_preceding_checked_prefixes": true,
+      "relaxation": "floor-log labels; possible-pass and possible-failure cutoffs; positive block coefficients",
+      "deleting_primes": "complete-block positive coefficients dominate deleted blocks; actual prefix degree <=K",
+      "input_sha256": {
+        "conditional_chen_prefix_block_certificate.py": "9098125b3cd3b24133fd8fa230a4c595074e005113d24e01278ec63a37c1ab24",
+        "conditional_chen_rankin_certificate.py": "5f67df53975bb4e0e2631c385d00697178371feef24f464bfaa26ac9fcc7d6b7"
+      },
+      "elapsed_seconds": 61.688,
+      "not_checked": [
+        "external analytic inputs",
+        "global optimality",
+        "Chen endpoint",
+        "PDF compilation"
+      ],
+      "uniform_epsilon_ball": "[2.4260535282026468524012099358981840620602344768225095e-5 +/- 6.42e-58]"
+    },
+    "epsilon": "1/41219",
+    "eta_plus": "1/3231",
+    "eta_minus": "1/3242",
+    "C1": 106,
+    "C2": 108,
+    "effective_log_support_cost_ball": "[84.813263346168566770848867602311256302611419449734625796 +/- 5.93e-55]",
+    "sharp_support": {
+      "T": 5000000,
+      "exact_cutoff": 5,
+      "u": "11/2",
+      "Q": 15,
+      "kappa": "11/169",
+      "maximizer": {
+        "kind": "unchecked final prime",
+        "r": 11,
+        "s": 13
+      },
+      "complete_medium_prime_count": 348510,
+      "original_log_support_cost_ball": "[87.5452667882932696988938989074767642124002484853176228532 +/- 9.20e-56]",
+      "sharp_log_support_cost_ball": "[84.813263346168566770848867602311256302611419449734625796 +/- 5.76e-55]"
+    },
+    "binned_support_count": {
+      "status": "strict positive union-support count; general six-state domination lemma required",
+      "precision_bits": 192,
+      "T": 5000000,
+      "exact_cutoff": 5,
+      "u": "11/2",
+      "kappa": "11/169",
+      "support_maximizer": {
+        "kind": "unchecked final prime",
+        "r": 11,
+        "s": 13
+      },
+      "sigma": "0",
+      "log_bin_width": "1/100",
+      "log_medium_support_ball": "[82.1052131450663567048528630321625429584383275376433586220 +/- 7.91e-56]",
+      "maximum_actual_degree": 22,
+      "label_limit": 8211,
+      "medium_prime_count": 348510,
+      "available_medium_prime_count": 348510,
+      "nonempty_blocks": 992,
+      "count_upper_ball": "1449511000783081225403768272233.00000000000000000000000000",
+      "modulus_count_fraction_ball": "[8.498636292476396869150918214795201370184797109104585134e-7 +/- 8.63e-62]",
+      "state_count_balls": [
+        {
+          "alive_flags": 1,
+          "selected_parity": 0,
+          "count_ball": "390242339909799256443894017549.000000000000000000000000000"
+        },
+        {
+          "alive_flags": 1,
+          "selected_parity": 1,
+          "count_ball": "156724238641888728600850958824.000000000000000000000000000"
+        },
+        {
+          "alive_flags": 2,
+          "selected_parity": 0,
+          "count_ball": "143278534506679767196325117027.000000000000000000000000000"
+        },
+        {
+          "alive_flags": 2,
+          "selected_parity": 1,
+          "count_ball": "410508636803911211684959866183.000000000000000000000000000"
+        },
+        {
+          "alive_flags": 3,
+          "selected_parity": 0,
+          "count_ball": "176105234867143250605525478269.000000000000000000000000000"
+        },
+        {
+          "alive_flags": 3,
+          "selected_parity": 1,
+          "count_ball": "172652016053659010872212834381.000000000000000000000000000"
+        }
+      ],
+      "state_convention": "1 upper alive; 2 lower alive; 3 both alive; parity before append",
+      "prime_generation": "complete integer sieve",
+      "retains_all_preceding_checked_prefixes": true,
+      "union_without_duplication": true,
+      "complete_cutoffs_retained_after_deletion": true,
+      "elapsed_seconds": 11.984,
+      "input_sha256": {
+        "conditional_chen_accepted_support_certificate.py": "774f0f2625255457a49d07f96000c9827b75f2c77ca0010e88e3d3620894fe31",
+        "conditional_chen_rankin_certificate.py": "5f67df53975bb4e0e2631c385d00697178371feef24f464bfaa26ac9fcc7d6b7",
+        "conditional_chen_prefix_block_certificate.py": "9098125b3cd3b24133fd8fa230a4c595074e005113d24e01278ec63a37c1ab24",
+        "conditional_chen_sharp_support_certificate.py": "7d559c00662b34df6bdcec57552127bf2387fb3e52a7295e81ad2cd9fa72ce7a",
+        "conditional_chen_binned_support_certificate.py": "c842a4e2b98e4410f079b236f8e4e324c20260f63e4c20b3e1cfd6e0f4db6c83"
+      },
+      "not_checked": [
+        "general domination proof",
+        "external analytic inputs",
+        "Chen endpoint",
+        "full splice"
+      ]
+    },
+    "binned_modulus_count_budget": "1/1176659",
+    "integer_rough_product_ball": "[0.03639799973275486638535278878328103165103501661349904 +/- 6.38e-54]",
+    "rough_density_ball": "[0.0364092649756309898351780295102334553686614588965735 +/- 3.16e-53]",
+    "rough_density_budget": "36409264976/1000000000000",
+    "log_N0": 31000,
+    "alpha": "3737/1000000",
+    "claimed_margin": "181/10000",
+    "log_log_N0_ball": "[10.3417424834672832979831386885954498332532433963669108999 +/- 4.64e-56]",
+    "s_ball": "[3.97010400000000000000000000000000000000000000000000000000 +/- 1.04e-57]",
+    "support_slack_ball": "[0.00850920342958333520171633190239419762885036116464150 +/- 5.07e-54]",
+    "F_s_ball": "[1.02317367699288586672321751282289042447082668469936123430 +/- 5.59e-57]",
+    "h_integral_ball": "[0.71402566595094417179843998159819777688414560997550726581 +/- 7.82e-57]",
+    "lower_composite_factor_ball": "[0.97612882765136001678106864460589719203526612037727937574 +/- 3.44e-57]",
+    "lower_ball": "[7.8090306204299770721274611434223226205974112093900221096 +/- 2.41e-56]",
+    "half_upper_ball": "[6.4857817691366002385759917908773783574605240534436794422 +/- 3.67e-56]",
+    "half_switch_ball": "[1.3050689154892363035030344088602314841775485979281295963 +/- 2.23e-56]",
+    "AP_budget_ball": "[1.16049809990447547623471161502395157534562578965704566886e-8 +/- 8.02e-65]",
+    "half_rectangle_error_ball": "[4.776331865499869040885626141033429046110203754577e-251 +/- 2.06e-300]",
+    "finite_error_ball": "[3.33229663959120125340804344564277169709563863124061326046e-1674 +/- 8.30e-1731]",
+    "margin_ball": "[0.018179924199159531003680181337596628719822804561955175 +/- 5.54e-55]",
+    "rectangle_display_bound": "1e-250",
+    "finite_display_bound": "1e-1673",
+    "sieve_interface": "six-state union of medium Rosser supports and T-rough aggregate large factors",
+    "beta": "3",
+    "AP_plateau_leading_ball": "[1.16049809990447547623471161502395157534562578965704566886e-8 +/- 7.78e-65]",
+    "AP_pointwise_leading_at_start_ball": "[1.16049809990447547623471161502395157534562578965704566886e-8 +/- 7.78e-65]",
+    "AP_leading_coefficient_ball": "[8.6007591628558817278758057113424675157509394702726413554e-9 +/- 6.77e-65]",
+    "rough_floor_error_ratio_ball": "[7.6243987899262470991022405657423459303598168252350614e-6645 +/- 6.47e-6698]",
+    "valid_log_interval": [
+      31000,
+      null
+    ],
+    "fixed_beta_three_half_line": true
+  },
+  "analytic_tail_join_log_N": 24799,
+  "analytic_join_chain": [
+    24274,
+    24799,
+    26820,
+    "infinity"
+  ],
+  "integer_rough_product_ball": "[0.03639799973275486638535278878328103165103501661349904 +/- 6.38e-54]",
+  "complete_integer_rough_product_prime_count": 348513,
+  "candidate_rows": [
+    {
+      "u": "21/4",
+      "gap_h": "1/100",
+      "beta": "19/10",
+      "log_N0": 24544,
+      "margin_ball": "[3.8097402485443024516866953386126883251778861900855e-5 +/- 4.16e-55]"
+    },
+    {
+      "u": "21/4",
+      "gap_h": "1/100",
+      "beta": "2",
+      "log_N0": 24600,
+      "margin_ball": "[1.1564749709015815581477457036415450291895764319467e-5 +/- 5.21e-55]"
+    },
+    {
+      "u": "21/4",
+      "gap_h": "1/100",
+      "beta": "21/10",
+      "log_N0": 24783,
+      "margin_ball": "[2.6856705739164843858837498073882831985242355878068e-5 +/- 5.95e-55]"
+    },
+    {
+      "u": "43/8",
+      "gap_h": "1/100",
+      "beta": "9/5",
+      "log_N0": 24462,
+      "margin_ball": "[3.8476238904509451542986396413998712036336484954183e-5 +/- 2.86e-55]"
+    },
+    {
+      "u": "43/8",
+      "gap_h": "1/100",
+      "beta": "19/10",
+      "log_N0": 24345,
+      "margin_ball": "[4.1133982515338069525642231079954925251391011029568e-5 +/- 4.44e-55]"
+    },
+    {
+      "u": "43/8",
+      "gap_h": "1/100",
+      "beta": "2",
+      "log_N0": 24454,
+      "margin_ball": "[2.0260534061471669846636247155774611703142097460222e-5 +/- 2.95e-55]"
+    },
+    {
+      "u": "43/8",
+      "gap_h": "1/100",
+      "beta": "21/10",
+      "log_N0": 24650,
+      "margin_ball": "[2.8856790889949330962585884186189461090466405476262e-5 +/- 3.23e-55]"
+    },
+    {
+      "u": "11/2",
+      "gap_h": "1/100",
+      "beta": "9/5",
+      "log_N0": 24349,
+      "margin_ball": "[2.1989843683701319500887872978969422599562368573954e-5 +/- 2.66e-55]"
+    },
+    {
+      "u": "11/2",
+      "gap_h": "1/100",
+      "beta": "19/10",
+      "log_N0": 24340,
+      "margin_ball": "[3.9156134989170873356268821076601664650714947488909e-5 +/- 2.18e-55]"
+    },
+    {
+      "u": "11/2",
+      "gap_h": "1/100",
+      "beta": "2",
+      "log_N0": 24488,
+      "margin_ball": "[3.8185549820019575748775665151756841361047535473053e-5 +/- 4.99e-55]"
+    },
+    {
+      "u": "11/2",
+      "gap_h": "1/100",
+      "beta": "21/10",
+      "log_N0": 24693,
+      "margin_ball": "[3.6507046762522912702716829788836593644795661131590e-5 +/- 4.51e-55]"
+    },
+    {
+      "u": "45/8",
+      "gap_h": "1/100",
+      "beta": "17/10",
+      "log_N0": 24664,
+      "margin_ball": "[3.7729057050532598525608553264634522666712688738775e-5 +/- 5.19e-55]"
+    },
+    {
+      "u": "45/8",
+      "gap_h": "1/100",
+      "beta": "9/5",
+      "log_N0": 24408,
+      "margin_ball": "[2.6236865990482020902551253105582657869047068134572e-5 +/- 4.67e-55]"
+    },
+    {
+      "u": "45/8",
+      "gap_h": "1/100",
+      "beta": "19/10",
+      "log_N0": 24467,
+      "margin_ball": "[2.3057286813445429710649879341376074555866920278730e-5 +/- 5.94e-55]"
+    },
+    {
+      "u": "45/8",
+      "gap_h": "1/100",
+      "beta": "2",
+      "log_N0": 24641,
+      "margin_ball": "[3.5038508696381828304501733254493034074712476559950e-5 +/- 6.00e-55]"
+    },
+    {
+      "u": "23/4",
+      "gap_h": "1/100",
+      "beta": "17/10",
+      "log_N0": 24683,
+      "margin_ball": "[1.8537491581105133887939656817435739390851465969884e-5 +/- 4.40e-55]"
+    },
+    {
+      "u": "23/4",
+      "gap_h": "1/100",
+      "beta": "9/5",
+      "log_N0": 24579,
+      "margin_ball": "[3.8880858518001050660415393535596063965790601950609e-5 +/- 3.26e-55]"
+    },
+    {
+      "u": "23/4",
+      "gap_h": "1/100",
+      "beta": "19/10",
+      "log_N0": 24688,
+      "margin_ball": "[3.2894420144935226294442339392638720707400614761566e-5 +/- 3.47e-55]"
+    },
+    {
+      "u": "87/16",
+      "gap_h": "1/200",
+      "beta": "9/5",
+      "log_N0": 24345,
+      "margin_ball": "[2.8910556615135238867728243092365401993306500936878e-5 +/- 4.60e-55]"
+    },
+    {
+      "u": "87/16",
+      "gap_h": "1/200",
+      "beta": "19/10",
+      "log_N0": 24284,
+      "margin_ball": "[1.5516758393489502560554805099539654033097597012412e-5 +/- 4.14e-55]"
+    },
+    {
+      "u": "87/16",
+      "gap_h": "1/200",
+      "beta": "2",
+      "log_N0": 24415,
+      "margin_ball": "[1.2126697371768666390359760069248726675925263652989e-5 +/- 5.38e-55]"
+    },
+    {
+      "u": "87/16",
+      "gap_h": "1/200",
+      "beta": "21/10",
+      "log_N0": 24616,
+      "margin_ball": "[1.2546619421845661486164525866178178525562474990650e-5 +/- 3.02e-55]"
+    },
+    {
+      "u": "11/2",
+      "gap_h": "1/200",
+      "beta": "17/10",
+      "log_N0": 24791,
+      "margin_ball": "[3.8512848856581051399884519750964929142254912991804e-5 +/- 5.90e-55]"
+    },
+    {
+      "u": "11/2",
+      "gap_h": "1/200",
+      "beta": "9/5",
+      "log_N0": 24320,
+      "margin_ball": "[1.9864049414136105446837966755077096384354023915341e-5 +/- 2.81e-55]"
+    },
+    {
+      "u": "11/2",
+      "gap_h": "1/200",
+      "beta": "19/10",
+      "log_N0": 24311,
+      "margin_ball": "[3.6974349262034529528109953931205875967966753283233e-5 +/- 2.71e-55]"
+    },
+    {
+      "u": "11/2",
+      "gap_h": "1/200",
+      "beta": "2",
+      "log_N0": 24459,
+      "margin_ball": "[3.5994065485638711950569261856394965594162663083704e-5 +/- 5.84e-55]"
+    },
+    {
+      "u": "11/2",
+      "gap_h": "1/200",
+      "beta": "21/10",
+      "log_N0": 24663,
+      "margin_ball": "[3.4292571731536843165968490985609965249042204681019e-5 +/- 1.76e-55]"
+    },
+    {
+      "u": "89/16",
+      "gap_h": "1/200",
+      "beta": "17/10",
+      "log_N0": 24688,
+      "margin_ball": "[2.6330533832566940496649825385845826692342626119442e-5 +/- 1.59e-55]"
+    },
+    {
+      "u": "89/16",
+      "gap_h": "1/200",
+      "beta": "9/5",
+      "log_N0": 24335,
+      "margin_ball": "[1.0778317316899377874335334329840020511216942259793e-5 +/- 5.48e-55]"
+    },
+    {
+      "u": "89/16",
+      "gap_h": "1/200",
+      "beta": "19/10",
+      "log_N0": 24367,
+      "margin_ball": "[3.2212970241439080280810486834375527634033454807821e-5 +/- 6.17e-55]"
+    },
+    {
+      "u": "89/16",
+      "gap_h": "1/200",
+      "beta": "2",
+      "log_N0": 24524,
+      "margin_ball": "[1.5273508849653049528479475344634514778089434547323e-5 +/- 4.28e-55]"
+    },
+    {
+      "u": "89/16",
+      "gap_h": "1/200",
+      "beta": "21/10",
+      "log_N0": 24734,
+      "margin_ball": "[1.6524575650181559805100591590361395283282040637137e-5 +/- 6.12e-55]"
+    },
+    {
+      "u": "87/16",
+      "gap_h": "1/200",
+      "beta": "181/100",
+      "log_N0": 24323,
+      "margin_ball": "[2.2164699424182343605765059601472770898443232106341e-5 +/- 5.19e-55]"
+    },
+    {
+      "u": "87/16",
+      "gap_h": "1/200",
+      "beta": "91/50",
+      "log_N0": 24306,
+      "margin_ball": "[2.3467210383748791007154811271014834511170060238954e-5 +/- 4.87e-55]"
+    },
+    {
+      "u": "87/16",
+      "gap_h": "1/200",
+      "beta": "183/100",
+      "log_N0": 24295,
+      "margin_ball": "[3.5157547478359295811803654839118188056597542297576e-5 +/- 3.26e-55]"
+    },
+    {
+      "u": "87/16",
+      "gap_h": "1/200",
+      "beta": "46/25",
+      "log_N0": 24284,
+      "margin_ball": "[2.7298372060955112704249567375874308608761293489624e-5 +/- 2.87e-55]"
+    },
+    {
+      "u": "87/16",
+      "gap_h": "1/200",
+      "beta": "37/20",
+      "log_N0": 24279,
+      "margin_ball": "[3.3794928106186957268477808604373194127014916689496e-5 +/- 2.29e-55]"
+    },
+    {
+      "u": "87/16",
+      "gap_h": "1/200",
+      "beta": "93/50",
+      "log_N0": 24274,
+      "margin_ball": "[2.4324829757186343538823932158263251322090113892134e-5 +/- 5.58e-55]"
+    },
+    {
+      "u": "87/16",
+      "gap_h": "1/200",
+      "beta": "187/100",
+      "log_N0": 24275,
+      "margin_ball": "[3.2451357622352305754460654138791297611853159342948e-5 +/- 2.33e-55]"
+    },
+    {
+      "u": "87/16",
+      "gap_h": "1/200",
+      "beta": "47/25",
+      "log_N0": 24276,
+      "margin_ball": "[2.7537608189555157209070295902413989767719729842305e-5 +/- 6.38e-55]"
+    },
+    {
+      "u": "87/16",
+      "gap_h": "1/200",
+      "beta": "189/100",
+      "log_N0": 24277,
+      "margin_ball": "[1.0838061989473871685198171751786710144778897763162e-5 +/- 4.37e-55]"
+    },
+    {
+      "u": "87/16",
+      "gap_h": "1/200",
+      "beta": "19/10",
+      "log_N0": 24284,
+      "margin_ball": "[1.5516758393489502560554805099539654033097597012412e-5 +/- 4.14e-55]"
+    },
+    {
+      "u": "87/16",
+      "gap_h": "1/200",
+      "beta": "191/100",
+      "log_N0": 24291,
+      "margin_ball": "[1.0569853609505683916108248903997325385966958175666e-5 +/- 2.39e-55]"
+    },
+    {
+      "u": "87/16",
+      "gap_h": "1/200",
+      "beta": "48/25",
+      "log_N0": 24303,
+      "margin_ball": "[2.8923772285300716727077726401324804332195607083501e-5 +/- 3.98e-55]"
+    },
+    {
+      "u": "87/16",
+      "gap_h": "1/200",
+      "beta": "193/100",
+      "log_N0": 24316,
+      "margin_ball": "[3.9447128291767176138814349331528271646126684514649e-5 +/- 5.65e-55]"
+    },
+    {
+      "u": "87/16",
+      "gap_h": "1/200",
+      "beta": "97/50",
+      "log_N0": 24323,
+      "margin_ball": "[1.0833346968972833822097475204892131949679474974182e-5 +/- 5.67e-55]"
+    },
+    {
+      "u": "87/16",
+      "gap_h": "1/200",
+      "beta": "39/20",
+      "log_N0": 24341,
+      "margin_ball": "[3.9831208076781128178789433764648072690076646708511e-5 +/- 4.21e-55]"
+    },
+    {
+      "u": "87/16",
+      "gap_h": "1/200",
+      "beta": "49/25",
+      "log_N0": 24353,
+      "margin_ball": "[3.0993456492294488570602704863291311138815552409057e-5 +/- 5.98e-55]"
+    },
+    {
+      "u": "87/16",
+      "gap_h": "1/200",
+      "beta": "197/100",
+      "log_N0": 24366,
+      "margin_ball": "[1.6941216896689727773711826187936741512893982900721e-5 +/- 3.66e-55]"
+    },
+    {
+      "u": "87/16",
+      "gap_h": "1/200",
+      "beta": "99/50",
+      "log_N0": 24384,
+      "margin_ball": "[3.0150627310574215715606284470939403623198179733159e-5 +/- 6.40e-55]"
+    },
+    {
+      "u": "87/16",
+      "gap_h": "1/200",
+      "beta": "199/100",
+      "log_N0": 24403,
+      "margin_ball": "[3.9106516943752326780460462344580886889747674734372e-5 +/- 1.21e-55]"
+    },
+    {
+      "u": "11/2",
+      "gap_h": "1/200",
+      "beta": "181/100",
+      "log_N0": 24309,
+      "margin_ball": "[3.8163071782210989531280207869527672421333305124797e-5 +/- 1.24e-55]"
+    },
+    {
+      "u": "11/2",
+      "gap_h": "1/200",
+      "beta": "91/50",
+      "log_N0": 24298,
+      "margin_ball": "[3.6273113285846441204974138530827820949751624685232e-5 +/- 2.02e-55]"
+    },
+    {
+      "u": "11/2",
+      "gap_h": "1/200",
+      "beta": "183/100",
+      "log_N0": 24287,
+      "margin_ball": "[1.6135992240865805660959496220337430936089698765694e-5 +/- 5.91e-55]"
+    },
+    {
+      "u": "11/2",
+      "gap_h": "1/200",
+      "beta": "46/25",
+      "log_N0": 24282,
+      "margin_ball": "[1.1539366730501646549672003041680987648691497854762e-5 +/- 2.71e-55]"
+    },
+    {
+      "u": "11/2",
+      "gap_h": "1/200",
+      "beta": "37/20",
+      "log_N0": 24283,
+      "margin_ball": "[2.4073613395413492529108043162963504981922936260561e-5 +/- 4.03e-55]"
+    },
+    {
+      "u": "11/2",
+      "gap_h": "1/200",
+      "beta": "93/50",
+      "log_N0": 24284,
+      "margin_ball": "[2.3140940878352818072232217602444803650531100125055e-5 +/- 3.33e-55]"
+    },
+    {
+      "u": "11/2",
+      "gap_h": "1/200",
+      "beta": "187/100",
+      "log_N0": 24285,
+      "margin_ball": "[1.0036887383867002335563759220923729217687383572308e-5 +/- 5.14e-55]"
+    },
+    {
+      "u": "11/2",
+      "gap_h": "1/200",
+      "beta": "47/25",
+      "log_N0": 24292,
+      "margin_ball": "[1.7968904097938404976519004753049787431374481302499e-5 +/- 3.97e-55]"
+    },
+    {
+      "u": "11/2",
+      "gap_h": "1/200",
+      "beta": "189/100",
+      "log_N0": 24299,
+      "margin_ball": "[1.5960374113147280029308229645288445569861872140435e-5 +/- 2.81e-55]"
+    },
+    {
+      "u": "11/2",
+      "gap_h": "1/200",
+      "beta": "19/10",
+      "log_N0": 24311,
+      "margin_ball": "[3.6974349262034529528109953931205875967966753283233e-5 +/- 2.71e-55]"
+    },
+    {
+      "u": "11/2",
+      "gap_h": "1/200",
+      "beta": "191/100",
+      "log_N0": 24318,
+      "margin_ball": "[1.7862538051195889790177575801882679505023344346947e-5 +/- 5.84e-55]"
+    },
+    {
+      "u": "11/2",
+      "gap_h": "1/200",
+      "beta": "48/25",
+      "log_N0": 24330,
+      "margin_ball": "[2.3419852286351025662211161549791855524786533643566e-5 +/- 2.45e-55]"
+    },
+    {
+      "u": "11/2",
+      "gap_h": "1/200",
+      "beta": "193/100",
+      "log_N0": 24343,
+      "margin_ball": "[2.2376431005886997058199266692124012800422752031942e-5 +/- 4.43e-55]"
+    },
+    {
+      "u": "11/2",
+      "gap_h": "1/200",
+      "beta": "97/50",
+      "log_N0": 24355,
+      "margin_ball": "[1.5308625773336714759652749902128852220314263373321e-5 +/- 2.67e-55]"
+    },
+    {
+      "u": "11/2",
+      "gap_h": "1/200",
+      "beta": "39/20",
+      "log_N0": 24373,
+      "margin_ball": "[3.4863328583939184691440829248615550019099724698735e-5 +/- 4.45e-55]"
+    },
+    {
+      "u": "11/2",
+      "gap_h": "1/200",
+      "beta": "49/25",
+      "log_N0": 24386,
+      "margin_ball": "[1.7514008166936382949914431303008471382540979686622e-5 +/- 5.64e-55]"
+    },
+    {
+      "u": "11/2",
+      "gap_h": "1/200",
+      "beta": "197/100",
+      "log_N0": 24404,
+      "margin_ball": "[2.7748952458284338741802566134589659016689470833758e-5 +/- 1.90e-55]"
+    },
+    {
+      "u": "11/2",
+      "gap_h": "1/200",
+      "beta": "99/50",
+      "log_N0": 24422,
+      "margin_ball": "[3.3985219664740688644165067421593831547164517428245e-5 +/- 5.39e-55]"
+    },
+    {
+      "u": "11/2",
+      "gap_h": "1/200",
+      "beta": "199/100",
+      "log_N0": 24440,
+      "margin_ball": "[3.6607524924843248011866540522656475160456229139342e-5 +/- 4.00e-55]"
+    }
+  ],
+  "stronger_candidates": [
+    {
+      "u": "41/8",
+      "gap_h": "1/100",
+      "margin_ball": "[0.014240383334818968992565262943647006343277938316087272 +/- 1.51e-55]"
+    },
+    {
+      "u": "21/4",
+      "gap_h": "1/100",
+      "margin_ball": "[0.016601726645200937570913280595260436653884193864590201 +/- 3.74e-55]"
+    },
+    {
+      "u": "43/8",
+      "gap_h": "1/100",
+      "margin_ball": "[0.017764411775163524601691660091491486721648284897575122 +/- 5.11e-55]"
+    },
+    {
+      "u": "11/2",
+      "gap_h": "1/100",
+      "margin_ball": "[0.018022163860500576882909034446004777478486030274659753 +/- 3.19e-55]"
+    },
+    {
+      "u": "45/8",
+      "gap_h": "1/100",
+      "margin_ball": "[0.017619709800038194563410417805326134458422771624281047 +/- 2.06e-55]"
+    },
+    {
+      "u": "23/4",
+      "gap_h": "1/100",
+      "margin_ball": "[0.016731969503489854768769468051678118530076633394413838 +/- 1.98e-55]"
+    },
+    {
+      "u": "87/16",
+      "gap_h": "1/200",
+      "margin_ball": "[0.018175245950707270148936177455437029180177671831883660 +/- 3.06e-55]"
+    },
+    {
+      "u": "11/2",
+      "gap_h": "1/200",
+      "margin_ball": "[0.018179924199159531003680181337596628719822804561955175 +/- 5.54e-55]"
+    },
+    {
+      "u": "89/16",
+      "gap_h": "1/200",
+      "margin_ball": "[0.018019980289776093845227371162998380858365003387483303 +/- 3.01e-55]"
+    }
+  ],
+  "accepted_support_counts": [
+    {
+      "status": "strict positive union-support count; general six-state domination lemma required",
+      "precision_bits": 192,
+      "T": 5000000,
+      "exact_cutoff": 5,
+      "u": "41/8",
+      "kappa": "11/169",
+      "support_maximizer": {
+        "kind": "unchecked final prime",
+        "r": 11,
+        "s": 13
+      },
+      "sigma": "0",
+      "log_bin_width": "1/100",
+      "log_medium_support_ball": "[76.3208574686669662753370975091629031265137486803779252802 +/- 7.94e-56]",
+      "maximum_actual_degree": 21,
+      "label_limit": 7633,
+      "medium_prime_count": 348510,
+      "available_medium_prime_count": 348510,
+      "nonempty_blocks": 992,
+      "count_upper_ball": "12172189586811559122578698189.0000000000000000000000000000",
+      "modulus_count_fraction_ball": "[2.320652898184032200908895497469380998047522787814039863e-6 +/- 3.51e-61]",
+      "state_count_balls": [
+        {
+          "alive_flags": 1,
+          "selected_parity": 0,
+          "count_ball": "3299340524758270530491786597.00000000000000000000000000000"
+        },
+        {
+          "alive_flags": 1,
+          "selected_parity": 1,
+          "count_ball": "1251044581030482993365323408.00000000000000000000000000000"
+        },
+        {
+          "alive_flags": 2,
+          "selected_parity": 0,
+          "count_ball": "1315352333568156276638321432.00000000000000000000000000000"
+        },
+        {
+          "alive_flags": 2,
+          "selected_parity": 1,
+          "count_ball": "3449156485717434002248056388.00000000000000000000000000000"
+        },
+        {
+          "alive_flags": 3,
+          "selected_parity": 0,
+          "count_ball": "1381855894787588772260970603.00000000000000000000000000000"
+        },
+        {
+          "alive_flags": 3,
+          "selected_parity": 1,
+          "count_ball": "1475439766949626547574239761.00000000000000000000000000000"
+        }
+      ],
+      "state_convention": "1 upper alive; 2 lower alive; 3 both alive; parity before append",
+      "prime_generation": "complete integer sieve",
+      "retains_all_preceding_checked_prefixes": true,
+      "union_without_duplication": true,
+      "complete_cutoffs_retained_after_deletion": true,
+      "elapsed_seconds": 10.406,
+      "input_sha256": {
+        "conditional_chen_accepted_support_certificate.py": "774f0f2625255457a49d07f96000c9827b75f2c77ca0010e88e3d3620894fe31",
+        "conditional_chen_rankin_certificate.py": "5f67df53975bb4e0e2631c385d00697178371feef24f464bfaa26ac9fcc7d6b7",
+        "conditional_chen_prefix_block_certificate.py": "9098125b3cd3b24133fd8fa230a4c595074e005113d24e01278ec63a37c1ab24",
+        "conditional_chen_sharp_support_certificate.py": "7d559c00662b34df6bdcec57552127bf2387fb3e52a7295e81ad2cd9fa72ce7a",
+        "conditional_chen_binned_support_certificate.py": "c842a4e2b98e4410f079b236f8e4e324c20260f63e4c20b3e1cfd6e0f4db6c83"
+      },
+      "not_checked": [
+        "general domination proof",
+        "external analytic inputs",
+        "Chen endpoint",
+        "full splice"
+      ]
+    },
+    {
+      "status": "strict positive union-support count; general six-state domination lemma required",
+      "precision_bits": 192,
+      "T": 5000000,
+      "exact_cutoff": 5,
+      "u": "21/4",
+      "kappa": "11/169",
+      "support_maximizer": {
+        "kind": "unchecked final prime",
+        "r": 11,
+        "s": 13
+      },
+      "sigma": "0",
+      "log_bin_width": "1/100",
+      "log_medium_support_ball": "[78.248976027466763085175686016829449737155274966133069727 +/- 4.98e-55]",
+      "maximum_actual_degree": 21,
+      "label_limit": 7825,
+      "medium_prime_count": 348510,
+      "available_medium_prime_count": 348510,
+      "nonempty_blocks": 992,
+      "count_upper_ball": "60161865285377081362032739026.0000000000000000000000000000",
+      "modulus_count_fraction_ball": "[1.667982622845376431018792716071250972415706610198375745e-6 +/- 2.45e-61]",
+      "state_count_balls": [
+        {
+          "alive_flags": 1,
+          "selected_parity": 0,
+          "count_ball": "16128674222119823125919100600.0000000000000000000000000000"
+        },
+        {
+          "alive_flags": 1,
+          "selected_parity": 1,
+          "count_ball": "6336408800329318381894523677.00000000000000000000000000000"
+        },
+        {
+          "alive_flags": 2,
+          "selected_parity": 0,
+          "count_ball": "6305827069290156853670457846.00000000000000000000000000000"
+        },
+        {
+          "alive_flags": 2,
+          "selected_parity": 1,
+          "count_ball": "17153332794596569078993697166.0000000000000000000000000000"
+        },
+        {
+          "alive_flags": 3,
+          "selected_parity": 0,
+          "count_ball": "6970846922000087541004073248.00000000000000000000000000000"
+        },
+        {
+          "alive_flags": 3,
+          "selected_parity": 1,
+          "count_ball": "7266775477041126380550886489.00000000000000000000000000000"
+        }
+      ],
+      "state_convention": "1 upper alive; 2 lower alive; 3 both alive; parity before append",
+      "prime_generation": "complete integer sieve",
+      "retains_all_preceding_checked_prefixes": true,
+      "union_without_duplication": true,
+      "complete_cutoffs_retained_after_deletion": true,
+      "elapsed_seconds": 10.484,
+      "input_sha256": {
+        "conditional_chen_accepted_support_certificate.py": "774f0f2625255457a49d07f96000c9827b75f2c77ca0010e88e3d3620894fe31",
+        "conditional_chen_rankin_certificate.py": "5f67df53975bb4e0e2631c385d00697178371feef24f464bfaa26ac9fcc7d6b7",
+        "conditional_chen_prefix_block_certificate.py": "9098125b3cd3b24133fd8fa230a4c595074e005113d24e01278ec63a37c1ab24",
+        "conditional_chen_sharp_support_certificate.py": "7d559c00662b34df6bdcec57552127bf2387fb3e52a7295e81ad2cd9fa72ce7a",
+        "conditional_chen_binned_support_certificate.py": "c842a4e2b98e4410f079b236f8e4e324c20260f63e4c20b3e1cfd6e0f4db6c83"
+      },
+      "not_checked": [
+        "general domination proof",
+        "external analytic inputs",
+        "Chen endpoint",
+        "full splice"
+      ]
+    },
+    {
+      "status": "strict positive union-support count; general six-state domination lemma required",
+      "precision_bits": 192,
+      "T": 5000000,
+      "exact_cutoff": 5,
+      "u": "43/8",
+      "kappa": "11/169",
+      "support_maximizer": {
+        "kind": "unchecked final prime",
+        "r": 11,
+        "s": 13
+      },
+      "sigma": "0",
+      "log_bin_width": "1/100",
+      "log_medium_support_ball": "[80.1770945862665598950142745244959963477968012518882141747 +/- 6.51e-56]",
+      "maximum_actual_degree": 21,
+      "label_limit": 8018,
+      "medium_prime_count": 348510,
+      "available_medium_prime_count": 348510,
+      "nonempty_blocks": 992,
+      "count_upper_ball": "295989254996652771120404308702.000000000000000000000000000",
+      "modulus_count_fraction_ball": "[1.1933694725346079123362258177753987362770709891743420678e-6 +/- 9.14e-62]",
+      "state_count_balls": [
+        {
+          "alive_flags": 1,
+          "selected_parity": 0,
+          "count_ball": "79147493155535842359931251121.0000000000000000000000000000"
+        },
+        {
+          "alive_flags": 1,
+          "selected_parity": 1,
+          "count_ball": "31782654609933760458986617545.0000000000000000000000000000"
+        },
+        {
+          "alive_flags": 2,
+          "selected_parity": 0,
+          "count_ball": "30084135795402603430577991391.0000000000000000000000000000"
+        },
+        {
+          "alive_flags": 2,
+          "selected_parity": 1,
+          "count_ball": "84314622158196065967693247973.0000000000000000000000000000"
+        },
+        {
+          "alive_flags": 3,
+          "selected_parity": 0,
+          "count_ball": "35146252044501482897635481215.0000000000000000000000000000"
+        },
+        {
+          "alive_flags": 3,
+          "selected_parity": 1,
+          "count_ball": "35514097233083016005579719457.0000000000000000000000000000"
+        }
+      ],
+      "state_convention": "1 upper alive; 2 lower alive; 3 both alive; parity before append",
+      "prime_generation": "complete integer sieve",
+      "retains_all_preceding_checked_prefixes": true,
+      "union_without_duplication": true,
+      "complete_cutoffs_retained_after_deletion": true,
+      "elapsed_seconds": 11.297,
+      "input_sha256": {
+        "conditional_chen_accepted_support_certificate.py": "774f0f2625255457a49d07f96000c9827b75f2c77ca0010e88e3d3620894fe31",
+        "conditional_chen_rankin_certificate.py": "5f67df53975bb4e0e2631c385d00697178371feef24f464bfaa26ac9fcc7d6b7",
+        "conditional_chen_prefix_block_certificate.py": "9098125b3cd3b24133fd8fa230a4c595074e005113d24e01278ec63a37c1ab24",
+        "conditional_chen_sharp_support_certificate.py": "7d559c00662b34df6bdcec57552127bf2387fb3e52a7295e81ad2cd9fa72ce7a",
+        "conditional_chen_binned_support_certificate.py": "c842a4e2b98e4410f079b236f8e4e324c20260f63e4c20b3e1cfd6e0f4db6c83"
+      },
+      "not_checked": [
+        "general domination proof",
+        "external analytic inputs",
+        "Chen endpoint",
+        "full splice"
+      ]
+    },
+    {
+      "status": "strict positive union-support count; general six-state domination lemma required",
+      "precision_bits": 192,
+      "T": 5000000,
+      "exact_cutoff": 5,
+      "u": "11/2",
+      "kappa": "11/169",
+      "support_maximizer": {
+        "kind": "unchecked final prime",
+        "r": 11,
+        "s": 13
+      },
+      "sigma": "0",
+      "log_bin_width": "1/100",
+      "log_medium_support_ball": "[82.1052131450663567048528630321625429584383275376433586220 +/- 7.91e-56]",
+      "maximum_actual_degree": 22,
+      "label_limit": 8211,
+      "medium_prime_count": 348510,
+      "available_medium_prime_count": 348510,
+      "nonempty_blocks": 992,
+      "count_upper_ball": "1449511000783081225403768272233.00000000000000000000000000",
+      "modulus_count_fraction_ball": "[8.498636292476396869150918214795201370184797109104585134e-7 +/- 8.63e-62]",
+      "state_count_balls": [
+        {
+          "alive_flags": 1,
+          "selected_parity": 0,
+          "count_ball": "390242339909799256443894017549.000000000000000000000000000"
+        },
+        {
+          "alive_flags": 1,
+          "selected_parity": 1,
+          "count_ball": "156724238641888728600850958824.000000000000000000000000000"
+        },
+        {
+          "alive_flags": 2,
+          "selected_parity": 0,
+          "count_ball": "143278534506679767196325117027.000000000000000000000000000"
+        },
+        {
+          "alive_flags": 2,
+          "selected_parity": 1,
+          "count_ball": "410508636803911211684959866183.000000000000000000000000000"
+        },
+        {
+          "alive_flags": 3,
+          "selected_parity": 0,
+          "count_ball": "176105234867143250605525478269.000000000000000000000000000"
+        },
+        {
+          "alive_flags": 3,
+          "selected_parity": 1,
+          "count_ball": "172652016053659010872212834381.000000000000000000000000000"
+        }
+      ],
+      "state_convention": "1 upper alive; 2 lower alive; 3 both alive; parity before append",
+      "prime_generation": "complete integer sieve",
+      "retains_all_preceding_checked_prefixes": true,
+      "union_without_duplication": true,
+      "complete_cutoffs_retained_after_deletion": true,
+      "elapsed_seconds": 11.984,
+      "input_sha256": {
+        "conditional_chen_accepted_support_certificate.py": "774f0f2625255457a49d07f96000c9827b75f2c77ca0010e88e3d3620894fe31",
+        "conditional_chen_rankin_certificate.py": "5f67df53975bb4e0e2631c385d00697178371feef24f464bfaa26ac9fcc7d6b7",
+        "conditional_chen_prefix_block_certificate.py": "9098125b3cd3b24133fd8fa230a4c595074e005113d24e01278ec63a37c1ab24",
+        "conditional_chen_sharp_support_certificate.py": "7d559c00662b34df6bdcec57552127bf2387fb3e52a7295e81ad2cd9fa72ce7a",
+        "conditional_chen_binned_support_certificate.py": "c842a4e2b98e4410f079b236f8e4e324c20260f63e4c20b3e1cfd6e0f4db6c83"
+      },
+      "not_checked": [
+        "general domination proof",
+        "external analytic inputs",
+        "Chen endpoint",
+        "full splice"
+      ]
+    },
+    {
+      "status": "strict positive union-support count; general six-state domination lemma required",
+      "precision_bits": 192,
+      "T": 5000000,
+      "exact_cutoff": 5,
+      "u": "45/8",
+      "kappa": "11/169",
+      "support_maximizer": {
+        "kind": "unchecked final prime",
+        "r": 11,
+        "s": 13
+      },
+      "sigma": "0",
+      "log_bin_width": "1/100",
+      "log_medium_support_ball": "[84.0333317038661535146914515398290895690798538233985030692 +/- 7.96e-56]",
+      "maximum_actual_degree": 22,
+      "label_limit": 8404,
+      "medium_prime_count": 348510,
+      "available_medium_prime_count": 348510,
+      "nonempty_blocks": 992,
+      "count_upper_ball": "7063740465821464489521961162653.00000000000000000000000000",
+      "modulus_count_fraction_ball": "[6.022699731406315689791346435228909515491560625484581914e-7 +/- 4.11e-62]",
+      "state_count_balls": [
+        {
+          "alive_flags": 1,
+          "selected_parity": 0,
+          "count_ball": "1920652056347167954644980512989.00000000000000000000000000"
+        },
+        {
+          "alive_flags": 1,
+          "selected_parity": 1,
+          "count_ball": "763728173415881691112410038143.000000000000000000000000000"
+        },
+        {
+          "alive_flags": 2,
+          "selected_parity": 0,
+          "count_ball": "689373235176016844518884164854.000000000000000000000000000"
+        },
+        {
+          "alive_flags": 2,
+          "selected_parity": 1,
+          "count_ball": "1976531330664832064516113743571.00000000000000000000000000"
+        },
+        {
+          "alive_flags": 3,
+          "selected_parity": 0,
+          "count_ball": "875571814485544734767839312271.000000000000000000000000000"
+        },
+        {
+          "alive_flags": 3,
+          "selected_parity": 1,
+          "count_ball": "837883855732021199961733390825.000000000000000000000000000"
+        }
+      ],
+      "state_convention": "1 upper alive; 2 lower alive; 3 both alive; parity before append",
+      "prime_generation": "complete integer sieve",
+      "retains_all_preceding_checked_prefixes": true,
+      "union_without_duplication": true,
+      "complete_cutoffs_retained_after_deletion": true,
+      "elapsed_seconds": 12.14,
+      "input_sha256": {
+        "conditional_chen_accepted_support_certificate.py": "774f0f2625255457a49d07f96000c9827b75f2c77ca0010e88e3d3620894fe31",
+        "conditional_chen_rankin_certificate.py": "5f67df53975bb4e0e2631c385d00697178371feef24f464bfaa26ac9fcc7d6b7",
+        "conditional_chen_prefix_block_certificate.py": "9098125b3cd3b24133fd8fa230a4c595074e005113d24e01278ec63a37c1ab24",
+        "conditional_chen_sharp_support_certificate.py": "7d559c00662b34df6bdcec57552127bf2387fb3e52a7295e81ad2cd9fa72ce7a",
+        "conditional_chen_binned_support_certificate.py": "c842a4e2b98e4410f079b236f8e4e324c20260f63e4c20b3e1cfd6e0f4db6c83"
+      },
+      "not_checked": [
+        "general domination proof",
+        "external analytic inputs",
+        "Chen endpoint",
+        "full splice"
+      ]
+    },
+    {
+      "status": "strict positive union-support count; general six-state domination lemma required",
+      "precision_bits": 192,
+      "T": 5000000,
+      "exact_cutoff": 5,
+      "u": "23/4",
+      "kappa": "11/169",
+      "support_maximizer": {
+        "kind": "unchecked final prime",
+        "r": 11,
+        "s": 13
+      },
+      "sigma": "0",
+      "log_bin_width": "1/100",
+      "log_medium_support_ball": "[85.9614502626659503245300400474956361797213801091536475165 +/- 6.59e-56]",
+      "maximum_actual_degree": 23,
+      "label_limit": 8597,
+      "medium_prime_count": 348510,
+      "available_medium_prime_count": 348510,
+      "nonempty_blocks": 992,
+      "count_upper_ball": "34203055508103533212587152187923.0000000000000000000000000",
+      "modulus_count_fraction_ball": "[4.240822857379632270934131831000752763981182447592558908e-7 +/- 4.69e-62]",
+      "state_count_balls": [
+        {
+          "alive_flags": 1,
+          "selected_parity": 0,
+          "count_ball": "9414844750249562028378509769091.00000000000000000000000000"
+        },
+        {
+          "alive_flags": 1,
+          "selected_parity": 1,
+          "count_ball": "3656339707957864804870978453395.00000000000000000000000000"
+        },
+        {
+          "alive_flags": 2,
+          "selected_parity": 0,
+          "count_ball": "3338175623164607271551423234333.00000000000000000000000000"
+        },
+        {
+          "alive_flags": 2,
+          "selected_parity": 1,
+          "count_ball": "9433412059839766672790974981624.00000000000000000000000000"
+        },
+        {
+          "alive_flags": 3,
+          "selected_parity": 0,
+          "count_ball": "4297543291477906669131651037537.00000000000000000000000000"
+        },
+        {
+          "alive_flags": 3,
+          "selected_parity": 1,
+          "count_ball": "4062740075413825765863614711943.00000000000000000000000000"
+        }
+      ],
+      "state_convention": "1 upper alive; 2 lower alive; 3 both alive; parity before append",
+      "prime_generation": "complete integer sieve",
+      "retains_all_preceding_checked_prefixes": true,
+      "union_without_duplication": true,
+      "complete_cutoffs_retained_after_deletion": true,
+      "elapsed_seconds": 12.406,
+      "input_sha256": {
+        "conditional_chen_accepted_support_certificate.py": "774f0f2625255457a49d07f96000c9827b75f2c77ca0010e88e3d3620894fe31",
+        "conditional_chen_rankin_certificate.py": "5f67df53975bb4e0e2631c385d00697178371feef24f464bfaa26ac9fcc7d6b7",
+        "conditional_chen_prefix_block_certificate.py": "9098125b3cd3b24133fd8fa230a4c595074e005113d24e01278ec63a37c1ab24",
+        "conditional_chen_sharp_support_certificate.py": "7d559c00662b34df6bdcec57552127bf2387fb3e52a7295e81ad2cd9fa72ce7a",
+        "conditional_chen_binned_support_certificate.py": "c842a4e2b98e4410f079b236f8e4e324c20260f63e4c20b3e1cfd6e0f4db6c83"
+      },
+      "not_checked": [
+        "general domination proof",
+        "external analytic inputs",
+        "Chen endpoint",
+        "full splice"
+      ]
+    },
+    {
+      "status": "strict positive union-support count; general six-state domination lemma required",
+      "precision_bits": 192,
+      "T": 5000000,
+      "exact_cutoff": 5,
+      "u": "87/16",
+      "kappa": "11/169",
+      "support_maximizer": {
+        "kind": "unchecked final prime",
+        "r": 11,
+        "s": 13
+      },
+      "sigma": "0",
+      "log_bin_width": "1/100",
+      "log_medium_support_ball": "[81.141153865666458299933568778329269653117564394765786398 +/- 3.99e-55]",
+      "maximum_actual_degree": 22,
+      "label_limit": 8115,
+      "medium_prime_count": 348510,
+      "available_medium_prime_count": 348510,
+      "nonempty_blocks": 992,
+      "count_upper_ball": "655257348020585286337311701158.000000000000000000000000000",
+      "modulus_count_fraction_ball": "[1.0074540636097434133136552774228063611379504679495740653e-6 +/- 7.49e-62]",
+      "state_count_balls": [
+        {
+          "alive_flags": 1,
+          "selected_parity": 0,
+          "count_ball": "175710429822041647907402172337.000000000000000000000000000"
+        },
+        {
+          "alive_flags": 1,
+          "selected_parity": 1,
+          "count_ball": "70611323050623225513745948531.0000000000000000000000000000"
+        },
+        {
+          "alive_flags": 2,
+          "selected_parity": 0,
+          "count_ball": "65583434297967702515917046315.0000000000000000000000000000"
+        },
+        {
+          "alive_flags": 2,
+          "selected_parity": 1,
+          "count_ball": "186320797308420283797376075820.000000000000000000000000000"
+        },
+        {
+          "alive_flags": 3,
+          "selected_parity": 0,
+          "count_ball": "78698840773013146852633013612.0000000000000000000000000000"
+        },
+        {
+          "alive_flags": 3,
+          "selected_parity": 1,
+          "count_ball": "78332522768519279750237444543.0000000000000000000000000000"
+        }
+      ],
+      "state_convention": "1 upper alive; 2 lower alive; 3 both alive; parity before append",
+      "prime_generation": "complete integer sieve",
+      "retains_all_preceding_checked_prefixes": true,
+      "union_without_duplication": true,
+      "complete_cutoffs_retained_after_deletion": true,
+      "elapsed_seconds": 6.594,
+      "input_sha256": {
+        "conditional_chen_accepted_support_certificate.py": "774f0f2625255457a49d07f96000c9827b75f2c77ca0010e88e3d3620894fe31",
+        "conditional_chen_rankin_certificate.py": "5f67df53975bb4e0e2631c385d00697178371feef24f464bfaa26ac9fcc7d6b7",
+        "conditional_chen_prefix_block_certificate.py": "9098125b3cd3b24133fd8fa230a4c595074e005113d24e01278ec63a37c1ab24",
+        "conditional_chen_sharp_support_certificate.py": "7d559c00662b34df6bdcec57552127bf2387fb3e52a7295e81ad2cd9fa72ce7a",
+        "conditional_chen_binned_support_certificate.py": "c842a4e2b98e4410f079b236f8e4e324c20260f63e4c20b3e1cfd6e0f4db6c83"
+      },
+      "not_checked": [
+        "general domination proof",
+        "external analytic inputs",
+        "Chen endpoint",
+        "full splice"
+      ]
+    },
+    {
+      "status": "strict positive union-support count; general six-state domination lemma required",
+      "precision_bits": 192,
+      "T": 5000000,
+      "exact_cutoff": 5,
+      "u": "11/2",
+      "kappa": "11/169",
+      "support_maximizer": {
+        "kind": "unchecked final prime",
+        "r": 11,
+        "s": 13
+      },
+      "sigma": "0",
+      "log_bin_width": "1/100",
+      "log_medium_support_ball": "[82.1052131450663567048528630321625429584383275376433586220 +/- 7.91e-56]",
+      "maximum_actual_degree": 22,
+      "label_limit": 8211,
+      "medium_prime_count": 348510,
+      "available_medium_prime_count": 348510,
+      "nonempty_blocks": 992,
+      "count_upper_ball": "1449511000783081225403768272233.00000000000000000000000000",
+      "modulus_count_fraction_ball": "[8.498636292476396869150918214795201370184797109104585134e-7 +/- 8.63e-62]",
+      "state_count_balls": [
+        {
+          "alive_flags": 1,
+          "selected_parity": 0,
+          "count_ball": "390242339909799256443894017549.000000000000000000000000000"
+        },
+        {
+          "alive_flags": 1,
+          "selected_parity": 1,
+          "count_ball": "156724238641888728600850958824.000000000000000000000000000"
+        },
+        {
+          "alive_flags": 2,
+          "selected_parity": 0,
+          "count_ball": "143278534506679767196325117027.000000000000000000000000000"
+        },
+        {
+          "alive_flags": 2,
+          "selected_parity": 1,
+          "count_ball": "410508636803911211684959866183.000000000000000000000000000"
+        },
+        {
+          "alive_flags": 3,
+          "selected_parity": 0,
+          "count_ball": "176105234867143250605525478269.000000000000000000000000000"
+        },
+        {
+          "alive_flags": 3,
+          "selected_parity": 1,
+          "count_ball": "172652016053659010872212834381.000000000000000000000000000"
+        }
+      ],
+      "state_convention": "1 upper alive; 2 lower alive; 3 both alive; parity before append",
+      "prime_generation": "complete integer sieve",
+      "retains_all_preceding_checked_prefixes": true,
+      "union_without_duplication": true,
+      "complete_cutoffs_retained_after_deletion": true,
+      "elapsed_seconds": 11.984,
+      "input_sha256": {
+        "conditional_chen_accepted_support_certificate.py": "774f0f2625255457a49d07f96000c9827b75f2c77ca0010e88e3d3620894fe31",
+        "conditional_chen_rankin_certificate.py": "5f67df53975bb4e0e2631c385d00697178371feef24f464bfaa26ac9fcc7d6b7",
+        "conditional_chen_prefix_block_certificate.py": "9098125b3cd3b24133fd8fa230a4c595074e005113d24e01278ec63a37c1ab24",
+        "conditional_chen_sharp_support_certificate.py": "7d559c00662b34df6bdcec57552127bf2387fb3e52a7295e81ad2cd9fa72ce7a",
+        "conditional_chen_binned_support_certificate.py": "c842a4e2b98e4410f079b236f8e4e324c20260f63e4c20b3e1cfd6e0f4db6c83"
+      },
+      "not_checked": [
+        "general domination proof",
+        "external analytic inputs",
+        "Chen endpoint",
+        "full splice"
+      ]
+    },
+    {
+      "status": "strict positive union-support count; general six-state domination lemma required",
+      "precision_bits": 192,
+      "T": 5000000,
+      "exact_cutoff": 5,
+      "u": "89/16",
+      "kappa": "11/169",
+      "support_maximizer": {
+        "kind": "unchecked final prime",
+        "r": 11,
+        "s": 13
+      },
+      "sigma": "0",
+      "log_bin_width": "1/100",
+      "log_medium_support_ball": "[83.0692724244662551097721572859958162637590906805209308456 +/- 6.63e-56]",
+      "maximum_actual_degree": 22,
+      "label_limit": 8307,
+      "medium_prime_count": 348510,
+      "available_medium_prime_count": 348510,
+      "nonempty_blocks": 992,
+      "count_upper_ball": "3199382527283619359671028767774.00000000000000000000000000",
+      "modulus_count_fraction_ball": "[7.153330176991977192233581922080921610210666807163540742e-7 +/- 9.03e-62]",
+      "state_count_balls": [
+        {
+          "alive_flags": 1,
+          "selected_parity": 0,
+          "count_ball": "864637809727683256043817862212.000000000000000000000000000"
+        },
+        {
+          "alive_flags": 1,
+          "selected_parity": 1,
+          "count_ball": "346841956001062262150420722166.000000000000000000000000000"
+        },
+        {
+          "alive_flags": 2,
+          "selected_parity": 0,
+          "count_ball": "314424512091893900794039965518.000000000000000000000000000"
+        },
+        {
+          "alive_flags": 2,
+          "selected_parity": 1,
+          "count_ball": "900147932496017420952502437150.000000000000000000000000000"
+        },
+        {
+          "alive_flags": 3,
+          "selected_parity": 0,
+          "count_ball": "392991129198585531965845368058.000000000000000000000000000"
+        },
+        {
+          "alive_flags": 3,
+          "selected_parity": 1,
+          "count_ball": "380339187768376987764402412670.000000000000000000000000000"
+        }
+      ],
+      "state_convention": "1 upper alive; 2 lower alive; 3 both alive; parity before append",
+      "prime_generation": "complete integer sieve",
+      "retains_all_preceding_checked_prefixes": true,
+      "union_without_duplication": true,
+      "complete_cutoffs_retained_after_deletion": true,
+      "elapsed_seconds": 11.531,
+      "input_sha256": {
+        "conditional_chen_accepted_support_certificate.py": "774f0f2625255457a49d07f96000c9827b75f2c77ca0010e88e3d3620894fe31",
+        "conditional_chen_rankin_certificate.py": "5f67df53975bb4e0e2631c385d00697178371feef24f464bfaa26ac9fcc7d6b7",
+        "conditional_chen_prefix_block_certificate.py": "9098125b3cd3b24133fd8fa230a4c595074e005113d24e01278ec63a37c1ab24",
+        "conditional_chen_sharp_support_certificate.py": "7d559c00662b34df6bdcec57552127bf2387fb3e52a7295e81ad2cd9fa72ce7a",
+        "conditional_chen_binned_support_certificate.py": "c842a4e2b98e4410f079b236f8e4e324c20260f63e4c20b3e1cfd6e0f4db6c83"
+      },
+      "not_checked": [
+        "general domination proof",
+        "external analytic inputs",
+        "Chen endpoint",
+        "full splice"
+      ]
+    }
+  ],
+  "accepted_regeneration": [
+    {
+      "u": "41/8",
+      "fresh_in_this_run": true,
+      "source": "fresh complete count"
+    },
+    {
+      "u": "21/4",
+      "fresh_in_this_run": true,
+      "source": "fresh complete count"
+    },
+    {
+      "u": "43/8",
+      "fresh_in_this_run": true,
+      "source": "fresh complete count"
+    },
+    {
+      "u": "11/2",
+      "fresh_in_this_run": true,
+      "source": "fresh complete count"
+    },
+    {
+      "u": "45/8",
+      "fresh_in_this_run": true,
+      "source": "fresh complete count"
+    },
+    {
+      "u": "23/4",
+      "fresh_in_this_run": true,
+      "source": "fresh complete count"
+    },
+    {
+      "u": "87/16",
+      "fresh_in_this_run": false,
+      "source": "standalone complete count, hash checked"
+    },
+    {
+      "u": "11/2",
+      "fresh_in_this_run": false,
+      "source": "per-case hash-checked cache"
+    },
+    {
+      "u": "89/16",
+      "fresh_in_this_run": true,
+      "source": "fresh complete count"
+    }
+  ],
+  "input_sha256": {
+    "conditional_chen_accepted_interval_certificate.py": "8f3ede306595e074816605cf3959381e0413898b9a34de2860f1ec1d1e280e17",
+    "conditional_chen_accepted_support_certificate.py": "774f0f2625255457a49d07f96000c9827b75f2c77ca0010e88e3d3620894fe31",
+    "conditional_chen_accepted_support_checks.py": "b5f07563214e51aae8d6409266487f3f5eb8da20540f02d29877e5292dbec746",
+    "conditional_chen_accepted_support_checks.json": "9ccdc1481c86834fe2cb40b53ee0a1c2eac6a923e05b2569dee0fed090621fff",
+    "conditional_chen_rough_interval_certificate.py": "536e437881581edc9b26ea9e57d7b70a084b21235a1b3e0edc3bdc37447a7188",
+    "conditional_chen_rough_interval_certificate.json": "ca1495d1b0f91c6aeff6919567b8bbfd8e3143d12c5070782b4f69eca956d5af",
+    "conditional_chen_rough_interval_checks.json": "a9eeeb7fd4800b3751ca7e92d5193348512fb7a306baac0af4ffd9b23c228ab7",
+    "conditional_chen_sparse_modulus_certificate.json": "4b918d47ef697d4162fdb680db05d41fa85eabea628315c4b008ac351cb08f21",
+    "conditional_chen_prefix_block_endpoint_certificate.json": "7be8b9b55dbeefafe111941115d33f5b3d6306122dbcc62acab35a11a7b78e6b",
+    "conditional_chen_prefix_block_refinement.json": "ad42a4dc2dbb003835c166b88a1bdd380f19a2044326675b3e689a5bc1fc3db4",
+    "conditional_chen_uniform_product_certificate.json": "2255fb4282d1d3e055ad91e93b2961af4359d863b5dc0ff74e19782fb6b037a7",
+    "conditional_chen_dense_band_grh_certificate.py": "b7c8fb872692c03c8e37ab36d96f168e68473999ec90f6befc6af470b201ea4d",
+    "conditional_chen_prefix_block_endpoint_certificate.py": "02028530905623b7573cdf7c3236af8bede470ba8d88a53caebf3190f3e5cd1a",
+    "conditional_chen_binned_support_certificate.py": "c842a4e2b98e4410f079b236f8e4e324c20260f63e4c20b3e1cfd6e0f4db6c83"
+  },
+  "not_checked": [
+    "general six-state domination proof",
+    "external analytic inputs",
+    "independent research review",
+    "global optimality",
+    "finite Goldbach splice",
+    "PDF compilation"
+  ]
+}

@@ -1,0 +1,197 @@
+{
+  "status": "PASS: fresh finite masses, full ordered product, two fixed rational endpoints",
+  "finite_presieve": {
+    "status": "strict Arb positive prefix-block bounds; analytic domination lemma required",
+    "precision_bits": 192,
+    "T": 5000000,
+    "exact_cutoff": 5,
+    "u": "11/2",
+    "presieve_type": "pure Rosser medium weights, exact smallest-prime weights",
+    "exact_presieve_Q_max": 15,
+    "exact_product_ball": "0.375000000000000000000000000000000000000000000000000000000",
+    "logarithm_base": "e",
+    "D0": "5000000^(11/2)",
+    "log_support_cost_ball": "[87.5452667882932696988938989074767642124002484853176228532 +/- 9.20e-56]",
+    "log_bin_width": "1/200",
+    "bin_limit": 16968,
+    "maximum_actual_prefix_degree": 22,
+    "nonempty_prime_blocks": 1810,
+    "prime_generation": "complete integer sieve",
+    "complete_odd_prime_count": 348512,
+    "medium_prime_count": 348510,
+    "upper_relative_Rosser_gap_ball": "[0.0003094986149677244255658756944420862947021466928632274 +/- 8.32e-56]",
+    "lower_relative_Rosser_gap_ball": "[0.000308430013320786053858730566171095918861143178165327 +/- 4.21e-55]",
+    "relative_Rosser_gap_ball": "[0.000617928628288510479424606260613182213563289871028555 +/- 3.70e-55]",
+    "retains_all_preceding_checked_prefixes": true,
+    "relaxation": "floor-log labels; possible-pass and possible-failure cutoffs; positive block coefficients",
+    "deleting_primes": "complete-block positive coefficients dominate deleted blocks; actual prefix degree <=K",
+    "input_sha256": {
+      "conditional_chen_prefix_block_certificate.py": "9098125b3cd3b24133fd8fa230a4c595074e005113d24e01278ec63a37c1ab24",
+      "conditional_chen_rankin_certificate.py": "5f67df53975bb4e0e2631c385d00697178371feef24f464bfaa26ac9fcc7d6b7"
+    },
+    "elapsed_seconds": 133.641,
+    "not_checked": [
+      "external analytic inputs",
+      "global optimality",
+      "Chen endpoint",
+      "PDF compilation"
+    ]
+  },
+  "uniform_product": {
+    "status": "strict finite unconditional scalar certificate; BJS/JS far-range bounds remain cited dependencies",
+    "precision_bits": 192,
+    "S": 100000000,
+    "M_cutoff": 10000000,
+    "M_finite_ball": "[0.261497215777671111194224102282972064679313763059571 +/- 2.03e-52]",
+    "M_lower_ball": "[0.261497165777671111194224102282972064679313763059571 +/- 2.03e-52]",
+    "log_D_infty_lower_ball": "[-0.299338876968248842226213216979372789763171603098498 +/- 4.89e-52]",
+    "complete_odd_prime_count": 5761454,
+    "checked_prime_jumps": 5412942,
+    "initial_endpoints_checked": [
+      5000000
+    ],
+    "far_range_upper_ball": "[1.08573620475812956912782229729151270573599251450916641529e-5 +/- 4.41e-62]",
+    "rows": [
+      {
+        "T": 5000000,
+        "reciprocal_upper_numerator": 40950596,
+        "reciprocal_upper_denominator": 1000000000000,
+        "reciprocal_upper_ball": "[4.09505960000000000000000000000000000000000000000000000000e-5 +/- 1.71e-62]",
+        "all_v_ge_T_upper_enclosure_ball": "[4.0950595942936121192288967892164666983155846195e-5 +/- 6.99e-52]",
+        "uniform_epsilon_ball": "[4.1451611367801805157745460124998501700203165656058293e-5 +/- 8.11e-58]",
+        "previous_uniform_epsilon_ball": "[5.8487615650026701993570916909220262942352702677216958e-5 +/- 3.76e-58]",
+        "finite_ordered_log_drawdown_ball": "[2.4260240962935142601783692553737042939452983978e-5 +/- 8.54e-52]",
+        "finite_to_far_log_ratio_ball": "[9.23360339673177548103192233131390810685980887e-6 +/- 3.19e-51]",
+        "far_to_far_log_ratio_ball": "[1.10336681532264504944229662473737293403500002357419326156e-5 +/- 1.89e-62]",
+        "ordered_logK_numerator": 24260241,
+        "ordered_logK_denominator": 1000000000000,
+        "ordered_uniform_epsilon_ball": "[2.4260535282026468524012099358981840620602344768225095e-5 +/- 6.42e-58]"
+      }
+    ],
+    "endpoint_convention": "E uses p<x; each post-jump supremum uses p<=x and covers the right limit; composite cutoff endpoints are checked separately",
+    "continuum_coverage": "E decreases between prime jumps; no interior sampling",
+    "product_formula": "K_T=exp(bbar_T+2.964e-6/log(T)+1/(T-1)+.54/T)",
+    "ordered_product_formula": "log K_T <= max(finite ordered log D drawdown, max_(T<=u<=S) log D(u)-log D_infty_lower+b_S, original analytic log K_S)",
+    "assumptions": "unconditional; no RH, GRH, or EH",
+    "elapsed_seconds": 88.0
+  },
+  "fixed_endpoint": {
+    "log_N0": 51200,
+    "log_log_N0_ball": "[10.8434948110275991527910720024923175278817041864998432392 +/- 5.20e-56]",
+    "alpha": "863/200000",
+    "delta": "1/1000000",
+    "presieve_u": "11/2",
+    "cost_ball": "[84.8132633461685667708488676023112563026114194497346257956 +/- 8.81e-56]",
+    "support_slack_ball": "[0.571051515986443819262732366534774598867278219017333715 +/- 2.58e-55]",
+    "lower": "[7.8069306207448288744115992788850119239000537631552556506 +/- 5.07e-56]",
+    "half_upper": "[6.5003640508810721441804245351383541631041538761724821854 +/- 3.39e-56]",
+    "half_switch": "[1.3065238515104596489476781421619135761208725299254306425 +/- 4.42e-56]",
+    "AP": "[3.12852019032191645718937874417405208662642008123356222874e-10 +/- 6.29e-67]",
+    "c4_times_L2": "[2.20001881380967591612310431521958066145046695193690848643 +/- 4.13e-57]",
+    "rectangle": "[5.71611335546040880202750766123800883135077857861826e-6 +/- 4.26e-57]",
+    "rectangle_deletions": "[1.78194942827068826728343000307723761889145146180410e-2751 +/- 5.12e-2802]",
+    "finite": "[2.31735934584715844074697917145693804876535528813030409844e-2770 +/- 3.81e-2827]",
+    "margin": "[3.7001927089601842502928358145072248790797616122196e-5 +/- 3.37e-55]",
+    "new_v3": "[1.076678658924760982185986097800499255811042393285296610e-58 +/- 1.73e-113]",
+    "product_loss": "[4.7453040972990931999865824728508488052868395623067134767e-115 +/- 3.70e-171]",
+    "reciprocal_error_at_z": "[4.7453040972990931999865824728508488052868395623067134767e-115 +/- 3.44e-171]"
+  },
+  "new_interface_gates": {
+    "status": "PASS: finite constants and starting gates only",
+    "log_N0": 51046,
+    "analytic_scope": "continuum propagation requires the written derivative arguments",
+    "BC_bound_at_minimum_M": "[2235.19048753073718853048772219077562088973020169703597682 +/- 1.24e-54]",
+    "smoothing_integral_constant": "[76394.3726841097611690642064188068937765406299554190953989 +/- 5.71e-53]",
+    "partial_summation_factor": "[3.62642643079648634282964964229762084569056428138821849191 +/- 5.64e-57]",
+    "A_lower_gate": "[4.57319954567851670512594911303374761136673288313276073191e-1014 +/- 8.87e-1071]",
+    "A_upper_gate": "[5.87705207068134623672765740704462641539004035575755201191e-5 +/- 2.08e-62]",
+    "pi_upper_gate": "[0.000528934686361321161305489166634016377385103632018179681072 +/- 3.55e-61]",
+    "all_small_primitive_conductors_gate": "[1.327805244805934951571430701694406626225041766948544743e-938 +/- 7.54e-993]",
+    "rectangle_constants": {
+      "E1_constant": "[38.7200000000000000000000000000000000000000000000000000000 +/- 1.64e-57]",
+      "E2_constant": "[107.184704000000000000000000000000000000000000000000000000 +/- 3.29e-56]",
+      "E3_constant": "[25.3914327196457559695346743856333016187089687930925524408 +/- 2.52e-56]",
+      "E4_constant": "[87.958503094786491810987848105151044562321894626136211163 +/- 2.09e-55]",
+      "E5_constant": "[105.600000000000000000000000000000000000000000000000000000 +/- 3.07e-56]"
+    },
+    "corrected_rectangle_deletion_ball": "[4.02274892127739954081090823947641776735508522112520e-2743 +/- 3.13e-2794]",
+    "fixed_endpoint_margin_ball": "[9.846806345273359003696786574702163946747560162943e-7 +/- 7.11e-56]",
+    "fresh_exact_support_and_Euler_product": {
+      "complete_odd_prime_count": 348512,
+      "medium_prime_count": 348510,
+      "kappa_exact": "11/169",
+      "kappa_attaining_pair": [
+        11,
+        13
+      ],
+      "C_infinity_lower_ball": "[0.660161691877076955193470093663889566421525852024815 +/- 5.26e-52]",
+      "tail": "product over all integers n>T equals (T-1)/T"
+    },
+    "input_sha256": {
+      "qrh_chen_interface_checks.py": "0798889b611350043832f0540e6e79d0b69f5eea85b23ebf2ac4faa6a68687a3",
+      "conditional_chen_rankin_certificate.py": "5f67df53975bb4e0e2631c385d00697178371feef24f464bfaa26ac9fcc7d6b7",
+      "qrh_chen_certificate.py": "edb0d02dc349bcd279f59515ab58f928cdc4358b2d9b9888b00a9a97858741b6",
+      "qrh_chen_research_20261007.md": "44494bb5ba522700c97591bbb715c771d1b499b77dbd9cddea57e5e41cb202f9"
+    },
+    "not_checked": [
+      "external seven-eighths theorem proof",
+      "general contour, sieve and distribution arguments",
+      "global threshold optimality"
+    ]
+  },
+  "positivity_endpoint": {
+    "log_N0": 51046,
+    "log_log_N0_ball": "[10.8404824659685746874987094383013132001895171042448303555 +/- 3.47e-56]",
+    "alpha": "2158047/500000000",
+    "delta": "1/1000000",
+    "presieve_u": "11/2",
+    "cost_ball": "[84.8132633461685667708488676023112563026114194497346257956 +/- 8.81e-56]",
+    "support_slack_ball": "[4.0153224249635417264418922328695019616747204994760e-5 +/- 4.67e-55]",
+    "lower": "[7.8069266248997983625435304996302676879007257711657474390 +/- 4.05e-56]",
+    "half_upper": "[6.5003927970424148052304202775492674285234281358979091864 +/- 3.94e-56]",
+    "half_switch": "[1.3065270399835254816592853916122495809452561413735778690 +/- 5.15e-56]",
+    "AP": "[3.14742645866345763032050478119756913534711083797055583370e-10 +/- 6.21e-67]",
+    "c4_times_L2": "[2.20001889948195635768103546562488585082761473236918509809 +/- 3.70e-57]",
+    "rectangle": "[5.80287848090245157869775804273009588990560353300557e-6 +/- 4.92e-57]",
+    "rectangle_deletions": "[4.02274892127739954081090823947641776735508522112520e-2743 +/- 3.13e-2794]",
+    "finite": "[5.2789271741267164589101408648141785974901799106625994647e-2762 +/- 2.08e-2818]",
+    "margin": "[9.846806345273359003696786574702163946747560162943e-7 +/- 7.11e-56]",
+    "new_v3": "[2.521891753210492246055067655203808397273250947464412465e-58 +/- 4.03e-113]",
+    "product_loss": "[1.16289474281912391196907367895359362881421640327942912517e-114 +/- 5.59e-171]",
+    "reciprocal_error_at_z": "[1.16289474281912391196907367895359362881421640327942912517e-114 +/- 5.07e-171]"
+  },
+  "selected_rational_inputs": {
+    "presieve": {
+      "T": 5000000,
+      "exact_cutoff": 5,
+      "u": "11/2",
+      "log_bin_width": "1/200"
+    },
+    "epsilon": "1/41219",
+    "eta_plus": "1/3231",
+    "eta_minus": "1/3242",
+    "C1": 106,
+    "C2": 108,
+    "effective_log_support_cost_ball": "[84.8132633461685667708488676023112563026114194497346257956 +/- 7.96e-56]"
+  },
+  "dependency_scope": "No old GRH JSON certificates or old GRH manuscript are read",
+  "input_sha256": {
+    "qrh_chen_certificate.py": "edb0d02dc349bcd279f59515ab58f928cdc4358b2d9b9888b00a9a97858741b6",
+    "qrh_chen_reproduce.py": "6b6ac22789b02bb6e55688afef10326ccdfa70db211a4aede1b903c5f27bc9d4",
+    "qrh_chen_interface_checks.py": "0798889b611350043832f0540e6e79d0b69f5eea85b23ebf2ac4faa6a68687a3",
+    "qrh_chen_research_20261007.md": "44494bb5ba522700c97591bbb715c771d1b499b77dbd9cddea57e5e41cb202f9",
+    "conditional_chen_prefix_block_certificate.py": "9098125b3cd3b24133fd8fa230a4c595074e005113d24e01278ec63a37c1ab24",
+    "conditional_chen_rankin_certificate.py": "5f67df53975bb4e0e2631c385d00697178371feef24f464bfaa26ac9fcc7d6b7",
+    "conditional_chen_uniform_product_certificate.py": "8ef2e5b54e363f0695a865a7feca43a9fd3c099968296c829eaff153116a0606",
+    "qrh_chen_51046.tex": "6399fb95007add3a9eda0d5f9de965cedc2ebe8c27a70ef5921c94f15ae25c57",
+    "bjs_source/Explicit_Chen_-_New.tex": "626a6eea3c833c4eb98ecf86974a069bc732e826c9bad0ec4d78e4904e4b5486",
+    "qrh_source/paper.tex": "42a5ee0febca59fd1def55cfd6c6808c322ef4237d7726303ea52f711deac6a3",
+    "qrh_source/Nonvanishing.lean": "d98c4a7e074469b429890e1c21b8cc76c410026525a776895293cdc0f9e6ae89"
+  },
+  "not_checked": [
+    "external seven-eighths theorem proof",
+    "general new analytic extension",
+    "independent research review",
+    "global optimality"
+  ]
+}

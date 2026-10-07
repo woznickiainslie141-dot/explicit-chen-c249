@@ -1,0 +1,46 @@
+{
+  "status": "FLOAT ONLY; direct finite Rosser diagnostic, not a certificate",
+  "T_covers_B_cuberoot": true,
+  "rows": [
+    {
+      "T": 1587402,
+      "w": 2,
+      "u": "14/5",
+      "upper_gap": 3.2828888186027894,
+      "lower_gap": 3.2006771426635936,
+      "ordinary_upper": 4.900843694638515,
+      "ordinary_lower": 5.130000663063479,
+      "log_support_cost": 39.97730597156801
+    },
+    {
+      "T": 1587402,
+      "w": 2,
+      "u": "29/10",
+      "upper_gap": 2.7082399411462,
+      "lower_gap": 2.7221181301161517,
+      "ordinary_upper": 4.04106642674191,
+      "ordinary_lower": 4.413887988076591,
+      "log_support_cost": 41.40506689912401
+    },
+    {
+      "T": 1587402,
+      "w": 2,
+      "u": "3",
+      "upper_gap": 2.232410457169583,
+      "lower_gap": 2.259948434915797,
+      "ordinary_upper": 3.352778389649579,
+      "ordinary_lower": 3.6320932662284604,
+      "log_support_cost": 42.83282782668001
+    },
+    {
+      "T": 1587402,
+      "w": 2,
+      "u": "31/10",
+      "upper_gap": 1.8692954747907895,
+      "lower_gap": 1.8648806727437028,
+      "ordinary_upper": 2.747163006331324,
+      "ordinary_lower": 3.0099289107051046,
+      "log_support_cost": 44.26058875423601
+    }
+  ]
+}

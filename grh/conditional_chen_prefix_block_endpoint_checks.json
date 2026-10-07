@@ -1,0 +1,145 @@
+{
+  "status": "PASS: independent direct formulas and endpoint domain checks",
+  "GRH_checks": [
+    {
+      "log_N0": 26820,
+      "alpha": "4267/1000000",
+      "beta": "3",
+      "quantities_independently_reproduced": 8,
+      "fixed_parameter_half_line_ranges_checked": true
+    },
+    {
+      "log_N0": 31000,
+      "alpha": "3706/1000000",
+      "beta": "3",
+      "quantities_independently_reproduced": 8,
+      "fixed_parameter_half_line_ranges_checked": true
+    }
+  ],
+  "distribution_checks": [
+    {
+      "theta": "3/4",
+      "C_upper_budget": 1,
+      "log_start": 627,
+      "independent_main_and_margin": true,
+      "half_line_derivative_signs_at_endpoint": true
+    },
+    {
+      "theta": "3/4",
+      "C_upper_budget": 1000,
+      "log_start": 629,
+      "independent_main_and_margin": true,
+      "half_line_derivative_signs_at_endpoint": true
+    },
+    {
+      "theta": "3/4",
+      "C_upper_budget": 10000,
+      "log_start": 648,
+      "independent_main_and_margin": true,
+      "half_line_derivative_signs_at_endpoint": true
+    },
+    {
+      "theta": "3/4",
+      "C_upper_budget": 1000000,
+      "log_start": 1510,
+      "independent_main_and_margin": true,
+      "half_line_derivative_signs_at_endpoint": true
+    },
+    {
+      "theta": "9/10",
+      "C_upper_budget": 1,
+      "log_start": 171,
+      "independent_main_and_margin": true,
+      "half_line_derivative_signs_at_endpoint": true
+    },
+    {
+      "theta": "9/10",
+      "C_upper_budget": 1000,
+      "log_start": 174,
+      "independent_main_and_margin": true,
+      "half_line_derivative_signs_at_endpoint": true
+    },
+    {
+      "theta": "9/10",
+      "C_upper_budget": 10000,
+      "log_start": 198,
+      "independent_main_and_margin": true,
+      "half_line_derivative_signs_at_endpoint": true
+    },
+    {
+      "theta": "9/10",
+      "C_upper_budget": 1000000,
+      "log_start": 885,
+      "independent_main_and_margin": true,
+      "half_line_derivative_signs_at_endpoint": true
+    },
+    {
+      "theta": "19/20",
+      "C_upper_budget": 1,
+      "log_start": 135,
+      "independent_main_and_margin": true,
+      "half_line_derivative_signs_at_endpoint": true
+    },
+    {
+      "theta": "19/20",
+      "C_upper_budget": 1000,
+      "log_start": 138,
+      "independent_main_and_margin": true,
+      "half_line_derivative_signs_at_endpoint": true
+    },
+    {
+      "theta": "19/20",
+      "C_upper_budget": 10000,
+      "log_start": 162,
+      "independent_main_and_margin": true,
+      "half_line_derivative_signs_at_endpoint": true
+    },
+    {
+      "theta": "19/20",
+      "C_upper_budget": 1000000,
+      "log_start": 825,
+      "independent_main_and_margin": true,
+      "half_line_derivative_signs_at_endpoint": true
+    },
+    {
+      "theta": "99/100",
+      "C_upper_budget": 1,
+      "log_start": 115,
+      "independent_main_and_margin": true,
+      "half_line_derivative_signs_at_endpoint": true
+    },
+    {
+      "theta": "99/100",
+      "C_upper_budget": 1000,
+      "log_start": 118,
+      "independent_main_and_margin": true,
+      "half_line_derivative_signs_at_endpoint": true
+    },
+    {
+      "theta": "99/100",
+      "C_upper_budget": 10000,
+      "log_start": 143,
+      "independent_main_and_margin": true,
+      "half_line_derivative_signs_at_endpoint": true
+    },
+    {
+      "theta": "99/100",
+      "C_upper_budget": 1000000,
+      "log_start": 791,
+      "independent_main_and_margin": true,
+      "half_line_derivative_signs_at_endpoint": true
+    }
+  ],
+  "input_sha256": {
+    "conditional_chen_prefix_block_refinement.json": "ad42a4dc2dbb003835c166b88a1bdd380f19a2044326675b3e689a5bc1fc3db4",
+    "conditional_chen_prefix_block_endpoint_checks.py": "9351e0aca58880927aec1dc52e940816a88b64e326b5e24f77826153fb5c9d9b",
+    "conditional_chen_sparse_modulus_certificate.json": "4b918d47ef697d4162fdb680db05d41fa85eabea628315c4b008ac351cb08f21"
+  },
+  "not_checked": [
+    "general prefix-block domination and support-count proofs",
+    "external analytic inputs",
+    "independent mathematical review",
+    "global optimality",
+    "full splice"
+  ]
+}

@@ -1,0 +1,236 @@
+{
+  "status": "PASS: independent exact subset and sequential-prime comparisons",
+  "precision_bits": 192,
+  "configurations": [
+    {
+      "T": 29,
+      "w": 3,
+      "u": "7/2",
+      "h": "1",
+      "K": 5,
+      "complete_upper_bound": "5027630/8588349",
+      "complete_lower_bound": "92950519/214708725"
+    },
+    {
+      "T": 29,
+      "w": 3,
+      "u": "7/2",
+      "h": "1/2",
+      "K": 5,
+      "complete_upper_bound": "1387082/7952175",
+      "complete_lower_bound": "48077/780759"
+    },
+    {
+      "T": 29,
+      "w": 3,
+      "u": "7/2",
+      "h": "1/10",
+      "K": 5,
+      "complete_upper_bound": "93067/6506325",
+      "complete_lower_bound": "5389717/214708725"
+    },
+    {
+      "T": 29,
+      "w": 3,
+      "u": "7/2",
+      "h": "1/100",
+      "K": 5,
+      "complete_upper_bound": "158629/14313915",
+      "complete_lower_bound": "3549109/214708725"
+    },
+    {
+      "T": 29,
+      "w": 3,
+      "u": "4",
+      "h": "1",
+      "K": 5,
+      "complete_upper_bound": "33309289/214708725",
+      "complete_lower_bound": "791906/8588349"
+    },
+    {
+      "T": 29,
+      "w": 3,
+      "u": "4",
+      "h": "1/2",
+      "K": 5,
+      "complete_upper_bound": "1911961/214708725",
+      "complete_lower_bound": "91322/2788425"
+    },
+    {
+      "T": 29,
+      "w": 3,
+      "u": "4",
+      "h": "1/10",
+      "K": 5,
+      "complete_upper_bound": "36299/8588349",
+      "complete_lower_bound": "232103/71569575"
+    },
+    {
+      "T": 29,
+      "w": 3,
+      "u": "4",
+      "h": "1/100",
+      "K": 5,
+      "complete_upper_bound": "94373/30672675",
+      "complete_lower_bound": "11191/4209975"
+    },
+    {
+      "T": 29,
+      "w": 3,
+      "u": "49/8",
+      "h": "1",
+      "K": 7,
+      "complete_upper_bound": "37487/42941745",
+      "complete_lower_bound": "72547/214708725"
+    },
+    {
+      "T": 29,
+      "w": 3,
+      "u": "49/8",
+      "h": "1/2",
+      "K": 7,
+      "complete_upper_bound": "338/42941745",
+      "complete_lower_bound": "5/408969"
+    },
+    {
+      "T": 29,
+      "w": 3,
+      "u": "49/8",
+      "h": "1/10",
+      "K": 7,
+      "complete_upper_bound": "23/42941745",
+      "complete_lower_bound": "1/2650725"
+    },
+    {
+      "T": 29,
+      "w": 3,
+      "u": "49/8",
+      "h": "1/100",
+      "K": 7,
+      "complete_upper_bound": "23/42941745",
+      "complete_lower_bound": "1/4771305"
+    },
+    {
+      "T": 29,
+      "w": 5,
+      "u": "7/2",
+      "h": "1",
+      "K": 4,
+      "complete_upper_bound": "36634522/71569575",
+      "complete_lower_bound": "698471/6506325"
+    },
+    {
+      "T": 29,
+      "w": 5,
+      "u": "7/2",
+      "h": "1/2",
+      "K": 4,
+      "complete_upper_bound": "195409/7952175",
+      "complete_lower_bound": "2947501/71569575"
+    },
+    {
+      "T": 29,
+      "w": 5,
+      "u": "7/2",
+      "h": "1/10",
+      "K": 4,
+      "complete_upper_bound": "173413/14313915",
+      "complete_lower_bound": "59327/4209975"
+    },
+    {
+      "T": 29,
+      "w": 5,
+      "u": "7/2",
+      "h": "1/100",
+      "K": 4,
+      "complete_upper_bound": "158629/14313915",
+      "complete_lower_bound": "759079/71569575"
+    },
+    {
+      "T": 29,
+      "w": 5,
+      "u": "4",
+      "h": "1",
+      "K": 5,
+      "complete_upper_bound": "2649601/23856525",
+      "complete_lower_bound": "5971102/71569575"
+    },
+    {
+      "T": 29,
+      "w": 5,
+      "u": "4",
+      "h": "1/2",
+      "K": 5,
+      "complete_upper_bound": "529451/71569575",
+      "complete_lower_bound": "22286/929475"
+    },
+    {
+      "T": 29,
+      "w": 5,
+      "u": "4",
+      "h": "1/10",
+      "K": 5,
+      "complete_upper_bound": "278161/71569575",
+      "complete_lower_bound": "125047/71569575"
+    },
+    {
+      "T": 29,
+      "w": 5,
+      "u": "4",
+      "h": "1/100",
+      "K": 5,
+      "complete_upper_bound": "28183/10224225",
+      "complete_lower_bound": "125047/71569575"
+    },
+    {
+      "T": 29,
+      "w": 5,
+      "u": "49/8",
+      "h": "1",
+      "K": 7,
+      "complete_upper_bound": "1891/2650725",
+      "complete_lower_bound": "2494/7952175"
+    },
+    {
+      "T": 29,
+      "w": 5,
+      "u": "49/8",
+      "h": "1/2",
+      "K": 7,
+      "complete_upper_bound": "526/71569575",
+      "complete_lower_bound": "37/23856525"
+    },
+    {
+      "T": 29,
+      "w": 5,
+      "u": "49/8",
+      "h": "1/10",
+      "K": 7,
+      "complete_upper_bound": "1/71569575",
+      "complete_lower_bound": "1/2650725"
+    },
+    {
+      "T": 29,
+      "w": 5,
+      "u": "49/8",
+      "h": "1/100",
+      "K": 7,
+      "complete_upper_bound": "1/71569575",
+      "complete_lower_bound": "1/4771305"
+    }
+  ],
+  "deleted_prime_subsets": 4608,
+  "exact_first_failure_identities": 9216,
+  "pointwise_divisor_patterns": 104976,
+  "exact_block_coefficient_groups": 132,
+  "input_sha256": {
+    "conditional_chen_prefix_block_checks.py": "629bcb59de53464e62cc41571612f13c7c988297a3eac4fd963b7dd16760e571",
+    "conditional_chen_prefix_block_certificate.py": "9098125b3cd3b24133fd8fa230a4c595074e005113d24e01278ec63a37c1ab24",
+    "conditional_chen_rankin_certificate.py": "5f67df53975bb4e0e2631c385d00697178371feef24f464bfaa26ac9fcc7d6b7"
+  },
+  "not_checked": [
+    "general domination proof",
+    "external analytic inputs",
+    "full Chen splice"
+  ]
+}

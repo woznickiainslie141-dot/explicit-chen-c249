@@ -1,0 +1,33 @@
+{
+  "status": "strict positive log-bin support count; general count lemma required",
+  "precision_bits": 192,
+  "T": 5000000,
+  "exact_cutoff": 5,
+  "u": "87/16",
+  "kappa": "11/169",
+  "sigma": "4/5",
+  "log_bin_width": "1/100",
+  "log_medium_support_ball": "[81.141153865666458299933568778329269653117564394765786398 +/- 3.99e-55]",
+  "maximum_actual_degree": 22,
+  "label_limit": 8115,
+  "medium_prime_count": 348510,
+  "nonempty_blocks": 992,
+  "count_upper_ball": "[6241533181731352860477659276719.44520682378197892314581 +/- 9.62e-24]",
+  "ordinary_Rankin_count_upper_ball": "[393272395134935419098270976996051.061800172393908886 +/- 5.56e-19]",
+  "ordinary_Rankin_to_bin_bound_ratio_ball": "[63.0089408618420112446559389820528183942151486111859 +/- 4.59e-50]",
+  "log_euler_product_ball": "[10.139132186454235199641472134652399447897891945364265 +/- 3.37e-52]",
+  "modulus_count_fraction_ball": "[9.5963181276568601011284695359695509412972045815282916e-6 +/- 5.85e-59]",
+  "prime_generation": "complete integer sieve",
+  "elapsed_seconds": 11.687,
+  "input_sha256": {
+    "conditional_chen_binned_support_certificate.py": "c842a4e2b98e4410f079b236f8e4e324c20260f63e4c20b3e1cfd6e0f4db6c83",
+    "conditional_chen_rankin_certificate.py": "5f67df53975bb4e0e2631c385d00697178371feef24f464bfaa26ac9fcc7d6b7",
+    "conditional_chen_prefix_block_certificate.py": "9098125b3cd3b24133fd8fa230a4c595074e005113d24e01278ec63a37c1ab24"
+  },
+  "not_checked": [
+    "general count lemma",
+    "external analytic inputs",
+    "Chen endpoint",
+    "full splice"
+  ]
+}

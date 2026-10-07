@@ -1,0 +1,108 @@
+{
+  "status": "PASS: support-only certificate; not an updated Chen endpoint",
+  "precision_bits": 192,
+  "finite_checks": {
+    "status": "PASS: exact integer-power support checks",
+    "coefficient_and_deleted_subset_cases": 52488,
+    "accepted_coefficients_checked": 42226,
+    "configurations": [
+      {
+        "exact_cutoff": 3,
+        "u": "7/2",
+        "kappa": "5/49"
+      },
+      {
+        "exact_cutoff": 3,
+        "u": "4",
+        "kappa": "5/49"
+      },
+      {
+        "exact_cutoff": 3,
+        "u": "49/8",
+        "kappa": "5/49"
+      },
+      {
+        "exact_cutoff": 5,
+        "u": "7/2",
+        "kappa": "11/169"
+      },
+      {
+        "exact_cutoff": 5,
+        "u": "4",
+        "kappa": "11/169"
+      },
+      {
+        "exact_cutoff": 5,
+        "u": "49/8",
+        "kappa": "11/169"
+      }
+    ]
+  },
+  "cases": [
+    {
+      "T": 5000000,
+      "exact_cutoff": 5,
+      "u": "49/8",
+      "Q": 15,
+      "complete_medium_prime_count": 348510,
+      "kappa": "11/169",
+      "maximizer": {
+        "kind": "unchecked final prime",
+        "r": 11,
+        "s": 13
+      },
+      "log_support_saving_ball": "[2.73200344212470292804503130516550790978882903558299705762 +/- 2.99e-57]",
+      "original_log_support_cost_ball": "[97.185859582292253748086841445809497265607879914093345090 +/- 5.06e-55]",
+      "sharp_log_support_cost_ball": "[94.4538561401675508200418101406439893558190508785103480319 +/- 9.86e-56]"
+    },
+    {
+      "T": 22000,
+      "exact_cutoff": 3,
+      "u": "39/8",
+      "Q": 3,
+      "complete_medium_prime_count": 2462,
+      "kappa": "5/49",
+      "maximizer": {
+        "kind": "unchecked final prime",
+        "r": 5,
+        "s": 7
+      },
+      "log_support_saving_ball": "[2.28238238567652623560994615366017181974856810489520465501 +/- 4.96e-57]",
+      "original_log_support_cost_ball": "[49.8427512338278176058693517963699683468124838969697073192 +/- 7.37e-56]",
+      "sharp_log_support_cost_ball": "[47.5603688481512913702594056427097965270639157920745026642 +/- 7.51e-56]"
+    },
+    {
+      "T": 10000,
+      "exact_cutoff": 3,
+      "u": "35/8",
+      "Q": 3,
+      "complete_medium_prime_count": 1227,
+      "kappa": "5/49",
+      "maximizer": {
+        "kind": "unchecked final prime",
+        "r": 5,
+        "s": 7
+      },
+      "log_support_saving_ball": "[2.28238238567652623560994615366017181974856810489520465501 +/- 4.96e-57]",
+      "original_log_support_cost_ball": "[41.3938514160639091617100956938988993376667666088262765323 +/- 3.32e-56]",
+      "sharp_log_support_cost_ball": "[39.1114690303873829261001495402387275179181985039310718773 +/- 5.16e-56]"
+    },
+    {
+      "T": 10000,
+      "exact_cutoff": 3,
+      "u": "17/4",
+      "Q": 3,
+      "complete_medium_prime_count": 1227,
+      "kappa": "5/49",
+      "maximizer": {
+        "kind": "unchecked final prime",
+        "r": 5,
+        "s": 7
+      },
+      "log_support_saving_ball": "[2.28238238567652623560994615366017181974856810489520465501 +/- 4.96e-57]",
+      "original_log_support_cost_ball": "[40.2425588695668863197010999665567172338662158645118900443 +/- 5.25e-56]",
+      "sharp_log_support_cost_ball": "[37.9601764838903600840911538128965454141176477596166853893 +/- 7.35e-56]"
+    }
+  ],
+  "not_checked": "recharging the full GRH and distribution endpoint budgets"
+}

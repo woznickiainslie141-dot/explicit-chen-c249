@@ -1,0 +1,54 @@
+{
+  "status": "PASS: finite exact rational checks only",
+  "precision_bits": 192,
+  "explicit_coefficient_configurations": 9,
+  "first_failure_and_deleted_prime_checks": 2304,
+  "configurations": [
+    {
+      "u": 4,
+      "degree_cutoff": 4,
+      "strict_quadratic_candidates": 3
+    },
+    {
+      "u": 4,
+      "degree_cutoff": 5,
+      "strict_quadratic_candidates": 3
+    },
+    {
+      "u": 4,
+      "degree_cutoff": 12,
+      "strict_quadratic_candidates": 3
+    },
+    {
+      "u": 5,
+      "degree_cutoff": 5,
+      "strict_quadratic_candidates": 4
+    },
+    {
+      "u": 5,
+      "degree_cutoff": 6,
+      "strict_quadratic_candidates": 4
+    },
+    {
+      "u": 5,
+      "degree_cutoff": 12,
+      "strict_quadratic_candidates": 4
+    },
+    {
+      "u": 6,
+      "degree_cutoff": 6,
+      "strict_quadratic_candidates": 6
+    },
+    {
+      "u": 6,
+      "degree_cutoff": 7,
+      "strict_quadratic_candidates": 6
+    },
+    {
+      "u": 6,
+      "degree_cutoff": 12,
+      "strict_quadratic_candidates": 6
+    }
+  ],
+  "not_checked": "external analytic sieve inputs or full Chen bridge"
+}

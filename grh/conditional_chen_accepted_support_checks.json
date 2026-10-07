@@ -1,0 +1,191 @@
+{
+  "status": "PASS: exact union histograms, actual acceptance and deleted-prime domination",
+  "configurations": [
+    {
+      "w": 3,
+      "u": "7/2",
+      "h": "9/10",
+      "exact_union_count": 87,
+      "relaxed_union_count": "146.000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "w": 3,
+      "u": "7/2",
+      "h": "1/2",
+      "exact_union_count": 87,
+      "relaxed_union_count": "104.000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "w": 3,
+      "u": "7/2",
+      "h": "1/10",
+      "exact_union_count": 87,
+      "relaxed_union_count": "88.0000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "w": 3,
+      "u": "7/2",
+      "h": "1/100",
+      "exact_union_count": 87,
+      "relaxed_union_count": "87.0000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "w": 3,
+      "u": "4",
+      "h": "9/10",
+      "exact_union_count": 126,
+      "relaxed_union_count": "178.000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "w": 3,
+      "u": "4",
+      "h": "1/2",
+      "exact_union_count": 126,
+      "relaxed_union_count": "174.000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "w": 3,
+      "u": "4",
+      "h": "1/10",
+      "exact_union_count": 126,
+      "relaxed_union_count": "133.000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "w": 3,
+      "u": "4",
+      "h": "1/100",
+      "exact_union_count": 126,
+      "relaxed_union_count": "129.000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "w": 3,
+      "u": "49/8",
+      "h": "9/10",
+      "exact_union_count": 252,
+      "relaxed_union_count": "256.000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "w": 3,
+      "u": "49/8",
+      "h": "1/2",
+      "exact_union_count": 252,
+      "relaxed_union_count": "255.000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "w": 3,
+      "u": "49/8",
+      "h": "1/10",
+      "exact_union_count": 252,
+      "relaxed_union_count": "253.000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "w": 3,
+      "u": "49/8",
+      "h": "1/100",
+      "exact_union_count": 252,
+      "relaxed_union_count": "252.000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "w": 5,
+      "u": "7/2",
+      "h": "9/10",
+      "exact_union_count": 48,
+      "relaxed_union_count": "86.0000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "w": 5,
+      "u": "7/2",
+      "h": "1/2",
+      "exact_union_count": 48,
+      "relaxed_union_count": "59.0000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "w": 5,
+      "u": "7/2",
+      "h": "1/10",
+      "exact_union_count": 48,
+      "relaxed_union_count": "48.0000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "w": 5,
+      "u": "7/2",
+      "h": "1/100",
+      "exact_union_count": 48,
+      "relaxed_union_count": "48.0000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "w": 5,
+      "u": "4",
+      "h": "9/10",
+      "exact_union_count": 72,
+      "relaxed_union_count": "86.0000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "w": 5,
+      "u": "4",
+      "h": "1/2",
+      "exact_union_count": 72,
+      "relaxed_union_count": "90.0000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "w": 5,
+      "u": "4",
+      "h": "1/10",
+      "exact_union_count": 72,
+      "relaxed_union_count": "75.0000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "w": 5,
+      "u": "4",
+      "h": "1/100",
+      "exact_union_count": 72,
+      "relaxed_union_count": "74.0000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "w": 5,
+      "u": "49/8",
+      "h": "9/10",
+      "exact_union_count": 127,
+      "relaxed_union_count": "128.000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "w": 5,
+      "u": "49/8",
+      "h": "1/2",
+      "exact_union_count": 127,
+      "relaxed_union_count": "127.000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "w": 5,
+      "u": "49/8",
+      "h": "1/10",
+      "exact_union_count": 127,
+      "relaxed_union_count": "127.000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "w": 5,
+      "u": "49/8",
+      "h": "1/100",
+      "exact_union_count": 127,
+      "relaxed_union_count": "127.000000000000000000000000000000000000000000000000000000"
+    }
+  ],
+  "enumerated_complete_subsets": 4608,
+  "integer_histogram_coefficients_checked": 114876,
+  "deleted_subset_patterns": 104976,
+  "deleted_production_histograms_checked": 384,
+  "input_sha256": {
+    "conditional_chen_accepted_support_checks.py": "b5f07563214e51aae8d6409266487f3f5eb8da20540f02d29877e5292dbec746",
+    "conditional_chen_accepted_support_certificate.py": "774f0f2625255457a49d07f96000c9827b75f2c77ca0010e88e3d3620894fe31",
+    "conditional_chen_rankin_certificate.py": "5f67df53975bb4e0e2631c385d00697178371feef24f464bfaa26ac9fcc7d6b7",
+    "conditional_chen_sharp_support_certificate.py": "7d559c00662b34df6bdcec57552127bf2387fb3e52a7295e81ad2cd9fa72ce7a",
+    "conditional_chen_prefix_block_certificate.py": "9098125b3cd3b24133fd8fa230a4c595074e005113d24e01278ec63a37c1ab24",
+    "conditional_chen_binned_support_certificate.py": "c842a4e2b98e4410f079b236f8e4e324c20260f63e4c20b3e1cfd6e0f4db6c83"
+  },
+  "not_checked": [
+    "general six-state domination lemma",
+    "external analytic inputs",
+    "Chen endpoints",
+    "full splice"
+  ]
+}

@@ -1,0 +1,477 @@
+{
+  "status": "PASS: exact u>2 models, deleted-prime domination and scalar coverage checks",
+  "precision_bits": 192,
+  "conditional_coverage_checks": {
+    "complete_odd_primes_generated": 788059,
+    "interval_rows": [
+      {
+        "T": 2000000,
+        "u": "61/20",
+        "complete_odd_prime_count": 148932,
+        "capacity_integer": 3489,
+        "samples": [
+          {
+            "N": "4000000000000000000",
+            "normalized_margin_ball": "[5.6808438327345399416483355198418672737223794873e-5 +/- 4.30e-52]"
+          },
+          {
+            "N": "6000000000000000000",
+            "normalized_margin_ball": "[0.053558923009696786494499670387307857712294115050619 +/- 3.43e-52]"
+          },
+          {
+            "N": "8000000000000000000",
+            "normalized_margin_ball": "[0.090919884519461986831833764486688460876325596064083 +/- 4.17e-52]"
+          }
+        ]
+      },
+      {
+        "T": 3000000,
+        "u": "3",
+        "complete_odd_prime_count": 216815,
+        "capacity_integer": 3505,
+        "samples": [
+          {
+            "N": "8000000000000000000",
+            "normalized_margin_ball": "[0.008684857777599776073443182105380076333987975194513 +/- 3.86e-52]"
+          },
+          {
+            "N": "17500000000000000000",
+            "normalized_margin_ball": "[0.106454606496776217509036094307113270101715588327174 +/- 2.73e-52]"
+          },
+          {
+            "N": "27000000000000000000",
+            "normalized_margin_ball": "[0.159169441321159967667324385701881824469453102415362 +/- 5.77e-52]"
+          }
+        ]
+      },
+      {
+        "T": 6000000,
+        "u": "297/100",
+        "complete_odd_prime_count": 412848,
+        "capacity_integer": 3597,
+        "samples": [
+          {
+            "N": "27000000000000000000",
+            "normalized_margin_ball": "[0.053974883894602184012991038169999545587584323478414 +/- 4.87e-52]"
+          },
+          {
+            "N": "121500000000000000000",
+            "normalized_margin_ball": "[0.225901089477844606978997270108165600947474095980270 +/- 8.25e-52]"
+          },
+          {
+            "N": "216000000000000000000",
+            "normalized_margin_ball": "[0.288854187804796446538069090319918944220979165627180 +/- 5.18e-52]"
+          }
+        ]
+      },
+      {
+        "T": 12000000,
+        "u": "297/100",
+        "complete_odd_prime_count": 788059,
+        "capacity_integer": 3939,
+        "samples": [
+          {
+            "N": "216000000000000000000",
+            "normalized_margin_ball": "[0.20550265148428494874710603414213474162396844120737 +/- 4.15e-51]"
+          },
+          {
+            "N": "972000000000000000000",
+            "normalized_margin_ball": "[0.36075272341982342885230396116833997226508436405268 +/- 4.34e-51]"
+          },
+          {
+            "N": "1728000000000000000000",
+            "normalized_margin_ball": "[0.41778362941872837855174970632850550289400651847413 +/- 4.67e-51]"
+          }
+        ]
+      }
+    ],
+    "continuous_proof_dependency": "fixed weights and monotonic normalized bound on each closed interval; shared endpoints",
+    "general_doubling_support_test": "3^100*2^297<25^100",
+    "old_u_61_20_finite_gap_reproduced": true
+  },
+  "finite_models": {
+    "configurations": [
+      {
+        "T": 29,
+        "w": 2,
+        "u": "201/100",
+        "h": "1/2",
+        "kappa_D_dominates_T": true,
+        "zero_passing_blocks": 3
+      },
+      {
+        "T": 29,
+        "w": 2,
+        "u": "201/100",
+        "h": "1/10",
+        "kappa_D_dominates_T": true,
+        "zero_passing_blocks": 6
+      },
+      {
+        "T": 29,
+        "w": 2,
+        "u": "11/5",
+        "h": "1/2",
+        "kappa_D_dominates_T": true,
+        "zero_passing_blocks": 2
+      },
+      {
+        "T": 29,
+        "w": 2,
+        "u": "11/5",
+        "h": "1/10",
+        "kappa_D_dominates_T": true,
+        "zero_passing_blocks": 5
+      },
+      {
+        "T": 29,
+        "w": 2,
+        "u": "5/2",
+        "h": "1/2",
+        "kappa_D_dominates_T": true,
+        "zero_passing_blocks": 1
+      },
+      {
+        "T": 29,
+        "w": 2,
+        "u": "5/2",
+        "h": "1/10",
+        "kappa_D_dominates_T": true,
+        "zero_passing_blocks": 4
+      },
+      {
+        "T": 29,
+        "w": 2,
+        "u": "297/100",
+        "h": "1/2",
+        "kappa_D_dominates_T": true,
+        "zero_passing_blocks": 0
+      },
+      {
+        "T": 29,
+        "w": 2,
+        "u": "297/100",
+        "h": "1/10",
+        "kappa_D_dominates_T": true,
+        "zero_passing_blocks": 1
+      },
+      {
+        "T": 29,
+        "w": 2,
+        "u": "3",
+        "h": "1/2",
+        "kappa_D_dominates_T": true,
+        "zero_passing_blocks": 0
+      },
+      {
+        "T": 29,
+        "w": 2,
+        "u": "3",
+        "h": "1/10",
+        "kappa_D_dominates_T": true,
+        "zero_passing_blocks": 1
+      },
+      {
+        "T": 29,
+        "w": 2,
+        "u": "3001/1000",
+        "h": "1/2",
+        "kappa_D_dominates_T": true,
+        "zero_passing_blocks": 0
+      },
+      {
+        "T": 29,
+        "w": 2,
+        "u": "3001/1000",
+        "h": "1/10",
+        "kappa_D_dominates_T": true,
+        "zero_passing_blocks": 0
+      },
+      {
+        "T": 29,
+        "w": 3,
+        "u": "201/100",
+        "h": "1/2",
+        "kappa_D_dominates_T": true,
+        "zero_passing_blocks": 3
+      },
+      {
+        "T": 29,
+        "w": 3,
+        "u": "201/100",
+        "h": "1/10",
+        "kappa_D_dominates_T": true,
+        "zero_passing_blocks": 6
+      },
+      {
+        "T": 29,
+        "w": 3,
+        "u": "11/5",
+        "h": "1/2",
+        "kappa_D_dominates_T": true,
+        "zero_passing_blocks": 2
+      },
+      {
+        "T": 29,
+        "w": 3,
+        "u": "11/5",
+        "h": "1/10",
+        "kappa_D_dominates_T": true,
+        "zero_passing_blocks": 5
+      },
+      {
+        "T": 29,
+        "w": 3,
+        "u": "5/2",
+        "h": "1/2",
+        "kappa_D_dominates_T": true,
+        "zero_passing_blocks": 1
+      },
+      {
+        "T": 29,
+        "w": 3,
+        "u": "5/2",
+        "h": "1/10",
+        "kappa_D_dominates_T": true,
+        "zero_passing_blocks": 4
+      },
+      {
+        "T": 29,
+        "w": 3,
+        "u": "297/100",
+        "h": "1/2",
+        "kappa_D_dominates_T": true,
+        "zero_passing_blocks": 0
+      },
+      {
+        "T": 29,
+        "w": 3,
+        "u": "297/100",
+        "h": "1/10",
+        "kappa_D_dominates_T": true,
+        "zero_passing_blocks": 1
+      },
+      {
+        "T": 29,
+        "w": 3,
+        "u": "3",
+        "h": "1/2",
+        "kappa_D_dominates_T": true,
+        "zero_passing_blocks": 0
+      },
+      {
+        "T": 29,
+        "w": 3,
+        "u": "3",
+        "h": "1/10",
+        "kappa_D_dominates_T": true,
+        "zero_passing_blocks": 1
+      },
+      {
+        "T": 29,
+        "w": 3,
+        "u": "3001/1000",
+        "h": "1/2",
+        "kappa_D_dominates_T": true,
+        "zero_passing_blocks": 0
+      },
+      {
+        "T": 29,
+        "w": 3,
+        "u": "3001/1000",
+        "h": "1/10",
+        "kappa_D_dominates_T": true,
+        "zero_passing_blocks": 0
+      },
+      {
+        "T": 29,
+        "w": 5,
+        "u": "201/100",
+        "h": "1/2",
+        "kappa_D_dominates_T": true,
+        "zero_passing_blocks": 3
+      },
+      {
+        "T": 29,
+        "w": 5,
+        "u": "201/100",
+        "h": "1/10",
+        "kappa_D_dominates_T": true,
+        "zero_passing_blocks": 6
+      },
+      {
+        "T": 29,
+        "w": 5,
+        "u": "11/5",
+        "h": "1/2",
+        "kappa_D_dominates_T": true,
+        "zero_passing_blocks": 2
+      },
+      {
+        "T": 29,
+        "w": 5,
+        "u": "11/5",
+        "h": "1/10",
+        "kappa_D_dominates_T": true,
+        "zero_passing_blocks": 5
+      },
+      {
+        "T": 29,
+        "w": 5,
+        "u": "5/2",
+        "h": "1/2",
+        "kappa_D_dominates_T": true,
+        "zero_passing_blocks": 1
+      },
+      {
+        "T": 29,
+        "w": 5,
+        "u": "5/2",
+        "h": "1/10",
+        "kappa_D_dominates_T": true,
+        "zero_passing_blocks": 4
+      },
+      {
+        "T": 29,
+        "w": 5,
+        "u": "297/100",
+        "h": "1/2",
+        "kappa_D_dominates_T": true,
+        "zero_passing_blocks": 0
+      },
+      {
+        "T": 29,
+        "w": 5,
+        "u": "297/100",
+        "h": "1/10",
+        "kappa_D_dominates_T": true,
+        "zero_passing_blocks": 1
+      },
+      {
+        "T": 29,
+        "w": 5,
+        "u": "3",
+        "h": "1/2",
+        "kappa_D_dominates_T": true,
+        "zero_passing_blocks": 0
+      },
+      {
+        "T": 29,
+        "w": 5,
+        "u": "3",
+        "h": "1/10",
+        "kappa_D_dominates_T": true,
+        "zero_passing_blocks": 1
+      },
+      {
+        "T": 29,
+        "w": 5,
+        "u": "3001/1000",
+        "h": "1/2",
+        "kappa_D_dominates_T": true,
+        "zero_passing_blocks": 0
+      },
+      {
+        "T": 29,
+        "w": 5,
+        "u": "3001/1000",
+        "h": "1/10",
+        "kappa_D_dominates_T": true,
+        "zero_passing_blocks": 0
+      },
+      {
+        "T": 3,
+        "w": 2,
+        "u": "201/100",
+        "h": "1/10",
+        "kappa_D_dominates_T": false,
+        "zero_passing_blocks": 1
+      },
+      {
+        "T": 3,
+        "w": 2,
+        "u": "5/2",
+        "h": "1/10",
+        "kappa_D_dominates_T": false,
+        "zero_passing_blocks": 1
+      },
+      {
+        "T": 3,
+        "w": 2,
+        "u": "3",
+        "h": "1/10",
+        "kappa_D_dominates_T": false,
+        "zero_passing_blocks": 1
+      },
+      {
+        "T": 7,
+        "w": 3,
+        "u": "201/100",
+        "h": "1/10",
+        "kappa_D_dominates_T": false,
+        "zero_passing_blocks": 2
+      },
+      {
+        "T": 7,
+        "w": 3,
+        "u": "5/2",
+        "h": "1/10",
+        "kappa_D_dominates_T": true,
+        "zero_passing_blocks": 1
+      },
+      {
+        "T": 7,
+        "w": 3,
+        "u": "3",
+        "h": "1/10",
+        "kappa_D_dominates_T": true,
+        "zero_passing_blocks": 1
+      },
+      {
+        "T": 7,
+        "w": 5,
+        "u": "201/100",
+        "h": "1/10",
+        "kappa_D_dominates_T": false,
+        "zero_passing_blocks": 1
+      },
+      {
+        "T": 7,
+        "w": 5,
+        "u": "5/2",
+        "h": "1/10",
+        "kappa_D_dominates_T": false,
+        "zero_passing_blocks": 1
+      },
+      {
+        "T": 7,
+        "w": 5,
+        "u": "3",
+        "h": "1/10",
+        "kappa_D_dominates_T": false,
+        "zero_passing_blocks": 1
+      }
+    ],
+    "enumerated_complete_subsets": 10776,
+    "accepted_support_cases": 1994,
+    "first_failure_prefix_cases": 19558,
+    "singletons_outside_kappa_D_cases": 7,
+    "zero_passing_block_cases": 79,
+    "deleted_prime_sets": 2712,
+    "pointwise_divisor_patterns": 85338,
+    "fresh_deleted_gap_certificates_checked": 920
+  },
+  "input_sha256": {
+    "conditional_chen_subcubic_rosser_checks.py": "54d398272af7d7901f4d632b266c3cb409d4d9cfd6025456aefac2745e10d0aa",
+    "conditional_chen_subcubic_rosser_certificate.py": "57537f800b43bafc29728311a41deaab432b8acc49983f638cf58652643c6578",
+    "conditional_chen_subcubic_rosser_certificate.json": "6e576ec07d8b2ed058f0a443b3b44a1d3a4d8dc29cc481b42aff450ece709083",
+    "conditional_chen_prefix_block_checks.py": "629bcb59de53464e62cc41571612f13c7c988297a3eac4fd963b7dd16760e571",
+    "conditional_chen_full_rosser_w2_probe.json": "98c5b50d318884803c9926bf9badf7bd56fcd6c63167fbcdb210bf391600bb93"
+  },
+  "not_checked": [
+    "signed AP input",
+    "independent general proof review",
+    "unbounded-T main-mass bound",
+    "full splice"
+  ]
+}

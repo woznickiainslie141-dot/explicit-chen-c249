@@ -1,0 +1,211 @@
+{
+  "status": "PASS: conditional finite coverage; signed AP premise unproved",
+  "precision_bits": 192,
+  "theta": "99/100",
+  "tail_u": "297/100",
+  "rows": [
+    {
+      "left_endpoint": "4000000000000000000",
+      "right_endpoint": "8000000000000000000",
+      "finite_certificate": {
+        "status": "strict finite u>2 prefix certificate; AP remainder and general proof review unproved",
+        "precision_bits": 192,
+        "T": 2000000,
+        "exact_cutoff": 2,
+        "u": "61/20",
+        "h": "1/200",
+        "Q": 1,
+        "kappa": "3/25",
+        "support_maximizer": {
+          "kind": "unchecked final prime",
+          "r": 3,
+          "s": 5
+        },
+        "support_formula": "Q*max(T,kappa*T^u)",
+        "kappa_D_dominates_T": true,
+        "log_medium_support_upper_ball": "[42.1311425662987781534455281616414539573267205009910379944 +/- 6.86e-56]",
+        "log_full_support_upper_ball": "[42.1311425662987781534455281616414539573267205009910379944 +/- 6.86e-56]",
+        "maximum_first_failure_prefix_degree": 15,
+        "label_limit": 8851,
+        "nonempty_blocks": 1629,
+        "zero_passing_cutoff_blocks": 0,
+        "complete_odd_prime_count": 148932,
+        "complete_medium_prime_count": 148932,
+        "available_medium_prime_count": 148932,
+        "upper_relative_Rosser_gap_ball": "[0.1309211136790479659040218318855383024457975752481034 +/- 4.27e-53]",
+        "lower_relative_Rosser_gap_ball": "[0.1309720494206179486694833005139452863047058209154685 +/- 2.86e-53]",
+        "complete_cutoffs_retained_after_deletion": true,
+        "elapsed_seconds": 11.718,
+        "input_sha256": {
+          "conditional_chen_subcubic_rosser_certificate.py": "57537f800b43bafc29728311a41deaab432b8acc49983f638cf58652643c6578",
+          "conditional_chen_rankin_certificate.py": "5f67df53975bb4e0e2631c385d00697178371feef24f464bfaa26ac9fcc7d6b7",
+          "conditional_chen_prefix_block_certificate.py": "9098125b3cd3b24133fd8fa230a4c595074e005113d24e01278ec63a37c1ab24",
+          "conditional_chen_sharp_support_certificate.py": "7d559c00662b34df6bdcec57552127bf2387fb3e52a7295e81ad2cd9fa72ce7a"
+        }
+      },
+      "complete_density_ball": "[0.05109165955497561969334169549568744815164519229105462 +/- 6.84e-54]",
+      "main_mass_lower_ball": "[0.04440008019475996560092653076644149229179817146379261 +/- 3.87e-54]",
+      "signed_C_capacity_ball": "[3489.085877147537202679866382055053498601781154691568 +/- 6.90e-49]",
+      "signed_C_integer_budget": 3489,
+      "support_slack_at_left_ball": "[0.273355208363807648401199161321105826914398292407001842 +/- 4.40e-55]",
+      "common_C_normalized_margin_at_left_ball": "[5.6808438327345399416483355198418672737223794873e-5 +/- 4.30e-52]"
+    },
+    {
+      "left_endpoint": "8000000000000000000",
+      "right_endpoint": "27000000000000000000",
+      "finite_certificate": {
+        "status": "strict finite u>2 prefix certificate; AP remainder and general proof review unproved",
+        "precision_bits": 192,
+        "T": 3000000,
+        "exact_cutoff": 2,
+        "u": "3",
+        "h": "1/200",
+        "Q": 1,
+        "kappa": "3/25",
+        "support_maximizer": {
+          "kind": "unchecked final prime",
+          "r": 3,
+          "s": 5
+        },
+        "support_formula": "Q*max(T,kappa*T^u)",
+        "kappa_D_dominates_T": true,
+        "log_medium_support_upper_ball": "[42.6221050036970603287033084655562832763585863180718759317 +/- 2.24e-56]",
+        "log_full_support_upper_ball": "[42.6221050036970603287033084655562832763585863180718759317 +/- 2.24e-56]",
+        "maximum_first_failure_prefix_degree": 15,
+        "label_limit": 8949,
+        "nonempty_blocks": 1710,
+        "zero_passing_cutoff_blocks": 0,
+        "complete_odd_prime_count": 216815,
+        "complete_medium_prime_count": 216815,
+        "available_medium_prime_count": 216815,
+        "upper_relative_Rosser_gap_ball": "[0.1481996072472341442720050659614924491519022315472673 +/- 3.82e-53]",
+        "lower_relative_Rosser_gap_ball": "[0.1447104086343168475163125838336342895671153468947612 +/- 5.52e-53]",
+        "complete_cutoffs_retained_after_deletion": true,
+        "elapsed_seconds": 12.031,
+        "input_sha256": {
+          "conditional_chen_subcubic_rosser_certificate.py": "57537f800b43bafc29728311a41deaab432b8acc49983f638cf58652643c6578",
+          "conditional_chen_rankin_certificate.py": "5f67df53975bb4e0e2631c385d00697178371feef24f464bfaa26ac9fcc7d6b7",
+          "conditional_chen_prefix_block_certificate.py": "9098125b3cd3b24133fd8fa230a4c595074e005113d24e01278ec63a37c1ab24",
+          "conditional_chen_sharp_support_certificate.py": "7d559c00662b34df6bdcec57552127bf2387fb3e52a7295e81ad2cd9fa72ce7a"
+        }
+      },
+      "complete_density_ball": "[0.04970333829827993512964640724752686055933188639287313 +/- 7.01e-54]",
+      "main_mass_lower_ball": "[0.0425107479026461551584200097622591014314419081794806 +/- 4.13e-53]",
+      "signed_C_capacity_ball": "[3505.434607795538418482146300629473985165371021987538 +/- 9.45e-49]",
+      "signed_C_integer_budget": 3505,
+      "support_slack_at_left_ball": "[0.4686084797198713294664786576498713102772776083428166059 +/- 9.06e-56]",
+      "common_C_normalized_margin_at_left_ball": "[0.00868485777759977607344318210538007633398797519451 +/- 3.39e-51]"
+    },
+    {
+      "left_endpoint": "27000000000000000000",
+      "right_endpoint": "216000000000000000000",
+      "finite_certificate": {
+        "status": "strict finite u>2 prefix certificate; AP remainder and general proof review unproved",
+        "precision_bits": 192,
+        "T": 6000000,
+        "exact_cutoff": 2,
+        "u": "297/100",
+        "h": "1/200",
+        "Q": 1,
+        "kappa": "3/25",
+        "support_maximizer": {
+          "kind": "unchecked final prime",
+          "r": 3,
+          "s": 5
+        },
+        "support_formula": "Q*max(T,kappa*T^u)",
+        "kappa_D_dominates_T": true,
+        "log_medium_support_upper_ball": "[44.2333284445611263838073920473362063550351987324339724172 +/- 3.96e-56]",
+        "log_full_support_upper_ball": "[44.2333284445611263838073920473362063550351987324339724172 +/- 3.96e-56]",
+        "maximum_first_failure_prefix_degree": 15,
+        "label_limit": 9271,
+        "nonempty_blocks": 1849,
+        "zero_passing_cutoff_blocks": 31,
+        "complete_odd_prime_count": 412848,
+        "complete_medium_prime_count": 412848,
+        "available_medium_prime_count": 412848,
+        "upper_relative_Rosser_gap_ball": "[0.1615486999067900644582939934308553961012873270381685 +/- 8.94e-53]",
+        "lower_relative_Rosser_gap_ball": "[0.1544743711560482503229432729740496670230701808191953 +/- 6.02e-53]",
+        "complete_cutoffs_retained_after_deletion": true,
+        "elapsed_seconds": 15.672,
+        "input_sha256": {
+          "conditional_chen_subcubic_rosser_certificate.py": "57537f800b43bafc29728311a41deaab432b8acc49983f638cf58652643c6578",
+          "conditional_chen_rankin_certificate.py": "5f67df53975bb4e0e2631c385d00697178371feef24f464bfaa26ac9fcc7d6b7",
+          "conditional_chen_prefix_block_certificate.py": "9098125b3cd3b24133fd8fa230a4c595074e005113d24e01278ec63a37c1ab24",
+          "conditional_chen_sharp_support_certificate.py": "7d559c00662b34df6bdcec57552127bf2387fb3e52a7295e81ad2cd9fa72ce7a"
+        }
+      },
+      "complete_density_ball": "[0.0474966449470002268670658261702233150063854494263062 +/- 3.21e-53]",
+      "main_mass_lower_ball": "[0.04015963058679027014472908193030351363804053896786259 +/- 9.07e-54]",
+      "signed_C_capacity_ball": "[3597.03119708522856307034088601326161656401197392012 +/- 1.27e-48]",
+      "signed_C_integer_budget": 3597,
+      "support_slack_at_left_ball": "[0.061616409937053488837094028799065167219476751664327887 +/- 4.20e-55]",
+      "common_C_normalized_margin_at_left_ball": "[0.053974883894602184012991038169999545587584323478414 +/- 5.09e-52]"
+    },
+    {
+      "left_endpoint": "216000000000000000000",
+      "right_endpoint": "1728000000000000000000",
+      "finite_certificate": {
+        "status": "strict finite u>2 prefix certificate; AP remainder and general proof review unproved",
+        "precision_bits": 192,
+        "T": 12000000,
+        "exact_cutoff": 2,
+        "u": "297/100",
+        "h": "1/200",
+        "Q": 1,
+        "kappa": "3/25",
+        "support_maximizer": {
+          "kind": "unchecked final prime",
+          "r": 3,
+          "s": 5
+        },
+        "support_formula": "Q*max(T,kappa*T^u)",
+        "kappa_D_dominates_T": true,
+        "log_medium_support_upper_ball": "[46.2919755708241639527765714480669907622194341314839305219 +/- 7.95e-56]",
+        "log_full_support_upper_ball": "[46.2919755708241639527765714480669907622194341314839305219 +/- 7.95e-56]",
+        "maximum_first_failure_prefix_degree": 16,
+        "label_limit": 9683,
+        "nonempty_blocks": 1988,
+        "zero_passing_cutoff_blocks": 33,
+        "complete_odd_prime_count": 788059,
+        "complete_medium_prime_count": 788059,
+        "available_medium_prime_count": 788059,
+        "upper_relative_Rosser_gap_ball": "[0.163466224125229110862519468910487002221020796246563 +/- 5.08e-52]",
+        "lower_relative_Rosser_gap_ball": "[0.156068227589185380491975999061549053010756012732346 +/- 3.12e-52]",
+        "complete_cutoffs_retained_after_deletion": true,
+        "elapsed_seconds": 22.14,
+        "input_sha256": {
+          "conditional_chen_subcubic_rosser_certificate.py": "57537f800b43bafc29728311a41deaab432b8acc49983f638cf58652643c6578",
+          "conditional_chen_rankin_certificate.py": "5f67df53975bb4e0e2631c385d00697178371feef24f464bfaa26ac9fcc7d6b7",
+          "conditional_chen_prefix_block_certificate.py": "9098125b3cd3b24133fd8fa230a4c595074e005113d24e01278ec63a37c1ab24",
+          "conditional_chen_sharp_support_certificate.py": "7d559c00662b34df6bdcec57552127bf2387fb3e52a7295e81ad2cd9fa72ce7a"
+        }
+      },
+      "complete_density_ball": "[0.0454769517200297708451818963548372013308576857363628 +/- 3.48e-53]",
+      "main_mass_lower_ball": "[0.0383794444689257690193771033947731015390801730349652 +/- 5.02e-53]",
+      "signed_C_capacity_ball": "[3939.49782029129789511286364963953306093047511862860 +/- 4.00e-48]",
+      "signed_C_integer_budget": 3939,
+      "support_slack_at_left_ball": "[0.061616409937053488837094028799065167219476751664327887 +/- 5.03e-55]",
+      "common_C_normalized_margin_at_left_ball": "[0.20550265148428494874710603414213474162396844120737 +/- 4.16e-51]"
+    }
+  ],
+  "common_signed_AP_constant_budget": 3489,
+  "claimed_count_coefficient": "1/100000",
+  "conditional_analytic_coverage": [
+    "4000000000000000000",
+    "1728000000000000000000"
+  ],
+  "support_scaling_exact_test": "3^100*2^297 < 25^100",
+  "required_AP_premise": "For each of the four fixed-T families, R_W(N)>=-C*N/log(N)^4 for every even N in its stated interval.",
+  "not_checked": [
+    "signed AP premise",
+    "independent reproduction",
+    "independent general proof review",
+    "unbounded-T main-mass control",
+    "coverage above 12000000^3",
+    "full splice"
+  ],
+  "input_sha256": {
+    "conditional_chen_subcubic_rosser_certificate.py": "57537f800b43bafc29728311a41deaab432b8acc49983f638cf58652643c6578"
+  }
+}

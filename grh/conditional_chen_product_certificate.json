@@ -1,0 +1,20 @@
+{
+  "status": "product lemma only; no new Chen threshold certified",
+  "T": 1000000,
+  "precision_bits": 192,
+  "prime_peaks_checked": 78493,
+  "maximum_peak_prime": 463181,
+  "maximum_peak_ball": "[0.7412845124312425483414975293492648099759902443432465 +/- 3.79e-53]",
+  "D_infinity_lower_ball": "[0.7413075333260067895662437548046237045947750266818421 +/- 6.39e-53]",
+  "D_infinity_upper_ball": "[0.7413082746346520784791909082525847486373923721006306 +/- 2.64e-53]",
+  "tail_log_ratio_budget_ball": "[1.75454247406120640385965868594580291165343312086801128466e-6 +/- 1.31e-63]",
+  "epsilon_ball": "[1.764385314260055427964973352909970008745523755602986e-6 +/- 8.34e-58]",
+  "epsilon_budget": "0.000002",
+  "presieve_Q": 1155,
+  "log_Q_ball": "[7.05185562295589391516330089155702237363188349561054553732 +/- 5.82e-57]",
+  "range": "1<u<z, z>=exp(40), remove primes <=11",
+  "assumption": "RH for the lower bound at z; unconditional finite scan and tail at u",
+  "all_upper_endpoints_counterexample_u": 17,
+  "all_upper_endpoints_counterexample_v": 19,
+  "counterexample_normalized_ratio_ball": "[1.02637353161093773721245876448174162924880118651395215977 +/- 5.33e-57]"
+}

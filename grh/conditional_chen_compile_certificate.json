@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "scope": "TeX compilation and log checks; mathematical correctness is not certified",
+  "source": "conditional_chen_grh_bridge.tex",
+  "source_sha256": "1a388af503fa578ada70067642df9b31eec3b804f9ac8e158bb7bd9227ef8381",
+  "compiler": "D:\\texlive\\2025\\bin\\windows\\pdflatex.EXE",
+  "compiler_version": "pdfTeX 3.141592653-2.6-1.40.27 (TeX Live 2025)",
+  "command": [
+    "D:\\texlive\\2025\\bin\\windows\\pdflatex.EXE",
+    "-interaction=nonstopmode",
+    "-halt-on-error",
+    "-file-line-error",
+    "-no-shell-escape",
+    "-synctex=1",
+    "-output-directory=C:\\Users\\hc260\\OneDrive\\文档\\ChatGPT\\显式chen\\output\\pdf",
+    "conditional_chen_grh_bridge.tex"
+  ],
+  "passes": 1,
+  "pdf": "output\\pdf\\conditional_chen_grh_bridge.pdf",
+  "pdf_sha256": "1d7e94dc3330dad0bebdcc21b979017889c697e9489098898466009263d01218",
+  "checks": {
+    "undefined_references_or_citations": 0,
+    "overfull_boxes": 0,
+    "duplicate_destinations": 0,
+    "latex_errors": 0
+  },
+  "codex_builtin_preview": "still fails: Unable to find standard directories for platform"
+}

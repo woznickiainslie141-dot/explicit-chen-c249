@@ -1,0 +1,94 @@
+{
+  "status": "PASS: exact formal-atom checks only",
+  "precision_bits": 192,
+  "test_atoms": [
+    4,
+    8,
+    16,
+    32,
+    64,
+    128,
+    256,
+    512
+  ],
+  "atoms_are_primes": false,
+  "explicit_coefficient_configurations": 12,
+  "first_failure_and_deleted_subset_checks": 2688,
+  "first_failure_product_band_checks": 25,
+  "two_prime_first_failure_checks": 1,
+  "configs": [
+    {
+      "T": 512,
+      "u": "4",
+      "degree_cutoff": 4,
+      "strict_optimizers": 27
+    },
+    {
+      "T": 512,
+      "u": "4",
+      "degree_cutoff": 5,
+      "strict_optimizers": 30
+    },
+    {
+      "T": 512,
+      "u": "4",
+      "degree_cutoff": 12,
+      "strict_optimizers": 32
+    },
+    {
+      "T": 512,
+      "u": "5",
+      "degree_cutoff": 5,
+      "strict_optimizers": 24
+    },
+    {
+      "T": 512,
+      "u": "5",
+      "degree_cutoff": 6,
+      "strict_optimizers": 24
+    },
+    {
+      "T": 512,
+      "u": "5",
+      "degree_cutoff": 12,
+      "strict_optimizers": 24
+    },
+    {
+      "T": 512,
+      "u": "6",
+      "degree_cutoff": 6,
+      "strict_optimizers": 20
+    },
+    {
+      "T": 512,
+      "u": "6",
+      "degree_cutoff": 7,
+      "strict_optimizers": 20
+    },
+    {
+      "T": 512,
+      "u": "6",
+      "degree_cutoff": 12,
+      "strict_optimizers": 20
+    },
+    {
+      "T": 256,
+      "u": "7/2",
+      "degree_cutoff": 4,
+      "strict_optimizers": 22
+    },
+    {
+      "T": 256,
+      "u": "7/2",
+      "degree_cutoff": 5,
+      "strict_optimizers": 24
+    },
+    {
+      "T": 256,
+      "u": "7/2",
+      "degree_cutoff": 12,
+      "strict_optimizers": 24
+    }
+  ],
+  "not_checked": "external analytic sieve inputs and full Chen bridge"
+}

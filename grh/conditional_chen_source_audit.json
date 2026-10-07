@@ -1,0 +1,278 @@
+{
+  "status": "PASS: source structure and artifact agreement only",
+  "precision_bits": 192,
+  "labels": 72,
+  "reference_occurrences": 161,
+  "bibliography_keys": 13,
+  "GRH_log_N0": 31000,
+  "GRH_positivity_log_N0": 24274,
+  "GRH_dense_previous_log_N0": 30747,
+  "GRH_previous_positivity_log_N0": 30824,
+  "GRH_dense_beta": [
+    "88/25",
+    "351/100"
+  ],
+  "GRH_stronger_claim": "181/10000",
+  "GRH_current_beta": "93/50",
+  "GRH_binned_medium_count_budget": "1/992601",
+  "GRH_rough_density_budget": "36411450583/1000000000000",
+  "GRH_analytic_tail_join": 24799,
+  "GRH_prior_sparse_start": 26820,
+  "GRH_prior_rough_start": 24799,
+  "GRH_analytic_join_chain": [
+    24274,
+    24799,
+    26820,
+    "infinity"
+  ],
+  "GRH_support_count_states": 6,
+  "local_full_rosser_signed_budget": 3489,
+  "local_full_rosser_unproved_interval": [
+    4000000000000000000,
+    8000000000000000000
+  ],
+  "refuted_local_centered_pi_inputs": 3,
+  "prefix_distribution_log_starts": [
+    [
+      "3/4",
+      [
+        627,
+        629,
+        648,
+        1510
+      ]
+    ],
+    [
+      "9/10",
+      [
+        171,
+        174,
+        198,
+        885
+      ]
+    ],
+    [
+      "19/20",
+      [
+        135,
+        138,
+        162,
+        825
+      ]
+    ],
+    [
+      "99/100",
+      [
+        115,
+        118,
+        143,
+        791
+      ]
+    ]
+  ],
+  "EH_log_starts": [
+    786,
+    212,
+    166,
+    142
+  ],
+  "EH_positivity_log_starts": [
+    774,
+    210,
+    165,
+    141
+  ],
+  "complete_product_prime_count": 5761454,
+  "finite_product_checks": {
+    "status": "PASS: finite ordered-product checks only",
+    "integer_sequence_checks": 4096,
+    "direct_prime_product_endpoint_pairs": 1954,
+    "integer_and_prime_tail_checks": 9,
+    "precision_bits": 192,
+    "not_checked": "general analytic lemmas, published far-range envelopes, full Chen bridge"
+  },
+  "distribution_tradeoff_witnesses": [
+    [
+      "3/4",
+      20,
+      "1.1697",
+      43,
+      22
+    ],
+    [
+      "9/10",
+      10,
+      "602.35",
+      143,
+      57
+    ],
+    [
+      "19/20",
+      10,
+      "4858.17",
+      336,
+      130
+    ],
+    [
+      "99/100",
+      10,
+      "25860.94",
+      2246,
+      834
+    ]
+  ],
+  "weighted_distribution_log_starts": [
+    [
+      "3/4",
+      [
+        722,
+        723,
+        740,
+        1632
+      ]
+    ],
+    [
+      "9/10",
+      [
+        200,
+        202,
+        222,
+        936
+      ]
+    ],
+    [
+      "19/20",
+      [
+        158,
+        161,
+        182,
+        872
+      ]
+    ],
+    [
+      "99/100",
+      [
+        136,
+        138,
+        159,
+        829
+      ]
+    ]
+  ],
+  "signed_remainder_exact_small_cases": {
+    "even_N_count": 1156,
+    "N_max": 4094,
+    "composite_cases": 10748,
+    "pointwise_prime_divisor_patterns": 99158,
+    "exact_signed_identity_checks": 21496,
+    "arithmetic": "integers and Fraction; complete prime sieve",
+    "minimum_weighted_deleted_minus_nu": -5,
+    "P2_transfer_checked_for_all_selected_N": true
+  },
+  "sha256": {
+    "conditional_chen_composite_certificate.py": "0998b712888a071e72e9aa94ed87594582279e2b6ea901d6d950c090318a6b4d",
+    "conditional_chen_rankin_certificate.py": "5f67df53975bb4e0e2631c385d00697178371feef24f464bfaa26ac9fcc7d6b7",
+    "conditional_chen_rosser_checks.py": "17400d1d4f04476adb3e9b9289620a8a0c06e44e11971831d42125cc133dd73f",
+    "conditional_chen_refined_eh_search.py": "a8220dba5fdd10a82ef043a054420265f304f81e67def43ddf1df0764fefdd42",
+    "conditional_chen_uniform_product_certificate.py": "8ef2e5b54e363f0695a865a7feca43a9fd3c099968296c829eaff153116a0606",
+    "conditional_chen_uniform_product_checks.py": "ff87d6ae12e0ba2acb520055c926cd8a7ff09988ef036f58dbee8babc073e2b3",
+    "conditional_chen_uniform_grh_probe.py": "adf17b94501582728c41409356f8a3a0ae71aeae17a9d3d14948f5ef5f0fca53",
+    "conditional_chen_degreewise_rankin_certificate.py": "3bbcc1457e45d29c8757ae71005fd46b5585fcd7a3cfd2ced905ed76694fb6fd",
+    "conditional_chen_degreewise_rankin_checks.py": "1c3f0b798143d6d9843afe5b3fa7cc0751bf0987c40427fa4cf698e4ee616cbb",
+    "conditional_chen_degreewise_eh_search.py": "ba59f9b5365e35db2caaa75cbe29d463cd8d74d63589dbb0e987cfdc65c8280f",
+    "conditional_chen_local_rankin_probe.py": "b8254d0ae0d0374ac4083c812a05d443915c1f39d6056dadf8d668c81b6bc522",
+    "conditional_chen_local_eh_probe.py": "edec39d8ca3b545ec9c2f8f258cfa4318a6284c27711d0a88bb3416878bf89d9",
+    "conditional_chen_quadratic_rankin_certificate.py": "3302f4baf7f7385cf0021c24e66ea3a4d777e8284d52ed8f9a60aef539ca0214",
+    "conditional_chen_quadratic_rankin_checks.py": "5330857d89e2666dfa0b30eedc45a89a7dccf330ed7f7797b4390cfea392a7b5",
+    "conditional_chen_quadratic_eh_search.py": "91a7ad2b3d40b57098c23877d72af7f94fefd16b55a876b2c9bf5c7e935b48cc",
+    "conditional_chen_quadratic_rankin_probe.py": "cb503c907b80223d8869f47971569c890559557502b18e0887dd4b5d03be6d98",
+    "conditional_chen_prefix_band_certificate.py": "ad9136ee33b25c9c8e9ab6b26e729b1860f02118f19896fcf61f86e5aea56a57",
+    "conditional_chen_prefix_band_checks.py": "9a0fb928cf289fe9089dc528c6151ce0d244a7f7b281a86db20799fec96c1d4a",
+    "conditional_chen_prefix_band_eh_search.py": "83dab25fad45626aaa94d25d5bfebaae6cda0c4ef7b5ae64d477b16f7e08237d",
+    "conditional_chen_prefix_band_probe.py": "6aea23a5b0bdb482651f5ca408db0adf70c74fe023d8ca503ee4ff5d5860a0dc",
+    "conditional_chen_sharp_support_certificate.py": "7d559c00662b34df6bdcec57552127bf2387fb3e52a7295e81ad2cd9fa72ce7a",
+    "conditional_chen_sharp_endpoint_certificate.py": "4d020ee811753c578dbbda5a1e3c3b490c232dd367c91b12e9183ce6ee032bd9",
+    "conditional_chen_distribution_tradeoff_certificate.py": "256606fea3249998d083405a5c1cb472e1c3859b620e8c8e2a54b05759e433af",
+    "conditional_chen_weighted_distribution_certificate.py": "33523423e294ff0f592328eb037a6538ba213622cf0b2c3b148c7a0a4e97ef9a",
+    "conditional_chen_dense_band_grh_certificate.py": "b7c8fb872692c03c8e37ab36d96f168e68473999ec90f6befc6af470b201ea4d",
+    "conditional_chen_sharp_grh_parameter_probe.py": "fb3d8a4ebde53605a689baebf17cae077f7e7744293f31acba178b8ae2a1bc97",
+    "conditional_chen_prefix_block_certificate.py": "9098125b3cd3b24133fd8fa230a4c595074e005113d24e01278ec63a37c1ab24",
+    "conditional_chen_prefix_block_checks.py": "629bcb59de53464e62cc41571612f13c7c988297a3eac4fd963b7dd16760e571",
+    "conditional_chen_prefix_block_endpoint_certificate.py": "02028530905623b7573cdf7c3236af8bede470ba8d88a53caebf3190f3e5cd1a",
+    "conditional_chen_prefix_block_refinement.py": "c898519e5b9c5095a2fc8235fbbba8feb64bf2e6ebcabcb95bb3fbe435d8295a",
+    "conditional_chen_sparse_modulus_certificate.py": "3bd6f143c80ffbd0a1e88122487c099f3372c28ddd6233ed9f94813b69d5b644",
+    "conditional_chen_prefix_block_endpoint_checks.py": "9351e0aca58880927aec1dc52e940816a88b64e326b5e24f77826153fb5c9d9b",
+    "conditional_chen_prefix_block_update.py": "1e3bbde317c19e83049ef49b161a2f814e1e07d80cb6876387ed54a1e07a805e",
+    "conditional_chen_binned_support_certificate.py": "c842a4e2b98e4410f079b236f8e4e324c20260f63e4c20b3e1cfd6e0f4db6c83",
+    "conditional_chen_binned_support_checks.py": "53d396031dc0541cbedaaa1a939c93162b93e1fab21413a837bc43e96a307d52",
+    "conditional_chen_rough_interval_certificate.py": "536e437881581edc9b26ea9e57d7b70a084b21235a1b3e0edc3bdc37447a7188",
+    "conditional_chen_rough_interval_checks.py": "8192d934c1b17884944d7e9c5116e95ebf4579e1f4132d2965bdfd945c0e7fa4",
+    "conditional_chen_rough_interval_update.py": "17123189eadeb3205db6b0e0e49511f0ca4acf8a8fe42ce2b1f90f7f70d91526",
+    "conditional_chen_accepted_support_certificate.py": "774f0f2625255457a49d07f96000c9827b75f2c77ca0010e88e3d3620894fe31",
+    "conditional_chen_accepted_support_checks.py": "b5f07563214e51aae8d6409266487f3f5eb8da20540f02d29877e5292dbec746",
+    "conditional_chen_accepted_interval_certificate.py": "8f3ede306595e074816605cf3959381e0413898b9a34de2860f1ec1d1e280e17",
+    "conditional_chen_accepted_interval_checks.py": "8007237e2d4d91794e653fb7048863c921f554c9887ad5256bcf99ccd00f5eaf",
+    "conditional_chen_accepted_interval_update.py": "bf2e8fa06cc62fb71ed9129148806b58f4d6ed46df194b1f364041887fb59ddc",
+    "conditional_chen_full_rosser_bridge_probe.py": "3465c7812a71c7ac4407e6003137d21239c12775e12be4a20a692e89c3f3f400",
+    "conditional_chen_weighted_rosser_support_certificate.py": "20cd774e878c0d522515c2da4651934a843df714545bba88200debacdd2ebe78",
+    "conditional_chen_full_rosser_w2_probe.py": "b0b06503155fd05de7a8b3ba57b2647c3ba4b0aa6de9fe6a29001c0fb5e5e1c1",
+    "conditional_chen_full_rosser_bridge_checks.py": "dedab8a9f25b253749da395210c52ddaf51d2019f9a79429ff18bb54aef3b6b0",
+    "conditional_chen_refresh_notes.py": "053a4f0051fa7e3433ab4a015c52df747352ba8ca21253570b2a0129332b4bf9",
+    "conditional_chen_source_audit.py": "683f0bc3390e9890f25804157150236e97b8a0a34d002d5c0e3d2f14fb2bbf83",
+    "conditional_chen_results_20261003.md": "f97bea43db8d143837f97552bc89ac92310da1b7f2a27fc49cf2bcbae2e035bc",
+    "conditional_chen_audit_20261003.md": "cdf2d0ac5f6e10b972cc8d404e3b17cff9ec276b595c1f55f49b3506c94efcaa",
+    "conditional_chen_research_20261003.md": "b915442adff775a23f86bf22b12e5daed4db5a5fdeaa504ce12c219732fca8c1",
+    "conditional_chen_grh_bridge.tex": "1a388af503fa578ada70067642df9b31eec3b804f9ac8e158bb7bd9227ef8381",
+    "conditional_chen_full_rosser_bridge_20261004.md": "882db1ecc9fbc6d40cc317efdb3eb5bdb6e95dfa66833c1cce9e2d252dc99d51",
+    "conditional_chen_full_rosser_bridge_probe.json": "54688d1f6fd7e32d64d30e172eba6d260ee11b84d650e7644dcc53b1e8eb7717",
+    "conditional_chen_weighted_rosser_support_certificate.json": "ba1a7e7c9f73c4d342bcfefca7336e599cc0d729e9c77c5cf34310028d9646ee",
+    "conditional_chen_full_rosser_w2_probe.json": "98c5b50d318884803c9926bf9badf7bd56fcd6c63167fbcdb210bf391600bb93",
+    "conditional_chen_full_rosser_bridge_checks.json": "ea36c7f4f40c91d6c93a11c929ccad043756b8ebb29aae0e26945cddaaa26fc6",
+    "conditional_chen_weighted_distribution_20261004.md": "e308e3ebfec1c316c12d2b2cdfc65ab5b69b3fe32393b0797247f3ff66023b6a",
+    "conditional_chen_composite_certificate.json": "ed18763268d91d29d793ba94ce87ac801dd4ca027941dbec75c35508b9eb09de",
+    "conditional_chen_prefix_band_certificate.json": "7553ef3091e87e7b2e42972eae39dab096acd32acd5fa8e50a487c7110a8c616",
+    "conditional_chen_prefix_band_checks.json": "cb7f0d0b9190d4a805ef5670c9714bd05de82d0ed3e5e299c2197211dcccbac4",
+    "conditional_chen_prefix_band_eh_search.json": "276e6b15c0795b653036ab5598024bfe1f806745390bf014620ac8116be147f4",
+    "conditional_chen_sharp_support_certificate.json": "c207f6308e4fd7ae084c2262c959594d126aed654d3de1627fe3ce94e44049c6",
+    "conditional_chen_sharp_endpoint_certificate.json": "1585dc9fa2e6f27031341c73c16ccdcacbe9678327798e5609f115a8f24ff0a4",
+    "conditional_chen_distribution_tradeoff_certificate.json": "507e855c13862827f3b0638fb9142c3d67ce099c77567244a6e9cafd7ea3dfec",
+    "conditional_chen_weighted_distribution_certificate.json": "927a1719ddcfe8eab8a868a4add2795252b41eed3ce702cfca12c40c23150190",
+    "conditional_chen_dense_band_grh_certificate.json": "d166aafdb6f5693b69ccb2eb9894a2d5a955219f1257966b8fdceccd0b168393",
+    "conditional_chen_dense_band_grh_finite.json": "e79037ddcfabb6521a87063a48bf4ad48adcd96efb20c3a12ac87e201ee0fbde",
+    "conditional_chen_sharp_grh_parameter_probe.json": "ecad497f833d2eb744425d3710373b0bdd4d1e4cfba94861f2d9982c66e6ba53",
+    "conditional_chen_degreewise_rankin_certificate.json": "c0b56636f1b6e76f78d6ffa9ccb26a6024a71917b9deaeeb72dd3421dc9e4257",
+    "conditional_chen_rosser_checks.json": "bead08781e34993ba49e16702f11d6f860ca8d83b936375714412d02f90e0db4",
+    "conditional_chen_refined_eh_search.json": "59218b299e54f62550b5c8eabd0795e6ac12ecde4cc363d1bc89135f976736dc",
+    "conditional_chen_degreewise_eh_search.json": "138bb5b94f51b9f25b7bd5780de68a2a6469c8e445e2a9c21a85d25bc4ced607",
+    "conditional_chen_degreewise_rankin_checks.json": "85108f39d75bb9259f9b324daa63b50d0b2b9cf91750de972618da251ec6a07c",
+    "conditional_chen_quadratic_rankin_certificate.json": "dbd51f050b2e0a7aa52d848682e120a7a295c5b90790a25ea404a5c2cb7ea1bf",
+    "conditional_chen_quadratic_rankin_checks.json": "cc78d1459bf9e4d5f36af72e56d526310de4b4883be544252b1df24275b389bc",
+    "conditional_chen_quadratic_eh_search.json": "80e64ceba1450cb12ca1b65ec61afe90def5e15c44d5964fd53a624d0d6cc08c",
+    "conditional_chen_uniform_product_certificate.json": "2255fb4282d1d3e055ad91e93b2961af4359d863b5dc0ff74e19782fb6b037a7",
+    "conditional_chen_uniform_product_checks.json": "04b3af616ecdfb6169ea3ab65e6002cd1413bf444bac97d1b6ce9a21829a2949",
+    "conditional_chen_prefix_block_20261004.md": "dc37e73db87f389481021025ac43cb4b37114ddbf8eed41522e7ec369deb3d0f",
+    "conditional_chen_prefix_block_certificate.json": "9c359a62b99448e0c529d5928dad22c975c160aad1e2e22a1614510795ef1838",
+    "conditional_chen_prefix_block_checks.json": "40c9b841beac51b7536edb9fbea15a8b3e0a006edb636605883e7c86ee7a6b5f",
+    "conditional_chen_prefix_block_grh_finite.json": "31dff3a406f7865f5d330da316235f506559fe47e23b00f858b0c929dc719b81",
+    "conditional_chen_prefix_block_endpoint_certificate.json": "7be8b9b55dbeefafe111941115d33f5b3d6306122dbcc62acab35a11a7b78e6b",
+    "conditional_chen_prefix_block_refinement.json": "ad42a4dc2dbb003835c166b88a1bdd380f19a2044326675b3e689a5bc1fc3db4",
+    "conditional_chen_sparse_modulus_certificate.json": "4b918d47ef697d4162fdb680db05d41fa85eabea628315c4b008ac351cb08f21",
+    "conditional_chen_prefix_block_endpoint_checks.json": "d57b5b31e467359175a1c711ca9715b2b7aede0494c4bdc7f0e65d1aa5df6011",
+    "conditional_chen_rough_interval_20261004.md": "f975547a3a22af038b6cd80da2ed7aa37de749827acada443b3fd807198dcb67",
+    "conditional_chen_binned_support_checks.json": "8337f17a9ea96d1faa398d9f022415210cc0ac25604ec688339e9cb5a803235b",
+    "conditional_chen_binned_support_certificate.json": "993e4db26d463a8b5d730c0992789e884945ac81d44da5eec8ddbb57048439cb",
+    "conditional_chen_rough_interval_certificate.json": "ca1495d1b0f91c6aeff6919567b8bbfd8e3143d12c5070782b4f69eca956d5af",
+    "conditional_chen_rough_interval_checks.json": "a9eeeb7fd4800b3751ca7e92d5193348512fb7a306baac0af4ffd9b23c228ab7",
+    "conditional_chen_accepted_interval_20261004.md": "21c2ad04aabe431306b73e3de3ea7fc1e491b4c2f0d7901db39e1fcd6b58d684",
+    "conditional_chen_accepted_support_certificate.json": "90cff88688ee135668a0bcbb07686190aaa61ca2f7bcdcb6fe7e224b357fa7f1",
+    "conditional_chen_accepted_support_checks.json": "9ccdc1481c86834fe2cb40b53ee0a1c2eac6a923e05b2569dee0fed090621fff",
+    "conditional_chen_accepted_interval_certificate.json": "86c4442aef91517ef738c4ff84e91eb9d84ba0c6ddc4345e4ecfd76a33039bcb",
+    "conditional_chen_accepted_interval_checks.json": "8c2ce7241a361b69357c63d5ccfe83fe6e3a3357004b82f804abb506807f5e87"
+  },
+  "not_checked": [
+    "general analytic lemmas and external theorem validity",
+    "independent research review",
+    "TeX compilation and PDF rendering",
+    "connection to the finite verification range"
+  ]
+}

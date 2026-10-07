@@ -1,0 +1,466 @@
+{
+  "status": "PASS: independent exact subset histograms, integer roughness and aggregate prime factors",
+  "binned_count_checks": {
+    "configurations": [
+      {
+        "w": 3,
+        "u": "7/2",
+        "sigma": "0",
+        "h": "9/10",
+        "exact_count": 104,
+        "K": 4
+      },
+      {
+        "w": 3,
+        "u": "7/2",
+        "sigma": "0",
+        "h": "1/2",
+        "exact_count": 104,
+        "K": 4
+      },
+      {
+        "w": 3,
+        "u": "7/2",
+        "sigma": "0",
+        "h": "1/10",
+        "exact_count": 104,
+        "K": 4
+      },
+      {
+        "w": 3,
+        "u": "7/2",
+        "sigma": "0",
+        "h": "1/100",
+        "exact_count": 104,
+        "K": 4
+      },
+      {
+        "w": 3,
+        "u": "7/2",
+        "sigma": "1",
+        "h": "9/10",
+        "exact_count": 104,
+        "K": 4
+      },
+      {
+        "w": 3,
+        "u": "7/2",
+        "sigma": "1",
+        "h": "1/2",
+        "exact_count": 104,
+        "K": 4
+      },
+      {
+        "w": 3,
+        "u": "7/2",
+        "sigma": "1",
+        "h": "1/10",
+        "exact_count": 104,
+        "K": 4
+      },
+      {
+        "w": 3,
+        "u": "7/2",
+        "sigma": "1",
+        "h": "1/100",
+        "exact_count": 104,
+        "K": 4
+      },
+      {
+        "w": 3,
+        "u": "4",
+        "sigma": "0",
+        "h": "9/10",
+        "exact_count": 150,
+        "K": 4
+      },
+      {
+        "w": 3,
+        "u": "4",
+        "sigma": "0",
+        "h": "1/2",
+        "exact_count": 150,
+        "K": 4
+      },
+      {
+        "w": 3,
+        "u": "4",
+        "sigma": "0",
+        "h": "1/10",
+        "exact_count": 150,
+        "K": 4
+      },
+      {
+        "w": 3,
+        "u": "4",
+        "sigma": "0",
+        "h": "1/100",
+        "exact_count": 150,
+        "K": 4
+      },
+      {
+        "w": 3,
+        "u": "4",
+        "sigma": "1",
+        "h": "9/10",
+        "exact_count": 150,
+        "K": 4
+      },
+      {
+        "w": 3,
+        "u": "4",
+        "sigma": "1",
+        "h": "1/2",
+        "exact_count": 150,
+        "K": 4
+      },
+      {
+        "w": 3,
+        "u": "4",
+        "sigma": "1",
+        "h": "1/10",
+        "exact_count": 150,
+        "K": 4
+      },
+      {
+        "w": 3,
+        "u": "4",
+        "sigma": "1",
+        "h": "1/100",
+        "exact_count": 150,
+        "K": 4
+      },
+      {
+        "w": 3,
+        "u": "49/8",
+        "sigma": "0",
+        "h": "9/10",
+        "exact_count": 252,
+        "K": 7
+      },
+      {
+        "w": 3,
+        "u": "49/8",
+        "sigma": "0",
+        "h": "1/2",
+        "exact_count": 252,
+        "K": 7
+      },
+      {
+        "w": 3,
+        "u": "49/8",
+        "sigma": "0",
+        "h": "1/10",
+        "exact_count": 252,
+        "K": 7
+      },
+      {
+        "w": 3,
+        "u": "49/8",
+        "sigma": "0",
+        "h": "1/100",
+        "exact_count": 252,
+        "K": 7
+      },
+      {
+        "w": 3,
+        "u": "49/8",
+        "sigma": "1",
+        "h": "9/10",
+        "exact_count": 252,
+        "K": 7
+      },
+      {
+        "w": 3,
+        "u": "49/8",
+        "sigma": "1",
+        "h": "1/2",
+        "exact_count": 252,
+        "K": 7
+      },
+      {
+        "w": 3,
+        "u": "49/8",
+        "sigma": "1",
+        "h": "1/10",
+        "exact_count": 252,
+        "K": 7
+      },
+      {
+        "w": 3,
+        "u": "49/8",
+        "sigma": "1",
+        "h": "1/100",
+        "exact_count": 252,
+        "K": 7
+      },
+      {
+        "w": 5,
+        "u": "7/2",
+        "sigma": "0",
+        "h": "9/10",
+        "exact_count": 60,
+        "K": 3
+      },
+      {
+        "w": 5,
+        "u": "7/2",
+        "sigma": "0",
+        "h": "1/2",
+        "exact_count": 60,
+        "K": 3
+      },
+      {
+        "w": 5,
+        "u": "7/2",
+        "sigma": "0",
+        "h": "1/10",
+        "exact_count": 60,
+        "K": 3
+      },
+      {
+        "w": 5,
+        "u": "7/2",
+        "sigma": "0",
+        "h": "1/100",
+        "exact_count": 60,
+        "K": 3
+      },
+      {
+        "w": 5,
+        "u": "7/2",
+        "sigma": "1",
+        "h": "9/10",
+        "exact_count": 60,
+        "K": 3
+      },
+      {
+        "w": 5,
+        "u": "7/2",
+        "sigma": "1",
+        "h": "1/2",
+        "exact_count": 60,
+        "K": 3
+      },
+      {
+        "w": 5,
+        "u": "7/2",
+        "sigma": "1",
+        "h": "1/10",
+        "exact_count": 60,
+        "K": 3
+      },
+      {
+        "w": 5,
+        "u": "7/2",
+        "sigma": "1",
+        "h": "1/100",
+        "exact_count": 60,
+        "K": 3
+      },
+      {
+        "w": 5,
+        "u": "4",
+        "sigma": "0",
+        "h": "9/10",
+        "exact_count": 77,
+        "K": 4
+      },
+      {
+        "w": 5,
+        "u": "4",
+        "sigma": "0",
+        "h": "1/2",
+        "exact_count": 77,
+        "K": 4
+      },
+      {
+        "w": 5,
+        "u": "4",
+        "sigma": "0",
+        "h": "1/10",
+        "exact_count": 77,
+        "K": 4
+      },
+      {
+        "w": 5,
+        "u": "4",
+        "sigma": "0",
+        "h": "1/100",
+        "exact_count": 77,
+        "K": 4
+      },
+      {
+        "w": 5,
+        "u": "4",
+        "sigma": "1",
+        "h": "9/10",
+        "exact_count": 77,
+        "K": 4
+      },
+      {
+        "w": 5,
+        "u": "4",
+        "sigma": "1",
+        "h": "1/2",
+        "exact_count": 77,
+        "K": 4
+      },
+      {
+        "w": 5,
+        "u": "4",
+        "sigma": "1",
+        "h": "1/10",
+        "exact_count": 77,
+        "K": 4
+      },
+      {
+        "w": 5,
+        "u": "4",
+        "sigma": "1",
+        "h": "1/100",
+        "exact_count": 77,
+        "K": 4
+      },
+      {
+        "w": 5,
+        "u": "49/8",
+        "sigma": "0",
+        "h": "9/10",
+        "exact_count": 127,
+        "K": 6
+      },
+      {
+        "w": 5,
+        "u": "49/8",
+        "sigma": "0",
+        "h": "1/2",
+        "exact_count": 127,
+        "K": 6
+      },
+      {
+        "w": 5,
+        "u": "49/8",
+        "sigma": "0",
+        "h": "1/10",
+        "exact_count": 127,
+        "K": 6
+      },
+      {
+        "w": 5,
+        "u": "49/8",
+        "sigma": "0",
+        "h": "1/100",
+        "exact_count": 127,
+        "K": 6
+      },
+      {
+        "w": 5,
+        "u": "49/8",
+        "sigma": "1",
+        "h": "9/10",
+        "exact_count": 127,
+        "K": 6
+      },
+      {
+        "w": 5,
+        "u": "49/8",
+        "sigma": "1",
+        "h": "1/2",
+        "exact_count": 127,
+        "K": 6
+      },
+      {
+        "w": 5,
+        "u": "49/8",
+        "sigma": "1",
+        "h": "1/10",
+        "exact_count": 127,
+        "K": 6
+      },
+      {
+        "w": 5,
+        "u": "49/8",
+        "sigma": "1",
+        "h": "1/100",
+        "exact_count": 127,
+        "K": 6
+      }
+    ],
+    "enumerated_subsets": 9216,
+    "exact_rational_histogram_coefficients_checked": 17172
+  },
+  "integer_roughness_checks": {
+    "configurations": [
+      {
+        "T": 29,
+        "w": 3,
+        "integer_upper_coefficients": 448,
+        "exact_normalized_gap": "61447/25546752"
+      },
+      {
+        "T": 29,
+        "w": 5,
+        "integer_upper_coefficients": 480,
+        "exact_normalized_gap": "1151/506880"
+      },
+      {
+        "T": 41,
+        "w": 3,
+        "integer_upper_coefficients": 1440,
+        "exact_normalized_gap": "415191721/143327232000"
+      },
+      {
+        "T": 41,
+        "w": 5,
+        "integer_upper_coefficients": 1728,
+        "exact_normalized_gap": "3236457883/1379524608000"
+      }
+    ],
+    "exact_divisor_floor_terms_checked": 16384,
+    "integer_roughness_patterns_checked": 24316
+  },
+  "aggregate_prime_factor_checks": {
+    "T": 11,
+    "z": 31,
+    "q_upper_endpoint": 100,
+    "modulus_patterns": 8608,
+    "rows": [
+      {
+        "D": 101,
+        "q_d_pairs": 240,
+        "distinct_large_factors": 15,
+        "exact_integer_rough_count": 21
+      },
+      {
+        "D": 1000,
+        "q_d_pairs": 672,
+        "distinct_large_factors": 42,
+        "exact_integer_rough_count": 207
+      },
+      {
+        "D": 10000,
+        "q_d_pairs": 1552,
+        "distinct_large_factors": 97,
+        "exact_integer_rough_count": 2077
+      },
+      {
+        "D": 1000000,
+        "q_d_pairs": 6144,
+        "distinct_large_factors": 384,
+        "exact_integer_rough_count": 207792
+      }
+    ]
+  },
+  "input_sha256": {
+    "conditional_chen_binned_support_checks.py": "53d396031dc0541cbedaaa1a939c93162b93e1fab21413a837bc43e96a307d52",
+    "conditional_chen_binned_support_certificate.py": "c842a4e2b98e4410f079b236f8e4e324c20260f63e4c20b3e1cfd6e0f4db6c83",
+    "conditional_chen_prefix_block_certificate.py": "9098125b3cd3b24133fd8fa230a4c595074e005113d24e01278ec63a37c1ab24",
+    "conditional_chen_rankin_certificate.py": "5f67df53975bb4e0e2631c385d00697178371feef24f464bfaa26ac9fcc7d6b7"
+  },
+  "not_checked": [
+    "general count and density-domination lemmas",
+    "external analytic inputs",
+    "full splice"
+  ]
+}

@@ -1,0 +1,193 @@
+{
+  "status": "PASS: finite exact arithmetic sanity checks only",
+  "universes": [
+    {
+      "exact_primes": [],
+      "Q": 1,
+      "small_primes": [
+        3,
+        5,
+        7,
+        11
+      ],
+      "large_primes": [
+        13,
+        17,
+        19,
+        23,
+        29,
+        31
+      ],
+      "depth": 2,
+      "integer_transition_levels": 191,
+      "complete_prime_divisor_patterns_per_level": 1024,
+      "pointwise_pattern_checks": 195584,
+      "checks": [
+        "Rosser pointwise brackets and support",
+        "Brun pointwise brackets",
+        "composite pointwise brackets",
+        "composite coefficients in {-1,0,1}",
+        "exact inclusion-exclusion pointwise brackets",
+        "composite support below Q T^depth D"
+      ]
+    },
+    {
+      "exact_primes": [],
+      "Q": 1,
+      "small_primes": [
+        3,
+        5,
+        7,
+        11
+      ],
+      "large_primes": [
+        13,
+        17,
+        19,
+        23,
+        29,
+        31
+      ],
+      "depth": 4,
+      "integer_transition_levels": 191,
+      "complete_prime_divisor_patterns_per_level": 1024,
+      "pointwise_pattern_checks": 195584,
+      "checks": [
+        "Rosser pointwise brackets and support",
+        "Brun pointwise brackets",
+        "composite pointwise brackets",
+        "composite coefficients in {-1,0,1}",
+        "exact inclusion-exclusion pointwise brackets",
+        "composite support below Q T^depth D"
+      ]
+    },
+    {
+      "exact_primes": [],
+      "Q": 1,
+      "small_primes": [
+        13,
+        17,
+        19,
+        23
+      ],
+      "large_primes": [
+        29,
+        31,
+        37,
+        41,
+        43,
+        47
+      ],
+      "depth": 2,
+      "integer_transition_levels": 191,
+      "complete_prime_divisor_patterns_per_level": 1024,
+      "pointwise_pattern_checks": 195584,
+      "checks": [
+        "Rosser pointwise brackets and support",
+        "Brun pointwise brackets",
+        "composite pointwise brackets",
+        "composite coefficients in {-1,0,1}",
+        "exact inclusion-exclusion pointwise brackets",
+        "composite support below Q T^depth D"
+      ]
+    },
+    {
+      "exact_primes": [],
+      "Q": 1,
+      "small_primes": [
+        13,
+        17,
+        19,
+        23
+      ],
+      "large_primes": [
+        29,
+        31,
+        37,
+        41,
+        43,
+        47
+      ],
+      "depth": 4,
+      "integer_transition_levels": 191,
+      "complete_prime_divisor_patterns_per_level": 1024,
+      "pointwise_pattern_checks": 195584,
+      "checks": [
+        "Rosser pointwise brackets and support",
+        "Brun pointwise brackets",
+        "composite pointwise brackets",
+        "composite coefficients in {-1,0,1}",
+        "exact inclusion-exclusion pointwise brackets",
+        "composite support below Q T^depth D"
+      ]
+    },
+    {
+      "exact_primes": [
+        3,
+        5
+      ],
+      "Q": 15,
+      "small_primes": [
+        7,
+        11,
+        13,
+        17
+      ],
+      "large_primes": [
+        19,
+        23,
+        29,
+        31,
+        37,
+        41
+      ],
+      "depth": 2,
+      "integer_transition_levels": 191,
+      "complete_prime_divisor_patterns_per_level": 4096,
+      "pointwise_pattern_checks": 782336,
+      "checks": [
+        "Rosser pointwise brackets and support",
+        "Brun pointwise brackets",
+        "composite pointwise brackets",
+        "composite coefficients in {-1,0,1}",
+        "exact inclusion-exclusion pointwise brackets",
+        "composite support below Q T^depth D"
+      ]
+    },
+    {
+      "exact_primes": [
+        3,
+        5
+      ],
+      "Q": 15,
+      "small_primes": [
+        7,
+        11,
+        13,
+        17
+      ],
+      "large_primes": [
+        19,
+        23,
+        29,
+        31,
+        37,
+        41
+      ],
+      "depth": 4,
+      "integer_transition_levels": 191,
+      "complete_prime_divisor_patterns_per_level": 4096,
+      "pointwise_pattern_checks": 782336,
+      "checks": [
+        "Rosser pointwise brackets and support",
+        "Brun pointwise brackets",
+        "composite pointwise brackets",
+        "composite coefficients in {-1,0,1}",
+        "exact inclusion-exclusion pointwise brackets",
+        "composite support below Q T^depth D"
+      ]
+    }
+  ],
+  "total_pointwise_pattern_checks": 2347008,
+  "limitation": "Does not certify general analytic main masses or the entire proof."
+}

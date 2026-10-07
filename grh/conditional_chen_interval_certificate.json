@@ -1,0 +1,48 @@
+{
+  "status": "arithmetic certificate only; GRH-only sieve interface pending; former bridge refuted",
+  "precision_bits": 192,
+  "GRH_candidate": {
+    "status": "PENDING analytic sieve endpoint audit; not an established GRH-only threshold",
+    "log_N0": 8500,
+    "log_log_N0": "[9.04782144247840782288627686046804259031600734411180846127 +/- 6.99e-57]",
+    "alpha": "4561/1000000",
+    "beta": "7/2",
+    "delta": "1/100000000",
+    "epsilon": "1/500000",
+    "qG_N_upper_ball": "[0.166495651030684796590079141772727816956214604710192646161 +/- 4.65e-58]",
+    "per_modulus_upper_ball": "[0.189894367886486916971110470421564295254307455717557056093 +/- 5.36e-58]",
+    "squarefree_AP_coefficient_upper_ball": "[0.115455775674984045518435166016311091514618933076274690105 +/- 2.73e-58]",
+    "cbar_ball": "[0.36308372924830460040914245854128164300908669770106834190 +/- 7.41e-57]",
+    "lower_ball": "[7.8107197156368046307652493223945444288125151264737663430 +/- 3.06e-56]",
+    "half_upper_ball": "[6.4993830623273849356852492351768551063500910006613216818 +/- 3.62e-56]",
+    "half_switch_ball": "[1.3059937043181105136999284428430991550410093670102820442 +/- 6.29e-56]",
+    "AP_budget_ball": "[0.00347731969538515138402111932550051950532555595102112617728 +/- 5.66e-60]",
+    "half_rectangle_error_ball": "[3.676994474517519088127116056193210039433038322936e-50 +/- 5.21e-99]",
+    "finite_error_ball": "[9.3899310447399488421990229107805523794734304353267568158e-454 +/- 2.50e-510]",
+    "margin_ball": "[0.0018656292959240299960505250490896479160892028511047209 +/- 8.10e-56]",
+    "bilinear_m_upper_ball": "[2.42158459159583730325744596876774995667150371502393004672 +/- 5.85e-57]"
+  },
+  "EH_parameterized_input": {
+    "status": "PENDING same sieve audit; effective C and X unspecified",
+    "input": "for all x>=X, E_(3/4)(x)<= C x/log(x)^4",
+    "candidate_threshold": "N >= max(X, exp(max(120,sqrt(20C))))",
+    "margin_units": "N/log(N)^2",
+    "margin_ball_at_log_N_120": "[0.09245760180025222547730569671361821368247775322944543469 +/- 5.09e-57]",
+    "main_ball": "[0.14245760180025222552096525711380942304801491415729661455 +/- 7.09e-57]",
+    "deletion_ball": "[4.36595604001912093655371609267470385394162987291067967845e-20 +/- 9.18e-77]",
+    "note": "ordinary EH does not provide numerical C or X"
+  },
+  "bridge": {
+    "B": "4000000000000000000",
+    "additional_distribution_hypothesis": "for all x>=B, sum_{d<=x^(9/10)} mu(d)^2 max_{(a,d)=1} |pi(x;d,a)-pi(x)/phi(d)| <= x/(10 log(x)^2)",
+    "assumptions": "REFUTED hypothesis; cost arithmetic only",
+    "product_epsilon_ball": "[0.00135626436046560217595552296735593114358114269026782355 +/- 5.00e-57]",
+    "s_at_B_ball": "[2.13968207980529350293069456535558927525799831853237294984 +/- 3.77e-57]",
+    "sieve_factor_at_B_ball": "[0.07231841765007912347589125294930870012602608043655570210 +/- 3.95e-57]",
+    "density_factor_at_B_ball": "[0.998593358789607093938906707862383928306755277755895997177 +/- 4.68e-58]",
+    "main_coefficient_ball": "[0.12164023908421373849416190031770033380071824559192585012 +/- 7.69e-57]",
+    "deletion_budget_ball": "[2.8948178183624146696326572517251949242334799494416965609e-5 +/- 2.18e-61]",
+    "margin_ball": "[0.02161129090602965568471903732946239125201471899808353061 +/- 7.27e-57]",
+    "status": "WITHDRAWN: prime-modulus integer counts contradict the assumed upper bound at B; see integrality certificate"
+  }
+}

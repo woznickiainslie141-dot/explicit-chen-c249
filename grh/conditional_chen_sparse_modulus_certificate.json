@@ -1,0 +1,449 @@
+{
+  "status": "PASS: strict regenerated support-count products and GRH scalar endpoints",
+  "precision_bits": 192,
+  "GRH_positivity": {
+    "presieve": {
+      "status": "strict Arb positive prefix-block bounds; analytic domination lemma required",
+      "precision_bits": 192,
+      "T": 5000000,
+      "exact_cutoff": 5,
+      "u": "87/16",
+      "presieve_type": "pure Rosser medium weights, exact smallest-prime weights",
+      "exact_presieve_Q_max": 15,
+      "exact_product_ball": "0.375000000000000000000000000000000000000000000000000000000",
+      "logarithm_base": "e",
+      "D0": "5000000^(87/16)",
+      "log_support_cost_ball": "[86.5812075088933712939746046536434909070794853424400506296 +/- 5.83e-56]",
+      "log_bin_width": "1/200",
+      "bin_limit": 16775,
+      "maximum_actual_prefix_degree": 22,
+      "nonempty_prime_blocks": 1810,
+      "prime_generation": "complete integer sieve",
+      "complete_odd_prime_count": 348512,
+      "medium_prime_count": 348510,
+      "upper_relative_Rosser_gap_ball": "[0.000369501095151250084047800063013867588117286535411327 +/- 3.13e-55]",
+      "lower_relative_Rosser_gap_ball": "[0.000369035199307429554232600786613899319919325005538897 +/- 3.69e-55]",
+      "relative_Rosser_gap_ball": "[0.000738536294458679638280400849627766908036611540950224 +/- 2.20e-55]",
+      "retains_all_preceding_checked_prefixes": true,
+      "relaxation": "floor-log labels; possible-pass and possible-failure cutoffs; positive block coefficients",
+      "deleting_primes": "complete-block positive coefficients dominate deleted blocks; actual prefix degree <=K",
+      "input_sha256": {
+        "conditional_chen_prefix_block_certificate.py": "9098125b3cd3b24133fd8fa230a4c595074e005113d24e01278ec63a37c1ab24",
+        "conditional_chen_rankin_certificate.py": "5f67df53975bb4e0e2631c385d00697178371feef24f464bfaa26ac9fcc7d6b7"
+      },
+      "elapsed_seconds": 65.204,
+      "not_checked": [
+        "external analytic inputs",
+        "global optimality",
+        "Chen endpoint",
+        "PDF compilation"
+      ],
+      "uniform_epsilon_ball": "[2.4260535282026468524012099358981840620602344768225095e-5 +/- 6.42e-58]"
+    },
+    "epsilon": "1/41219",
+    "eta_plus": "1/2706",
+    "eta_minus": "1/2709",
+    "C1": 106,
+    "C2": 108,
+    "effective_log_support_cost_ball": "[83.849204066768668365929573348477982997290656306857053572 +/- 1.52e-55]",
+    "sharp_support": {
+      "T": 5000000,
+      "exact_cutoff": 5,
+      "u": "87/16",
+      "Q": 15,
+      "kappa": "11/169",
+      "maximizer": {
+        "kind": "unchecked final prime",
+        "r": 11,
+        "s": 13
+      },
+      "complete_medium_prime_count": 348510,
+      "original_log_support_cost_ball": "[86.5812075088933712939746046536434909070794853424400506296 +/- 5.83e-56]",
+      "sharp_log_support_cost_ball": "[83.849204066768668365929573348477982997290656306857053572 +/- 1.34e-55]"
+    },
+    "sparse_modulus_count_budget": "1/1653",
+    "sparse_modulus_count": {
+      "medium_support_log_ball": "[81.141153865666458299933568778329269653117564394765786398 +/- 3.99e-55]",
+      "exact_prime_count": 2,
+      "exact_divisor_count_max": 4,
+      "selected": {
+        "sigma": "4/5",
+        "log_euler_product_ball": "[10.13913218645423519964147213465239944789789194536426 +/- 5.45e-51]",
+        "count_fraction_ball": "[0.00060465384139695355438373691907834094496865145264626 +/- 7.07e-54]"
+      },
+      "candidate_rows": [
+        {
+          "sigma": "3/4",
+          "log_euler_product_ball": "[16.95679643299060421357122139826910669379265786912376 +/- 1.39e-51]",
+          "count_fraction_ball": "[0.0095592321573978980001365581003987922779237605825629 +/- 6.24e-53]"
+        },
+        {
+          "sigma": "4/5",
+          "log_euler_product_ball": "[10.13913218645423519964147213465239944789789194536426 +/- 5.45e-51]",
+          "count_fraction_ball": "[0.00060465384139695355438373691907834094496865145264626 +/- 7.07e-54]"
+        },
+        {
+          "sigma": "17/20",
+          "log_euler_product_ball": "[6.303491280138202880885108480798616076794630637435833 +/- 6.16e-52]",
+          "count_fraction_ball": "[0.000754513309544384437588546989350095652961090517158571 +/- 6.19e-55]"
+        },
+        {
+          "sigma": "9/10",
+          "log_euler_product_ball": "[4.084419182137420239065415729634375467087141894697444 +/- 5.00e-52]",
+          "count_fraction_ball": "[0.00474126147644477723986958322504623920997148144003305 +/- 4.59e-54]"
+        }
+      ],
+      "bound": "# coefficients <= 2^omega(Q) D H0^sigma product_(w<p<=T)(1+p^(-sigma))"
+    },
+    "log_N0": 26820,
+    "alpha": "4267/1000000",
+    "claimed_margin": ".00001",
+    "log_log_N0_ball": "[10.1969031568356695172181423250917126728276675098274942814 +/- 1.45e-56]",
+    "s_ball": "[3.96586400000000000000000000000000000000000000000000000000 +/- 1.25e-57]",
+    "support_slack_ball": "[0.001026462724323082415999676246878984226341163660463584 +/- 4.88e-55]",
+    "F_s_ball": "[1.02339887064210411145584098925460240159402988753666452442 +/- 6.50e-57]",
+    "h_integral_ball": "[0.71576863462636173575805594326915893286381771436856730805 +/- 9.36e-57]",
+    "lower_composite_factor_ball": "[0.97582326819879729513679963474209009477516938561684395314 +/- 3.29e-57]",
+    "lower_ball": "[7.8065861448097197465353592418272810504076830091146161166 +/- 3.38e-56]",
+    "half_upper_ball": "[6.4997575309555533560445118552555194074117046067898144068 +/- 4.70e-56]",
+    "half_switch_ball": "[1.3065674070627540689963763866289827193729614978711873377 +/- 5.18e-56]",
+    "AP_budget_ball": "[0.000226965536353242874581128871435131876380992167473010765895 +/- 9.11e-61]",
+    "half_rectangle_error_ball": "[1.5289420507857402014968099649215114712842159260672e-213 +/- 6.18e-263]",
+    "finite_error_ball": "[2.06921019243132406463991730932468106910397092215131270534e-1447 +/- 5.98e-1504]",
+    "margin_ball": "[3.4241255059078619889871071343791746635912286141361e-5 +/- 4.68e-55]",
+    "rectangle_display_bound": "1e-60",
+    "finite_display_bound": "1e-450",
+    "sieve_interface": "actual coefficient count from complete medium-prime Rankin product; unchanged pointwise GRH AP input",
+    "beta": "3",
+    "AP_leading_coefficient_ball": "[0.000168210177733452157189379189590356882914378925975190505037 +/- 8.44e-61]",
+    "preceding_integer_recipe_margin_ball": "[2.365020607495429742040151332191632772321602912025e-6 +/- 3.71e-55]"
+  },
+  "GRH_at_31000": {
+    "presieve": {
+      "status": "strict Arb positive prefix-block bounds; analytic domination lemma required",
+      "precision_bits": 192,
+      "T": 5000000,
+      "exact_cutoff": 5,
+      "u": "87/16",
+      "presieve_type": "pure Rosser medium weights, exact smallest-prime weights",
+      "exact_presieve_Q_max": 15,
+      "exact_product_ball": "0.375000000000000000000000000000000000000000000000000000000",
+      "logarithm_base": "e",
+      "D0": "5000000^(87/16)",
+      "log_support_cost_ball": "[86.5812075088933712939746046536434909070794853424400506296 +/- 5.83e-56]",
+      "log_bin_width": "1/200",
+      "bin_limit": 16775,
+      "maximum_actual_prefix_degree": 22,
+      "nonempty_prime_blocks": 1810,
+      "prime_generation": "complete integer sieve",
+      "complete_odd_prime_count": 348512,
+      "medium_prime_count": 348510,
+      "upper_relative_Rosser_gap_ball": "[0.000369501095151250084047800063013867588117286535411327 +/- 3.13e-55]",
+      "lower_relative_Rosser_gap_ball": "[0.000369035199307429554232600786613899319919325005538897 +/- 3.69e-55]",
+      "relative_Rosser_gap_ball": "[0.000738536294458679638280400849627766908036611540950224 +/- 2.20e-55]",
+      "retains_all_preceding_checked_prefixes": true,
+      "relaxation": "floor-log labels; possible-pass and possible-failure cutoffs; positive block coefficients",
+      "deleting_primes": "complete-block positive coefficients dominate deleted blocks; actual prefix degree <=K",
+      "input_sha256": {
+        "conditional_chen_prefix_block_certificate.py": "9098125b3cd3b24133fd8fa230a4c595074e005113d24e01278ec63a37c1ab24",
+        "conditional_chen_rankin_certificate.py": "5f67df53975bb4e0e2631c385d00697178371feef24f464bfaa26ac9fcc7d6b7"
+      },
+      "elapsed_seconds": 65.204,
+      "not_checked": [
+        "external analytic inputs",
+        "global optimality",
+        "Chen endpoint",
+        "PDF compilation"
+      ],
+      "uniform_epsilon_ball": "[2.4260535282026468524012099358981840620602344768225095e-5 +/- 6.42e-58]"
+    },
+    "epsilon": "1/41219",
+    "eta_plus": "1/2706",
+    "eta_minus": "1/2709",
+    "C1": 106,
+    "C2": 108,
+    "effective_log_support_cost_ball": "[83.849204066768668365929573348477982997290656306857053572 +/- 1.70e-55]",
+    "sharp_support": {
+      "T": 5000000,
+      "exact_cutoff": 5,
+      "u": "87/16",
+      "Q": 15,
+      "kappa": "11/169",
+      "maximizer": {
+        "kind": "unchecked final prime",
+        "r": 11,
+        "s": 13
+      },
+      "complete_medium_prime_count": 348510,
+      "original_log_support_cost_ball": "[86.5812075088933712939746046536434909070794853424400506296 +/- 5.83e-56]",
+      "sharp_log_support_cost_ball": "[83.849204066768668365929573348477982997290656306857053572 +/- 1.34e-55]"
+    },
+    "sparse_modulus_count_budget": "1/1653",
+    "sparse_modulus_count": {
+      "medium_support_log_ball": "[81.141153865666458299933568778329269653117564394765786398 +/- 3.99e-55]",
+      "exact_prime_count": 2,
+      "exact_divisor_count_max": 4,
+      "selected": {
+        "sigma": "4/5",
+        "log_euler_product_ball": "[10.13913218645423519964147213465239944789789194536426 +/- 5.45e-51]",
+        "count_fraction_ball": "[0.00060465384139695355438373691907834094496865145264626 +/- 7.07e-54]"
+      },
+      "candidate_rows": [
+        {
+          "sigma": "3/4",
+          "log_euler_product_ball": "[16.95679643299060421357122139826910669379265786912376 +/- 1.39e-51]",
+          "count_fraction_ball": "[0.0095592321573978980001365581003987922779237605825629 +/- 6.24e-53]"
+        },
+        {
+          "sigma": "4/5",
+          "log_euler_product_ball": "[10.13913218645423519964147213465239944789789194536426 +/- 5.45e-51]",
+          "count_fraction_ball": "[0.00060465384139695355438373691907834094496865145264626 +/- 7.07e-54]"
+        },
+        {
+          "sigma": "17/20",
+          "log_euler_product_ball": "[6.303491280138202880885108480798616076794630637435833 +/- 6.16e-52]",
+          "count_fraction_ball": "[0.000754513309544384437588546989350095652961090517158571 +/- 6.19e-55]"
+        },
+        {
+          "sigma": "9/10",
+          "log_euler_product_ball": "[4.084419182137420239065415729634375467087141894697444 +/- 5.00e-52]",
+          "count_fraction_ball": "[0.00474126147644477723986958322504623920997148144003305 +/- 4.59e-54]"
+        }
+      ],
+      "bound": "# coefficients <= 2^omega(Q) D H0^sigma product_(w<p<=T)(1+p^(-sigma))"
+    },
+    "log_N0": 31000,
+    "alpha": "3706/1000000",
+    "claimed_margin": "179/10000",
+    "log_log_N0_ball": "[10.3417424834672832979831386885954498332532433963669108999 +/- 4.64e-56]",
+    "s_ball": "[3.97035200000000000000000000000000000000000000000000000000 +/- 9.07e-58]",
+    "support_slack_ball": "[0.011568482829481740121010585735667502949613504042213728 +/- 6.30e-55]",
+    "F_s_ball": "[1.02316056722723113958641682877351166158413306860165148840 +/- 4.63e-57]",
+    "h_integral_ball": "[0.71392366486923153148367153874885611128950868763712498606 +/- 7.53e-57]",
+    "lower_composite_factor_ball": "[0.97607789677524062464814355797409425038984006845866360405 +/- 2.72e-57]",
+    "lower_ball": "[7.8086231734210626797649559640742391567394451473574367776 +/- 4.52e-56]",
+    "half_upper_ball": "[6.4853820922663041954169560061366263769528544730476146579 +/- 7.42e-56]",
+    "half_switch_ball": "[1.3050658214463328178994751117012626695581157237943947791 +/- 2.02e-56]",
+    "AP_budget_ball": "[0.000226887353601605766432100347052301538325122739032198615261 +/- 7.74e-61]",
+    "half_rectangle_error_ball": "[4.776331865499869040885626141033429046110203754577e-251 +/- 2.06e-300]",
+    "finite_error_ball": "[3.33229663959120125340804344564277169709563863124061326046e-1674 +/- 8.30e-1731]",
+    "margin_ball": "[0.017948372354824060682092745889297808690149827776395142 +/- 1.56e-55]",
+    "rectangle_display_bound": "1",
+    "finite_display_bound": "1",
+    "sieve_interface": "actual coefficient count from complete medium-prime Rankin product; unchanged pointwise GRH AP input",
+    "beta": "3",
+    "AP_leading_coefficient_ball": "[0.000168152234422939585590000942276912781704140897126642512692 +/- 6.21e-61]"
+  },
+  "candidate_rows": [
+    {
+      "T": 5000000,
+      "u": "41/8",
+      "h": "1/100",
+      "log_N0": 27578,
+      "count_budget": "1/643",
+      "margin_ball": "[3.7320647196422090051734493327520927377013012252395e-5 +/- 3.31e-55]"
+    },
+    {
+      "T": 5000000,
+      "u": "21/4",
+      "h": "1/100",
+      "log_N0": 27082,
+      "count_budget": "1/927",
+      "margin_ball": "[1.7375087312178403726858556308165355943845382129039e-5 +/- 5.26e-55]"
+    },
+    {
+      "T": 5000000,
+      "u": "43/8",
+      "h": "1/100",
+      "log_N0": 26879,
+      "count_budget": "1/1363",
+      "margin_ball": "[2.5623177704662326468349407308485679448693383184493e-5 +/- 3.95e-55]"
+    },
+    {
+      "T": 5000000,
+      "u": "11/2",
+      "h": "1/100",
+      "log_N0": 26871,
+      "count_budget": "1/2005",
+      "margin_ball": "[1.3910839439764335265344950650325822757373406734994e-5 +/- 5.48e-55]"
+    },
+    {
+      "T": 5000000,
+      "u": "45/8",
+      "h": "1/100",
+      "log_N0": 27003,
+      "count_budget": "1/2949",
+      "margin_ball": "[1.7245917956729839028288263370932021157744519600442e-5 +/- 5.81e-55]"
+    },
+    {
+      "T": 5000000,
+      "u": "23/4",
+      "h": "1/100",
+      "log_N0": 27227,
+      "count_budget": "1/4336",
+      "margin_ball": "[2.7931805366925300518532821007654473876465064563531e-5 +/- 3.00e-55]"
+    },
+    {
+      "T": 5000000,
+      "u": "87/16",
+      "h": "1/200",
+      "log_N0": 26820,
+      "count_budget": "1/1653",
+      "margin_ball": "[3.4241255059078619889871071343791746635912286141361e-5 +/- 4.68e-55]"
+    },
+    {
+      "T": 5000000,
+      "u": "11/2",
+      "h": "1/200",
+      "log_N0": 26839,
+      "count_budget": "1/2005",
+      "margin_ball": "[1.1784723933724804647676666592629707801785678649502e-5 +/- 3.84e-55]"
+    },
+    {
+      "T": 5000000,
+      "u": "89/16",
+      "h": "1/200",
+      "log_N0": 26902,
+      "count_budget": "1/2432",
+      "margin_ball": "[4.1629891492951544894225674921865389385053253564074e-5 +/- 2.42e-55]"
+    },
+    {
+      "T": 10000000,
+      "u": "43/8",
+      "h": "1/100",
+      "log_N0": 27505,
+      "count_budget": "1/1256",
+      "margin_ball": "[2.7845969408823752187552026527297929455208970805943e-5 +/- 2.94e-55]"
+    },
+    {
+      "T": 10000000,
+      "u": "11/2",
+      "h": "1/100",
+      "log_N0": 27500,
+      "count_budget": "1/1699",
+      "margin_ball": "[2.0566682753874018543454916378435562493518638804209e-5 +/- 2.74e-55]"
+    },
+    {
+      "T": 10000000,
+      "u": "45/8",
+      "h": "1/100",
+      "log_N0": 27636,
+      "count_budget": "1/2298",
+      "margin_ball": "[2.0643628927816657059504998334522772514679621534012e-5 +/- 6.19e-55]"
+    },
+    {
+      "T": 20000000,
+      "u": "43/8",
+      "h": "1/100",
+      "log_N0": 27559,
+      "count_budget": "1/1335",
+      "margin_ball": "[1.5716573150547338424941493313568828439391921315922e-5 +/- 3.50e-55]"
+    },
+    {
+      "T": 20000000,
+      "u": "11/2",
+      "h": "1/100",
+      "log_N0": 27567,
+      "count_budget": "1/1830",
+      "margin_ball": "[1.6021946247334355454629894071064251801856253352176e-5 +/- 2.79e-55]"
+    },
+    {
+      "T": 20000000,
+      "u": "45/8",
+      "h": "1/100",
+      "log_N0": 27712,
+      "count_budget": "1/2508",
+      "margin_ball": "[1.3323192433612142753203761110435183671771126997186e-5 +/- 5.60e-55]"
+    }
+  ],
+  "complete_Rankin_products": [
+    {
+      "T": 5000000,
+      "exact_cutoff": 5,
+      "medium_prime_count": 348510,
+      "rows": [
+        {
+          "sigma": "3/4",
+          "log_euler_product_ball": "[16.95679643299060421357122139826910669379265786912376 +/- 1.39e-51]"
+        },
+        {
+          "sigma": "4/5",
+          "log_euler_product_ball": "[10.13913218645423519964147213465239944789789194536426 +/- 5.45e-51]"
+        },
+        {
+          "sigma": "17/20",
+          "log_euler_product_ball": "[6.303491280138202880885108480798616076794630637435833 +/- 6.16e-52]"
+        },
+        {
+          "sigma": "9/10",
+          "log_euler_product_ball": "[4.084419182137420239065415729634375467087141894697444 +/- 5.00e-52]"
+        }
+      ]
+    },
+    {
+      "T": 10000000,
+      "exact_cutoff": 5,
+      "medium_prime_count": 664576,
+      "rows": [
+        {
+          "sigma": "3/4",
+          "log_euler_product_ball": "[19.22334298924996082611801507385626898337457296443944 +/- 5.29e-51]"
+        },
+        {
+          "sigma": "4/5",
+          "log_euler_product_ball": "[11.16892646862458761961614734587252135514615621075524 +/- 2.37e-51]"
+        },
+        {
+          "sigma": "17/20",
+          "log_euler_product_ball": "[6.77141951495252502847216900325371405836018821287301 +/- 1.70e-51]"
+        },
+        {
+          "sigma": "9/10",
+          "log_euler_product_ball": "[4.29706225447541107206879773389402850295046370610936 +/- 5.59e-51]"
+        }
+      ]
+    },
+    {
+      "T": 20000000,
+      "exact_cutoff": 5,
+      "medium_prime_count": 1270604,
+      "rows": [
+        {
+          "sigma": "3/4",
+          "log_euler_product_ball": "[21.80730779198792888639804544514338115755244111005543 +/- 8.37e-51]"
+        },
+        {
+          "sigma": "4/5",
+          "log_euler_product_ball": "[12.30294357645774945415227531934135857183658460290215 +/- 7.61e-51]"
+        },
+        {
+          "sigma": "17/20",
+          "log_euler_product_ball": "[7.26915177670982777063700914460204215683420730778936 +/- 2.05e-51]"
+        },
+        {
+          "sigma": "9/10",
+          "log_euler_product_ball": "[4.51554408566671746397637767361392274593647147786937 +/- 6.70e-51]"
+        }
+      ]
+    }
+  ],
+  "exact_small_Rankin_count_checks": 18,
+  "input_sha256": {
+    "conditional_chen_sparse_modulus_certificate.py": "3bd6f143c80ffbd0a1e88122487c099f3372c28ddd6233ed9f94813b69d5b644",
+    "conditional_chen_prefix_block_refinement.json": "ad42a4dc2dbb003835c166b88a1bdd380f19a2044326675b3e689a5bc1fc3db4",
+    "conditional_chen_prefix_block_endpoint_certificate.json": "7be8b9b55dbeefafe111941115d33f5b3d6306122dbcc62acab35a11a7b78e6b",
+    "conditional_chen_prefix_block_endpoint_certificate.py": "02028530905623b7573cdf7c3236af8bede470ba8d88a53caebf3190f3e5cd1a",
+    "conditional_chen_sharp_endpoint_certificate.py": "4d020ee811753c578dbbda5a1e3c3b490c232dd367c91b12e9183ce6ee032bd9",
+    "conditional_chen_dense_band_grh_certificate.py": "b7c8fb872692c03c8e37ab36d96f168e68473999ec90f6befc6af470b201ea4d",
+    "conditional_chen_rankin_certificate.py": "5f67df53975bb4e0e2631c385d00697178371feef24f464bfaa26ac9fcc7d6b7",
+    "conditional_chen_uniform_product_certificate.json": "2255fb4282d1d3e055ad91e93b2961af4359d863b5dc0ff74e19782fb6b037a7"
+  },
+  "not_checked": [
+    "general support-count lemma",
+    "external analytic inputs",
+    "independent research review",
+    "global optimality",
+    "full splice",
+    "PDF compilation"
+  ]
+}

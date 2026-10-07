@@ -1,0 +1,104 @@
+{
+  "status": "strict weighted lower-support upper bound; positive domination lemma required",
+  "precision_bits": 192,
+  "T": 2000000,
+  "exact_cutoff": 3,
+  "u": "3001/1000",
+  "sigma": "1/2",
+  "h": "1/100",
+  "kappa": "5/49",
+  "support_maximizer": {
+    "kind": "unchecked final prime",
+    "r": 5,
+    "s": 7
+  },
+  "maximum_actual_degree": 13,
+  "label_limit": 4126,
+  "blocks": 901,
+  "complete_medium_prime_count": 148931,
+  "available_medium_prime_count": 148931,
+  "lower_medium_weighted_sum_ball": "[4875376.14752643628283147294764520981637883921233684804 +/- 5.84e-48]",
+  "union_medium_weighted_sum_ball": "[7997452.46808573893279919980816660556553077915037042651 +/- 4.25e-48]",
+  "exact_presieve_weighted_factor_ball": "[1.57735026918962576450914878050195745564760175127012687602 +/- 2.23e-57]",
+  "full_lower_weighted_sum_upper_ball": "[7690175.87870150488457995294596504921885791357974344587 +/- 7.07e-48]",
+  "state_weighted_balls": [
+    {
+      "alive_flags": 1,
+      "selected_parity": 0,
+      "weighted_sum_ball": "[1758186.755280374154849546223799198756308101699638907345 +/- 8.74e-49]"
+    },
+    {
+      "alive_flags": 1,
+      "selected_parity": 1,
+      "weighted_sum_ball": "[1363889.565278928495118180636722196992843838238394671122 +/- 7.37e-49]"
+    },
+    {
+      "alive_flags": 2,
+      "selected_parity": 0,
+      "weighted_sum_ball": "[845787.048816161901797374130446256358515964242126530946 +/- 4.02e-49]"
+    },
+    {
+      "alive_flags": 2,
+      "selected_parity": 1,
+      "weighted_sum_ball": "[1134110.789687356068934435059632508563229218630574821525 +/- 4.56e-49]"
+    },
+    {
+      "alive_flags": 3,
+      "selected_parity": 0,
+      "weighted_sum_ball": "[1445398.42563003246116157388880325302333443737642288905 +/- 1.24e-48]"
+    },
+    {
+      "alive_flags": 3,
+      "selected_parity": 1,
+      "weighted_sum_ball": "[1450079.88339288585093808986876319187129921896321260652 +/- 3.34e-48]"
+    }
+  ],
+  "complete_cutoffs_retained_after_deletion": true,
+  "elapsed_seconds": 3.188,
+  "input_sha256": {
+    "conditional_chen_weighted_rosser_support_certificate.py": "20cd774e878c0d522515c2da4651934a843df714545bba88200debacdd2ebe78",
+    "conditional_chen_accepted_support_certificate.py": "774f0f2625255457a49d07f96000c9827b75f2c77ca0010e88e3d3620894fe31",
+    "conditional_chen_rankin_certificate.py": "5f67df53975bb4e0e2631c385d00697178371feef24f464bfaa26ac9fcc7d6b7",
+    "conditional_chen_prefix_block_certificate.py": "9098125b3cd3b24133fd8fa230a4c595074e005113d24e01278ec63a37c1ab24",
+    "conditional_chen_sharp_support_certificate.py": "7d559c00662b34df6bdcec57552127bf2387fb3e52a7295e81ad2cd9fa72ce7a"
+  },
+  "not_checked": [
+    "general weighted domination lemma",
+    "AP estimates",
+    "full splice"
+  ],
+  "local_candidate_interval": [
+    "4000000000000000000",
+    "8000000000000000000"
+  ],
+  "centered_pi_Montgomery_type_input": "|pi(N;d,N)-pi(N)/phi(d)| <= A*N^(1/2+epsilon)/sqrt(d) for the actual nonzero lower Rosser moduli, for every even N in the local interval",
+  "A_capacity_sensitivity": [
+    {
+      "epsilon": "1/1000",
+      "A_capacity_ball": "[0.2551031950988067494081831964448532270912102273027086 +/- 6.64e-53]",
+      "charge_per_unit_A_ball": "[7.36311859361398072926452401756576976983492463231067819 +/- 7.55e-54]"
+    },
+    {
+      "epsilon": "1/400",
+      "A_capacity_ball": "[0.2392284398981826833327982666754013346173861726850091 +/- 3.99e-53]",
+      "charge_per_unit_A_ball": "[7.8517214755979686458239990105579506920484986769975636 +/- 2.37e-53]"
+    },
+    {
+      "epsilon": "1/100",
+      "A_capacity_ball": "[0.1734991526722808968086086939271969571501753425873859 +/- 5.33e-53]",
+      "charge_per_unit_A_ball": "[10.8263069311372747323602924207676734362924026605429920 +/- 3.79e-53]"
+    },
+    {
+      "epsilon": "1/50",
+      "A_capacity_ball": "[0.1130516117164594434431428605909991186704082457785099 +/- 3.20e-53]",
+      "charge_per_unit_A_ball": "[16.6150225600798300720871924783665974973704438132488808 +/- 1.68e-53]"
+    },
+    {
+      "epsilon": "1/20",
+      "A_capacity_ball": "[0.03127627035025443369414339838609097898381905771386164 +/- 6.03e-54]",
+      "charge_per_unit_A_ball": "[60.0568756468457372097189106749929775094244065629228067 +/- 7.77e-53]"
+    }
+  ],
+  "warning": "This centered pi statement with numerical A and finite onset is not the standard asymptotic corrected Montgomery conjecture for psi. Deweighting, recentering, prime powers, constants and onset remain to be proved.",
+  "bridge_input_sha256": "54688d1f6fd7e32d64d30e172eba6d260ee11b84d650e7644dcc53b1e8eb7717"
+}
